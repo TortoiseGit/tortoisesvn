@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|ARM64">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
@@ -8,6 +12,10 @@
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
       <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM64">
+      <Configuration>Release</Configuration>
+      <Platform>ARM64</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
@@ -43,7 +51,19 @@
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>Dynamic</UseOfMfc>
     <CharacterSet>Unicode</CharacterSet>
@@ -64,7 +84,15 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\TortoiseSVN.common.props" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\TortoiseSVN.common.props" />
+  </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\TortoiseSVN.common.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\TortoiseSVN.common.props" />
   </ImportGroup>
@@ -78,6 +106,14 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\obj\$(ProjectName)\$(Configuration)64\</IntDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\bin\$(Configuration)64\bin\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\obj\$(ProjectName)\$(Configuration)64\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <OutDir>..\..\bin\$(Configuration)ARM64\bin\</OutDir>
+    <IntDir>..\..\obj\$(ProjectName)\$(Configuration)ARM64\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <OutDir>..\..\bin\$(Configuration)ARM64\bin\</OutDir>
+    <IntDir>..\..\obj\$(ProjectName)\$(Configuration)ARM64\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -127,7 +163,39 @@
       <EnableDpiAwareness>PerMonitorHighDPIAware</EnableDpiAwareness>
     </Manifest>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\ext\apr\include;..\..\ext\apr-util\include;..\..\ext\editorconfig\include;..\..\ext\SubVersion\subversion\include;..\..\ext\SubVersion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\Utils\ColourPickerXP;..\TortoiseMerge;..\crashrpt;..\;..\SVN;..\Utils\MiscUI;..\..\ext\ResizableLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>APR_DECLARE_STATIC;APU_DECLARE_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>Crypt32.lib;shlwapi.lib;Version.lib;editorconfig.lib;libsvn_tsvn.lib;libapr_tsvn.lib;libaprutil_tsvn.lib;intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\ext\Subversion\$(Configuration)_$(Platform);..\..\ext\apr\$(Configuration)_$(Platform);..\..\ext\apr-util\$(Configuration)_$(Platform);..\..\ext\libintl\$(Configuration)_$(Platform)\lib;..\..\ext\editorconfig\$(Configuration)_$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <Manifest>
+      <EnableDpiAwareness>PerMonitorHighDPIAware</EnableDpiAwareness>
+    </Manifest>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\ext\apr\include;..\..\ext\apr-util\include;..\..\ext\editorconfig\include;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\Utils\ColourPickerXP;..\TortoiseMerge;..\crashrpt;..\;..\SVN;..\Utils\MiscUI;..\..\ext\ResizableLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>APR_DECLARE_STATIC;APU_DECLARE_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>Crypt32.lib;shlwapi.lib;Version.lib;editorconfig.lib;libsvn_tsvn.lib;libapr_tsvn.lib;libaprutil_tsvn.lib;intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\ext\Subversion\$(Configuration)_$(Platform);..\..\ext\apr\$(Configuration)_$(Platform);..\..\ext\apr-util\$(Configuration)_$(Platform);..\..\ext\libintl\$(Configuration)_$(Platform)\lib;..\..\ext\editorconfig\$(Configuration)_$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <Manifest>
+      <EnableDpiAwareness>PerMonitorHighDPIAware</EnableDpiAwareness>
+    </Manifest>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <ClCompile>
       <AdditionalIncludeDirectories>..\..\ext\apr\include;..\..\ext\apr-util\include;..\..\ext\editorconfig\include;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\Utils\ColourPickerXP;..\TortoiseMerge;..\crashrpt;..\;..\SVN;..\Utils\MiscUI;..\..\ext\ResizableLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>APR_DECLARE_STATIC;APU_DECLARE_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -353,11 +421,15 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">uicc.exe %(FullPath) $(IntDir)TortoiseMergeRibbon.bml /header:$(IntDir)TortoiseMergeRibbon.h /res:$(IntDir)TortoiseMergeRibbon.rc /name:TortoiseMergeRibbon</Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">uicc.exe %(FullPath) $(IntDir)TortoiseMergeRibbon.bml /header:$(IntDir)TortoiseMergeRibbon.h /res:$(IntDir)TortoiseMergeRibbon.rc /name:TortoiseMergeRibbon</Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">uicc.exe %(FullPath) $(IntDir)TortoiseMergeRibbon.bml /header:$(IntDir)TortoiseMergeRibbon.h /res:$(IntDir)TortoiseMergeRibbon.rc /name:TortoiseMergeRibbon</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">uicc.exe %(FullPath) $(IntDir)TortoiseMergeRibbon.bml /header:$(IntDir)TortoiseMergeRibbon.h /res:$(IntDir)TortoiseMergeRibbon.rc /name:TortoiseMergeRibbon</Command>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">uicc.exe %(FullPath) $(IntDir)TortoiseMergeRibbon.bml /header:$(IntDir)TortoiseMergeRibbon.h /res:$(IntDir)TortoiseMergeRibbon.rc /name:TortoiseMergeRibbon</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">uicc.exe %(FullPath) $(IntDir)TortoiseMergeRibbon.bml /header:$(IntDir)TortoiseMergeRibbon.h /res:$(IntDir)TortoiseMergeRibbon.rc /name:TortoiseMergeRibbon</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)TortoiseMergeRibbon.bml;$(IntDir)TortoiseMergeRibbon.rc;$(IntDir)TortoiseMergeRibbon.h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)TortoiseMergeRibbon.bml;$(IntDir)TortoiseMergeRibbon.rc;$(IntDir)TortoiseMergeRibbon.h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)TortoiseMergeRibbon.bml;$(IntDir)TortoiseMergeRibbon.rc;$(IntDir)TortoiseMergeRibbon.h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">$(IntDir)TortoiseMergeRibbon.bml;$(IntDir)TortoiseMergeRibbon.rc;$(IntDir)TortoiseMergeRibbon.h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)TortoiseMergeRibbon.bml;$(IntDir)TortoiseMergeRibbon.rc;$(IntDir)TortoiseMergeRibbon.h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">$(IntDir)TortoiseMergeRibbon.bml;$(IntDir)TortoiseMergeRibbon.rc;$(IntDir)TortoiseMergeRibbon.h;%(Outputs)</Outputs>
       <SubType>Designer</SubType>
     </CustomBuild>
   </ItemGroup>

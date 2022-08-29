@@ -24,7 +24,9 @@ using std::min;
 
 #include <windows.h>
 #include <Commdlg.h>
+#ifndef _M_ARM64
 #include <emmintrin.h>
+#endif
 
 #define COMMITMONITOR_FINDMSGPREV       (WM_APP+1)
 #define COMMITMONITOR_FINDMSGNEXT       (WM_APP+2)

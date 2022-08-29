@@ -2,7 +2,7 @@
 
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2011, 2015, 2021 - TortoiseSVN
+// Copyright (C) 2003-2008, 2011, 2015, 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,10 +25,12 @@
 
 // ReSharper disable CppUnusedIncludeDirective
 
+#ifndef _M_ARM64
 #ifndef _DEBUG
 #    ifndef __INTRIN_H_
 #        include <intrin.h>
 #    endif
+#endif
 #endif
 
 #ifndef _PSAPI_H_
@@ -46,10 +48,10 @@
 #pragma comment(lib, "psapi.lib")
 
 /**
-* Collects the profiling info for a given profiled block / line.
-* Records execution count, min, max and accumulated execution time
-* in CPU clock ticks.
-*/
+ * Collects the profiling info for a given profiled block / line.
+ * Records execution count, min, max and accumulated execution time
+ * in CPU clock ticks.
+ */
 
 class CProfilingRecord
 {
@@ -62,7 +64,7 @@ public:
         unsigned __int64 minValue;
         unsigned __int64 maxValue;
 
-        void Add(unsigned __int64 value)
+        void             Add(unsigned __int64 value)
         {
             sum += value;
 
@@ -92,17 +94,17 @@ public:
 
     /// record values
 
-    void Add(unsigned __int64 valueRdtsc, unsigned __int64 valueWall, unsigned __int64 valueUser, unsigned __int64 valueKernel);
+    void          Add(unsigned __int64 valueRdtsc, unsigned __int64 valueWall, unsigned __int64 valueUser, unsigned __int64 valueKernel);
 
     /// modification
 
-    void Reset();
+    void          Reset();
 
     /// data access
 
-    const char* GetName() const { return name; }
-    const char* GetFile() const { return file; }
-    int         GetLine() const { return line; }
+    const char*   GetName() const { return name; }
+    const char*   GetFile() const { return file; }
+    int           GetLine() const { return line; }
 
     size_t        GetCount() const { return count; }
     const CSpent& Get() const { return m_rdtsc; }
@@ -117,14 +119,14 @@ private:
     const char* file;
     int         line;
 
-    CSpent m_rdtsc, m_user, m_kernel, m_wall;
-    size_t count;
+    CSpent      m_rdtsc, m_user, m_kernel, m_wall;
+    size_t      count;
 };
 
 /**
-* RAII class that encapsulates a single execution of a profiled
-* block / line. The result gets added to an existing profiling record.
-*/
+ * RAII class that encapsulates a single execution of a profiled
+ * block / line. The result gets added to an existing profiling record.
+ */
 
 class CRecordProfileEvent
 {
@@ -132,13 +134,13 @@ private:
     CProfilingRecord* record;
 
     /// the initial counter values
-    unsigned __int64 m_rdtscStart;
-    FILETIME         m_kernelStart;
-    FILETIME         m_userStart;
-    FILETIME         m_wallStart;
+    unsigned __int64  m_rdtscStart;
+    FILETIME          m_kernelStart;
+    FILETIME          m_userStart;
+    FILETIME          m_wallStart;
 
     /// Temp object for parameters we don't care, but can't be NULL
-    static FILETIME ftTemp;
+    static FILETIME   ftTemp;
 
 public:
     /// construction: start clock
@@ -167,7 +169,11 @@ inline CRecordProfileEvent::CRecordProfileEvent(CProfilingRecord* aRecord)
 
     GetProcessTimes(GetCurrentProcess(), &ftTemp, &ftTemp, &m_kernelStart, &m_userStart);
 
+#ifdef _M_ARM64
+    m_rdtscStart = GetTickCount64();
+#else
     m_rdtscStart = __rdtsc();
+#endif
 }
 
 inline CRecordProfileEvent::~CRecordProfileEvent()
@@ -187,7 +193,11 @@ inline void CRecordProfileEvent::Stop()
     if (record)
     {
         // more precise first
+#ifdef _M_ARM64
+        unsigned __int64 nTake = GetTickCount64() - m_rdtscStart;
+#else
         unsigned __int64 nTake = __rdtsc() - m_rdtscStart;
+#endif
 
         FILETIME kernelEnd, userEnd;
         GetProcessTimes(GetCurrentProcess(), &ftTemp, &ftTemp, &kernelEnd, &userEnd);
@@ -203,9 +213,9 @@ inline void CRecordProfileEvent::Stop()
 }
 
 /**
-* Singleton class that acts as container for all profiling records.
-* You may reset its content as well as write it to disk.
-*/
+ * Singleton class that acts as container for all profiling records.
+ * You may reset its content as well as write it to disk.
+ */
 
 class CProfilingInfo
 {
@@ -218,12 +228,12 @@ private:
     ~CProfilingInfo();
 
     // prevent cloning
-    CProfilingInfo(const CProfilingInfo&) = delete;
+    CProfilingInfo(const CProfilingInfo&)            = delete;
     CProfilingInfo& operator=(const CProfilingInfo&) = delete;
 
     /// create report
 
-    std::string GetReport() const;
+    std::string     GetReport() const;
 
 public:
     /// access to default instance
@@ -232,16 +242,16 @@ public:
 
     /// add a new record
 
-    CProfilingRecord* Create(const char* name, const char* file, int line);
+    CProfilingRecord*      Create(const char* name, const char* file, int line);
 
     /// write the current results to disk
 
-    void DumpReport() const;
+    void                   DumpReport() const;
 };
 
 /**
-* Profiling macros
-*/
+ * Profiling macros
+ */
 
 #define PROFILE_CONCAT(a, b)  PROFILE_CONCAT3(a, b)
 #define PROFILE_CONCAT3(a, b) a##b

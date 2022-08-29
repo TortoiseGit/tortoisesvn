@@ -508,12 +508,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Resources\TMergeHelpAlias.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Resources\TMergeHelpContext.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
     <None Include="..\Resources\lineadded.ico">
       <Filter>Resource Files</Filter>
     </None>
@@ -603,5 +597,13 @@
     <Image Include="..\Resources\ribbon\Filter16.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resources\TMergeHelpAlias.h">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="..\Resources\TMergeHelpContext.h">
+      <Filter>Header Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -54,6 +54,7 @@
         <define name="_WIN32" />
         <define name="HAS_ADLER32_FAST" />
         <define name="WIN64" if="${platform == 'x64'}" />
+        <define name="ARM64" if="${platform == 'ARM64'}" />
         <define name="NDEBUG" if="${configuration == 'release'}" />
         <define name="_DEBUG" if="${configuration == 'debug'}" />
       </defines>
@@ -91,6 +92,7 @@
         <define name="_WIN32" />
         <define name="HAS_ADLER32_FAST" />
         <define name="WIN64" if="${platform == 'x64'}" />
+        <define name="ARM64" if="${platform == 'ARM64'}" />
         <define name="NDEBUG" if="${configuration == 'release'}" />
         <define name="_DEBUG" if="${configuration == 'debug'}" />
       </defines>
@@ -98,6 +100,7 @@
 
     <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
     <property name="machineoption" value="/MACHINE:X64" if="${platform == 'x64'}" />
+    <property name="machineoption" value="/MACHINE:ARM64" if="${platform == 'ARM64'}" />
     <lib
       output="${configuration}_${platform}\zlibstat.lib"
       options='/NOLOGO ${subsystem} ${machineoption}'>

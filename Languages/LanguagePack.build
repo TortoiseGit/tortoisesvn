@@ -46,7 +46,12 @@ NAnt build script for the TortoiseSVN language pack installers
         <variable name="Platform" value="x64" />
       </setenv>
     </if>
-    <if test="${platform != 'x64'}">
+    <if test="${platform == 'ARM64'}">
+      <setenv>
+        <variable name="Platform" value="arm64" />
+      </setenv>
+    </if>
+    <if test="${platform == 'win32'}">
       <setenv>
         <variable name="Platform" value="win32" />
       </setenv>
@@ -206,6 +211,8 @@ NAnt build script for the TortoiseSVN language pack installers
 
     <exec program="candle">
       <arg value="-nologo" />
+      <arg value="-arch" if="${platform == 'ARM64'}" />
+      <arg value="arm64" if="${platform == 'ARM64'}" />
       <arg value="-out" />
       <arg value="..\bin\" />
       <arg value="LanguagePack_${langISO}.wxs" />

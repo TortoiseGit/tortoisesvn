@@ -359,7 +359,7 @@
 
 /* Define as the maximum value of type 'size_t', if the system doesn't define
    it. */
-#define SIZE_MAX 4294967295U
+//#define SIZE_MAX 4294967295U
 
 /* If using the C implementation of alloca, define if you know the
    direction of stack growth for your system; otherwise it will be
@@ -418,7 +418,7 @@
 #define __GETOPT_PREFIX
 
 /* Define to empty if `const' does not conform to ANSI C. */
-#undef const
+//#undef const
 
 /* Define to `__inline__' or `__inline' if that's what the C compiler
    calls it, or to nothing if 'inline' is not supported under any name.  */
@@ -427,28 +427,27 @@
 #endif
 
 /* Define to `long' if <sys/types.h> does not define. */
-#undef off_t
+//#undef off_t
 
 /* Define as the type of the result of subtracting two pointers, if the system
    doesn't define it. */
-#undef ptrdiff_t
+//#undef ptrdiff_t
 
 /* Define to a replacement function name for realpath(). */
 #undef realpath
 
 /* Define to empty if the C compiler doesn't support this keyword. */
-#undef signed
+//#undef signed
 
 /* Define to `unsigned' if <sys/types.h> does not define. */
-#undef size_t
+//#undef size_t
 
 /* Define as a signed type of the same size as size_t. */
-#define ssize_t int
+//#define ssize_t int
 
 /* Define to unsigned long or unsigned long long if <stdint.h> and
    <inttypes.h> don't define. */
-#define uintmax_t unsigned long
-
+typedef unsigned long long uintmax_t;
 
 /* On Windows, variables that may be in a DLL must be marked specially.  */
 #if defined _MSC_VER && defined _DLL

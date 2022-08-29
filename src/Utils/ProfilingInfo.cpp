@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010-2014, 2021 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2014, 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,9 +18,10 @@
 //
 
 #include "stdafx.h"
-
+#ifndef _M_ARM64
 #ifndef __INTRIN_H_
 #    include <intrin.h>
+#endif
 #endif
 
 #include <fstream>

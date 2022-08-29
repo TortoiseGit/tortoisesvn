@@ -23,8 +23,10 @@
     <property name="ssldbg" value=".dbg" if="${configuration == 'debug'}" />
     <property name="sslplat" value="32" if="${platform == 'win32'}" />
     <property name="sslplat" value="64" if="${platform == 'x64'}" />
+    <property name="sslplat" value="ARM64" if="${platform == 'ARM64'}" />
     <property name="platext" value ="32" if="${platform == 'win32'}" />
     <property name="platext" value ="" if="${platform == 'x64'}" />
+    <property name="platext" value ="" if="${platform == 'ARM64'}" />
     <mkdir dir="${configuration}_${platform}" />
     <rc rcfile="win32\include\CyrusSasl.rc" output="${configuration}_${platform}\libsasl.res" options="/nologo">
       <includedirs>
@@ -84,6 +86,7 @@
     </cl>
     <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
     <property name="machineoption" value="/MACHINE:X64" if="${platform == 'x64'}" />
+    <property name="machineoption" value="/MACHINE:ARM64" if="${platform == 'ARM64'}" />
 
     <lib
       output="${configuration}_${platform}\libsasls.lib"
@@ -157,6 +160,7 @@
     </cl>
     <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
     <property name="machineoption" value="/MACHINE:X64" if="${platform == 'x64'}" />
+    <property name="machineoption" value="/MACHINE:ARM64" if="${platform == 'ARM64'}" />
     <link
       output="${configuration}_${platform}\libsasl${platext}.dll"
       options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:"${configuration}_${platform}\libsasl.dll.manifest" /DEBUG /PDB:"${configuration}_${platform}\libsasl.pdb" /DLL ${subsystem} /IMPLIB:"${configuration}_${platform}\libsasl.lib" ${machineoption} ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
@@ -248,6 +252,7 @@
     </cl>
     <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
     <property name="machineoption" value="/MACHINE:X64" if="${platform == 'x64'}" />
+    <property name="machineoption" value="/MACHINE:ARM64" if="${platform == 'ARM64'}" />
 
     <link
       output="${configuration}_${platform}\saslANONYMOUS.dll"

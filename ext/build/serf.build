@@ -25,6 +25,7 @@
     <property name="ssldbg" value=".dbg" if="${configuration == 'debug'}" />
     <property name="sslplat" value="32" if="${platform == 'win32'}" />
     <property name="sslplat" value="64" if="${platform == 'x64'}" />
+    <property name="sslplat" value="ARM64" if="${platform == 'ARM64'}" />
     <mkdir dir="${configuration}_${platform}" />
     <cl outputdir="${configuration}_${platform}">
       <arg value="/O2" if="${configuration == 'release'}" />
@@ -70,6 +71,7 @@
         <define name="_WIN32" />
         <define name="_WIN32_WINNT" value="0x0600" />
         <define name="WIN64" if="${platform == 'x64'}" />
+        <define name="ARM64" if="${platform == 'ARM64'}" />
         <define name="NDEBUG" if="${configuration == 'release'}" />
         <define name="_DEBUG" if="${configuration == 'debug'}" />
         <define name="WIN32_LEAN_AND_MEAN" />
@@ -82,6 +84,7 @@
     </cl>
     <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
     <property name="machineoption" value="/MACHINE:X64" if="${platform == 'x64'}" />
+    <property name="machineoption" value="/MACHINE:ARM64" if="${platform == 'ARM64'}" />
     <lib
       output="${configuration}_${platform}\libserf.lib"
       options='/NOLOGO ${subsystem} ${machineoption}'>

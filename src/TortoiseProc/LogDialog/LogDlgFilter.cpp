@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2017, 2019, 2021 - TortoiseSVN
+// Copyright (C) 2009-2017, 2019, 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,8 +24,11 @@
 
 namespace
 {
+#ifndef _M_ARM64
 BOOL sse2Supported = ::IsProcessorFeaturePresent(PF_XMMI64_INSTRUCTIONS_AVAILABLE);
-
+#else
+BOOL sse2Supported = false;
+#endif
 // case-sensitivity optimization functions
 
 bool IsAllASCII7(const CString& s)
@@ -41,7 +44,7 @@ void FastLowerCaseConversion(char* s, size_t size)
 {
     // most of our strings will be tens of bytes long
     // -> afford some minor overhead to handle the main part very fast
-
+#ifndef _M_ARM64
     if (sse2Supported)
     {
         __m128i zero  = _mm_setzero_si128();
@@ -80,6 +83,7 @@ void FastLowerCaseConversion(char* s, size_t size)
             _mm_storeu_si128(reinterpret_cast<__m128i*>(s), chunk);
         };
     }
+#endif
 
     for (char c = *s; c != 0; c = *++s)
         if ((c <= 'Z') && (c >= 'A'))

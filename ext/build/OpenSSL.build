@@ -13,8 +13,10 @@
         <fileset>
           <include name="..\openssl\out32\**.*" if="${configuration == 'release' and platform == 'win32'}" />
           <include name="..\openssl\out64\**.*" if="${configuration == 'release' and platform == 'x64'}" />
+          <include name="..\openssl\outARM64\**.*" if="${configuration == 'release' and platform == 'ARM64'}" />
           <include name="..\openssl\out32.dbg\**.*" if="${configuration == 'debug' and platform == 'win32'}" />
           <include name="..\openssl\out64.dbg\**.*" if="${configuration == 'debug' and platform == 'x64'}" />
+          <include name="..\openssl\outARM64.dbg\**.*" if="${configuration == 'debug' and platform == 'ARM64'}" />
           <include name="..\openssl\tmp32\**.*" />
           <include name="..\openssl\tmp64\**.*" />
         </fileset>
@@ -36,6 +38,13 @@
       <property name="targetName" value="VC-WIN64A" if="${configuration == 'release'}" />
       <property name="targetName" value="debug-VC-WIN64A" if="${configuration != 'release'}" />
       <property name="opensslPrefix" value="${path::get-full-path('ext\openssl\out64')}" />
+    </if>
+    <if test="${platform == 'ARM64'}">
+      <property name="targetDir" value="..\openssl\outARM64" if="${configuration == 'release'}" />
+      <property name="targetDir" value="..\openssl\outARM64.dbg" if="${configuration == 'debug'}" />
+      <property name="targetName" value="VC-WIN64-ARM" if="${configuration == 'release'}" />
+      <property name="targetName" value="debug-VC-WIN64-ARM" if="${configuration != 'release'}" />
+      <property name="opensslPrefix" value="${path::get-full-path('ext\openssl\outARM64')}" />
     </if>
 
     <mkdir dir="${targetDir}" />

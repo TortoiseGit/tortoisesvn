@@ -25,10 +25,12 @@
     <mkdir dir="${configuration}_${platform}" />
     <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
     <property name="machineoption" value="/MACHINE:X64" if="${platform == 'x64'}" />
+    <property name="machineoption" value="/MACHINE:ARM64" if="${platform == 'ARM64'}" />
     <property name="platext" value ="32" if="${platform == 'win32'}" />
     <property name="platext" value ="" if="${platform == 'x64'}" />
+    <property name="platext" value ="" if="${platform == 'ARM64'}" />
     <!-- first build the gen_test_char.exe tool and generate the header with it -->
-    <cl outputdir="${configuration}_${platform}">
+    <cl outputdir="${configuration}_${platform}" if="${platform != 'ARM64'}">
       <arg value="/MD" if="${configuration == 'release'}" />
       <arg value="/MDd" if="${configuration == 'debug'}" />
       <arg value="/nologo" />
@@ -48,17 +50,21 @@
         <define name="_DEBUG" if="${configuration == 'debug'}" />
       </defines>
     </cl>
-    <link
-      output="${configuration}_${platform}\gen_test_char.exe"
-      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /DEBUG /PDB:"${configuration}_${platform}\gen_test_char.pdb" ${subsystemcl} ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib gdi32.lib user32.lib shell32.lib ole32.lib Secur32.lib Crypt32.lib Psapi.lib Version.lib setargv.obj'>
+    <link if="${platform != 'ARM64'}"
+          output="${configuration}_${platform}\gen_test_char.exe"
+          options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /DEBUG /PDB:"${configuration}_${platform}\gen_test_char.pdb" ${subsystemcl} ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib gdi32.lib user32.lib shell32.lib ole32.lib Secur32.lib Crypt32.lib Psapi.lib Version.lib setargv.obj'>
       <arg line="/LTCG /RELEASE /OPT:REF /OPT:ICF" if="${configuration == 'release'}" />
       <sources>
         <include name="${configuration}_${platform}\gen_test_char.obj" />
       </sources>
     </link>
-    <exec program="${configuration}_${platform}\gen_test_char.exe"
+    <exec if="${platform != 'ARM64'}"
+          program="${configuration}_${platform}\gen_test_char.exe"
           output="include\private\apr_escape_test_char.h">
     </exec>
+    <copy if="${platform == 'ARM64'}"
+          file="..\build\apr_escape_test_char.h"
+          tofile="include\private\apr_escape_test_char.h" overwrite="true" />
 
     <!-- now build the apr dll -->
     <loadfile file="include\apr.hw" property="configfile">
@@ -224,6 +230,7 @@
         <define name="WINNT" />
         <define name="_WIN32_WINNT" value="0x0600" />
         <define name="WIN64" if="${platform == 'x64'}" />
+        <define name="ARM64" if="${platform == 'ARM64'}" />
         <define name="_WINDLL" />
         <define name="NDEBUG" if="${configuration == 'release'}" />
         <define name="_DEBUG" if="${configuration == 'debug'}" />

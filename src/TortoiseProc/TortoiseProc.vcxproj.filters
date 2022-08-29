@@ -2205,12 +2205,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Resources\TSVNHelpAlias.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Resources\TSVNHelpContext.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
     <None Include="..\Resources\actionadded.ico">
       <Filter>Resource Files</Filter>
     </None>
@@ -2682,5 +2676,13 @@
     <Manifest Include="..\compatibility.manifest">
       <Filter>Resource Files</Filter>
     </Manifest>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resources\TSVNHelpAlias.h">
+      <Filter>Utils</Filter>
+    </None>
+    <None Include="..\Resources\TSVNHelpContext.h">
+      <Filter>Utils</Filter>
+    </None>
   </ItemGroup>
 </Project>

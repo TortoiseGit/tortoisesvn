@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2021 - TortoiseSVN
+// Copyright (C) 2003-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,7 +21,9 @@
 #include "UnicodeUtils.h"
 // ReSharper disable once CppUnusedIncludeDirective
 #include "SmartHandle.h"
+#ifndef _M_ARM64
 #include <emmintrin.h>
+#endif
 #include <memory>
 #include <set>
 #include <shlwapi.h>
@@ -76,6 +78,7 @@ bool CPathUtils::ContainsEscapedChars(const char* psz, size_t length)
     // -> afford some minor overhead to handle the main part very fast
 
     const char* end = psz + length;
+#ifndef _M_ARM64
     if (sse2Supported)
     {
         __m128i mask = _mm_set_epi8('%', '%', '%', '%', '%', '%', '%', '%', '%', '%', '%', '%', '%', '%', '%', '%');
@@ -93,6 +96,7 @@ bool CPathUtils::ContainsEscapedChars(const char* psz, size_t length)
                 return true;
         };
     }
+#endif
 
     // return odd bytes at the end of the string
 

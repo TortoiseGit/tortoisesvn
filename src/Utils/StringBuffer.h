@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011-2012, 2014-2015, 2021 - TortoiseSVN
+// Copyright (C) 2011-2012, 2014-2015, 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,7 +17,9 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
-#include <emmintrin.h>
+#ifndef _M_ARM64
+#    include <emmintrin.h>
+#endif
 
 /**
  * Re-usable char[] buffer. In contrast to std::string, the
@@ -34,14 +36,18 @@ private:
      */
     enum
     {
+#ifndef _M_ARM64
         ALIGNMENT = sizeof(__m128)
+#else
+        ALIGNMENT = sizeof(__int64)
+#endif
     };
 
     /// the buffer that was allocated
-    char* memory;
+    char*  memory;
 
     /// the aligned start of our data buffer (memory + 0..15 bytes)
-    char* buffer;
+    char*  buffer;
 
     /// length of the string (excluding the terminating 0)
     size_t size;
@@ -51,12 +57,12 @@ private:
 
     // (re-)size management
 
-    void Reserve(size_t newCapacity);
-    void Append(const char* string, size_t length);
+    void   Reserve(size_t newCapacity);
+    void   Append(const char* string, size_t length);
 
     // copying is not supported
 
-    CStringBuffer(const CStringBuffer&) = delete;
+    CStringBuffer(const CStringBuffer&)            = delete;
     CStringBuffer& operator=(const CStringBuffer&) = delete;
 
 public:
@@ -72,19 +78,19 @@ public:
 
     /// Get the first unused element in the buffer.
     /// Guarantee at least minFree bytes of addressible memory.
-    char* GetBuffer(size_t minFree);
+    char*  GetBuffer(size_t minFree);
 
     /// mark additional size bytes of the buffer as used.
     /// (usually called after GetBuffer())
-    void AddSize(size_t s);
+    void   AddSize(size_t s);
 
     /// Set total size to 0. Keep internal buffer.
-    void Clear();
+    void   Clear();
 
     /// add data to buffer.
-    void Append(char c);
-    void Append(const std::string& s);
-    void Append(const char* s);
+    void   Append(char c);
+    void   Append(const std::string& s);
+    void   Append(const char* s);
 };
 
 inline CStringBuffer::operator char*() const
