@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2015, 2018-2021 - TortoiseSVN
+// Copyright (C) 2009-2015, 2018-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -111,6 +111,10 @@ CSettingsAdvanced::CSettingsAdvanced()
     settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
     settings[i++].def.b = true;
 
+    settings[i].sName   = L"HookCancelError";
+    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
+    settings[i++].def.b = false;
+
     settings[i].sName   = L"IncludeExternals";
     settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
     settings[i++].def.b = true;
@@ -199,7 +203,7 @@ CSettingsAdvanced::CSettingsAdvanced()
     settings[i].type    = CSettingsAdvanced::SettingTypeNone;
     settings[i++].def.b = false;
 
-    // 44 so far...
+    // 45 so far...
     ASSERT(i < _countof(settings));
 }
 

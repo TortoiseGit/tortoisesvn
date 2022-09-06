@@ -52,9 +52,9 @@ bool CHooks::Create()
     // line 4: 'true' or 'false' for waiting for the script to finish
     // line 5: 'show' or 'hide' on how to start the hook script
     // line 6: 'enforce' on whether to ask the user for permission (optional)
-    HookKey key{};
-    int     pos = 0;
-    HookCmd cmd{};
+    HookKey    key{};
+    int        pos = 0;
+    HookCmd    cmd{};
     while ((pos = strHooks.Find('\n')) >= 0)
     {
         // line 1
@@ -317,10 +317,7 @@ bool CHooks::StartCommit(HWND hWnd, const CTSVNPathList& pathList, CString& mess
         return false;
     if (!ApproveHook(hWnd, it, exitCode))
     {
-        if (exitCode == 1)
-            error.LoadString(IDS_SVN_USERCANCELLED);
-        else
-            error.LoadString(IDS_ERR_HOOKNOTAPPROVED);
+        handleHookApproveFailure(exitCode, error);
         return true;
     }
     CString sCmd = it->second.commandline;
@@ -343,10 +340,7 @@ bool CHooks::CheckCommit(HWND hWnd, const CTSVNPathList& pathList, CString& mess
         return false;
     if (!ApproveHook(hWnd, it, exitCode))
     {
-        if (exitCode == 1)
-            error.LoadString(IDS_SVN_USERCANCELLED);
-        else
-            error.LoadString(IDS_ERR_HOOKNOTAPPROVED);
+        handleHookApproveFailure(exitCode, error);
         return true;
     }
     CString sCmd = it->second.commandline;
@@ -368,10 +362,7 @@ bool CHooks::PreCommit(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t dep
         return false;
     if (!ApproveHook(hWnd, it, exitCode))
     {
-        if (exitCode == 1)
-            error.LoadString(IDS_SVN_USERCANCELLED);
-        else
-            error.LoadString(IDS_ERR_HOOKNOTAPPROVED);
+        handleHookApproveFailure(exitCode, error);
         return true;
     }
     CString sCmd = it->second.commandline;
@@ -394,10 +385,7 @@ bool CHooks::ManualPreCommit(HWND hWnd, const CTSVNPathList& pathList, CString& 
         return false;
     if (!ApproveHook(hWnd, it, exitCode))
     {
-        if (exitCode == 1)
-            error.LoadString(IDS_SVN_USERCANCELLED);
-        else
-            error.LoadString(IDS_ERR_HOOKNOTAPPROVED);
+        handleHookApproveFailure(exitCode, error);
         return true;
     }
     CString sCmd = it->second.commandline;
@@ -419,10 +407,7 @@ bool CHooks::PostCommit(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t de
         return false;
     if (!ApproveHook(hWnd, it, exitCode))
     {
-        if (exitCode == 1)
-            error.LoadString(IDS_SVN_USERCANCELLED);
-        else
-            error.LoadString(IDS_ERR_HOOKNOTAPPROVED);
+        handleHookApproveFailure(exitCode, error);
         return true;
     }
     CString sCmd = it->second.commandline;
@@ -443,10 +428,7 @@ bool CHooks::StartUpdate(HWND hWnd, const CTSVNPathList& pathList, DWORD& exitCo
         return false;
     if (!ApproveHook(hWnd, it, exitCode))
     {
-        if (exitCode == 1)
-            error.LoadString(IDS_SVN_USERCANCELLED);
-        else
-            error.LoadString(IDS_ERR_HOOKNOTAPPROVED);
+        handleHookApproveFailure(exitCode, error);
         return true;
     }
     CString sCmd = it->second.commandline;
@@ -463,10 +445,7 @@ bool CHooks::PreUpdate(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t dep
         return false;
     if (!ApproveHook(hWnd, it, exitCode))
     {
-        if (exitCode == 1)
-            error.LoadString(IDS_SVN_USERCANCELLED);
-        else
-            error.LoadString(IDS_ERR_HOOKNOTAPPROVED);
+        handleHookApproveFailure(exitCode, error);
         return true;
     }
     CString sCmd = it->second.commandline;
@@ -485,10 +464,7 @@ bool CHooks::PostUpdate(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t de
         return false;
     if (!ApproveHook(hWnd, it, exitCode))
     {
-        if (exitCode == 1)
-            error.LoadString(IDS_SVN_USERCANCELLED);
-        else
-            error.LoadString(IDS_ERR_HOOKNOTAPPROVED);
+        handleHookApproveFailure(exitCode, error);
         return true;
     }
     CString sCmd = it->second.commandline;
@@ -547,10 +523,7 @@ bool CHooks::PreLock(HWND hWnd, const CTSVNPathList& pathList, bool lock, bool s
         return false;
     if (!ApproveHook(hWnd, it, exitCode))
     {
-        if (exitCode == 1)
-            error.LoadString(IDS_SVN_USERCANCELLED);
-        else
-            error.LoadString(IDS_ERR_HOOKNOTAPPROVED);
+        handleHookApproveFailure(exitCode, error);
         return true;
     }
     CString sCmd = it->second.commandline;
@@ -574,10 +547,7 @@ bool CHooks::PostLock(HWND hWnd, const CTSVNPathList& pathList, bool lock, bool 
         return false;
     if (!ApproveHook(hWnd, it, exitCode))
     {
-        if (exitCode == 1)
-            error.LoadString(IDS_SVN_USERCANCELLED);
-        else
-            error.LoadString(IDS_ERR_HOOKNOTAPPROVED);
+        handleHookApproveFailure(exitCode, error);
         return true;
     }
     CString sCmd = it->second.commandline;
@@ -650,7 +620,7 @@ DWORD CHooks::RunScript(CString cmd, const CTSVNPathList& paths, CString& error,
     sa.nLength                   = sizeof(sa);
     sa.bInheritHandle            = TRUE;
 
-    CTSVNPath curDir = paths.GetCommonRoot().GetDirectory();
+    CTSVNPath curDir             = paths.GetCommonRoot().GetDirectory();
     while (!curDir.IsEmpty() && !curDir.Exists())
         curDir = curDir.GetContainingDirectory();
     if (curDir.IsEmpty())
@@ -704,12 +674,12 @@ DWORD CHooks::RunScript(CString cmd, const CTSVNPathList& paths, CString& error,
 
     // setup startup info, set std out/err handles
     // hide window
-    STARTUPINFO si = {0};
-    si.cb          = sizeof(si);
-    si.dwFlags     = STARTF_USESTDHANDLES | STARTF_USESHOWWINDOW;
-    si.hStdOutput  = hOut;
-    si.hStdError   = hErr;
-    si.wShowWindow = bShow ? SW_SHOW : SW_HIDE;
+    STARTUPINFO si         = {0};
+    si.cb                  = sizeof(si);
+    si.dwFlags             = STARTF_USESTDHANDLES | STARTF_USESHOWWINDOW;
+    si.hStdOutput          = hOut;
+    si.hStdError           = hErr;
+    si.wShowWindow         = bShow ? SW_SHOW : SW_HIDE;
 
     PROCESS_INFORMATION pi = {nullptr};
     if (!CreateProcess(nullptr, cmd.GetBuffer(), nullptr, nullptr, TRUE, 0, nullptr, curDir.IsEmpty() ? nullptr : curDir.GetWinPath(), &si, &pi))
@@ -774,8 +744,8 @@ bool CHooks::ParseAndInsertProjectProperty(HookType t, const CString& strhook, c
     HookKey key{};
     HookCmd cmd{};
 
-    key.hType = t;
-    key.path  = wcRootPath;
+    key.hType   = t;
+    key.path    = wcRootPath;
 
     int     pos = 0;
     CString temp;
@@ -881,7 +851,7 @@ bool CHooks::ParseAndInsertProjectProperty(HookType t, const CString& strhook, c
                             return false;
                         sLocalPathUrl = sLocalPathUrl.Left(sp);
 
-                        sp = sLocalPath.ReverseFind('\\');
+                        sp            = sLocalPath.ReverseFind('\\');
                         if (sp < 0)
                             return false;
                         sLocalPath = sLocalPath.Left(sp);
@@ -916,8 +886,8 @@ bool CHooks::ParseAndInsertProjectProperty(HookType t, const CString& strhook, c
                     cmd.bApproved = (static_cast<DWORD>(reg) != 0);
                     cmd.bStored   = reg.exists();
 
-                    temp         = strhook.Tokenize(L"\n", pos);
-                    cmd.bEnforce = temp.CompareNoCase(L"enforce") == 0;
+                    temp          = strhook.Tokenize(L"\n", pos);
+                    cmd.bEnforce  = temp.CompareNoCase(L"enforce") == 0;
 
                     if (find(key) == end())
                     {
@@ -971,4 +941,20 @@ bool CHooks::ApproveHook(HWND hWnd, std::map<HookKey, HookCmd>::iterator it, DWO
     }
     exitCode = 0;
     return bApproved;
+}
+
+void CHooks::handleHookApproveFailure(DWORD& exitCode, CString& error)
+{
+    if (exitCode == 1)
+    {
+        if (static_cast<DWORD>(CRegDWORD(L"Software\\TortoiseSVN\\HookCancelError", FALSE)) != 0)
+            error.LoadString(IDS_SVN_USERCANCELLED);
+        else
+        {
+            error.Empty();
+            exitCode = 0;
+        }
+    }
+    else
+        error.LoadString(IDS_ERR_HOOKNOTAPPROVED);
 }
