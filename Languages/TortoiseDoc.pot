@@ -9595,14 +9595,6 @@ msgid "If set to 4, then the grouping works as with the setting set to 2, but th
 msgstr ""
 
 #. (para)
-msgid "If this is set to <literal>false</literal>, then every <literal>svn:externals</literal> is shown during an update separately."
-msgstr ""
-
-#. (para)
-msgid "If it is set to <literal>true</literal> (the default), then update information for externals is only shown if the externals are affected by the update, i.e. changed in some way. Otherwise nothing is shown as with normal files and folders."
-msgstr ""
-
-#. (para)
 msgid "This has no effect if the option <literal>GroupTaskbarIconsPerRepo</literal> is set to 0 (see above)."
 msgstr ""
 
@@ -9612,6 +9604,18 @@ msgstr ""
 
 #. (para)
 msgid "If this option is set to <literal>true</literal>, then every icon on the Win7 taskbar shows a small colored rectangle overlay, indicating the repository the dialogs/windows are used for. <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid "If this is set to <literal>false</literal>, then every <literal>svn:externals</literal> is shown during an update separately."
+msgstr ""
+
+#. (para)
+msgid "If it is set to <literal>true</literal> (the default), then update information for externals is only shown if the externals are affected by the update, i.e. changed in some way. Otherwise nothing is shown as with normal files and folders."
+msgstr ""
+
+#. (para)
+msgid "If this is set to <literal>true</literal>, then cancelling the dialog to approve a hook script to run will show an error dialog indicating the user cancelled."
 msgstr ""
 
 #. (para)
@@ -14027,6 +14031,10 @@ msgstr ""
 msgid "List of keyboard shortcuts and commands."
 msgstr ""
 
+#. (title)
+msgid "General Keyboard Shortcuts"
+msgstr ""
+
 #. (term)
 msgid "Ctrl-Q, Ctrl-W, Escape"
 msgstr ""
@@ -14112,30 +14120,6 @@ msgid "Go to previous difference"
 msgstr ""
 
 #. (term)
-msgid "F8"
-msgstr ""
-
-#. (para)
-msgid "Go to next conflict"
-msgstr ""
-
-#. (term)
-msgid "Shift-F8"
-msgstr ""
-
-#. (para)
-msgid "Go to previous conflict"
-msgstr ""
-
-#. (term)
-msgid "Ctrl-D"
-msgstr ""
-
-#. (para)
-msgid "Toggle between one-pane diff and two-pane diff"
-msgstr ""
-
-#. (term)
 msgid "Ctrl-R"
 msgstr ""
 
@@ -14180,14 +14164,6 @@ msgid "Select all text"
 msgstr ""
 
 #. (term)
-msgid "Ctrl-U"
-msgstr ""
-
-#. (para)
-msgid "Switches views"
-msgstr ""
-
-#. (term)
 msgid "Ctrl-mousewheel"
 msgstr ""
 
@@ -14204,11 +14180,90 @@ msgid "Switch between left/right/bottom view"
 msgstr ""
 
 #. (term)
+#. (term)
 msgid "Ctrl-M"
 msgstr ""
 
 #. (para)
+#. (para)
 msgid "Toggles between marking the selected change"
+msgstr ""
+
+#. (title)
+msgid "Diff-Mode Keyboard Shortcuts"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-D"
+msgstr ""
+
+#. (para)
+msgid "Toggle between one-pane diff and two-pane diff"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-U"
+msgstr ""
+
+#. (para)
+msgid "Switches views"
+msgstr ""
+
+#. (term)
+msgid "F12"
+msgstr ""
+
+#. (para)
+#. (para)
+msgid "Use left block"
+msgstr ""
+
+#. (title)
+msgid "Conflict Resolution Mode Keyboard Shortcuts"
+msgstr ""
+
+#. (term)
+msgid "F8"
+msgstr ""
+
+#. (para)
+msgid "Go to next conflict"
+msgstr ""
+
+#. (term)
+msgid "Shift-F8"
+msgstr ""
+
+#. (para)
+msgid "Go to previous conflict"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-F9"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-Shift-F9"
+msgstr ""
+
+#. (para)
+msgid "Use left block then right block"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-F10"
+msgstr ""
+
+#. (para)
+msgid "Use right block"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-Shift-F10"
+msgstr ""
+
+#. (para)
+msgid "Use right block then left block"
 msgstr ""
 
 #. (title)
