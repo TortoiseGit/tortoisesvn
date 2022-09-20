@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006, 2011-2014, 2016, 2020-2021 - TortoiseSVN
+// Copyright (C) 2006, 2011-2014, 2016, 2020-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -64,6 +64,25 @@ void CFindDlg::Create(CWnd* pParent, int id /* = 0 */)
     }
     ShowWindow(SW_SHOW);
     UpdateWindow();
+}
+
+CString CFindDlg::GetFindString() const
+{
+    CString text;
+    m_findCombo.GetWindowText(text);
+    return text;
+}
+
+CString CFindDlg::GetReplaceString() const
+{
+    CString text;
+    m_replaceCombo.GetWindowText(text);
+    return text;
+}
+
+void CFindDlg::SetFindString(const CString& str)
+{
+    m_findCombo.SetWindowText(str);
 }
 
 void CFindDlg::DoDataExchange(CDataExchange* pDX)

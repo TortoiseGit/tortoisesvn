@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007, 2010, 2013-2014, 2016, 2020-2021 - TortoiseSVN
+// Copyright (C) 2006-2007, 2010, 2013-2014, 2016, 2020-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -41,17 +41,11 @@ public:
     bool    LimitToDiffs() const { return !!m_bLimitToDiffs; }
     bool    WholeWord() const { return !!m_bWholeWord; }
     bool    SearchUp() const { return !!m_bSearchUp; }
-    CString GetFindString() const { return m_findCombo.GetString(); }
-    CString GetReplaceString() const { return m_replaceCombo.GetString(); }
-    void    SetFindString(const CString& str)
-    {
-        if (!str.IsEmpty())
-        {
-            m_findCombo.SetWindowText(str);
-        }
-    }
-    void SetStatusText(const CString& str, COLORREF color = RGB(0, 0, 255));
-    void SetReadonly(bool bReadonly);
+    CString GetFindString() const;
+    CString GetReplaceString() const;
+    void    SetFindString(const CString& str);
+    void    SetStatusText(const CString& str, COLORREF color = RGB(0, 0, 255));
+    void    SetReadonly(bool bReadonly);
     // Dialog Data
     enum
     {
