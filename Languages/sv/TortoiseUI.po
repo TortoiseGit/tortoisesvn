@@ -11,7 +11,7 @@
 # Authors:
 # Translators:
 # Christian Siegert <csi@xautomation.se>, 2019
-# Daniel Sahlberg <daniel.l.sahlberg@gmail.com>, 2015,2019,2021
+# Daniel Sahlberg <daniel.l.sahlberg@gmail.com>, 2015,2019,2021-2022
 # Fredrik Velin <figgemail@gmail.com>, 2014
 # Johan Foglemark <johanfoglemark@gmail.com>, 2011,2013
 # LordDaimos <karl.sjogren@gmail.com>, 2011
@@ -28,8 +28,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2022-03-11 20:32+0000\n"
-"Last-Translator: Lübbe Onken <luebbe.opensource@gmail.com>\n"
+"PO-Revision-Date: 2010-11-30 05:14+0000\n"
+"Last-Translator: Daniel Sahlberg <daniel.l.sahlberg@gmail.com>, 2015,2019,2021-2022\n"
 "Language-Team: Swedish (http://www.transifex.com/luebbe/tortoisesvn/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -537,7 +537,7 @@ msgstr "&Avbryt\nObjekten importerades inte"
 msgid ""
 "&Cancel\n"
 "The tagged revision of the external is left as is."
-msgstr ""
+msgstr "Avbryt\nDen märkta revisionen av den externa filen behålls."
 
 #. Resource IDs: (2341)
 msgid ""
@@ -565,7 +565,7 @@ msgstr "&Avbryt\nBehåll det aktuella formatet."
 
 #. Resource IDs: (1678)
 msgid "&Checkpoint"
-msgstr ""
+msgstr "&Kontrollpunkt"
 
 #. Resource IDs: (1606)
 msgid "&Choose items..."
@@ -589,7 +589,7 @@ msgstr "&Stäng"
 
 #. Resource IDs: (65535)
 msgid "&Collaborator username"
-msgstr ""
+msgstr "Användarnamn i &Collaborator"
 
 #. Resource IDs: (122)
 msgid "&Commit..."
@@ -1116,7 +1116,7 @@ msgstr "&Andra"
 
 #. Resource IDs: (ID_VIEW_OVERLAPIMAGES - Menu)
 msgid "&Overlay images\t(O)"
-msgstr ""
+msgstr "&Statusikoner\n(S)"
 
 #. Resource IDs: (1440)
 msgid ""
@@ -1184,23 +1184,23 @@ msgstr "&Skriv ut..."
 msgid ""
 "&Proceed anyway\n"
 "Ignore the hook script and run the command anyway."
-msgstr ""
+msgstr "&Fortsätt ändå\nIgnorera krokskriptet och kör kommandot ändå."
 
 #. Resource IDs: (1417)
 msgid ""
 "&Proceed with the entered path\n"
 "I'm aware of the possible problems."
-msgstr ""
+msgstr "&Fortsätt med den angivna sökvägen\nJag är införstådd med de potentiella problemen."
 
 #. Resource IDs: (4460)
 msgid "&Proceed with the merge."
-msgstr ""
+msgstr "&Fortsätt med sammanslagningen"
 
 #. Resource IDs: (2753)
 msgid ""
 "&Proceed without an issue number\n"
 "The commit won't be assigned to an issue."
-msgstr ""
+msgstr "&Fortsätt utan ett ärendenummer\nDenna arkivering kommer inte kopplas till ett ärende."
 
 #. Resource IDs: (1265)
 msgid "&Properties"
@@ -1226,13 +1226,13 @@ msgstr "&Uppdatera"
 msgid ""
 "&Reject the certificate\n"
 "Cancel the connection."
-msgstr ""
+msgstr "&Avslå certifikatet\nAvbryt anslutningen."
 
 #. Resource IDs: (1422)
 msgid ""
 "&Relocate\n"
 "The working copy is relocated to the new URL."
-msgstr ""
+msgstr "&Omlokalisera\nArbetskopian omlokaliseras till den nya URLen."
 
 #. Resource IDs: (1562)
 msgid "&Remind me to enter a bug-ID"
@@ -1246,7 +1246,7 @@ msgstr "&Ta bort"
 msgid ""
 "&Remove from version control\n"
 "All .svn folders are removed"
-msgstr ""
+msgstr "&Tag bort från versionshantering\nAlla .svn-mappar raderas"
 
 #. Resource IDs: (1035)
 msgid "&Remove project"
@@ -1256,13 +1256,13 @@ msgstr "&Radera projekt"
 msgid ""
 "&Remove\n"
 "Force the removal"
-msgstr ""
+msgstr "&Tag bort\nTvinga borttagningen"
 
 #. Resource IDs: (9411)
 msgid ""
 "&Remove\n"
 "Remove the property only from this item."
-msgstr ""
+msgstr "&Tag bort\nTag bort egenskapen från detta objekt."
 
 #. Resource IDs: (1031)
 msgid ""
@@ -1279,7 +1279,7 @@ msgstr "&Byt namn"
 msgid ""
 "&Rename\n"
 "The folder is exported as '%ls'."
-msgstr ""
+msgstr "&Döp om\nMappen exporteras som '%ls'."
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1511)
 msgid "&Replace"
@@ -1293,7 +1293,7 @@ msgstr "&Arkivutforskaren"
 msgid ""
 "&Resolve\n"
 "The item is marked as resolved."
-msgstr ""
+msgstr "&Lös\nObjektet markeras som \"löst\"."
 
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
@@ -1301,11 +1301,11 @@ msgstr "Åte&rställ till standard"
 
 #. Resource IDs: (1542)
 msgid "&Retry"
-msgstr ""
+msgstr "&Försök igen"
 
 #. Resource IDs: (1545)
 msgid "&Retry as different user"
-msgstr ""
+msgstr "&Försök igen med annan användare"
 
 #. Resource IDs: (1542, 9020)
 msgid "&Retry without hooks"
@@ -1373,7 +1373,7 @@ msgstr "&Inställningar"
 
 #. Resource IDs: (1)
 msgid "&Shelve"
-msgstr ""
+msgstr "Lägg på &hylla"
 
 #. Resource IDs: (32815 - Menu)
 msgid "&Show HEAD revisions"
@@ -1521,7 +1521,7 @@ msgstr "&Uppdatera"
 
 #. Resource IDs: (32877 - Menu)
 msgid "&Update all"
-msgstr ""
+msgstr "&Uppdatera alla"
 
 #. Resource IDs: (1215)
 msgid "&Update item to revision"
@@ -1539,19 +1539,19 @@ msgstr "&Uppdatera till revision..."
 msgid ""
 "&Update\n"
 "Update the file and try locking again."
-msgstr ""
+msgstr "&Uppdatera\nUppdatera filen och försök låsa igen."
 
 #. Resource IDs: (1433)
 msgid ""
 "&Update\n"
 "Update the working copy and reopen the commit dialog to try again."
-msgstr ""
+msgstr "&Uppdatera\nUppdatera arbetskopian och öppna arkivdialogen för att försöka igen."
 
 #. Resource IDs: (4653)
 msgid ""
 "&Update\n"
 "Update to the HEAD revision"
-msgstr ""
+msgstr "&Uppdatera\nUppdatera till HEAD-revisionen."
 
 #. Resource IDs: (1184)
 msgid "&Use auto-completion of file paths and keywords"
@@ -1567,11 +1567,11 @@ msgstr "Användar&namn: "
 
 #. Resource IDs: (1647)
 msgid "&Vacuum pristine copies"
-msgstr ""
+msgstr "&Städa ursprungsfilerna"
 
 #. Resource IDs: (1674)
 msgid "&Version"
-msgstr ""
+msgstr "&Version"
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&View"
@@ -1737,7 +1737,7 @@ msgstr "...läser arbetskopians status"
 #. Resource IDs: (1057)
 #, c-format
 msgid "...and %d more paths."
-msgstr ""
+msgstr "... och %d ytterligare sökväg(ar)."
 
 #. Resource IDs: (2403)
 #, c-format
@@ -1778,7 +1778,7 @@ msgstr "En lista av användardefinerade egenskaper för mappar som visas i kombo
 msgid ""
 "A newer version is available.\r\n"
 "Please go to https://tortoisesvn.net and download the current version."
-msgstr ""
+msgstr "En nyare version finns tillgänglig.\nGå till https://tortoisesvn.net och ladda ner den senaste versionen."
 
 #. Resource IDs: (3104)
 msgid ""
@@ -1792,7 +1792,7 @@ msgid ""
 "A newline separated list of paths for which no context menu is shown.\r\n"
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow the context menu on all paths."
-msgstr "En lista med sökvägar (en per rad), för vilka inga statusikoner ska visas.\r\nOm du avslutar en sökväg med en asterisk ('*'), exkluderas även alla filer och undermappar.\r\nEn tom lista tillåter visning av statussymboler för alla sökvägar."
+msgstr "En lista med sökvägar (en per rad), för vilka ingen snabbmeny ska visas.\r\nOm du avslutar en sökväg med en asterisk ('*'), exkluderas även alla filer och undermappar.\r\nEn tom lista tillåter visning av snabbmeny för alla sökvägar."
 
 #. Resource IDs: (3103)
 msgid ""
@@ -1838,7 +1838,7 @@ msgstr "Avbryt"
 
 #. Resource IDs: (cmdAbout_LabelTitle_RESID)
 msgid "Abou&t TortoiseMerge"
-msgstr ""
+msgstr "Om &TortoiseMerge"
 
 #. Resource IDs: (134)
 msgid "About"
@@ -1856,7 +1856,7 @@ msgstr "Om TortoiseSVN"
 msgid ""
 "Accept the certificate &permanently\n"
 "You won't get asked about this certificate again."
-msgstr ""
+msgstr "Godkänn detta certifikat &permanent\nDu kommer inte tillfrågas om detta certifikat igen."
 
 #. Resource IDs: (61861)
 #, c-format
@@ -1890,7 +1890,7 @@ msgstr "ActiveX objekt kan inte sparas när Windows avslutas!\nKasta bort alla �
 msgid ""
 "Ad&just case\n"
 "The file is not added."
-msgstr ""
+msgstr "&Justera tecken\nFilen läggs inte till."
 
 #. Resource IDs: (1229, 155, 3330, 3657)
 msgid "Add"
@@ -1936,7 +1936,7 @@ msgstr "Lägg till projekt eller mapp..."
 #. Resource IDs: (9804)
 #, c-format
 msgid "Add to %1"
-msgstr ""
+msgstr "Lägg till i %1"
 
 #. Resource IDs: (194)
 msgid "Add to &ignore list"
@@ -2003,7 +2003,7 @@ msgstr "Ändra inställningar\nInställningar"
 
 #. Resource IDs: (9443)
 msgid "Adjust to HEAD revision"
-msgstr ""
+msgstr "Ändra till HEAD-revisionen."
 
 #. Resource IDs: (307, 32848 - Menu)
 msgid "Advanced"
@@ -2023,7 +2023,7 @@ msgstr "Avancerade föreningsinställningar"
 
 #. Resource IDs: (1675)
 msgid "Affected &files:"
-msgstr ""
+msgstr "Påverkade &filer:"
 
 #. Resource IDs: (65535)
 msgid "Age"
@@ -2068,7 +2068,7 @@ msgstr "Tillåt olika arkiv att använda samma UUID. Tex http://localhost/myrepo
 
 #. Resource IDs: (1481)
 msgid "Allow mixed revisions (not recommended)"
-msgstr ""
+msgstr "Tillåt blandade revisioner (ej rekommenderat)"
 
 #. Resource IDs: (1896)
 msgid "Already merged"
@@ -2177,11 +2177,11 @@ msgstr "Applicera patch (\"Unified Diff\")"
 
 #. Resource IDs: (5801)
 msgid "Approve or reject client-side hook script"
-msgstr ""
+msgstr "Godkänn eller avvisa klient-baserade krokskript"
 
 #. Resource IDs: (1282)
 msgid "Approved hook scripts"
-msgstr ""
+msgstr "Godkända krokskript"
 
 #. Resource IDs: (1565)
 msgid "Arb&itrary text"
@@ -2403,7 +2403,7 @@ msgstr "B&ryt lås"
 
 #. Resource IDs: (289)
 msgid "Brings a shelved change back to the working copy"
-msgstr ""
+msgstr "Återför ändringar från hylla till arbetskopian"
 
 #. Resource IDs: (1069)
 msgid "Browse..."
@@ -2672,7 +2672,7 @@ msgstr "Hämtar en arbetskopia från ett arkiv"
 
 #. Resource IDs: (1536)
 msgid "Check the authentication items you want to delete below"
-msgstr ""
+msgstr "Kontrollera autenticeringsuppgifterna du vill radera nedan"
 
 #. Resource IDs: (4000)
 msgid "Check the path and/or URL you've entered."
@@ -3154,7 +3154,7 @@ msgstr "Behållarstorlekar"
 
 #. Resource IDs: (195)
 msgid "Context Menu"
-msgstr ""
+msgstr "Snabbmeny"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
@@ -3162,7 +3162,7 @@ msgstr ""
 
 #. Resource IDs: (1543)
 msgid "Continue &Merge"
-msgstr ""
+msgstr "Fortsätt &Sammanslagning"
 
 #. Resource IDs: (IDS_EDIT_SPACE2TAB)
 msgid "Convert spaces to tabs"
@@ -3218,7 +3218,7 @@ msgstr "Kopiera %1!ls!\r\ntill %2!ls!"
 
 #. Resource IDs: (ID_COPYTOCLIPBOARD_REV - Menu)
 msgid "Copy &revision number to clipboard"
-msgstr ""
+msgstr "Kopiera &revisionsnummer till urklipp"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -3263,7 +3263,7 @@ msgstr "Kopiera markeringen till urklipp\nKopiera"
 #. Resource IDs: (9802)
 #, c-format
 msgid "Copy to %1"
-msgstr ""
+msgstr "Kopiera till %1"
 
 #. Resource IDs: (1809)
 msgid "Copy to clipboard"
@@ -3464,7 +3464,7 @@ msgstr "Skapa Bib&liotek"
 
 #. Resource IDs: (cmdCreateUnifiedDiff_LabelTitle_RESID)
 msgid "Create &patch file"
-msgstr ""
+msgstr "Skapa &patchfil"
 
 #. Resource IDs: (206)
 msgid "Create &patch..."
@@ -3482,7 +3482,7 @@ msgstr "Skapa patch"
 msgid ""
 "Create a checkpoint.\n"
 "The selected modifications are saved to a shelf, but the local modifications are kept."
-msgstr ""
+msgstr "Skapa en kontrollpunkt.\nDe valda ändringarna sparas på en hylla, men lokala ändringar behålls i arbetskopian."
 
 #. Resource IDs: (1015)
 msgid "Create code collaborator revie&w..."
@@ -3542,7 +3542,7 @@ msgstr "Skapar en patchfil med dina ändringar i \"Unified Diff\"-format"
 #. Resource IDs: (1060)
 #, c-format
 msgid "Creating checkpoint \"%s\""
-msgstr ""
+msgstr "Skapar kontrollpunkt \"%s\""
 
 #. Resource IDs: (65535)
 msgid "Credits:"
@@ -3586,7 +3586,7 @@ msgstr "D&etaljer"
 
 #. Resource IDs: (1682)
 msgid "Dark theme"
-msgstr ""
+msgstr "Mörkt tema"
 
 #. Resource IDs: (1683)
 msgid ""
@@ -4233,7 +4233,7 @@ msgstr ""
 
 #. Resource IDs: (1648)
 msgid "Enable drag context menu"
-msgstr ""
+msgstr "Aktivera drag-snabbmenyn"
 
 #. Resource IDs: (5500)
 msgid "Enable log caching to speed up log and revision graph dialogs"
@@ -6170,7 +6170,7 @@ msgstr "Felaktig DLL för e-post systemet."
 
 #. Resource IDs: (65535)
 msgid "Main context menu"
-msgstr ""
+msgstr "Primär snabbmeny"
 
 #. Resource IDs: (1431)
 msgid "Make this the default"
@@ -7087,7 +7087,7 @@ msgstr "Output.prn"
 
 #. Resource IDs: (308)
 msgid "Overlay Handlers"
-msgstr ""
+msgstr "Hanterare för statusikoner"
 
 #. Resource IDs: (65535)
 msgid "Overlays"
@@ -7683,7 +7683,7 @@ msgstr "Uppdatera"
 
 #. Resource IDs: (1615)
 msgid "Refresh &shell overlays"
-msgstr ""
+msgstr "Uppdatera &statusikoner"
 
 #. Resource IDs: (2366)
 #, c-format
@@ -9387,7 +9387,7 @@ msgstr "Serverkonfigurationsfil för Subversion:"
 
 #. Resource IDs: (1018)
 msgid "Success"
-msgstr ""
+msgstr "Lyckat"
 
 #. Resource IDs: (1232)
 msgid "Swit&ch working copy to new branch/tag"
@@ -9423,7 +9423,7 @@ msgstr "Växla tillbaka till förra fönsterpanelen\nFöregående panel"
 #. Resource IDs: (ID_VIEW_ONEWAYDIFF - Menu,
 #. cmdViewOneWayDiff_LabelTitle_RESID)
 msgid "Switch between single and double pane view"
-msgstr ""
+msgstr "Byt mellan enkel och dubbel vy"
 
 #. Resource IDs: (cmdViewOneWayDiff)
 msgid ""
@@ -9434,7 +9434,7 @@ msgstr "Växla mellan enkel och dubbel vy\nVäxla mellan enkel och bubbel vy"
 #. Resource IDs: (ID_VIEW_SWITCHLEFT - Menu,
 #. cmdViewSwitchLeft_LabelTitle_RESID)
 msgid "Switch left and right view"
-msgstr ""
+msgstr "Byt vänster och höger vy"
 
 #. Resource IDs: (cmdViewSwitchLeft)
 msgid ""
@@ -9587,7 +9587,7 @@ msgstr "Filen %ls finns inte!"
 #. Resource IDs: (2370)
 #, c-format
 msgid "The file %ls is not versioned. How do you want to proceed?"
-msgstr ""
+msgstr "Filen %ls är inte versionshanterad. Hur vill du fortsätta?"
 
 #. Resource IDs: (IDS_ERR_PATCH_FILENOTINPATCH)
 #, c-format
@@ -9632,7 +9632,7 @@ msgid ""
 "The file\n"
 "%ls\n"
 "is not a valid text file!"
-msgstr ""
+msgstr "Filen\n%ls\när inte en giltig textfil!"
 
 #. Resource IDs: (1573)
 #, c-format
@@ -9655,7 +9655,7 @@ msgstr "Ett fel uppstod när krokskriptet kördes:\n%ls"
 
 #. Resource IDs: (1339)
 msgid "The hook script was not approved to run"
-msgstr ""
+msgstr "Krokskriptet godkändes inte för körning"
 
 #. Resource IDs: (IDS_INVALIDIMAGEINFO)
 msgid "The image can not be shown."
@@ -9697,7 +9697,7 @@ msgstr ""
 #. Resource IDs: (IDS_GOTO_OUTOFRANGE)
 #, c-format
 msgid "The line number must be in between %d and %d"
-msgstr ""
+msgstr "Radnumret måste vara mellan %d och %d"
 
 #. Resource IDs: (4005)
 msgid "The lock has already been broken from another working copy"
@@ -9890,7 +9890,7 @@ msgstr "Det finns ändringar i en eller flera mappar som du har inkluderat med s
 msgid ""
 "There are currently %d overlay handlers installed besides the ones Tortoise "
 "uses."
-msgstr ""
+msgstr "Det finns just nu %d hanterare för statusikoner utöver de Tortoise använder."
 
 #. Resource IDs: (IDS_SAVE_MORE)
 msgid ""
@@ -10014,13 +10014,13 @@ msgstr "Den här metoden täcker fallet då du vill förena olikheterna mellan t
 msgid ""
 "This product includes software developed by the OpenSSL Project for use in "
 "the OpenSSL Toolkit (https://www.openssl.org/)"
-msgstr ""
+msgstr "Den här produkten innehåller programvara utvecklat av OpenSSL-projektet för OpenSSL Toolkit (https://www.openssl.org/)"
 
 #. Resource IDs: (1531)
 msgid ""
 "This product includes software from Apache™ Subversion® "
 "(https://subversion.apache.org)"
-msgstr ""
+msgstr "Den här produkten innehåller programvara från Apache™ Subversion® (https://subversion.apache.org)"
 
 #. Resource IDs: (61710)
 #, c-format
@@ -10033,7 +10033,7 @@ msgstr ""
 #, c-format
 msgid ""
 "This program requires the file %Ts, which was not found on this system."
-msgstr ""
+msgstr "Det här programmet behöver filen %Ts som inte kunde hittas på datorn."
 
 #. Resource IDs: (230)
 msgid "This property is only allowed on folders, not files."
@@ -10055,7 +10055,7 @@ msgid ""
 "This working copy has a client-side hook script configured. Do you want this script to run?\n"
 "The command line to run is:\n"
 "%ls"
-msgstr ""
+msgstr "Denna arbetskopia har ett klient-krokskript. Vill du köra skriptet?\nKommandoraden är:\n%ls"
 
 #. Resource IDs: (65535)
 msgid "Timeouts"
@@ -10090,7 +10090,7 @@ msgstr "Till:"
 
 #. Resource IDs: (65535)
 msgid "Top context menu on Windows 11"
-msgstr ""
+msgstr "Primär snabbmeny för Windows 11"
 
 #. Resource IDs: (244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
@@ -10144,7 +10144,7 @@ msgid ""
 "libsvn_diff %d.%d.%d, %ls\r\n"
 "apr %d.%d.%d\r\n"
 "apr-util %d.%d.%d"
-msgstr ""
+msgstr "TortoiseMerge %d.%d.%d, Build %d - %ls, %ls\r\nlibsvn_diff %d.%d.%d, %ls\r\napr %d.%d.%d\r\napr-util %d.%d.%d"
 
 #. Resource IDs: (1271, 65535)
 msgid "TortoiseSVN"
@@ -10161,7 +10161,7 @@ msgid ""
 "%ls\r\n"
 "zlib %ls\r\n"
 "SQLite %ls"
-msgstr ""
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %ls, %ls%ls\r\nSubversion %d.%d.%d, %ls\r\napr %d.%d.%d\r\napr-util %d.%d.%d\r\nserf %d.%d.%d\r\n%ls\r\nzlib %ls\r\nSQLite %ls"
 
 #. Resource IDs: (1021)
 msgid "TortoiseSVN Project Monitor"
@@ -10194,7 +10194,7 @@ msgstr "TortoiseSVN automatisk arkivering: Ändrat externa till fast revision."
 msgid ""
 "TortoiseSVN detected a serious slowdown when moving %1!ld! items to the recycle bin. The recycle bin currently contains %2!ld! items, which most likely is the reason for this slowdown.\n"
 "To fix this, you should empty the recycle bin now."
-msgstr ""
+msgstr "TortoiseSVN har upptäckt en avsevärd fördröjning vid förflyttning av %1!ld! objekt till papperskorgen. Papperskorgen innehåller just nu %2!ld! objekt vilket troligen är orsaken till denna fördröjning.\nFör att åtgärda detta bör du tömma papperskorgen nu."
 
 #. Resource IDs: (1560)
 #, c-format
@@ -10215,7 +10215,7 @@ msgstr "TortoiseSVN är en Utforskarutökning.\nDet betyder att den är integrer
 #. Resource IDs: (3186)
 #, c-format
 msgid "TortoiseSVN will not show the following overlays: %ls"
-msgstr ""
+msgstr "TortoiseSVN kommer inte visa följande ikoner: %ls"
 
 #. Resource IDs: (371)
 msgid "TortoiseUDiff"
@@ -10393,7 +10393,7 @@ msgstr ""
 msgid ""
 "Unchecked items are shown in the submenu, checked items on the main context "
 "menu"
-msgstr ""
+msgstr "Omarkerade val visas i undermenyn, markerade val visas i den primära snabbmenyn"
 
 #. Resource IDs: (cmdUndo_LabelTitle_RESID)
 msgid "Undo"
@@ -10979,7 +10979,7 @@ msgstr "När uppkoppling till arkivet inte är möjligt,\nså kan TSVN växla ti
 msgid ""
 "When enabled, TortoiseSVN move/copy context menu items will be available "
 "when dragging folders / files"
-msgstr ""
+msgstr "Om aktiverad så blir snabbmenyn TortoiseSVN flytta/kopiera tillgänglig vid dragning av mappar/filer"
 
 #. Resource IDs: (3141)
 msgid ""
@@ -11004,7 +11004,7 @@ msgstr "Blanktecken"
 
 #. Resource IDs: (197)
 msgid "Win 11 Context Menu"
-msgstr ""
+msgstr "Snabbmeny Windows 11"
 
 #. Resource IDs: (1493, 1496, 158)
 msgid "Working Copy"
@@ -11454,7 +11454,7 @@ msgstr "hämta arkivets root-URL:"
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 1005)
 msgid "https://tortoisesvn.net"
-msgstr ""
+msgstr "https://tortoisesvn.net"
 
 #. Resource IDs: (197)
 msgid "ignored"

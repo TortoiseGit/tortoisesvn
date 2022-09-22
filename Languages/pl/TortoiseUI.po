@@ -21,14 +21,15 @@
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2013-2014
 # Michał Lipok <michal@lipok.pl>, 2015
 # mkrawiecki <michal.krawiecki@erlkoenig.pl>, 2011
+# Paweł Koczy, 2022
 # Stefan Kueng <tortoisesvn@gmail.com>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2022-01-29 10:23+0000\n"
-"Last-Translator: Lübbe Onken <luebbe.opensource@gmail.com>\n"
+"PO-Revision-Date: 2010-11-30 05:14+0000\n"
+"Last-Translator: Paweł Koczy, 2022\n"
 "Language-Team: Polish (http://www.transifex.com/luebbe/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -127,7 +128,7 @@ msgstr "%1!ls! : Baza robocza, wersja %2!ld!"
 #. Resource IDs: (3667)
 #, c-format
 msgid "%1!ls! from %2!ls!"
-msgstr ""
+msgstr "%1!ls! z %2!ls!"
 
 #. Resource IDs: (3603)
 #, c-format
@@ -355,7 +356,7 @@ msgstr "&Zezwól na niejednoznaczne URLe"
 
 #. Resource IDs: (1)
 msgid "&Apply"
-msgstr ""
+msgstr "&Zatwierdź"
 
 #. Resource IDs: (1294)
 msgid "&Apply property recursively"
@@ -564,7 +565,7 @@ msgstr "&Anuluj\nzachowaj bieżący format."
 
 #. Resource IDs: (1678)
 msgid "&Checkpoint"
-msgstr ""
+msgstr "&Punkt kontrolny"
 
 #. Resource IDs: (1606)
 msgid "&Choose items..."
@@ -644,11 +645,11 @@ msgstr "&Domyślny"
 
 #. Resource IDs: (ID_VIEW_DARKMODE - Menu)
 msgid "&Dark Mode"
-msgstr ""
+msgstr "&Ciemny motyw"
 
 #. Resource IDs: (ID_VIEW_DARKMODE - Menu)
 msgid "&Dark Mode\t(D)"
-msgstr ""
+msgstr "&Ciemny motyw\t(D)"
 
 #. Resource IDs: (1638, 1641)
 msgid "&Date"
@@ -982,7 +983,7 @@ msgstr "Rozmiar &dziennika"
 
 #. Resource IDs: (1673)
 msgid "&Log message:"
-msgstr ""
+msgstr "&Opis zmian:"
 
 #. Resource IDs: (1591)
 msgid "&Mac (CR)"
@@ -1296,11 +1297,11 @@ msgstr "&Rozwiąż\nElement został oznaczony jako rozwiązany."
 
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
-msgstr "&Restore defaults"
+msgstr "&Przywróć domyślne"
 
 #. Resource IDs: (1542)
 msgid "&Retry"
-msgstr ""
+msgstr "&Ponów"
 
 #. Resource IDs: (1545)
 msgid "&Retry as different user"
@@ -1372,7 +1373,7 @@ msgstr "U&stawienia"
 
 #. Resource IDs: (1)
 msgid "&Shelve"
-msgstr ""
+msgstr "&Odłóż"
 
 #. Resource IDs: (32815 - Menu)
 msgid "&Show HEAD revisions"
@@ -1570,7 +1571,7 @@ msgstr "&Uporządkuj pierwotne kopie "
 
 #. Resource IDs: (1674)
 msgid "&Version"
-msgstr ""
+msgstr "&Wersja"
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&View"
@@ -1759,7 +1760,7 @@ msgstr "<nowa lista zmian>"
 msgid ""
 "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Clear "
 "errors=&Update all=&Options=="
-msgstr ""
+msgstr "=&Sprawdź teraz=&Dodaj Projekt=&Edytuj=&Usuń=&Oznacz wszystko jako przeczytane=&Wyczyść błędy=U&aktualnij wszystko=O&pcje="
 
 #. Resource IDs: (ID_ABOUT - Menu)
 msgid "?"
@@ -2067,7 +2068,7 @@ msgstr "Zezwól na używanie tego samego UUID dla różnych repozytoriów, np. k
 
 #. Resource IDs: (1481)
 msgid "Allow mixed revisions (not recommended)"
-msgstr ""
+msgstr "Zezwól na wymieszane rewizje (niezalecane)"
 
 #. Resource IDs: (1896)
 msgid "Already merged"
@@ -2134,7 +2135,7 @@ msgstr "Wystąpił nieoczekiwany błąd podczas dostępu do %1."
 #. Resource IDs: (IDS_ERR_PATCH_UNKOWNLINETYPE)
 #, c-format
 msgid "An unknown line type was found in line %d!"
-msgstr ""
+msgstr "Nieznany typ linii został znaleziony w linii %d!"
 
 #. Resource IDs: (4010)
 msgid ""
@@ -2430,7 +2431,7 @@ msgstr "ID błędów"
 
 #. Resource IDs: (385)
 msgid "Bug-Urls"
-msgstr ""
+msgstr "URLe błędu"
 
 #. Resource IDs: (327)
 msgid "Bugtraq Regex Tester - TortoiseSVN"
@@ -2438,7 +2439,7 @@ msgstr "Tester wyrażeń regularnych Bugtraq - TortoiseSVN"
 
 #. Resource IDs: (cmdCopy_Keytip_RESID)
 msgid "C"
-msgstr ""
+msgstr "C"
 
 #. Resource IDs: (1215)
 msgid "C&heck now"
@@ -2914,7 +2915,7 @@ msgstr "Kolory"
 #. Resource IDs: (IDS_INDICATOR_COLUMN)
 #, c-format
 msgid "Column: %d"
-msgstr ""
+msgstr "Kolumna: %d"
 
 #. Resource IDs: (3506)
 msgid "Command"
@@ -3153,7 +3154,7 @@ msgstr "Rozmiary kontenerów"
 
 #. Resource IDs: (195)
 msgid "Context Menu"
-msgstr ""
+msgstr "Menu kontekstowe"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
@@ -3481,7 +3482,7 @@ msgstr "Twórz plik poprawek"
 msgid ""
 "Create a checkpoint.\n"
 "The selected modifications are saved to a shelf, but the local modifications are kept."
-msgstr ""
+msgstr "Stwórz punkt kontrolny.\nWybrane zmiany zostaną zapisane na półce, ale lokalne zmiany zostaną zachowane."
 
 #. Resource IDs: (1015)
 msgid "Create code collaborator revie&w..."
@@ -3541,7 +3542,7 @@ msgstr "Tworzy plik różnicowy Unified Diff zawierający wszystkie twoje zmiany
 #. Resource IDs: (1060)
 #, c-format
 msgid "Creating checkpoint \"%s\""
-msgstr ""
+msgstr "Tworzenie punktu kontrolnego \"%s\""
 
 #. Resource IDs: (65535)
 msgid "Credits:"
@@ -3585,13 +3586,13 @@ msgstr "&Szczegóły"
 
 #. Resource IDs: (1682)
 msgid "Dark theme"
-msgstr ""
+msgstr "Ciemny motyw"
 
 #. Resource IDs: (1683)
 msgid ""
 "Dark theme requires at least Win10 1803, and it must be enabled in the "
 "Windows system settings."
-msgstr ""
+msgstr "Ciemny motyw wymaga co najmniej Win10 1803 i musi być włączony w ustawieniach systemowych Windows."
 
 #. Resource IDs: (1210, 1529, 3312, IDS_HEADER_DATE)
 msgid "Date"
@@ -3758,15 +3759,15 @@ msgstr "Wielkości i położenia okien dialogowych"
 
 #. Resource IDs: (196)
 msgid "Dialogs 1"
-msgstr ""
+msgstr "Dialogi 1"
 
 #. Resource IDs: (213)
 msgid "Dialogs 2"
-msgstr ""
+msgstr "Dialogi 2"
 
 #. Resource IDs: (332)
 msgid "Dialogs 3"
-msgstr ""
+msgstr "Dialogi 3"
 
 #. Resource IDs: (cmdGroupDiff_LabelTitle_RESID)
 msgid "Diff"
@@ -4071,7 +4072,7 @@ msgstr "Upuszczenie nie jest możliwe na %1!ls!"
 
 #. Resource IDs: (cmdEditEnabled_Keytip_RESID, cmdTabEdit_Keytip_RESID)
 msgid "E"
-msgstr ""
+msgstr "E"
 
 #. Resource IDs: (32816 - Menu)
 msgid "E&xact copy sources"
@@ -4137,11 +4138,11 @@ msgstr "Edytuj atrybuty"
 
 #. Resource IDs: (2322)
 msgid "Edit Property Conflicts"
-msgstr ""
+msgstr "Edytuj konflikty atrybutów"
 
 #. Resource IDs: (2321)
 msgid "Edit Text Conflicts"
-msgstr ""
+msgstr "Edytuj konflikty tekstu"
 
 #. Resource IDs: (2318)
 msgid "Edit Tree Conflicts"
@@ -4190,7 +4191,7 @@ msgstr "Edytuj..."
 msgid ""
 "Edit\n"
 "Edit text conflicts"
-msgstr ""
+msgstr "Edytuj\nEdytuj konflikty tekstu"
 
 #. Resource IDs: (1049)
 msgid ""
@@ -4477,7 +4478,7 @@ msgstr "Pliki eksportu (*.tsex)|*.tsex|Wszystkie pliki (*.*)|*.*||"
 #. Resource IDs: (3659)
 #, c-format
 msgid "Export from %1!ls!"
-msgstr ""
+msgstr "Wyeksportuj z %1!ls!"
 
 #. Resource IDs: (1667)
 msgid "Export settings to file..."
@@ -4550,7 +4551,7 @@ msgstr "Zewnętrzne dołączone"
 
 #. Resource IDs: (cmdFind_Keytip_RESID)
 msgid "F"
-msgstr ""
+msgstr "F"
 
 #. Resource IDs: (1480)
 msgid "F&orce the merge"
@@ -4832,23 +4833,23 @@ msgstr "Znajdź wersje HEAD"
 
 #. Resource IDs: (cmdFindNext_LabelTitle_RESID)
 msgid "Find Next"
-msgstr ""
+msgstr "Znajdź następne"
 
 #. Resource IDs: (cmdFindPrev_LabelTitle_RESID)
 msgid "Find Previous"
-msgstr ""
+msgstr "Znajdź poprzednie"
 
 #. Resource IDs: (cmdFindPrev)
 msgid ""
 "Find the last occurrence of the selected text\n"
 "Search Previous"
-msgstr ""
+msgstr "Znajdź poprzednie wystąpienie wybranego tekstu\nZnajdź poprzednie"
 
 #. Resource IDs: (cmdFindNext)
 msgid ""
 "Find the next occurrence of the selected text\n"
 "Search Next"
-msgstr ""
+msgstr "Znajdź następne wystąpienie wybranego tekstu\nZnajdź następne"
 
 #. Resource IDs: (cmdFind)
 msgid ""
@@ -4956,7 +4957,7 @@ msgstr "Pełna rekursywność"
 
 #. Resource IDs: (cmdGotoLine_Keytip_RESID)
 msgid "G"
-msgstr ""
+msgstr "G"
 
 #. Resource IDs: (4360)
 msgid "GDI+ couldn't be initialized!"
@@ -5288,7 +5289,7 @@ msgstr "ID:32818:V   +H"
 
 #. Accelerator Entry for Menu ID:32819; '&Dark Mode\t(D)'
 msgid "ID:32819:V   +D"
-msgstr ""
+msgstr "ID:32819:V +D"
 
 #. Accelerator Entry for Menu ID:32824; ''
 msgid "ID:32824:V C +F"
@@ -5390,7 +5391,7 @@ msgstr "Ikony nakładkowe / Prezentacja stanu"
 
 #. Resource IDs: (184)
 msgid "Icon Set"
-msgstr ""
+msgstr "Zestaw ikon"
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
@@ -5530,7 +5531,7 @@ msgstr "Ignoruj Komentarze"
 
 #. Resource IDs: (IDS_DIFF_IGNORE_EOL)
 msgid "Ignore EOL changes"
-msgstr ""
+msgstr "Ignoruj różnice EOL"
 
 #. Resource IDs: (ID_VIEW_IGNOREALLWHITESPACECHANGES - Menu,
 #. cmdIgnoreAllWhitespaceChanges_LabelTitle_RESID)
@@ -5883,7 +5884,7 @@ msgstr "Rodzaj"
 
 #. Resource IDs: (cmdViewWrapLines_Keytip_RESID)
 msgid "L"
-msgstr ""
+msgstr "L"
 
 #. Resource IDs: (65535)
 msgid "L&imit:"
@@ -6193,7 +6194,7 @@ msgstr "Wiele pozycji wybranych by pokazać różnice"
 
 #. Resource IDs: (1039)
 msgid "Mark all projects as read"
-msgstr ""
+msgstr "Zaznacz wszystkie projekty jako przeczytane"
 
 #. Resource IDs: (3608)
 msgid ""
@@ -6235,7 +6236,7 @@ msgstr "Zaznaczone Bloki"
 #. Resource IDs: (IDS_INDICATOR_MARKEDWORDCOUNT)
 #, c-format
 msgid "Marked words: %s"
-msgstr ""
+msgstr "Zaznaczone słowa: %s"
 
 #. Resource IDs: (65535)
 msgid "Markers"
@@ -6602,15 +6603,15 @@ msgstr "Mój plik:"
 
 #. Resource IDs: (cmdNavigateNextConflict_Keytip_RESID)
 msgid "NC"
-msgstr ""
+msgstr "NC"
 
 #. Resource IDs: (cmdNavigateNextDifference_Keytip_RESID)
 msgid "ND"
-msgstr ""
+msgstr "ND"
 
 #. Resource IDs: (cmdNavigateNextInlineDiff_Keytip_RESID)
 msgid "NI"
-msgstr ""
+msgstr "NI"
 
 #. Resource IDs: (59138)
 msgid "NUM"
@@ -6759,7 +6760,7 @@ msgstr "Nie podano ścieżki lub pliku ze ścieżkami w linii komend!"
 
 #. Resource IDs: (1058)
 msgid "No path was shelved."
-msgstr ""
+msgstr "Żadna ścieżka nie została odłożona na półkę."
 
 #. Resource IDs: (3125)
 msgid ""
@@ -6836,7 +6837,7 @@ msgstr "Nie wybrano nic do zatwierdzenia!"
 
 #. Resource IDs: (1052)
 msgid "Nothing is shelved!"
-msgstr ""
+msgstr "Półki są puste!"
 
 #. Resource IDs: (1406)
 msgid "Notice"
@@ -6960,7 +6961,7 @@ msgid ""
 "One or more paths could not be shelved.\n"
 "The following paths failed:\n"
 "%s"
-msgstr ""
+msgstr "Jedna lub więcej ścieżek nie mogła zostać odłożona na półkę.\nŚcieżki, których dotyczy problem:\n%s"
 
 #. Resource IDs: (1023)
 msgid "One project has updates:"
@@ -7086,7 +7087,7 @@ msgstr "Output.prn"
 
 #. Resource IDs: (308)
 msgid "Overlay Handlers"
-msgstr ""
+msgstr "Uchwyty nakładek"
 
 #. Resource IDs: (65535)
 msgid "Overlays"
@@ -7106,15 +7107,15 @@ msgstr "Nadpisz\nUstawienia zostaną nadpisane"
 
 #. Resource IDs: (cmdNavigatePreviousConflict_Keytip_RESID)
 msgid "PC"
-msgstr ""
+msgstr "PC"
 
 #. Resource IDs: (cmdNavigatePreviousDifference_Keytip_RESID)
 msgid "PD"
-msgstr ""
+msgstr "PD"
 
 #. Resource IDs: (cmdNavigatePreviousInlineDiff_Keytip_RESID)
 msgid "PI"
-msgstr ""
+msgstr "PI"
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "POPUP"
@@ -7548,7 +7549,7 @@ msgstr "Zamknij\nWyjdź z TortoiseMerge bez zapisywania zmian"
 
 #. Resource IDs: (cmdReload_Keytip_RESID)
 msgid "R"
-msgstr ""
+msgstr "R"
 
 #. Resource IDs: (1073)
 msgid "R&AM drives"
@@ -8042,7 +8043,7 @@ msgstr "Rozwiąż konflikt używając 'ich'"
 
 #. Resource IDs: (3681)
 msgid "Resolve conflicts"
-msgstr ""
+msgstr "Rozwiąż konflikty"
 
 #. Resource IDs: (1168, 3332)
 msgid "Resolved"
@@ -8225,7 +8226,7 @@ msgstr "Uruchom s&krypt przechwytujący"
 
 #. Resource IDs: (cmdSave_Keytip_RESID)
 msgid "S"
-msgstr ""
+msgstr "S"
 
 #. Resource IDs: (1132)
 msgid "S&tatistics"
@@ -8561,7 +8562,7 @@ msgstr "Wybierz przycisk."
 msgid ""
 "Select an existing shelf to create a new version, or enter a new name to "
 "create a new shelf"
-msgstr ""
+msgstr "Wybierz istniejącą półkę by stworzyć nową wersję lub wprowadź nową nazwę by stworzyć nową półkę"
 
 #. Resource IDs: (57346)
 msgid "Select an object on which to get Help"
@@ -8727,15 +8728,15 @@ msgstr "Czu zaktualizować kopię roboczą i ponowić próbę?"
 #. Resource IDs: (1053)
 #, c-format
 msgid "Shelf \"%s\" has %ld version(s)"
-msgstr ""
+msgstr "Półka \"%s\" ma %ld wersję (wersje)"
 
 #. Resource IDs: (1345)
 msgid "Shelf name can not be empty!"
-msgstr ""
+msgstr "Nazwa półki nie może być pusta!"
 
 #. Resource IDs: (65535)
 msgid "Shelfing"
-msgstr ""
+msgstr "Odkładanie na półkę"
 
 #. Resource IDs: (1270, 3349)
 msgid "Shell"
@@ -8751,7 +8752,7 @@ msgstr "Odłóż na płókę"
 
 #. Resource IDs: (1054)
 msgid "Shelve the selected files and revert the changes."
-msgstr ""
+msgstr "Odłóż na półkę wybrane pliki i wycofaj zmiany."
 
 #. Resource IDs: (286)
 msgid "Shelve..."
@@ -8760,7 +8761,7 @@ msgstr "Odłóż na półkę..."
 #. Resource IDs: (1059)
 #, c-format
 msgid "Shelving to \"%s\""
-msgstr ""
+msgstr "Odkładanie na półkę \"%s\""
 
 #. Resource IDs: (32822)
 msgid ""
@@ -9680,7 +9681,7 @@ msgstr "Element '%ls' ma konflikt w atrybucie:\n%ls"
 #. Resource IDs: (IDS_ERR_PATCH_NOEQUATIONCHARLINE)
 #, c-format
 msgid "The line '====' was expected in line %d!"
-msgstr ""
+msgstr "Linia '====' była oczekiwana w linii %d!"
 
 #. Resource IDs: (IDS_ERR_PATCH_NOINDEX)
 msgid ""
@@ -9691,7 +9692,7 @@ msgstr "Linia 'Index: ' nie została znaleziona!\nAlbo nie jest to plik różnic
 #. Resource IDs: (IDS_ERR_PATCH_NOADDFILELINE)
 #, c-format
 msgid "The line indicating the new file was expected in line %d!"
-msgstr ""
+msgstr "Linia wskazująca nowy plik była oczekiwana w linii %d!"
 
 #. Resource IDs: (IDS_GOTO_OUTOFRANGE)
 #, c-format
@@ -9889,7 +9890,7 @@ msgstr "W jednym lub kilku katalogach istnieją zmiany, które zostały wprowadz
 msgid ""
 "There are currently %d overlay handlers installed besides the ones Tortoise "
 "uses."
-msgstr "Obecnie zainstalowane jest %d uchwytów nakładekpoza używanymi przez Tortoise."
+msgstr "Obecnie zainstalowane jest %d uchwytów nakładek poza używanymi przez Tortoise."
 
 #. Resource IDs: (IDS_SAVE_MORE)
 msgid ""
@@ -9925,7 +9926,7 @@ msgid ""
 "incomplete or even misleading due to incomplete history data.\n"
 "\n"
 "The error was:"
-msgstr ""
+msgstr "Wystąpił problem podczas łączenia się z serwerem.\nChcesz wyświetlić dane buforowane lokalnie?\n\nMiej świadomość, że dane buforowane lokalnie mogą być nieaktualne,\nniekompletne lub nawet mylące z powodu niekompletnej historii.\n\nBłąd:"
 
 #. Resource IDs: (1306)
 msgid ""
@@ -10089,7 +10090,7 @@ msgstr "Do:"
 
 #. Resource IDs: (65535)
 msgid "Top context menu on Windows 11"
-msgstr ""
+msgstr "Menu kontekstowe w Windows 11"
 
 #. Resource IDs: (244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
@@ -10319,11 +10320,11 @@ msgstr ""
 
 #. Resource IDs: (381)
 msgid "URLs to view revision in webviewer"
-msgstr ""
+msgstr "URLe do przeglądania wersji w przeglądarce"
 
 #. Resource IDs: (1847)
 msgid "URLs with revision"
-msgstr ""
+msgstr "URLe z wersją"
 
 #. Resource IDs: (1209)
 msgid "Un&modified"
@@ -10386,7 +10387,7 @@ msgstr "Odznacz"
 #. Resource IDs: (65535)
 msgid ""
 "Unchecked items are not shown in the top menu but only in the original menu"
-msgstr ""
+msgstr "Wpisy, które nie są zaznaczone, nie są wyświetlane w menu kontekstowym Win11"
 
 #. Resource IDs: (65535)
 msgid ""
@@ -10582,7 +10583,7 @@ msgstr "Aktualizacja '%1!ls!'"
 
 #. Resource IDs: (1684)
 msgid "Url points to SVNParentPath list"
-msgstr ""
+msgstr "Url wskazuje na listę SVNParentPath "
 
 #. Resource IDs: (1843)
 msgid "Urls"
@@ -10680,7 +10681,7 @@ msgstr "Użyj obu bloków tekstu (ten jako ostatni)"
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 1513)
 msgid "Use dark mode"
-msgstr ""
+msgstr "Użyj ciemnego motywu"
 
 #. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu,
 #. cmdUseLeftBlock_LabelTitle_RESID)
@@ -10824,15 +10825,15 @@ msgstr "Używa typ pamięci podręcznej statusu 'brak' dla procesów podwyższon
 
 #. Resource IDs: (cmdPaste_Keytip_RESID)
 msgid "V"
-msgstr ""
+msgstr "V"
 
 #. Resource IDs: (1680)
 msgid "V2: Faster, no server connection required (recommended)"
-msgstr ""
+msgstr "V2: Szybsze, nie wymaga połączenia z serwerem (zalecane)"
 
 #. Resource IDs: (1681)
 msgid "V3: Slower, requires server connection."
-msgstr ""
+msgstr "V3: Wolniejsze, wymaga połączenia z serwerem."
 
 #. Resource IDs: (IDS_COMMANDLINEHELP)
 msgid ""
@@ -10873,7 +10874,7 @@ msgstr "Wersja"
 #. Resource IDs: (1061)
 #, c-format
 msgid "Version %d - %s"
-msgstr ""
+msgstr "Wersja %d - %s"
 
 #. Resource IDs: (IDS_VERSION)
 #, c-format
@@ -10910,7 +10911,7 @@ msgstr "Odwiedź naszą stronę internetową"
 
 #. Resource IDs: (cmdShowWhitespaces_Keytip_RESID)
 msgid "W"
-msgstr ""
+msgstr "W"
 
 #. Resource IDs: (65535)
 msgid ""
@@ -11003,7 +11004,7 @@ msgstr "Białe znaki"
 
 #. Resource IDs: (197)
 msgid "Win 11 Context Menu"
-msgstr ""
+msgstr "Menu kontekstowe Win 11"
 
 #. Resource IDs: (1493, 1496, 158)
 msgid "Working Copy"
@@ -11045,7 +11046,7 @@ msgstr "Zawijanie długich linia na prawym brzegu widoku\nZawijaj długie linie"
 
 #. Resource IDs: (cmdRedo_Keytip_RESID)
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #. Resource IDs: (3202)
 msgid "You already have the latest version installed."
@@ -11169,7 +11170,7 @@ msgstr "Twoja kopia robocza wskazuje na %ls, który okazuje się być etykietą!
 
 #. Resource IDs: (cmdUndo_Keytip_RESID)
 msgid "Z"
-msgstr ""
+msgstr "Z"
 
 #. Resource IDs: (ID_VIEW_ZOOMOUT - Menu)
 msgid "Zoo&m out\t(-)"
@@ -11599,7 +11600,7 @@ msgstr "normalne"
 
 #. Resource IDs: (cmdOpen_Keytip_RESID)
 msgid "o1"
-msgstr ""
+msgstr "o1"
 
 #. Resource IDs: (162)
 msgid "obstructed"

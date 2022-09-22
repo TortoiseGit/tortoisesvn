@@ -37,14 +37,14 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-10-31 09:03+0000\n"
-"Last-Translator: ROBERTO BORIOTTI <roberto.boriotti@canon.it>\n"
+"PO-Revision-Date: 2010-11-30 05:04+0000\n"
+"Last-Translator: Silvia, 2013,2019\n"
 "Language-Team: Italian (http://www.transifex.com/luebbe/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #. (title)
 #. (secondary)
@@ -15265,6 +15265,23 @@ msgstr ""
 
 #. (para)
 msgid ""
+"This has no effect if the option <literal>GroupTaskbarIconsPerRepo</literal>"
+" is set to 0 (see above)."
+msgstr ""
+
+#. (title)
+msgid "Taskbar grouping with repository color overlays"
+msgstr ""
+
+#. (para)
+msgid ""
+"If this option is set to <literal>true</literal>, then every icon on the "
+"Win7 taskbar shows a small colored rectangle overlay, indicating the "
+"repository the dialogs/windows are used for. <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
 "If this is set to <literal>false</literal>, then every "
 "<literal>svn:externals</literal> is shown during an update separately."
 msgstr ""
@@ -15279,19 +15296,9 @@ msgstr ""
 
 #. (para)
 msgid ""
-"This has no effect if the option <literal>GroupTaskbarIconsPerRepo</literal>"
-" is set to 0 (see above)."
-msgstr ""
-
-#. (title)
-msgid "Taskbar grouping with repository color overlays"
-msgstr ""
-
-#. (para)
-msgid ""
-"If this option is set to <literal>true</literal>, then every icon on the "
-"Win7 taskbar shows a small colored rectangle overlay, indicating the "
-"repository the dialogs/windows are used for. <placeholder-1/>"
+"If this is set to <literal>true</literal>, then cancelling the dialog to "
+"approve a hook script to run will show an error dialog indicating the user "
+"cancelled."
 msgstr ""
 
 #. (para)
@@ -21422,6 +21429,10 @@ msgstr ""
 msgid "List of keyboard shortcuts and commands."
 msgstr "Lista di scorciatoie da tastiera e comandi."
 
+#. (title)
+msgid "General Keyboard Shortcuts"
+msgstr ""
+
 #. (term)
 msgid "Ctrl-Q, Ctrl-W, Escape"
 msgstr ""
@@ -21507,30 +21518,6 @@ msgid "Go to previous difference"
 msgstr ""
 
 #. (term)
-msgid "F8"
-msgstr ""
-
-#. (para)
-msgid "Go to next conflict"
-msgstr "Passa a prossimo conflitto"
-
-#. (term)
-msgid "Shift-F8"
-msgstr ""
-
-#. (para)
-msgid "Go to previous conflict"
-msgstr ""
-
-#. (term)
-msgid "Ctrl-D"
-msgstr ""
-
-#. (para)
-msgid "Toggle between one-pane diff and two-pane diff"
-msgstr ""
-
-#. (term)
 msgid "Ctrl-R"
 msgstr ""
 
@@ -21575,14 +21562,6 @@ msgid "Select all text"
 msgstr "Seleziona tutto il testo"
 
 #. (term)
-msgid "Ctrl-U"
-msgstr ""
-
-#. (para)
-msgid "Switches views"
-msgstr ""
-
-#. (term)
 msgid "Ctrl-mousewheel"
 msgstr ""
 
@@ -21599,11 +21578,90 @@ msgid "Switch between left/right/bottom view"
 msgstr ""
 
 #. (term)
+#. (term)
 msgid "Ctrl-M"
 msgstr ""
 
 #. (para)
+#. (para)
 msgid "Toggles between marking the selected change"
+msgstr ""
+
+#. (title)
+msgid "Diff-Mode Keyboard Shortcuts"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-D"
+msgstr ""
+
+#. (para)
+msgid "Toggle between one-pane diff and two-pane diff"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-U"
+msgstr ""
+
+#. (para)
+msgid "Switches views"
+msgstr ""
+
+#. (term)
+msgid "F12"
+msgstr ""
+
+#. (para)
+#. (para)
+msgid "Use left block"
+msgstr "Usa blocchi a sinistra"
+
+#. (title)
+msgid "Conflict Resolution Mode Keyboard Shortcuts"
+msgstr ""
+
+#. (term)
+msgid "F8"
+msgstr ""
+
+#. (para)
+msgid "Go to next conflict"
+msgstr "Passa a prossimo conflitto"
+
+#. (term)
+msgid "Shift-F8"
+msgstr ""
+
+#. (para)
+msgid "Go to previous conflict"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-F9"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-Shift-F9"
+msgstr ""
+
+#. (para)
+msgid "Use left block then right block"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-F10"
+msgstr ""
+
+#. (para)
+msgid "Use right block"
+msgstr "Usa il blocco destro"
+
+#. (term)
+msgid "Ctrl-Shift-F10"
+msgstr ""
+
+#. (para)
+msgid "Use right block then left block"
 msgstr ""
 
 #. (title)

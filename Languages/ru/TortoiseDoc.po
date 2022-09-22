@@ -35,8 +35,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-08-28 09:24+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2010-11-30 05:04+0000\n"
+"Last-Translator: Сергей Аксёнов <aksenov007bond@gmail.com>, 2016\n"
 "Language-Team: Russian (http://www.transifex.com/luebbe/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15263,20 +15263,6 @@ msgstr "Если установлено значение 4, то группир�
 
 #. (para)
 msgid ""
-"If this is set to <literal>false</literal>, then every "
-"<literal>svn:externals</literal> is shown during an update separately."
-msgstr "Если установлено <literal>false</literal>, то каждое <literal>svn:externals</literal> при обновлении отображается отдельно."
-
-#. (para)
-msgid ""
-"If it is set to <literal>true</literal> (the default), then update "
-"information for externals is only shown if the externals are affected by the"
-" update, i.e. changed in some way. Otherwise nothing is shown as with normal"
-" files and folders."
-msgstr "Если установлено <literal>true</literal> (по умолчанию), то информация об обновлении внешних показывается только если обновление затрагивает внешние, т.е. изменены каким-либо образом. Иначе ничего не отображается, как и с обычными файлами и папками."
-
-#. (para)
-msgid ""
 "This has no effect if the option <literal>GroupTaskbarIconsPerRepo</literal>"
 " is set to 0 (see above)."
 msgstr "Это не работает если настройка <literal>GroupTaskbarIconsPerRepo</literal> установлена в значение 0 (см. выше)."
@@ -15291,6 +15277,27 @@ msgid ""
 "Win7 taskbar shows a small colored rectangle overlay, indicating the "
 "repository the dialogs/windows are used for. <placeholder-1/>"
 msgstr "Если эта настройка установлена в <literal>true</literal>, то каждая иконка на панели задач Windows 7 отображает маленький цветной прямоугольник с оверлейным значком, показывающий для какого хранилища используется диалог/окно. <placeholder-1/>"
+
+#. (para)
+msgid ""
+"If this is set to <literal>false</literal>, then every "
+"<literal>svn:externals</literal> is shown during an update separately."
+msgstr "Если установлено <literal>false</literal>, то каждое <literal>svn:externals</literal> при обновлении отображается отдельно."
+
+#. (para)
+msgid ""
+"If it is set to <literal>true</literal> (the default), then update "
+"information for externals is only shown if the externals are affected by the"
+" update, i.e. changed in some way. Otherwise nothing is shown as with normal"
+" files and folders."
+msgstr "Если установлено <literal>true</literal> (по умолчанию), то информация об обновлении внешних показывается только если обновление затрагивает внешние, т.е. изменены каким-либо образом. Иначе ничего не отображается, как и с обычными файлами и папками."
+
+#. (para)
+msgid ""
+"If this is set to <literal>true</literal>, then cancelling the dialog to "
+"approve a hook script to run will show an error dialog indicating the user "
+"cancelled."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -21420,6 +21427,10 @@ msgstr ""
 msgid "List of keyboard shortcuts and commands."
 msgstr "Список клавиатурных сокращений и команд."
 
+#. (title)
+msgid "General Keyboard Shortcuts"
+msgstr ""
+
 #. (term)
 msgid "Ctrl-Q, Ctrl-W, Escape"
 msgstr "Ctrl-Q, Ctrl-W, Escape"
@@ -21505,30 +21516,6 @@ msgid "Go to previous difference"
 msgstr "Перейти к предыдущему различию"
 
 #. (term)
-msgid "F8"
-msgstr "F8"
-
-#. (para)
-msgid "Go to next conflict"
-msgstr "Перейти к следующему конфликту"
-
-#. (term)
-msgid "Shift-F8"
-msgstr "Shift-F8"
-
-#. (para)
-msgid "Go to previous conflict"
-msgstr "Перейти к предыдущему конфликту"
-
-#. (term)
-msgid "Ctrl-D"
-msgstr "Ctrl-D"
-
-#. (para)
-msgid "Toggle between one-pane diff and two-pane diff"
-msgstr "Переключиться между одно- и двухпанельным видами"
-
-#. (term)
 msgid "Ctrl-R"
 msgstr "Ctrl-R"
 
@@ -21573,14 +21560,6 @@ msgid "Select all text"
 msgstr "Выбрать весь текст"
 
 #. (term)
-msgid "Ctrl-U"
-msgstr "Ctrl-U"
-
-#. (para)
-msgid "Switches views"
-msgstr "Переключает виды"
-
-#. (term)
 msgid "Ctrl-mousewheel"
 msgstr "Ctrl-колёсико мыши"
 
@@ -21597,11 +21576,90 @@ msgid "Switch between left/right/bottom view"
 msgstr "Переключить между левым/правым/нижним видом"
 
 #. (term)
+#. (term)
 msgid "Ctrl-M"
 msgstr ""
 
 #. (para)
+#. (para)
 msgid "Toggles between marking the selected change"
+msgstr ""
+
+#. (title)
+msgid "Diff-Mode Keyboard Shortcuts"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-D"
+msgstr "Ctrl-D"
+
+#. (para)
+msgid "Toggle between one-pane diff and two-pane diff"
+msgstr "Переключиться между одно- и двухпанельным видами"
+
+#. (term)
+msgid "Ctrl-U"
+msgstr "Ctrl-U"
+
+#. (para)
+msgid "Switches views"
+msgstr "Переключает виды"
+
+#. (term)
+msgid "F12"
+msgstr ""
+
+#. (para)
+#. (para)
+msgid "Use left block"
+msgstr "Использовать левый блок"
+
+#. (title)
+msgid "Conflict Resolution Mode Keyboard Shortcuts"
+msgstr ""
+
+#. (term)
+msgid "F8"
+msgstr "F8"
+
+#. (para)
+msgid "Go to next conflict"
+msgstr "Перейти к следующему конфликту"
+
+#. (term)
+msgid "Shift-F8"
+msgstr "Shift-F8"
+
+#. (para)
+msgid "Go to previous conflict"
+msgstr "Перейти к предыдущему конфликту"
+
+#. (term)
+msgid "Ctrl-F9"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-Shift-F9"
+msgstr ""
+
+#. (para)
+msgid "Use left block then right block"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-F10"
+msgstr ""
+
+#. (para)
+msgid "Use right block"
+msgstr "Использовать правый блок"
+
+#. (term)
+msgid "Ctrl-Shift-F10"
+msgstr ""
+
+#. (para)
+msgid "Use right block then left block"
 msgstr ""
 
 #. (title)

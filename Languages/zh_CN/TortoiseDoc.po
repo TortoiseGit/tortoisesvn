@@ -15286,6 +15286,23 @@ msgstr ""
 
 #. (para)
 msgid ""
+"This has no effect if the option <literal>GroupTaskbarIconsPerRepo</literal>"
+" is set to 0 (see above)."
+msgstr ""
+
+#. (title)
+msgid "Taskbar grouping with repository color overlays"
+msgstr ""
+
+#. (para)
+msgid ""
+"If this option is set to <literal>true</literal>, then every icon on the "
+"Win7 taskbar shows a small colored rectangle overlay, indicating the "
+"repository the dialogs/windows are used for. <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
 "If this is set to <literal>false</literal>, then every "
 "<literal>svn:externals</literal> is shown during an update separately."
 msgstr ""
@@ -15300,19 +15317,9 @@ msgstr ""
 
 #. (para)
 msgid ""
-"This has no effect if the option <literal>GroupTaskbarIconsPerRepo</literal>"
-" is set to 0 (see above)."
-msgstr ""
-
-#. (title)
-msgid "Taskbar grouping with repository color overlays"
-msgstr ""
-
-#. (para)
-msgid ""
-"If this option is set to <literal>true</literal>, then every icon on the "
-"Win7 taskbar shows a small colored rectangle overlay, indicating the "
-"repository the dialogs/windows are used for. <placeholder-1/>"
+"If this is set to <literal>true</literal>, then cancelling the dialog to "
+"approve a hook script to run will show an error dialog indicating the user "
+"cancelled."
 msgstr ""
 
 #. (para)
@@ -21443,6 +21450,10 @@ msgstr ""
 msgid "List of keyboard shortcuts and commands."
 msgstr "列出所有的快捷键和命令。"
 
+#. (title)
+msgid "General Keyboard Shortcuts"
+msgstr ""
+
 #. (term)
 msgid "Ctrl-Q, Ctrl-W, Escape"
 msgstr "Ctrl-Q, Ctrl-W, Escape"
@@ -21528,30 +21539,6 @@ msgid "Go to previous difference"
 msgstr "跳转到上一个不同点"
 
 #. (term)
-msgid "F8"
-msgstr "F8"
-
-#. (para)
-msgid "Go to next conflict"
-msgstr "跳转到下一个不同点"
-
-#. (term)
-msgid "Shift-F8"
-msgstr "Shift-F8"
-
-#. (para)
-msgid "Go to previous conflict"
-msgstr "跳转到上一个不同点"
-
-#. (term)
-msgid "Ctrl-D"
-msgstr "Ctrl-D"
-
-#. (para)
-msgid "Toggle between one-pane diff and two-pane diff"
-msgstr "切换单窗口方式或双窗口方式"
-
-#. (term)
 msgid "Ctrl-R"
 msgstr "Ctrl-R"
 
@@ -21596,14 +21583,6 @@ msgid "Select all text"
 msgstr "选取所有文本"
 
 #. (term)
-msgid "Ctrl-U"
-msgstr "Ctrl-U"
-
-#. (para)
-msgid "Switches views"
-msgstr "切换视图"
-
-#. (term)
 msgid "Ctrl-mousewheel"
 msgstr "Ctrl-鼠标滚轮"
 
@@ -21620,11 +21599,90 @@ msgid "Switch between left/right/bottom view"
 msgstr "切换视图左侧/右侧/底部视图"
 
 #. (term)
+#. (term)
 msgid "Ctrl-M"
 msgstr ""
 
 #. (para)
+#. (para)
 msgid "Toggles between marking the selected change"
+msgstr ""
+
+#. (title)
+msgid "Diff-Mode Keyboard Shortcuts"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-D"
+msgstr "Ctrl-D"
+
+#. (para)
+msgid "Toggle between one-pane diff and two-pane diff"
+msgstr "切换单窗口方式或双窗口方式"
+
+#. (term)
+msgid "Ctrl-U"
+msgstr "Ctrl-U"
+
+#. (para)
+msgid "Switches views"
+msgstr "切换视图"
+
+#. (term)
+msgid "F12"
+msgstr ""
+
+#. (para)
+#. (para)
+msgid "Use left block"
+msgstr "使用左边文件块"
+
+#. (title)
+msgid "Conflict Resolution Mode Keyboard Shortcuts"
+msgstr ""
+
+#. (term)
+msgid "F8"
+msgstr "F8"
+
+#. (para)
+msgid "Go to next conflict"
+msgstr "跳转到下一个不同点"
+
+#. (term)
+msgid "Shift-F8"
+msgstr "Shift-F8"
+
+#. (para)
+msgid "Go to previous conflict"
+msgstr "跳转到上一个不同点"
+
+#. (term)
+msgid "Ctrl-F9"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-Shift-F9"
+msgstr ""
+
+#. (para)
+msgid "Use left block then right block"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-F10"
+msgstr ""
+
+#. (para)
+msgid "Use right block"
+msgstr "使用左侧区块"
+
+#. (term)
+msgid "Ctrl-Shift-F10"
+msgstr ""
+
+#. (para)
+msgid "Use right block then left block"
 msgstr ""
 
 #. (title)

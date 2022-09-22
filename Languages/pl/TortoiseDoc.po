@@ -17,13 +17,14 @@
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2012
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2012
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2011-2012
+# Paweł Koczy, 2022
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-08-28 09:24+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2010-11-30 05:04+0000\n"
+"Last-Translator: Paweł Koczy, 2022\n"
 "Language-Team: Polish (http://www.transifex.com/luebbe/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4604,7 +4605,7 @@ msgstr "zmiany"
 
 #. (primary)
 msgid "(+)"
-msgstr ""
+msgstr "(+)"
 
 #. (title)
 #. (title)
@@ -5008,7 +5009,7 @@ msgstr ""
 
 #. (title)
 msgid "Experimental"
-msgstr ""
+msgstr "Eksperymentalne"
 
 #. (para)
 msgid ""
@@ -13081,7 +13082,7 @@ msgstr ""
 
 #. (term)
 msgid "V2"
-msgstr ""
+msgstr "V2"
 
 #. (para)
 msgid ""
@@ -13097,7 +13098,7 @@ msgstr ""
 
 #. (term)
 msgid "V3"
-msgstr ""
+msgstr "V3"
 
 #. (para)
 msgid ""
@@ -13234,7 +13235,7 @@ msgstr "Podczas korzystania z filtrowania w oknie dziennika, wyszukiwane słowa 
 
 #. (term)
 msgid "Dark theme"
-msgstr ""
+msgstr "Ciemny motyw"
 
 #. (para)
 msgid ""
@@ -13249,7 +13250,7 @@ msgstr ""
 
 #. (para)
 msgid "other settings: <placeholder-1/>"
-msgstr ""
+msgstr "inne ustawienia: <placeholder-1/>"
 
 #. (title)
 msgid "Revision Graph Settings"
@@ -15250,20 +15251,6 @@ msgstr "Jeśli jest ustawiona na 4, grupowanie działa jak przy ustawieniu opcji
 
 #. (para)
 msgid ""
-"If this is set to <literal>false</literal>, then every "
-"<literal>svn:externals</literal> is shown during an update separately."
-msgstr "Jeśli ustawiono na <literal>false</literal>, wtedy każda z <literal>svn:externals</literal> jest pokazywana sosbno podczas aktualizacji."
-
-#. (para)
-msgid ""
-"If it is set to <literal>true</literal> (the default), then update "
-"information for externals is only shown if the externals are affected by the"
-" update, i.e. changed in some way. Otherwise nothing is shown as with normal"
-" files and folders."
-msgstr "Jeśli ustawiono na <literal>true</literal> (domyślnie), infirmacja aktualizacji dla zewnętrznych jest pokazywana tylko jeśli zewnętrzne podlegają aktualizacji,tj zostały w jwkiś sposób zmienione. W innymprzypadku nie pokazuje się nic jak dla zwykłych plików i folderów."
-
-#. (para)
-msgid ""
 "This has no effect if the option <literal>GroupTaskbarIconsPerRepo</literal>"
 " is set to 0 (see above)."
 msgstr "Nie ma to zastosowania, jeśli opcja <literal>GroupTaskbarIconsPerRepo</literal> jest ustawiona na 0 (patrz wyżej)."
@@ -15278,6 +15265,27 @@ msgid ""
 "Win7 taskbar shows a small colored rectangle overlay, indicating the "
 "repository the dialogs/windows are used for. <placeholder-1/>"
 msgstr "Jeśli ta opcja jest ustawiona na<literal>true</literal>, każda ikona na pasku zadań Win7 pokazuje się z małą kolorową prostokątną nakładką, wskazując repozytorium, do którego odnoszą się  dialogi lub okna. <placeholder-1/>"
+
+#. (para)
+msgid ""
+"If this is set to <literal>false</literal>, then every "
+"<literal>svn:externals</literal> is shown during an update separately."
+msgstr "Jeśli ustawiono na <literal>false</literal>, wtedy każda z <literal>svn:externals</literal> jest pokazywana sosbno podczas aktualizacji."
+
+#. (para)
+msgid ""
+"If it is set to <literal>true</literal> (the default), then update "
+"information for externals is only shown if the externals are affected by the"
+" update, i.e. changed in some way. Otherwise nothing is shown as with normal"
+" files and folders."
+msgstr "Jeśli ustawiono na <literal>true</literal> (domyślnie), infirmacja aktualizacji dla zewnętrznych jest pokazywana tylko jeśli zewnętrzne podlegają aktualizacji,tj zostały w jwkiś sposób zmienione. W innymprzypadku nie pokazuje się nic jak dla zwykłych plików i folderów."
+
+#. (para)
+msgid ""
+"If this is set to <literal>true</literal>, then cancelling the dialog to "
+"approve a hook script to run will show an error dialog indicating the user "
+"cancelled."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -21391,7 +21399,7 @@ msgstr "Znaki użyte do wskazania białych znaków są pokazane w innym kolorze 
 
 #. (term)
 msgid "Use dark mode"
-msgstr ""
+msgstr "Użyj ciemnego motywu"
 
 #. (listitem)
 msgid ""
@@ -21406,6 +21414,10 @@ msgstr ""
 #. (para)
 msgid "List of keyboard shortcuts and commands."
 msgstr "Lista skrótów klawiszowych i poleceń."
+
+#. (title)
+msgid "General Keyboard Shortcuts"
+msgstr ""
 
 #. (term)
 msgid "Ctrl-Q, Ctrl-W, Escape"
@@ -21477,7 +21489,7 @@ msgstr "Zapisz jako..."
 
 #. (term)
 msgid "F7, Ctrl-Down"
-msgstr ""
+msgstr "F7, Ctrl-Down"
 
 #. (para)
 msgid "Go to next difference"
@@ -21485,35 +21497,11 @@ msgstr "Przejdź do następnej różnicy"
 
 #. (term)
 msgid "Shift-F7, Ctrl-Up"
-msgstr ""
+msgstr "Shift-F7, Ctrl-Up"
 
 #. (para)
 msgid "Go to previous difference"
 msgstr "Przejdź do poprzedniej różnicy"
-
-#. (term)
-msgid "F8"
-msgstr "F8"
-
-#. (para)
-msgid "Go to next conflict"
-msgstr "Idź do następnego konfliktu"
-
-#. (term)
-msgid "Shift-F8"
-msgstr "Shift-F8"
-
-#. (para)
-msgid "Go to previous conflict"
-msgstr "Idź do poprzedniego konfliktu"
-
-#. (term)
-msgid "Ctrl-D"
-msgstr "Ctrl-D"
-
-#. (para)
-msgid "Toggle between one-pane diff and two-pane diff"
-msgstr "Przełączanie między porównaniem w jednym panelu i porównaniem dwóch panelach"
 
 #. (term)
 msgid "Ctrl-R"
@@ -21560,14 +21548,6 @@ msgid "Select all text"
 msgstr "Zaznacza cały tekst"
 
 #. (term)
-msgid "Ctrl-U"
-msgstr "Ctrl-U"
-
-#. (para)
-msgid "Switches views"
-msgstr "Przełącza widoki"
-
-#. (term)
 msgid "Ctrl-mousewheel"
 msgstr "Ctrl-kółko myszy"
 
@@ -21584,11 +21564,90 @@ msgid "Switch between left/right/bottom view"
 msgstr "Przełącz między lewym/prawym/dolnym widokiem"
 
 #. (term)
+#. (term)
 msgid "Ctrl-M"
+msgstr "Ctrl-M"
+
+#. (para)
+#. (para)
+msgid "Toggles between marking the selected change"
+msgstr ""
+
+#. (title)
+msgid "Diff-Mode Keyboard Shortcuts"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-D"
+msgstr "Ctrl-D"
+
+#. (para)
+msgid "Toggle between one-pane diff and two-pane diff"
+msgstr "Przełączanie między porównaniem w jednym panelu i porównaniem dwóch panelach"
+
+#. (term)
+msgid "Ctrl-U"
+msgstr "Ctrl-U"
+
+#. (para)
+msgid "Switches views"
+msgstr "Przełącza widoki"
+
+#. (term)
+msgid "F12"
 msgstr ""
 
 #. (para)
-msgid "Toggles between marking the selected change"
+#. (para)
+msgid "Use left block"
+msgstr "Użyj lewego bloku"
+
+#. (title)
+msgid "Conflict Resolution Mode Keyboard Shortcuts"
+msgstr ""
+
+#. (term)
+msgid "F8"
+msgstr "F8"
+
+#. (para)
+msgid "Go to next conflict"
+msgstr "Idź do następnego konfliktu"
+
+#. (term)
+msgid "Shift-F8"
+msgstr "Shift-F8"
+
+#. (para)
+msgid "Go to previous conflict"
+msgstr "Idź do poprzedniego konfliktu"
+
+#. (term)
+msgid "Ctrl-F9"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-Shift-F9"
+msgstr ""
+
+#. (para)
+msgid "Use left block then right block"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-F10"
+msgstr ""
+
+#. (para)
+msgid "Use right block"
+msgstr "Użyj prawego bloku"
+
+#. (term)
+msgid "Ctrl-Shift-F10"
+msgstr ""
+
+#. (para)
+msgid "Use right block then left block"
 msgstr ""
 
 #. (title)

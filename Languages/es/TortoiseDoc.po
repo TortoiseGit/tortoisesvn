@@ -51,14 +51,14 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2022-03-11 20:31+0000\n"
-"Last-Translator: Lübbe Onken <luebbe.opensource@gmail.com>\n"
+"PO-Revision-Date: 2010-11-30 05:04+0000\n"
+"Last-Translator: augusto wloch <augustowloch@gmail.com>, 2014,2016,2019,2021\n"
 "Language-Team: Spanish (http://www.transifex.com/luebbe/tortoisesvn/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #. (title)
 #. (secondary)
@@ -15279,6 +15279,23 @@ msgstr ""
 
 #. (para)
 msgid ""
+"This has no effect if the option <literal>GroupTaskbarIconsPerRepo</literal>"
+" is set to 0 (see above)."
+msgstr "Esto no tiene efecto si la opción <literal>GroupTaskbarIconsPerRepo</literal> se establece en 0 (ver arriba)."
+
+#. (title)
+msgid "Taskbar grouping with repository color overlays"
+msgstr "Agrupamiento de barra de tareas con superposición de colores de repositorio"
+
+#. (para)
+msgid ""
+"If this option is set to <literal>true</literal>, then every icon on the "
+"Win7 taskbar shows a small colored rectangle overlay, indicating the "
+"repository the dialogs/windows are used for. <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
 "If this is set to <literal>false</literal>, then every "
 "<literal>svn:externals</literal> is shown during an update separately."
 msgstr ""
@@ -15293,19 +15310,9 @@ msgstr ""
 
 #. (para)
 msgid ""
-"This has no effect if the option <literal>GroupTaskbarIconsPerRepo</literal>"
-" is set to 0 (see above)."
-msgstr "Esto no tiene efecto si la opción <literal>GroupTaskbarIconsPerRepo</literal> se establece en 0 (ver arriba)."
-
-#. (title)
-msgid "Taskbar grouping with repository color overlays"
-msgstr "Agrupamiento de barra de tareas con superposición de colores de repositorio"
-
-#. (para)
-msgid ""
-"If this option is set to <literal>true</literal>, then every icon on the "
-"Win7 taskbar shows a small colored rectangle overlay, indicating the "
-"repository the dialogs/windows are used for. <placeholder-1/>"
+"If this is set to <literal>true</literal>, then cancelling the dialog to "
+"approve a hook script to run will show an error dialog indicating the user "
+"cancelled."
 msgstr ""
 
 #. (para)
@@ -21436,6 +21443,10 @@ msgstr ""
 msgid "List of keyboard shortcuts and commands."
 msgstr "Lista de atajos y comandos de teclado"
 
+#. (title)
+msgid "General Keyboard Shortcuts"
+msgstr ""
+
 #. (term)
 msgid "Ctrl-Q, Ctrl-W, Escape"
 msgstr "Ctrl-Q, Ctrl-W, Escape"
@@ -21521,30 +21532,6 @@ msgid "Go to previous difference"
 msgstr "Ir a la diferencia previa"
 
 #. (term)
-msgid "F8"
-msgstr "F8"
-
-#. (para)
-msgid "Go to next conflict"
-msgstr "Ir al siguiente conflicto"
-
-#. (term)
-msgid "Shift-F8"
-msgstr "Mayús-F8"
-
-#. (para)
-msgid "Go to previous conflict"
-msgstr "Ir al conflicto previo"
-
-#. (term)
-msgid "Ctrl-D"
-msgstr "Ctrl-D"
-
-#. (para)
-msgid "Toggle between one-pane diff and two-pane diff"
-msgstr "Cambia entre la vista de un panel y la vista de dos paneles"
-
-#. (term)
 msgid "Ctrl-R"
 msgstr "Ctrl-R"
 
@@ -21589,14 +21576,6 @@ msgid "Select all text"
 msgstr "Seleccionar todo el texto"
 
 #. (term)
-msgid "Ctrl-U"
-msgstr "Ctrl-U"
-
-#. (para)
-msgid "Switches views"
-msgstr "Cambia las vistas"
-
-#. (term)
 msgid "Ctrl-mousewheel"
 msgstr "Ctrl-rueda del ratón"
 
@@ -21613,11 +21592,90 @@ msgid "Switch between left/right/bottom view"
 msgstr ""
 
 #. (term)
+#. (term)
 msgid "Ctrl-M"
 msgstr ""
 
 #. (para)
+#. (para)
 msgid "Toggles between marking the selected change"
+msgstr ""
+
+#. (title)
+msgid "Diff-Mode Keyboard Shortcuts"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-D"
+msgstr "Ctrl-D"
+
+#. (para)
+msgid "Toggle between one-pane diff and two-pane diff"
+msgstr "Cambia entre la vista de un panel y la vista de dos paneles"
+
+#. (term)
+msgid "Ctrl-U"
+msgstr "Ctrl-U"
+
+#. (para)
+msgid "Switches views"
+msgstr "Cambia las vistas"
+
+#. (term)
+msgid "F12"
+msgstr ""
+
+#. (para)
+#. (para)
+msgid "Use left block"
+msgstr "Usar bloque izquierdo"
+
+#. (title)
+msgid "Conflict Resolution Mode Keyboard Shortcuts"
+msgstr ""
+
+#. (term)
+msgid "F8"
+msgstr "F8"
+
+#. (para)
+msgid "Go to next conflict"
+msgstr "Ir al siguiente conflicto"
+
+#. (term)
+msgid "Shift-F8"
+msgstr "Mayús-F8"
+
+#. (para)
+msgid "Go to previous conflict"
+msgstr "Ir al conflicto previo"
+
+#. (term)
+msgid "Ctrl-F9"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-Shift-F9"
+msgstr ""
+
+#. (para)
+msgid "Use left block then right block"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-F10"
+msgstr ""
+
+#. (para)
+msgid "Use right block"
+msgstr "Usar el bloque de la derecha"
+
+#. (term)
+msgid "Ctrl-Shift-F10"
+msgstr ""
+
+#. (para)
+msgid "Use right block then left block"
 msgstr ""
 
 #. (title)

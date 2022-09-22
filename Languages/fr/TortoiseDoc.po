@@ -57,14 +57,14 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2022-03-11 20:31+0000\n"
-"Last-Translator: Lübbe Onken <luebbe.opensource@gmail.com>\n"
+"PO-Revision-Date: 2010-11-30 05:04+0000\n"
+"Last-Translator: Thomas Lemoine, 2019-2021\n"
 "Language-Team: French (http://www.transifex.com/luebbe/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #. (title)
 #. (secondary)
@@ -15285,20 +15285,6 @@ msgstr ""
 
 #. (para)
 msgid ""
-"If this is set to <literal>false</literal>, then every "
-"<literal>svn:externals</literal> is shown during an update separately."
-msgstr ""
-
-#. (para)
-msgid ""
-"If it is set to <literal>true</literal> (the default), then update "
-"information for externals is only shown if the externals are affected by the"
-" update, i.e. changed in some way. Otherwise nothing is shown as with normal"
-" files and folders."
-msgstr ""
-
-#. (para)
-msgid ""
 "This has no effect if the option <literal>GroupTaskbarIconsPerRepo</literal>"
 " is set to 0 (see above)."
 msgstr "Ceci n'a pas d'effet si l'option <literal>GroupTaskbarIconsPerRepo</literal> est définie à 0 (voir ci-dessus)."
@@ -15313,6 +15299,27 @@ msgid ""
 "Win7 taskbar shows a small colored rectangle overlay, indicating the "
 "repository the dialogs/windows are used for. <placeholder-1/>"
 msgstr "Si cette option est mise à <literal>true</literal>, alors chaque icône de la barre des tâches de Win7 affiche un petit rectangle coloré en surimpression, indiquant pour quel dépôt les boîtes de dialogue/fenêtres sont utilisées. <placeholder-1/>"
+
+#. (para)
+msgid ""
+"If this is set to <literal>false</literal>, then every "
+"<literal>svn:externals</literal> is shown during an update separately."
+msgstr ""
+
+#. (para)
+msgid ""
+"If it is set to <literal>true</literal> (the default), then update "
+"information for externals is only shown if the externals are affected by the"
+" update, i.e. changed in some way. Otherwise nothing is shown as with normal"
+" files and folders."
+msgstr ""
+
+#. (para)
+msgid ""
+"If this is set to <literal>true</literal>, then cancelling the dialog to "
+"approve a hook script to run will show an error dialog indicating the user "
+"cancelled."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -21442,6 +21449,10 @@ msgstr ""
 msgid "List of keyboard shortcuts and commands."
 msgstr "Liste des raccourcis claviers et des commandes."
 
+#. (title)
+msgid "General Keyboard Shortcuts"
+msgstr ""
+
 #. (term)
 msgid "Ctrl-Q, Ctrl-W, Escape"
 msgstr "Ctrl-Q, Ctrl-W, Echape"
@@ -21527,30 +21538,6 @@ msgid "Go to previous difference"
 msgstr "Aller à la différence précédente"
 
 #. (term)
-msgid "F8"
-msgstr "F8"
-
-#. (para)
-msgid "Go to next conflict"
-msgstr "Aller au prochain conflit"
-
-#. (term)
-msgid "Shift-F8"
-msgstr "Shift-F8"
-
-#. (para)
-msgid "Go to previous conflict"
-msgstr "Aller au conflit précédent"
-
-#. (term)
-msgid "Ctrl-D"
-msgstr "Ctrl-D"
-
-#. (para)
-msgid "Toggle between one-pane diff and two-pane diff"
-msgstr "Bascule entre la vue panneau unique et la vue panneau double"
-
-#. (term)
 msgid "Ctrl-R"
 msgstr "Ctrl-R"
 
@@ -21595,14 +21582,6 @@ msgid "Select all text"
 msgstr "Sélectionner tout le texte"
 
 #. (term)
-msgid "Ctrl-U"
-msgstr "Ctrl-U"
-
-#. (para)
-msgid "Switches views"
-msgstr "Basculer entre les vues"
-
-#. (term)
 msgid "Ctrl-mousewheel"
 msgstr "Ctrl-molette"
 
@@ -21619,11 +21598,90 @@ msgid "Switch between left/right/bottom view"
 msgstr "Basculer entre les vues gauche / droite / bas"
 
 #. (term)
+#. (term)
 msgid "Ctrl-M"
 msgstr ""
 
 #. (para)
+#. (para)
 msgid "Toggles between marking the selected change"
+msgstr ""
+
+#. (title)
+msgid "Diff-Mode Keyboard Shortcuts"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-D"
+msgstr "Ctrl-D"
+
+#. (para)
+msgid "Toggle between one-pane diff and two-pane diff"
+msgstr "Bascule entre la vue panneau unique et la vue panneau double"
+
+#. (term)
+msgid "Ctrl-U"
+msgstr "Ctrl-U"
+
+#. (para)
+msgid "Switches views"
+msgstr "Basculer entre les vues"
+
+#. (term)
+msgid "F12"
+msgstr ""
+
+#. (para)
+#. (para)
+msgid "Use left block"
+msgstr "Utiliser le bloc de gauche"
+
+#. (title)
+msgid "Conflict Resolution Mode Keyboard Shortcuts"
+msgstr ""
+
+#. (term)
+msgid "F8"
+msgstr "F8"
+
+#. (para)
+msgid "Go to next conflict"
+msgstr "Aller au prochain conflit"
+
+#. (term)
+msgid "Shift-F8"
+msgstr "Shift-F8"
+
+#. (para)
+msgid "Go to previous conflict"
+msgstr "Aller au conflit précédent"
+
+#. (term)
+msgid "Ctrl-F9"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-Shift-F9"
+msgstr ""
+
+#. (para)
+msgid "Use left block then right block"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-F10"
+msgstr ""
+
+#. (para)
+msgid "Use right block"
+msgstr "Utiliser le bloc de droite"
+
+#. (term)
+msgid "Ctrl-Shift-F10"
+msgstr ""
+
+#. (para)
+msgid "Use right block then left block"
 msgstr ""
 
 #. (title)

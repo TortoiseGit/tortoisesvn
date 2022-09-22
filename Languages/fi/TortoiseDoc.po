@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-12-05 13:44+0000\n"
-"Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
+"PO-Revision-Date: 2010-11-30 05:04+0000\n"
+"Last-Translator: Kari Granö <kari.grano@gmail.com>, 2011-2018,2020-2021\n"
 "Language-Team: Finnish (http://www.transifex.com/luebbe/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15246,20 +15246,6 @@ msgstr "Mikäli arvona on 4, ryhmittely toimii samoin kuin arvolla 2, mutta ryhm
 
 #. (para)
 msgid ""
-"If this is set to <literal>false</literal>, then every "
-"<literal>svn:externals</literal> is shown during an update separately."
-msgstr "Mikäli arvona on  <literal>false</literal>, jokainen <literal>svn:externals</literal> näytetään päivityksen aikana erikseen."
-
-#. (para)
-msgid ""
-"If it is set to <literal>true</literal> (the default), then update "
-"information for externals is only shown if the externals are affected by the"
-" update, i.e. changed in some way. Otherwise nothing is shown as with normal"
-" files and folders."
-msgstr "Mikäli arvona on <literal>true</literal> (oletus), ulkoisten viitteiden päivitystiedot näytetään vain, mikäli päivitys koskee viitteisiin, ts. muuttaa niitä jotenkin. Muutoin mitään viestiä ei näytetä (vrt. normaalit tiedostot ja kansiot.)"
-
-#. (para)
-msgid ""
 "This has no effect if the option <literal>GroupTaskbarIconsPerRepo</literal>"
 " is set to 0 (see above)."
 msgstr "Tällä ei kuitenkaan ole merkitystä, mikäli valinnan <literal>GroupTaskbarIconsPerRepo</literal> arvona on 0 (ks. yllä)."
@@ -15274,6 +15260,27 @@ msgid ""
 "Win7 taskbar shows a small colored rectangle overlay, indicating the "
 "repository the dialogs/windows are used for. <placeholder-1/>"
 msgstr "Kun tämä valitsin on asetettu arvoon <literal>true</literal>, Windows 7 -ympäristön tehtäväpalkin kuvakkeisiin lisätään pieni värillinen päällys, joka kertoo, mihin arkistoon ikkunat liittyvät. <placeholder-1/>"
+
+#. (para)
+msgid ""
+"If this is set to <literal>false</literal>, then every "
+"<literal>svn:externals</literal> is shown during an update separately."
+msgstr "Mikäli arvona on  <literal>false</literal>, jokainen <literal>svn:externals</literal> näytetään päivityksen aikana erikseen."
+
+#. (para)
+msgid ""
+"If it is set to <literal>true</literal> (the default), then update "
+"information for externals is only shown if the externals are affected by the"
+" update, i.e. changed in some way. Otherwise nothing is shown as with normal"
+" files and folders."
+msgstr "Mikäli arvona on <literal>true</literal> (oletus), ulkoisten viitteiden päivitystiedot näytetään vain, mikäli päivitys koskee viitteisiin, ts. muuttaa niitä jotenkin. Muutoin mitään viestiä ei näytetä (vrt. normaalit tiedostot ja kansiot.)"
+
+#. (para)
+msgid ""
+"If this is set to <literal>true</literal>, then cancelling the dialog to "
+"approve a hook script to run will show an error dialog indicating the user "
+"cancelled."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -21403,6 +21410,10 @@ msgstr "Pikanäppäimet"
 msgid "List of keyboard shortcuts and commands."
 msgstr "Luettelo pikanäppäimistä ja komennoista."
 
+#. (title)
+msgid "General Keyboard Shortcuts"
+msgstr ""
+
 #. (term)
 msgid "Ctrl-Q, Ctrl-W, Escape"
 msgstr "Ctrl-Q, Ctrl-W, Escape"
@@ -21488,30 +21499,6 @@ msgid "Go to previous difference"
 msgstr "Siirry edelliseen eroon"
 
 #. (term)
-msgid "F8"
-msgstr "F8"
-
-#. (para)
-msgid "Go to next conflict"
-msgstr "Siirry seuraavaan ristiriitaan"
-
-#. (term)
-msgid "Shift-F8"
-msgstr "Shift-F8"
-
-#. (para)
-msgid "Go to previous conflict"
-msgstr "Siirry edelliseen ristiriitaan"
-
-#. (term)
-msgid "Ctrl-D"
-msgstr "Ctrl-D"
-
-#. (para)
-msgid "Toggle between one-pane diff and two-pane diff"
-msgstr "Vaihda yhden ja kahden paneelin vertailun välillä"
-
-#. (term)
 msgid "Ctrl-R"
 msgstr "Ctrl-R"
 
@@ -21556,14 +21543,6 @@ msgid "Select all text"
 msgstr "Valitse kaikki"
 
 #. (term)
-msgid "Ctrl-U"
-msgstr "Ctrl-U"
-
-#. (para)
-msgid "Switches views"
-msgstr "Vaihtaa näkymiä"
-
-#. (term)
 msgid "Ctrl-mousewheel"
 msgstr "Ctrl-rullahiiri"
 
@@ -21580,12 +21559,91 @@ msgid "Switch between left/right/bottom view"
 msgstr "Vaihda oikean/vasemman/alanäkymän välillä"
 
 #. (term)
+#. (term)
 msgid "Ctrl-M"
 msgstr "Ctrl-M"
 
 #. (para)
+#. (para)
 msgid "Toggles between marking the selected change"
 msgstr "Vaihtaa muutoksen valinnan"
+
+#. (title)
+msgid "Diff-Mode Keyboard Shortcuts"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-D"
+msgstr "Ctrl-D"
+
+#. (para)
+msgid "Toggle between one-pane diff and two-pane diff"
+msgstr "Vaihda yhden ja kahden paneelin vertailun välillä"
+
+#. (term)
+msgid "Ctrl-U"
+msgstr "Ctrl-U"
+
+#. (para)
+msgid "Switches views"
+msgstr "Vaihtaa näkymiä"
+
+#. (term)
+msgid "F12"
+msgstr ""
+
+#. (para)
+#. (para)
+msgid "Use left block"
+msgstr "Käytä vasenta lohkoa"
+
+#. (title)
+msgid "Conflict Resolution Mode Keyboard Shortcuts"
+msgstr ""
+
+#. (term)
+msgid "F8"
+msgstr "F8"
+
+#. (para)
+msgid "Go to next conflict"
+msgstr "Siirry seuraavaan ristiriitaan"
+
+#. (term)
+msgid "Shift-F8"
+msgstr "Shift-F8"
+
+#. (para)
+msgid "Go to previous conflict"
+msgstr "Siirry edelliseen ristiriitaan"
+
+#. (term)
+msgid "Ctrl-F9"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-Shift-F9"
+msgstr ""
+
+#. (para)
+msgid "Use left block then right block"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-F10"
+msgstr ""
+
+#. (para)
+msgid "Use right block"
+msgstr "Käytä oikeaa lohkoa"
+
+#. (term)
+msgid "Ctrl-Shift-F10"
+msgstr ""
+
+#. (para)
+msgid "Use right block then left block"
+msgstr ""
 
 #. (title)
 msgid "Automating TortoiseMerge"

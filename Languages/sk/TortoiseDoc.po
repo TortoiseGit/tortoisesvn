@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-09-24 09:24+0000\n"
-"Last-Translator: Jozef Matta <jozef.m923@gmail.com>\n"
+"PO-Revision-Date: 2010-11-30 05:04+0000\n"
+"Last-Translator: Jozef Matta <jozef.m923@gmail.com>, 2020-2021\n"
 "Language-Team: Slovak (http://www.transifex.com/luebbe/tortoisesvn/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15247,20 +15247,6 @@ msgstr "Ak je nastavená na 4, potom zoskupenie funguje ako pri nastavení na 2,
 
 #. (para)
 msgid ""
-"If this is set to <literal>false</literal>, then every "
-"<literal>svn:externals</literal> is shown during an update separately."
-msgstr "Ak to je nastavené na <literal>false</literal>, potom každý <literal>svn:externals</literal> sa počas aktualizácie zobrazuje osobitne."
-
-#. (para)
-msgid ""
-"If it is set to <literal>true</literal> (the default), then update "
-"information for externals is only shown if the externals are affected by the"
-" update, i.e. changed in some way. Otherwise nothing is shown as with normal"
-" files and folders."
-msgstr "Ak to je nastavené na <literal>true</literal> (predvolené), potom sa aktualizačné informácie pre externé zobrazia iba v prípade, že sú externé ovplyvnené aktualizáciou, t. j. sú nejakým spôsobom zmenené. Inak sa nič nezobrazuje ako pri bežných súboroch a priečinkoch."
-
-#. (para)
-msgid ""
 "This has no effect if the option <literal>GroupTaskbarIconsPerRepo</literal>"
 " is set to 0 (see above)."
 msgstr "Toto nemá žiadny vplyv, ak je táto možnosť k dispozícii <literal>GroupTaskbarIconsPerRepo</literal> je nastavená na 0 (pozri vyššie)."
@@ -15275,6 +15261,27 @@ msgid ""
 "Win7 taskbar shows a small colored rectangle overlay, indicating the "
 "repository the dialogs/windows are used for. <placeholder-1/>"
 msgstr "Ak je táto možnosť nastavená na <literal>true</literal>, potom každá ikona na paneli úloh Win7 zobrazuje malé farebné obdĺžnikové prekrytie, ktoré označuje úložisko, pre ktoré sa používajú dialógy/okná. <placeholder-1/>"
+
+#. (para)
+msgid ""
+"If this is set to <literal>false</literal>, then every "
+"<literal>svn:externals</literal> is shown during an update separately."
+msgstr "Ak to je nastavené na <literal>false</literal>, potom každý <literal>svn:externals</literal> sa počas aktualizácie zobrazuje osobitne."
+
+#. (para)
+msgid ""
+"If it is set to <literal>true</literal> (the default), then update "
+"information for externals is only shown if the externals are affected by the"
+" update, i.e. changed in some way. Otherwise nothing is shown as with normal"
+" files and folders."
+msgstr "Ak to je nastavené na <literal>true</literal> (predvolené), potom sa aktualizačné informácie pre externé zobrazia iba v prípade, že sú externé ovplyvnené aktualizáciou, t. j. sú nejakým spôsobom zmenené. Inak sa nič nezobrazuje ako pri bežných súboroch a priečinkoch."
+
+#. (para)
+msgid ""
+"If this is set to <literal>true</literal>, then cancelling the dialog to "
+"approve a hook script to run will show an error dialog indicating the user "
+"cancelled."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -21404,6 +21411,10 @@ msgstr "Klávesové skratky"
 msgid "List of keyboard shortcuts and commands."
 msgstr "Zoznam klávesových skratiek a príkazov."
 
+#. (title)
+msgid "General Keyboard Shortcuts"
+msgstr ""
+
 #. (term)
 msgid "Ctrl-Q, Ctrl-W, Escape"
 msgstr "Ctrl-Q, Ctrl-W, Escape"
@@ -21489,30 +21500,6 @@ msgid "Go to previous difference"
 msgstr "Prejsť na predošlý rozdiel"
 
 #. (term)
-msgid "F8"
-msgstr "F8"
-
-#. (para)
-msgid "Go to next conflict"
-msgstr "Prejsť na nasledujúci konflikt"
-
-#. (term)
-msgid "Shift-F8"
-msgstr "Shift-F8"
-
-#. (para)
-msgid "Go to previous conflict"
-msgstr "Prejsť na predošlý konflikt"
-
-#. (term)
-msgid "Ctrl-D"
-msgstr "Ctrl-D"
-
-#. (para)
-msgid "Toggle between one-pane diff and two-pane diff"
-msgstr "Prepnúť medzi jednopanelovým a dvojpanelovým porovnaním odlišností"
-
-#. (term)
 msgid "Ctrl-R"
 msgstr "Ctrl-R"
 
@@ -21557,14 +21544,6 @@ msgid "Select all text"
 msgstr "Vybrať celý text"
 
 #. (term)
-msgid "Ctrl-U"
-msgstr "Ctrl-U"
-
-#. (para)
-msgid "Switches views"
-msgstr "Prepína zobrazenia"
-
-#. (term)
 msgid "Ctrl-mousewheel"
 msgstr "Ctrl+koliesko myši"
 
@@ -21581,12 +21560,91 @@ msgid "Switch between left/right/bottom view"
 msgstr "Prepínanie medzi ľavým/pravým/spodným zobrazením"
 
 #. (term)
+#. (term)
 msgid "Ctrl-M"
 msgstr "Ctrl-M"
 
 #. (para)
+#. (para)
 msgid "Toggles between marking the selected change"
 msgstr "Prepína medzi označením vybranej zmeny"
+
+#. (title)
+msgid "Diff-Mode Keyboard Shortcuts"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-D"
+msgstr "Ctrl-D"
+
+#. (para)
+msgid "Toggle between one-pane diff and two-pane diff"
+msgstr "Prepnúť medzi jednopanelovým a dvojpanelovým porovnaním odlišností"
+
+#. (term)
+msgid "Ctrl-U"
+msgstr "Ctrl-U"
+
+#. (para)
+msgid "Switches views"
+msgstr "Prepína zobrazenia"
+
+#. (term)
+msgid "F12"
+msgstr ""
+
+#. (para)
+#. (para)
+msgid "Use left block"
+msgstr "Použiť ľavý blok"
+
+#. (title)
+msgid "Conflict Resolution Mode Keyboard Shortcuts"
+msgstr ""
+
+#. (term)
+msgid "F8"
+msgstr "F8"
+
+#. (para)
+msgid "Go to next conflict"
+msgstr "Prejsť na nasledujúci konflikt"
+
+#. (term)
+msgid "Shift-F8"
+msgstr "Shift-F8"
+
+#. (para)
+msgid "Go to previous conflict"
+msgstr "Prejsť na predošlý konflikt"
+
+#. (term)
+msgid "Ctrl-F9"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-Shift-F9"
+msgstr ""
+
+#. (para)
+msgid "Use left block then right block"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-F10"
+msgstr ""
+
+#. (para)
+msgid "Use right block"
+msgstr "Použiť pravý blok"
+
+#. (term)
+msgid "Ctrl-Shift-F10"
+msgstr ""
+
+#. (para)
+msgid "Use right block then left block"
+msgstr ""
 
 #. (title)
 msgid "Automating TortoiseMerge"

@@ -33,7 +33,7 @@
 # r lvnt <michael.steinbrueck@airbus.com>, 2018
 # rs_bitbucket, 2017
 # rs_bitbucket, 2017
-# Stefan Kueng <tortoisesvn@gmail.com>, 2011,2020-2021
+# Stefan Kueng <tortoisesvn@gmail.com>, 2011,2020-2022
 # Thomas Franck <transifex@digitalchaos.de>, 2017
 # Wolf Peuker <wolfpeuker@gmail.com>, 2021
 msgid ""
@@ -41,8 +41,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-12-21 19:02+0000\n"
-"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2010-11-30 05:04+0000\n"
+"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>, 2011,2020-2022\n"
 "Language-Team: German (http://www.transifex.com/luebbe/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15269,20 +15269,6 @@ msgstr "Wenn der Wert auf 4 gesetzt ist, verhält sich die Gruppierung ähnlich 
 
 #. (para)
 msgid ""
-"If this is set to <literal>false</literal>, then every "
-"<literal>svn:externals</literal> is shown during an update separately."
-msgstr "Wenn der Wert auf <literal>false</literal> gesetzt ist, wird jeder <literal>svn:externals</literal>-Verweis während einer Aktualisierung gesondert angezeigt."
-
-#. (para)
-msgid ""
-"If it is set to <literal>true</literal> (the default), then update "
-"information for externals is only shown if the externals are affected by the"
-" update, i.e. changed in some way. Otherwise nothing is shown as with normal"
-" files and folders."
-msgstr "Wenn der Wert auf <literal>true</literal> (Vorgabe) gesetzt ist, wird die Aktualisierungsinformation für <literal>svn:externals</literal> nur angezeigt, wenn diese durch die Aktualsierung verändert werden. Andernfalls wird wie bei normalen Dateien und Ordnern nichts angezeigt."
-
-#. (para)
-msgid ""
 "This has no effect if the option <literal>GroupTaskbarIconsPerRepo</literal>"
 " is set to 0 (see above)."
 msgstr "Dies hat keine Auswirkungen, wenn die Option <literal>GroupTaskbarIconsPerRepo</literal> auf null (siehe oben) gesetzt ist."
@@ -15297,6 +15283,27 @@ msgid ""
 "Win7 taskbar shows a small colored rectangle overlay, indicating the "
 "repository the dialogs/windows are used for. <placeholder-1/>"
 msgstr "Wenn diese Option auf <literal>true</literal> gesetzt wird, erhält jedes Symbol in der Anwendungsleiste von Windows 7 ein kleines farbiges Rechteck, welches das zu den Fenstern bzw. Dialogen gehörende Projektarchiv anzeigt. <placeholder-1/>"
+
+#. (para)
+msgid ""
+"If this is set to <literal>false</literal>, then every "
+"<literal>svn:externals</literal> is shown during an update separately."
+msgstr "Wenn der Wert auf <literal>false</literal> gesetzt ist, wird jeder <literal>svn:externals</literal>-Verweis während einer Aktualisierung gesondert angezeigt."
+
+#. (para)
+msgid ""
+"If it is set to <literal>true</literal> (the default), then update "
+"information for externals is only shown if the externals are affected by the"
+" update, i.e. changed in some way. Otherwise nothing is shown as with normal"
+" files and folders."
+msgstr "Wenn der Wert auf <literal>true</literal> (Vorgabe) gesetzt ist, wird die Aktualisierungsinformation für <literal>svn:externals</literal> nur angezeigt, wenn diese durch die Aktualsierung verändert werden. Andernfalls wird wie bei normalen Dateien und Ordnern nichts angezeigt."
+
+#. (para)
+msgid ""
+"If this is set to <literal>true</literal>, then cancelling the dialog to "
+"approve a hook script to run will show an error dialog indicating the user "
+"cancelled."
+msgstr "Wenn diese Einstellung auf <literal>true</literal> gesetzt wird, dann führt ein Abbrechen des Bestätigungsdialogs für die Ausführung eines Hook-Skripts zu einer Fehlermeldung welche sagt dass der Benutzer abgebrochen hat."
 
 #. (para)
 msgid ""
@@ -21426,6 +21433,10 @@ msgstr "Tastaturkürzel"
 msgid "List of keyboard shortcuts and commands."
 msgstr "Liste der Tastaturkürzel und Befehle."
 
+#. (title)
+msgid "General Keyboard Shortcuts"
+msgstr "Allgemeine Tastaturkürzel"
+
 #. (term)
 msgid "Ctrl-Q, Ctrl-W, Escape"
 msgstr "Strg+Q, Strg+W, Escape"
@@ -21511,30 +21522,6 @@ msgid "Go to previous difference"
 msgstr "Zum vorherigen Unterschied gehen"
 
 #. (term)
-msgid "F8"
-msgstr "F8"
-
-#. (para)
-msgid "Go to next conflict"
-msgstr "Zum nächsten Konflikt gehen"
-
-#. (term)
-msgid "Shift-F8"
-msgstr "Umschalt+F8"
-
-#. (para)
-msgid "Go to previous conflict"
-msgstr "Zum vorherigen Konflikt gehen"
-
-#. (term)
-msgid "Ctrl-D"
-msgstr "Strg+D"
-
-#. (para)
-msgid "Toggle between one-pane diff and two-pane diff"
-msgstr "Zwischen Einfensteransicht und Zweifensteransicht wechseln"
-
-#. (term)
 msgid "Ctrl-R"
 msgstr "Strg+R"
 
@@ -21579,14 +21566,6 @@ msgid "Select all text"
 msgstr "Gesamten Text auswählen"
 
 #. (term)
-msgid "Ctrl-U"
-msgstr "Strg+U"
-
-#. (para)
-msgid "Switches views"
-msgstr "Ansichten umschalten"
-
-#. (term)
 msgid "Ctrl-mousewheel"
 msgstr "Strg+Mausrad"
 
@@ -21603,12 +21582,91 @@ msgid "Switch between left/right/bottom view"
 msgstr "Zwischen linker/rechter/unterer Ansicht wechseln"
 
 #. (term)
+#. (term)
 msgid "Ctrl-M"
 msgstr "Strg+M"
 
 #. (para)
+#. (para)
 msgid "Toggles between marking the selected change"
 msgstr "Ausgewählte Änderung markieren/nicht markieren"
+
+#. (title)
+msgid "Diff-Mode Keyboard Shortcuts"
+msgstr "Diff-Modus Tastaturkürzel"
+
+#. (term)
+msgid "Ctrl-D"
+msgstr "Strg+D"
+
+#. (para)
+msgid "Toggle between one-pane diff and two-pane diff"
+msgstr "Zwischen Einfensteransicht und Zweifensteransicht wechseln"
+
+#. (term)
+msgid "Ctrl-U"
+msgstr "Strg+U"
+
+#. (para)
+msgid "Switches views"
+msgstr "Ansichten umschalten"
+
+#. (term)
+msgid "F12"
+msgstr "F12"
+
+#. (para)
+#. (para)
+msgid "Use left block"
+msgstr "Verwende den linken Block"
+
+#. (title)
+msgid "Conflict Resolution Mode Keyboard Shortcuts"
+msgstr "Konfliktauflösungs-Modus Tastaturkürzel"
+
+#. (term)
+msgid "F8"
+msgstr "F8"
+
+#. (para)
+msgid "Go to next conflict"
+msgstr "Zum nächsten Konflikt gehen"
+
+#. (term)
+msgid "Shift-F8"
+msgstr "Umschalt+F8"
+
+#. (para)
+msgid "Go to previous conflict"
+msgstr "Zum vorherigen Konflikt gehen"
+
+#. (term)
+msgid "Ctrl-F9"
+msgstr "Strg-F9"
+
+#. (term)
+msgid "Ctrl-Shift-F9"
+msgstr "Strg-Shift-F9"
+
+#. (para)
+msgid "Use left block then right block"
+msgstr "Verwende linken vor rechtem Block"
+
+#. (term)
+msgid "Ctrl-F10"
+msgstr "Strg-F10"
+
+#. (para)
+msgid "Use right block"
+msgstr "Verwende den rechten Block"
+
+#. (term)
+msgid "Ctrl-Shift-F10"
+msgstr "Strg-Shift-F10"
+
+#. (para)
+msgid "Use right block then left block"
+msgstr "Verwende rechten vor linkem Block"
 
 #. (title)
 msgid "Automating TortoiseMerge"
