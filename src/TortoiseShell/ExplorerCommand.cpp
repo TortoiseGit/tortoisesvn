@@ -265,7 +265,10 @@ HRESULT __stdcall CExplorerCommand::GetFlags(EXPCMDFLAGS *pFlags)
     CTraceToOutputDebugString::Instance()(__FUNCTION__ L": title: %s\n", m_title.c_str());
     *pFlags = ECF_DEFAULT;
     if (!m_subItems.empty())
+    {
+        CTraceToOutputDebugString::Instance()(__FUNCTION__ L": has subItems\n");
         *pFlags = ECF_HASSUBCOMMANDS;
+    }
     if (m_title.empty())
         *pFlags = ECF_ISSEPARATOR;
     return S_OK;
