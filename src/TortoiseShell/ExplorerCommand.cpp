@@ -148,7 +148,6 @@ CExplorerCommand::CExplorerCommand(const std::wstring &title, UINT iconId,
     , m_itemStatesFolder(itemStatesFolder)
     , m_paths(paths)
     , m_subItems(subItems)
-    , m_regDiffLater(L"Software\\TortoiseMerge\\DiffLater", L"")
     , m_site(site)
 {
 }
@@ -252,10 +251,12 @@ HRESULT __stdcall CExplorerCommand::Invoke(IShellItemArray * /*psiItemArray*/, I
             cwdFolder = cwdFolder.substr(0, cwdFolder.rfind('\\'));
         }
     }
+
+    CRegStdString regDiffLater(L"Software\\TortoiseMerge\\DiffLater", L"");
     CShellExt::InvokeCommand(m_cmd, cwdFolder, m_appDir, m_uuidSource,
                              GetForegroundWindow(), m_itemStates, m_itemStatesFolder, m_paths,
                              m_paths.empty() ? L"" : m_paths[0],
-                             m_regDiffLater, m_site);
+                             regDiffLater, m_site);
     return S_OK;
 }
 
