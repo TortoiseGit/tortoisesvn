@@ -177,6 +177,7 @@ ULONG __stdcall CExplorerCommand::Release()
     --m_cRefCount;
     if (m_cRefCount == 0)
     {
+        CTraceToOutputDebugString::Instance()( L"refcount zero: title: %s\n", m_title.c_str());
         delete this;
         return 0;
     }
@@ -185,7 +186,7 @@ ULONG __stdcall CExplorerCommand::Release()
 
 HRESULT __stdcall CExplorerCommand::GetTitle(IShellItemArray * /*psiItemArray*/, LPWSTR *ppszName)
 {
-    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": title: %s\n", m_title.c_str());
+    CTraceToOutputDebugString::Instance()(__FUNCTION__ L": title: %s\n", m_title.c_str());
     if (m_title.empty())
     {
         *ppszName = nullptr;
@@ -197,7 +198,7 @@ HRESULT __stdcall CExplorerCommand::GetTitle(IShellItemArray * /*psiItemArray*/,
 
 HRESULT __stdcall CExplorerCommand::GetIcon(IShellItemArray * /*psiItemArray*/, LPWSTR *ppszIcon)
 {
-    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": title: %s\n", m_title.c_str());
+    CTraceToOutputDebugString::Instance()(__FUNCTION__ L": title: %s\n", m_title.c_str());
     if (m_iconId == 0)
     {
         SHStrDupW(L"", ppszIcon);
@@ -211,7 +212,7 @@ HRESULT __stdcall CExplorerCommand::GetIcon(IShellItemArray * /*psiItemArray*/, 
 
 HRESULT __stdcall CExplorerCommand::GetToolTip(IShellItemArray * /*psiItemArray*/, LPWSTR * ppszInfotip)
 {
-    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": title: %s\n", m_title.c_str());
+    CTraceToOutputDebugString::Instance()(__FUNCTION__ L": title: %s\n", m_title.c_str());
     *ppszInfotip = nullptr;
     return E_NOTIMPL;
 }
@@ -225,7 +226,7 @@ HRESULT __stdcall CExplorerCommand::GetCanonicalName(GUID *pguidCommandName)
 
 HRESULT __stdcall CExplorerCommand::GetState(IShellItemArray * /*psiItemArray*/, BOOL /*fOkToBeSlow*/, EXPCMDSTATE *pCmdState)
 {
-    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": title: %s\n", m_title.c_str());
+    CTraceToOutputDebugString::Instance()(__FUNCTION__ L": title: %s\n", m_title.c_str());
     *pCmdState = ECS_ENABLED;
     if (m_title.empty())
         return E_FAIL;
@@ -234,7 +235,7 @@ HRESULT __stdcall CExplorerCommand::GetState(IShellItemArray * /*psiItemArray*/,
 
 HRESULT __stdcall CExplorerCommand::Invoke(IShellItemArray * /*psiItemArray*/, IBindCtx * /*pbc*/)
 {
-    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": title: %s\n", m_title.c_str());
+    CTraceToOutputDebugString::Instance()(__FUNCTION__ L": title: %s\n", m_title.c_str());
     std::wstring cwdFolder;
     if (m_paths.empty())
     {
@@ -260,7 +261,7 @@ HRESULT __stdcall CExplorerCommand::Invoke(IShellItemArray * /*psiItemArray*/, I
 
 HRESULT __stdcall CExplorerCommand::GetFlags(EXPCMDFLAGS *pFlags)
 {
-    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": title: %s\n", m_title.c_str());
+    CTraceToOutputDebugString::Instance()(__FUNCTION__ L": title: %s\n", m_title.c_str());
     *pFlags = ECF_DEFAULT;
     if (!m_subItems.empty())
         *pFlags = ECF_HASSUBCOMMANDS;
@@ -271,7 +272,7 @@ HRESULT __stdcall CExplorerCommand::GetFlags(EXPCMDFLAGS *pFlags)
 
 HRESULT __stdcall CExplorerCommand::EnumSubCommands(IEnumExplorerCommand **ppEnum)
 {
-    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": title: %s\n", m_title.c_str());
+    CTraceToOutputDebugString::Instance()(__FUNCTION__ L": title: %s\n", m_title.c_str());
     if (m_subItems.empty())
         return E_INVALIDARG;
     *ppEnum = new CExplorerCommandEnum(m_subItems);
@@ -281,13 +282,13 @@ HRESULT __stdcall CExplorerCommand::EnumSubCommands(IEnumExplorerCommand **ppEnu
 
 HRESULT __stdcall CExplorerCommand::SetSite(IUnknown *pUnkSite)
 {
-    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": title: %s\n", m_title.c_str());
+    CTraceToOutputDebugString::Instance()(__FUNCTION__ L": title: %s\n", m_title.c_str());
     m_site = pUnkSite;
     return S_OK;
 }
 
 HRESULT __stdcall CExplorerCommand::GetSite(REFIID riid, void **ppvSite)
 {
-    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": title: %s\n", m_title.c_str());
+    CTraceToOutputDebugString::Instance()(__FUNCTION__ L": title: %s\n", m_title.c_str());
     return m_site.CopyTo(riid, ppvSite);
 }
