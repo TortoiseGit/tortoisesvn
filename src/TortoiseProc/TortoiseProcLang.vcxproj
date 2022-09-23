@@ -101,6 +101,14 @@
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\bin\$(Configuration)64\bin\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\obj\$(ProjectName)\$(Configuration)64\</IntDir>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <IntDir>..\..\obj\$(ProjectName)\$(Configuration)ARM64\</IntDir>
+    <OutDir>..\..\bin\$(Configuration)ARM64\bin\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <IntDir>..\..\obj\$(ProjectName)\$(Configuration)ARM64\</IntDir>
+    <OutDir>..\..\bin\$(Configuration)ARM64\bin\</OutDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ResourceCompile>
       <AdditionalIncludeDirectories>..\TortoiseShell;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>

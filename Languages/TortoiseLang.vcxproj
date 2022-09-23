@@ -100,6 +100,14 @@
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\bin\$(Configuration)64\bin\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\obj\$(ProjectName)\$(Configuration)64\</IntDir>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <IntDir>..\..\obj\$(ProjectName)\$(Configuration)ARM64\</IntDir>
+    <OutDir>..\..\bin\$(Configuration)ARM64\bin\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <IntDir>..\..\obj\$(ProjectName)\$(Configuration)ARM64\</IntDir>
+    <OutDir>..\..\bin\$(Configuration)ARM64\bin\</OutDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <PostBuildEvent>
       <Command>..\bin\$(Configuration)\bin\ResText extract "..\bin\$(Configuration)\bin\TortoiseProcLang.dll*..\src\TortoiseProc\resource.h*..\src\TortoiseShell\resource.h*$(VCToolsInstallDir)atlmfc\include\afxres.h" "..\bin\$(Configuration)\bin\TortoiseMergeLang.dll*..\src\TortoiseMerge\resource.h*$(VCToolsInstallDir)atlmfc\include\afxres.h*..\obj\TortoiseMerge\$(Configuration)\TortoiseMergeRibbon.h" ..\bin\$(Configuration)\bin\TortoiseBlameLang.dll*..\src\TortoiseBlame\resource.h ..\bin\$(Configuration)\bin\TortoiseIDiffLang.dll*..\src\TortoiseIDiff\resource.h -useheaderfile TortoiseUIPotHeader.txt TortoiseUI.pot
