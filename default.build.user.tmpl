@@ -42,7 +42,7 @@
     <if test="${not environment::variable-exists('WIX')}">
       <setenv>
         <!-- TODO: change path value, if WIX is not defined -->
-        <variable name="WIX" value="C:\Program Files (x86)\WiX Toolset v3.10" />
+        <variable name="WIX" value="C:\Program Files (x86)\WiX Toolset v3.14" />
       </setenv>
     </if>
     <if test="${file::exists(environment::get-variable('WIX') + '\bin\candle.exe')}">
@@ -93,8 +93,9 @@
     -->
 
     <setenv>
-      <variable name="PATH" value="D:\smartcardtools\x64;%PATH%" if="${platform == 'x64'}" />
       <variable name="PATH" value="D:\smartcardtools\x86;%PATH%" if="${platform != 'x64'}" />
+      <variable name="PATH" value="D:\smartcardtools\x64;%PATH%" if="${platform == 'x64'}" />
+      <variable name="PATH" value="D:\smartcardtools\x64;%PATH%" if="${platform == 'ARM64'}" />
       <variable name="PATH" value="%TSVNTOOLS%\;%PATH%" />
       <variable name="PATH" value="%TSVNTOOLS%\fop;%PATH%" />
       <variable name="PATH" value="%WIX%;%PATH%" />
