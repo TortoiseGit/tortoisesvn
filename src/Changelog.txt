@@ -1,4 +1,8 @@
-﻿Version 1.14.4
+﻿Version 1.14.5
+- BUG: 1.14.4 was wrongly linked against svn 1.14.1
+       instead of svn 1.14.2
+       
+Version 1.14.4
 - BUG: revisions entered in the merge dialog were
        not selected anymore in the log dialog. (Stefan)
 - BUG: urls pated in merge dialog could have newlines
