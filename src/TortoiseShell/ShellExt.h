@@ -247,7 +247,7 @@ private:
     static void         AddPathCommand(std::wstring& svnCmd, LPCWSTR command, bool bFilesAllowed, const std::vector<std::wstring>& files, const std::wstring folder);
     static void         AddPathFileCommand(std::wstring& svnCmd, LPCWSTR command, const std::vector<std::wstring>& files, const std::wstring folder);
     static void         AddPathFileDropCommand(std::wstring& svnCmd, LPCWSTR command, const std::vector<std::wstring>& files, const std::wstring folder);
-    static std::wstring ExplorerViewPath();
+    static std::wstring ExplorerViewPath(const Microsoft::WRL::ComPtr<IUnknown>& site);
 
 public:
     explicit CShellExt(FileState state);

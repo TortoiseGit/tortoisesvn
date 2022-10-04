@@ -316,7 +316,7 @@ STDMETHODIMP CShellExt::Initialize(PCIDLIST_ABSOLUTE pIDFolder,
                     m_files.push_back(strPath.GetWinPath());
                     if (i != 0)
                         continue;
-                    //get the Subversion status of the item
+                    // get the Subversion status of the item
                     svn_wc_status_kind status = svn_wc_status_none;
                     try
                     {
@@ -394,7 +394,7 @@ STDMETHODIMP CShellExt::Initialize(PCIDLIST_ABSOLUTE pIDFolder,
             } // if (m_State == FileStateDropHandler)
             else
             {
-                //Enumerate PIDLs which the user has selected
+                // Enumerate PIDLs which the user has selected
                 CIDA*      cida = static_cast<CIDA*>(GlobalLock(medium.hGlobal));
                 ItemIDList parent(GetPIDLFolder(cida));
 
@@ -457,7 +457,7 @@ STDMETHODIMP CShellExt::Initialize(PCIDLIST_ABSOLUTE pIDFolder,
                     }
                     if (str.empty() || (!g_shellCache.IsContextPathAllowed(str.c_str())))
                         continue;
-                    //check if our menu is requested for a subversion admin directory
+                    // check if our menu is requested for a subversion admin directory
                     if (g_SVNAdminDir.IsAdminDirPath(str.c_str()))
                         continue;
 
@@ -468,7 +468,7 @@ STDMETHODIMP CShellExt::Initialize(PCIDLIST_ABSOLUTE pIDFolder,
                     itemStates |= (strPath.GetFileExtension().CompareNoCase(L".patch") == 0) ? ITEMIS_PATCHFILE : 0;
                     if (statFetched)
                         continue;
-                    //get the Subversion status of the item
+                    // get the Subversion status of the item
                     svn_wc_status_kind status = svn_wc_status_none;
                     try
                     {
@@ -770,8 +770,8 @@ void CShellExt::InsertSVNMenu(BOOL isTop, HMENU menu, UINT pos, UINT_PTR id, UIN
 
     if (isTop && menu)
     {
-        //menu entry for the top context menu, so append an "SVN " before
-        //the menu text to indicate where the entry comes from
+        // menu entry for the top context menu, so append an "SVN " before
+        // the menu text to indicate where the entry comes from
         wcscpy_s(menuTextBuffer, L"SVN ");
         if (!g_shellCache.HasShellMenuAccelerators())
         {
@@ -824,8 +824,8 @@ void CShellExt::InsertSVNMenu(BOOL isTop, HMENU menu, UINT pos, UINT_PTR id, UIN
 bool CShellExt::WriteClipboardPathsToTempFile(std::wstring& tempFile)
 {
     tempFile          = std::wstring();
-    //write all selected files and paths to a temporary file
-    //for TortoiseProc.exe to read out again.
+    // write all selected files and paths to a temporary file
+    // for TortoiseProc.exe to read out again.
     DWORD pathLength  = GetTempPath(0, nullptr);
     auto  path        = std::make_unique<wchar_t[]>(pathLength + 1LL);
     auto  tempFileBuf = std::make_unique<wchar_t[]>(pathLength + 100LL);
@@ -880,8 +880,8 @@ bool CShellExt::WriteClipboardPathsToTempFile(std::wstring& tempFile)
 
 std::wstring CShellExt::WriteFileListToTempFile(const std::vector<std::wstring>& files, const std::wstring folder)
 {
-    //write all selected files and paths to a temporary file
-    //for TortoiseProc.exe to read out again.
+    // write all selected files and paths to a temporary file
+    // for TortoiseProc.exe to read out again.
     DWORD pathLength = GetTempPath(0, nullptr);
     auto  path       = std::make_unique<wchar_t[]>(pathLength + 1);
     auto  tempFile   = std::make_unique<wchar_t[]>(pathLength + 100);
@@ -890,12 +890,12 @@ std::wstring CShellExt::WriteFileListToTempFile(const std::vector<std::wstring>&
     std::wstring retFilePath = std::wstring(tempFile.get());
 
     CAutoFile    file        = ::CreateFile(tempFile.get(),
-                                  GENERIC_WRITE,
-                                  FILE_SHARE_READ,
-                                  nullptr,
-                                  CREATE_ALWAYS,
-                                  FILE_ATTRIBUTE_TEMPORARY,
-                                  nullptr);
+                                            GENERIC_WRITE,
+                                            FILE_SHARE_READ,
+                                            nullptr,
+                                            CREATE_ALWAYS,
+                                            FILE_ATTRIBUTE_TEMPORARY,
+                                            nullptr);
 
     if (!file)
         return std::wstring();
@@ -924,7 +924,7 @@ STDMETHODIMP CShellExt::QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMe
     LoadLangDll();
 
     if ((uFlags & CMF_DEFAULTONLY) != 0)
-        return S_OK; //we don't change the default action
+        return S_OK; // we don't change the default action
 
     if (m_files.empty() || m_folder.empty())
         return S_OK;
@@ -934,11 +934,11 @@ STDMETHODIMP CShellExt::QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMe
 
     bool bSourceAndTargetFromSameRepository = (uuidSource.compare(uuidTarget) == 0) || uuidSource.empty() || uuidTarget.empty();
 
-    //the drop handler only has eight commands, but not all are visible at the same time:
-    //if the source file(s) are under version control then those files can be moved
-    //to the new location or they can be moved with a rename,
-    //if they are unversioned then they can be added to the working copy
-    //if they are versioned, they also can be exported to an unversioned location
+    // the drop handler only has eight commands, but not all are visible at the same time:
+    // if the source file(s) are under version control then those files can be moved
+    // to the new location or they can be moved with a rename,
+    // if they are unversioned then they can be added to the working copy
+    // if they are versioned, they also can be exported to an unversioned location
     UINT idCmd                              = idCmdFirst;
 
     // SVN move here
@@ -1016,16 +1016,16 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
     CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Shell :: QueryContextMenu itemStates=%ld\n", itemStates);
     PreserveChdir preserveChdir;
 
-    //first check if our drop handler is called
-    //and then (if true) provide the context menu for the
-    //drop handler
+    // first check if our drop handler is called
+    // and then (if true) provide the context menu for the
+    // drop handler
     if (m_state == FileStateDropHandler)
     {
         return QueryDropContext(uFlags, idCmdFirst, hMenu, indexMenu);
     }
 
     if ((uFlags & CMF_DEFAULTONLY) != 0)
-        return S_OK; //we don't change the default action
+        return S_OK; // we don't change the default action
 
     if (m_files.empty() && m_folder.empty())
         return S_OK;
@@ -1081,7 +1081,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
         if ((itemStates & (ITEMIS_INSVN | ITEMIS_INVERSIONEDFOLDER | ITEMIS_FOLDERINSVN)) == 0)
             return S_OK;
     }
-    //check if our menu is requested for a subversion admin directory
+    // check if our menu is requested for a subversion admin directory
     if (g_SVNAdminDir.IsAdminDirPath(m_folder.c_str()))
         return S_OK;
 
@@ -1106,10 +1106,10 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
         }
     }
 
-    //check if we already added our menu entry for a folder.
-    //we check that by iterating through all menu entries and check if
-    //the dwItemData member points to our global ID string. That string is set
-    //by our shell extension when the folder menu is inserted.
+    // check if we already added our menu entry for a folder.
+    // we check that by iterating through all menu entries and check if
+    // the dwItemData member points to our global ID string. That string is set
+    // by our shell extension when the folder menu is inserted.
     if (hMenu)
     {
         wchar_t menuBuf[MAX_PATH] = {0};
@@ -1130,7 +1130,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
     LoadLangDll();
     UINT                   idCmd           = idCmdFirst;
 
-    //create the sub menu
+    // create the sub menu
     HMENU                  subMenu         = hMenu ? CreateMenu() : nullptr;
     int                    indexSubMenu    = 0;
 
@@ -1222,9 +1222,9 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
         }
     }
 
-    //add sub menu to main context menu
-    //don't use InsertMenu because this will lead to multiple menu entries in the explorer file menu.
-    //see http://support.microsoft.com/default.aspx?scid=kb;en-us;214477 for details of that.
+    // add sub menu to main context menu
+    // don't use InsertMenu because this will lead to multiple menu entries in the explorer file menu.
+    // see http://support.microsoft.com/default.aspx?scid=kb;en-us;214477 for details of that.
     MAKESTRING(IDS_MENUSUBMENU);
     if (!g_shellCache.HasShellMenuAccelerators())
     {
@@ -1282,13 +1282,13 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
     {
         InsertMenuItem(hMenu, indexMenu++, TRUE, &menuItemInfo);
 
-        //separator after
+        // separator after
         InsertMenu(hMenu, indexMenu++, MF_SEPARATOR | MF_BYPOSITION, 0, nullptr);
         TweakMenu(hMenu);
     }
     idCmd++;
 
-    //return number of menu items added
+    // return number of menu items added
     return ResultFromScode(MAKE_SCODE(SEVERITY_SUCCESS, 0, static_cast<USHORT>(idCmd - idCmdFirst)));
 }
 
@@ -1404,15 +1404,15 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 
 void CShellExt::InvokeCommand(int cmd, const std::wstring& cwd, const std::wstring& appDir, const std::wstring uuidSource, HWND hParent, DWORD itemStates, DWORD itemStatesFolder, const std::vector<std::wstring>& paths, const std::wstring& folder, CRegStdString& regDiffLater, Microsoft::WRL::ComPtr<IUnknown> site)
 {
-    //TortoiseProc expects a command line of the form:
+    // TortoiseProc expects a command line of the form:
     //"/command:<commandname> /pathfile:<path> /startrev:<startrevision> /endrev:<endrevision> /deletepathfile
-    // or
+    //  or
     //"/command:<commandname> /path:<path> /startrev:<startrevision> /endrev:<endrevision>
     //
     //* path is a path to a single file/directory for commands which only act on single items (log, checkout, ...)
     //* pathfile is a path to a temporary file which contains a list of file paths
     std::wstring svnCmd = L" /command:";
-    CTraceToOutputDebugString::Instance()(__FUNCTION__ );
+    CTraceToOutputDebugString::Instance()(__FUNCTION__);
 
     switch (cmd)
     {
@@ -1831,16 +1831,16 @@ void CShellExt::InvokeCommand(int cmd, const std::wstring& cwd, const std::wstri
 // This is for the status bar and things like that:
 STDMETHODIMP CShellExt::GetCommandString(UINT_PTR idCmd,
                                          UINT     uFlags,
-                                         UINT     FAR* /*reserved*/,
-                                         LPSTR    pszName,
-                                         UINT     cchMax)
+                                         UINT FAR* /*reserved*/,
+                                         LPSTR pszName,
+                                         UINT  cchMax)
 {
     PreserveChdir preserveChdir;
-    //do we know the id?
+    // do we know the id?
     auto          idIt = myIDMap.lower_bound(idCmd);
     if (idIt == myIDMap.end() || idIt->first != idCmd)
     {
-        return E_INVALIDARG; //no, we don't
+        return E_INVALIDARG; // no, we don't
     }
 
     LoadLangDll();
@@ -1933,7 +1933,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
             LPCWSTR         resource;
             DRAWITEMSTRUCT* lpdis = reinterpret_cast<DRAWITEMSTRUCT*>(lParam);
             if ((lpdis == nullptr) || (lpdis->CtlType != ODT_MENU))
-                return S_OK; //not for a menu
+                return S_OK; // not for a menu
             resource = GetMenuTextFromResource(static_cast<int>(myIDMap[lpdis->itemID]));
             if (resource == nullptr)
                 return S_OK;
@@ -2095,7 +2095,7 @@ UINT CShellExt::IconIdForCommand(int id)
 
 bool CShellExt::IsIllegalFolder(const std::wstring& folder, int* csidlarray)
 {
-    wchar_t          buf[MAX_PATH] = {0}; //MAX_PATH ok, since SHGetSpecialFolderPath doesn't return the required buffer length!
+    wchar_t          buf[MAX_PATH] = {0}; // MAX_PATH ok, since SHGetSpecialFolderPath doesn't return the required buffer length!
     PIDLIST_ABSOLUTE pidl          = nullptr;
     for (int i = 0; csidlarray[i]; i++)
     {
@@ -2554,7 +2554,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT& idCmd, UINT idCmdFirst,
             }
             // currently, explorer does not support subcommands which their own subcommands. Once it does,
             // use the line below instead of the ones above
-            //m_explorerCommands.push_back(CExplorerCommand(stringTableBuffer, icon, ShellMenuUnIgnoreSub, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, exCmds));
+            // m_explorerCommands.push_back(CExplorerCommand(stringTableBuffer, icon, ShellMenuUnIgnoreSub, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, exCmds));
         }
         if (itemStates & ITEMIS_IGNORED)
         {
@@ -2690,6 +2690,7 @@ HRESULT __stdcall CShellExt::GetState(IShellItemArray* psiItemArray, BOOL fOkToB
     Microsoft::WRL::ComPtr<IShellItemArray> ownItemArray;
     if (m_site)
     {
+        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Shell :: GetState - have m_site\n");
         Microsoft::WRL::ComPtr<IOleWindow> oleWindow;
         m_site.As(&oleWindow);
         if (oleWindow)
@@ -2773,7 +2774,7 @@ HRESULT __stdcall CShellExt::GetState(IShellItemArray* psiItemArray, BOOL fOkToB
     {
         // context menu for a folder background (no selection),
         // so try to get the current path of the explorer window instead
-        auto path = ExplorerViewPath();
+        auto path = ExplorerViewPath(m_site);
         if (path.empty())
         {
             *pCmdState = ECS_HIDDEN;
@@ -2844,83 +2845,52 @@ HRESULT __stdcall CShellExt::EnumSubCommands(IEnumExplorerCommand** ppEnum)
     return S_OK;
 }
 
-std::wstring CShellExt::ExplorerViewPath()
+std::wstring CShellExt::ExplorerViewPath(const Microsoft::WRL::ComPtr<IUnknown>& site)
 {
+    CTraceToOutputDebugString::Instance()(__FUNCTION__ "\n");
     std::wstring path;
-    HRESULT      hr   = NOERROR;
-
-    // the top context menu in Win11 does not
-    // provide an IOleWindow with the SetSite() object,
-    // so we have to use a trick to get it: since the
-    // context menu must always be the top window, we
-    // just grab the foreground window and assume that
-    // this is the explorer window.
-    auto         hwnd = ::GetForegroundWindow();
-    if (hwnd == nullptr)
-        return path;
-
-    wchar_t szName[1024] = {0};
-    ::GetClassName(hwnd, szName, _countof(szName));
-    if (StrCmp(szName, L"WorkerW") == 0 ||
-        StrCmp(szName, L"Progman") == 0)
+    if (site)
     {
-        //special folder: desktop
-        hr = ::SHGetFolderPath(nullptr, CSIDL_DESKTOP, nullptr, SHGFP_TYPE_CURRENT, szName);
-        if (FAILED(hr))
-            return path;
-
-        path = szName;
-        return path;
-    }
-
-    if (StrCmp(szName, L"CabinetWClass") != 0)
-        return path;
-
-    // get the shell windows object to enumerate all active explorer
-    // instances. We use those to compare the foreground hwnd to it.
-    Microsoft::WRL::ComPtr<IShellWindows> shell;
-    if (FAILED(CoCreateInstance(CLSID_ShellWindows, nullptr, CLSCTX_ALL,
-                                IID_IShellWindows, reinterpret_cast<LPVOID*>(shell.GetAddressOf()))))
-        return path;
-
-    if (shell == nullptr)
-        return path;
-
-    Microsoft::WRL::ComPtr<IDispatch> disp;
-    VARIANT                           variant{};
-    variant.vt = VT_I4;
-
-    Microsoft::WRL::ComPtr<IWebBrowserApp> browser;
-    // look for correct explorer window
-    for (variant.intVal = 0; shell->Item(variant, disp.GetAddressOf()) == S_OK; variant.intVal++)
-    {
-        Microsoft::WRL::ComPtr<IWebBrowserApp> tmp;
-        if (FAILED(disp->QueryInterface(tmp.GetAddressOf())))
-            continue;
-
-        HWND tmpHwnd = nullptr;
-        hr           = tmp->get_HWND(reinterpret_cast<SHANDLE_PTR*>(&tmpHwnd));
-        if (hwnd == tmpHwnd)
+        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": got site\n");
+        Microsoft::WRL::ComPtr<IServiceProvider> serviceProvider;
+        if (SUCCEEDED(site.As(&serviceProvider)))
         {
-            browser = tmp;
-            break; // found it!
+            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": got IServiceProvider\n");
+            Microsoft::WRL::ComPtr<IShellBrowser> shellBrowser;
+            if (SUCCEEDED(serviceProvider->QueryService(SID_SShellBrowser, IID_IShellBrowser, &shellBrowser)))
+            {
+                CTraceToOutputDebugString::Instance()(__FUNCTION__ ": got IShellBrowser\n");
+                Microsoft::WRL::ComPtr<IShellView> shellView;
+                if (SUCCEEDED(shellBrowser->QueryActiveShellView(&shellView)))
+                {
+                    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": got IShellView\n");
+                    Microsoft::WRL::ComPtr<IFolderView> folderView;
+                    if (SUCCEEDED(shellView.As(&folderView)))
+                    {
+                        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": got IFolderView\n");
+                        Microsoft::WRL::ComPtr<IPersistFolder2> persistFolder;
+                        if (SUCCEEDED(folderView->GetFolder(IID_IPersistFolder2, (LPVOID*)&persistFolder)))
+                        {
+                            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": got IPersistFolder2\n");
+                            PIDLIST_ABSOLUTE curFolder;
+                            if (SUCCEEDED(persistFolder->GetCurFolder(&curFolder)))
+                            {
+                                CTraceToOutputDebugString::Instance()(__FUNCTION__ ": got GetCurFolder\n");
+                                wchar_t buf[MAX_PATH] = {0};
+                                // find the path of the folder
+                                if (SHGetPathFromIDList(curFolder, buf))
+                                {
+                                    CTraceToOutputDebugString::Instance()(__FUNCTION__ L": got SHGetPathFromIDList : %s\n", buf);
+                                    path = buf;
+                                }
+                                CoTaskMemFree(curFolder);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
-
-    if (browser != nullptr)
-    {
-        BSTR url;
-        hr = browser->get_LocationURL(&url);
-        if (FAILED(hr))
-            return path;
-
-        std::wstring sUrl(url, SysStringLen(url));
-        SysFreeString(url);
-        DWORD size = _countof(szName);
-        hr         = ::PathCreateFromUrl(sUrl.c_str(), szName, &size, NULL);
-        if (SUCCEEDED(hr))
-            path = szName;
-    }
-
+    
     return path;
 }
