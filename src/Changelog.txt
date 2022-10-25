@@ -2,6 +2,8 @@
 - BUG: context menu for a directory background in
        Win11 when not using the first tab in explorer
        used the wrong path. (Stefan)
+- BUG: the revision graph did not show the HEAD revision
+       if not all revisions were shown. (Stefan)
 
 Version 1.14.5
 - BUG: 1.14.4 was wrongly linked against svn 1.14.1

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2021 - TortoiseSVN
+// Copyright (C) 2003-2008, 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -34,10 +34,11 @@ ICopyFilterOption::EResult
 {
     ICopyFilterOption::EResult result = ICopyFilterOption::KEEP_NODE;
 
-    for (const auto& option : options)
+    for (auto iter = options.begin(), end = options.end();
+        (iter != end) && (result == ICopyFilterOption::KEEP_NODE);
+        ++iter)
     {
-        result = option->ShallRemove(node);
+        result = (*iter)->ShallRemove(node);
     }
-
     return result;
 };
