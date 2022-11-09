@@ -178,6 +178,7 @@ UINT CChangedDlg::ChangedStatusThread()
     RefreshCursor();
     m_bCanceled = false;
     SetDlgItemText(IDOK, CString(MAKEINTRESOURCE(IDS_MSGBOX_CANCEL)));
+    DialogEnableWindow(IDC_COMMIT, FALSE);
     DialogEnableWindow(IDC_REFRESH, FALSE);
     DialogEnableWindow(IDC_CHECKREPO, FALSE);
     DialogEnableWindow(IDC_SHOWUNVERSIONED, FALSE);
@@ -212,6 +213,7 @@ UINT CChangedDlg::ChangedStatusThread()
     else
         CAppUtils::SetWindowTitle(m_hWnd, commonDir.GetWinPathString(), m_sTitle);
     SetDlgItemText(IDOK, CString(MAKEINTRESOURCE(IDS_MSGBOX_OK)));
+    DialogEnableWindow(IDC_COMMIT, TRUE);
     DialogEnableWindow(IDC_REFRESH, TRUE);
     DialogEnableWindow(IDC_CHECKREPO, TRUE);
     DialogEnableWindow(IDC_SHOWUNVERSIONED, !bSingleFile);
