@@ -46,6 +46,7 @@ protected:
     void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
     BOOL         OnApply() override;
     afx_msg void OnLvnItemchangedMenulist(NMHDR* pNMHDR, LRESULT* pResult);
+    afx_msg void OnBnClickedRegister();
 
     DECLARE_MESSAGE_MAP()
 public:
@@ -61,7 +62,4 @@ private:
     BOOL                   m_bModified;
     TSVNContextMenuEntries m_topMenu;
     bool                   m_bBlock;
-
-public:
-    afx_msg void OnBnClickedRegister();
 };
