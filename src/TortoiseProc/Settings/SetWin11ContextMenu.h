@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2021 - TortoiseSVN
+// Copyright (C) 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -61,4 +61,7 @@ private:
     BOOL                   m_bModified;
     TSVNContextMenuEntries m_topMenu;
     bool                   m_bBlock;
+
+public:
+    afx_msg void OnBnClickedRegister();
 };

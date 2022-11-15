@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2021 - TortoiseSVN
+// Copyright (C) 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,6 +21,17 @@
 #include "StringUtils.h"
 #include "LoadIconEx.h"
 #include "SetWin11ContextMenu.h"
+
+#include <winrt/Windows.Management.Deployment.h>
+#include <winrt/Windows.Foundation.Collections.h>
+#include <winrt/Windows.ApplicationModel.h>
+
+#include "../../Utils/PathUtils.h"
+#include "../../Utils/MiscUI/ProgressDlg.h"
+using namespace winrt::Windows::Foundation;
+using namespace winrt::Windows::Management::Deployment;
+
+#pragma comment(lib, "windowsapp.lib")
 
 IMPLEMENT_DYNAMIC(CSetWin11ContextMenu, ISettingsPropPage)
 CSetWin11ContextMenu::CSetWin11ContextMenu()
@@ -44,6 +55,7 @@ void CSetWin11ContextMenu::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CSetWin11ContextMenu, ISettingsPropPage)
     ON_NOTIFY(LVN_ITEMCHANGED, IDC_MENULIST, OnLvnItemchangedMenulist)
+    ON_BN_CLICKED(IDC_REGISTER, &CSetWin11ContextMenu::OnBnClickedRegister)
 END_MESSAGE_MAP()
 
 BOOL CSetWin11ContextMenu::OnInitDialog()
@@ -125,4 +137,69 @@ void CSetWin11ContextMenu::OnLvnItemchangedMenulist(NMHDR* /*pNMHDR*/, LRESULT* 
         }
     }
     *pResult = 0;
+}
+
+void CSetWin11ContextMenu::OnBnClickedRegister()
+{
+    CoInitializeEx(nullptr, COINIT_APARTMENTTHREADED);
+    OnOutOfScope(CoUninitialize());
+    PackageManager                                                    manager;
+
+    // first unregister if already registered
+    Collections::IIterable<winrt::Windows::ApplicationModel::Package> packages;
+    try
+    {
+        packages = manager.FindPackagesForUser(L"");
+    }
+    catch (winrt::hresult_error const& ex)
+    {
+        std::wstring error   = L"FindPackagesForUser failed (Errorcode: ";
+        error += std::to_wstring(ex.code().value);
+        error += L"):\n";
+        error += ex.message();
+        MessageBox(error.c_str(), nullptr, MB_ICONERROR);
+        return;
+    }
+
+    for (const auto& package : packages)
+    {
+        if (package.Id().Name() != L"3A48D7FC-AEE2-4CBC-91D1-0007951B8006")
+            continue;
+
+        winrt::hstring fullName            = package.Id().FullName();
+        auto           deploymentOperation = manager.RemovePackageAsync(fullName, RemovalOptions::None);
+        auto           deployResult        = deploymentOperation.get();
+        if (SUCCEEDED(deployResult.ExtendedErrorCode()))
+            break;
+
+        // Undeployment failed
+        std::wstring error   = L"RemovePackageAsync failed (Errorcode: ";
+        error += std::to_wstring(deployResult.ExtendedErrorCode());
+        error += L"):\n";
+        error += deployResult.ErrorText();
+        MessageBox(error.c_str(), nullptr, MB_ICONERROR);
+        return;
+    }
+
+    // now register the package
+    auto              appDir = CPathUtils::GetAppParentDirectory();
+    Uri               externalUri(static_cast<LPCWSTR>(appDir));
+    auto packagePath = appDir + L"bin\\package.msix";
+    Uri packageUri(static_cast<LPCWSTR>(packagePath));
+    AddPackageOptions options;
+    options.ExternalLocationUri(externalUri);
+    auto deploymentOperation = manager.AddPackageByUriAsync(packageUri, options);
+
+    auto deployResult        = deploymentOperation.get();
+
+    if (!SUCCEEDED(deployResult.ExtendedErrorCode()))
+    {
+        std::wstring error   = L"AddPackageByUriAsync failed (Errorcode: ";
+        error += std::to_wstring(deployResult.ExtendedErrorCode());
+        error += L"):\n";
+        error += deployResult.ErrorText();
+        MessageBox(error.c_str(), nullptr, MB_ICONERROR);
+        return;
+    }
+    MessageBox(CString(MAKEINTRESOURCE(IDS_PACKAGE_REGISTERED)));
 }
