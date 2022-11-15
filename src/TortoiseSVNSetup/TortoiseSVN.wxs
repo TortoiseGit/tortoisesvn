@@ -69,8 +69,8 @@
         <Binary Id="CustomActionsDLL" SourceFile="..\..\bin\$(var.ReleasePath)\bin\CustomActions.dll" />
         <?if $(env.HasSparse) = "yes" ?>
           <Binary Id="CustomActionsDLL11" SourceFile="..\..\bin\$(var.ReleasePath)\bin\CustomActions11.dll" />
-          <CustomAction Id="RegisterSparsePackage" BinaryKey="CustomActionsDLL11" DllEntry="RegisterSparsePackage"/>
-          <CustomAction Id="UnregisterSparsePackage" BinaryKey="CustomActionsDLL11" DllEntry="UnregisterSparsePackage"/>
+          <CustomAction Id="RegisterSparsePackage" Impersonate="yes" BinaryKey="CustomActionsDLL11" DllEntry="RegisterSparsePackage"/>
+          <CustomAction Id="UnregisterSparsePackage" Impersonate="yes" BinaryKey="CustomActionsDLL11" DllEntry="UnregisterSparsePackage"/>
         <?endif?>
 
         <!-- Unsafe-check properties and custom actions .......................................................................... -->
