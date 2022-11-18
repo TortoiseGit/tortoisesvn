@@ -77,7 +77,7 @@ class CShellExt : public IContextMenu3
     , IObjectWithSite
 {
 public:
-    enum SVNCommands
+    enum SVNCommands : int
     {
         ShellSeparator = 0,
         ShellSubMenu   = 1,
@@ -187,43 +187,43 @@ protected:
         std::wstring           verb;
     };
 
-    static MenuInfo                                   menuInfo[];
-    FileState                                         m_state;
-    volatile ULONG                                    m_cRef;
-    //std::map<int,std::string> verbMap;
-    std::map<UINT_PTR, UINT_PTR>                      myIDMap;
-    std::map<UINT_PTR, UINT_PTR>                      mySubMenuMap;
-    std::map<std::wstring, UINT_PTR>                  myVerbsMap;
-    std::map<UINT_PTR, std::wstring>                  myVerbsIDMap;
-    std::wstring                                      m_folder;
-    std::vector<std::wstring>                         m_files;
-    std::vector<std::wstring>                         m_urls;
-    DWORD                                             itemStates;       ///< see the globals.h file for the ITEMIS_* defines
-    DWORD                                             itemStatesFolder; ///< used for states of the folder_ (folder background and/or drop target folder)
-    std::wstring                                      uuidSource;
-    std::wstring                                      uuidTarget;
-    int                                               space;
-    wchar_t                                           stringTableBuffer[255];
-    std::wstring                                      mainColumnFilePath;  ///< holds the last file/dir path for the column provider
-    std::wstring                                      extraColumnFilePath; ///< holds the last file/dir path for the column provider
-    std::wstring                                      columnAuthor;        ///< holds the corresponding author of the file/dir above
-    std::wstring                                      itemUrl;
-    std::wstring                                      itemShortUrl;
-    std::wstring                                      ignoredProps;
-    std::wstring                                      ignoredGlobalProps;
-    std::wstring                                      owner;
-    svn_revnum_t                                      columnRev; ///< holds the corresponding revision to the file/dir above
-    svn_wc_status_kind                                fileStatus;
-    CRegStdString                                     regDiffLater;
-    Microsoft::WRL::ComPtr<IUnknown>                  m_site;
+    static MenuInfo                                       menuInfo[];
+    FileState                                             m_state;
+    volatile ULONG                                        m_cRef;
+    // std::map<int,std::string> verbMap;
+    std::map<UINT_PTR, UINT_PTR>                          myIDMap;
+    std::map<UINT_PTR, UINT_PTR>                          mySubMenuMap;
+    std::map<std::wstring, UINT_PTR>                      myVerbsMap;
+    std::map<UINT_PTR, std::wstring>                      myVerbsIDMap;
+    std::wstring                                          m_folder;
+    std::vector<std::wstring>                             m_files;
+    std::vector<std::wstring>                             m_urls;
+    DWORD                                                 itemStates;       ///< see the globals.h file for the ITEMIS_* defines
+    DWORD                                                 itemStatesFolder; ///< used for states of the folder_ (folder background and/or drop target folder)
+    std::wstring                                          uuidSource;
+    std::wstring                                          uuidTarget;
+    int                                                   space;
+    wchar_t                                               stringTableBuffer[255];
+    std::wstring                                          mainColumnFilePath;  ///< holds the last file/dir path for the column provider
+    std::wstring                                          extraColumnFilePath; ///< holds the last file/dir path for the column provider
+    std::wstring                                          columnAuthor;        ///< holds the corresponding author of the file/dir above
+    std::wstring                                          itemUrl;
+    std::wstring                                          itemShortUrl;
+    std::wstring                                          ignoredProps;
+    std::wstring                                          ignoredGlobalProps;
+    std::wstring                                          owner;
+    svn_revnum_t                                          columnRev; ///< holds the corresponding revision to the file/dir above
+    svn_wc_status_kind                                    fileStatus;
+    CRegStdString                                         regDiffLater;
+    Microsoft::WRL::ComPtr<IUnknown>                      m_site;
 
-    SVNFolderStatus                                   m_cachedStatus; // status cache
-    CRemoteCacheLink                                  m_remoteCacheLink;
-    IconBitmapUtils                                   m_iconBitmapUtils;
+    SVNFolderStatus                                       m_cachedStatus; // status cache
+    CRemoteCacheLink                                      m_remoteCacheLink;
+    IconBitmapUtils                                       m_iconBitmapUtils;
 
-    CString                                           columnFolder;    ///< current folder of ColumnProvider
-    std::vector<std::pair<std::wstring, std::string>> columnUserProps; ///< user properties of ColumnProvider
-    std::vector<CExplorerCommand>                     m_explorerCommands;
+    CString                                               columnFolder;    ///< current folder of ColumnProvider
+    std::vector<std::pair<std::wstring, std::string>>     columnUserProps; ///< user properties of ColumnProvider
+    std::vector<Microsoft::WRL::ComPtr<CExplorerCommand>> m_explorerCommands;
 
 #define MAKESTRING(ID) LoadStringEx(g_hResInst, ID, stringTableBuffer, _countof(stringTableBuffer), (WORD)CRegStdDWORD(L"Software\\TortoiseSVN\\LanguageID", MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)))
 private:

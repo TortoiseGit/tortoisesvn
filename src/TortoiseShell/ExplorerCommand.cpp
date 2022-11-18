@@ -19,41 +19,12 @@
 #include "stdafx.h"
 #include "ExplorerCommand.h"
 
-CExplorerCommandEnum::CExplorerCommandEnum(const std::vector<CExplorerCommand> &vec)
-    : m_cRefCount(0)
-    , m_iCur(0)
+#include "ShellExt.h"
+
+CExplorerCommandEnum::CExplorerCommandEnum(const std::vector<Microsoft::WRL::ComPtr<CExplorerCommand>> &vec)
+    : m_iCur(0)
 {
     m_vecCommands = vec;
-}
-
-HRESULT __stdcall CExplorerCommandEnum::QueryInterface(REFIID refiid, void **ppv)
-{
-    *ppv = nullptr;
-    if (IID_IUnknown == refiid || IID_IEnumExplorerCommand == refiid)
-        *ppv = this;
-
-    if (*ppv != nullptr)
-    {
-        static_cast<LPUNKNOWN>(*ppv)->AddRef();
-        return S_OK;
-    }
-    return E_NOINTERFACE;
-}
-
-ULONG __stdcall CExplorerCommandEnum::AddRef()
-{
-    return ++m_cRefCount;
-}
-
-ULONG __stdcall CExplorerCommandEnum::Release()
-{
-    --m_cRefCount;
-    if (m_cRefCount == 0)
-    {
-        delete this;
-        return 0;
-    }
-    return m_cRefCount;
 }
 
 HRESULT __stdcall CExplorerCommandEnum::Next(ULONG celt, IExplorerCommand **rgelt, ULONG *pceltFetched)
@@ -71,17 +42,17 @@ HRESULT __stdcall CExplorerCommandEnum::Next(ULONG celt, IExplorerCommand **rgel
         if (m_iCur == static_cast<ULONG>(m_vecCommands.size()))
             break;
 
-        rgelt[i] = new CExplorerCommand(m_vecCommands[m_iCur].m_title,
-                                        m_vecCommands[m_iCur].m_iconId,
-                                        m_vecCommands[m_iCur].m_cmd,
-                                        m_vecCommands[m_iCur].m_appDir,
-                                        m_vecCommands[m_iCur].m_uuidSource,
-                                        m_vecCommands[m_iCur].m_itemStates,
-                                        m_vecCommands[m_iCur].m_itemStatesFolder,
-                                        m_vecCommands[m_iCur].m_paths,
-                                        m_vecCommands[m_iCur].m_subItems,
-                                        m_vecCommands[m_iCur].m_site);
-        rgelt[i]->AddRef();
+        rgelt[i] = Microsoft::WRL::Make<CExplorerCommand>(m_vecCommands[m_iCur]->m_title,
+                                                          m_vecCommands[m_iCur]->m_iconId,
+                                                          m_vecCommands[m_iCur]->m_cmd,
+                                                          m_vecCommands[m_iCur]->m_appDir,
+                                                          m_vecCommands[m_iCur]->m_uuidSource,
+                                                          m_vecCommands[m_iCur]->m_itemStates,
+                                                          m_vecCommands[m_iCur]->m_itemStatesFolder,
+                                                          m_vecCommands[m_iCur]->m_paths,
+                                                          m_vecCommands[m_iCur]->m_subItems,
+                                                          m_vecCommands[m_iCur]->m_site)
+                       .Detach();
 
         if (pceltFetched)
             (*pceltFetched)++;
@@ -116,11 +87,10 @@ HRESULT __stdcall CExplorerCommandEnum::Clone(IEnumExplorerCommand **ppenum)
 
     try
     {
-        CExplorerCommandEnum *newEnum = new CExplorerCommandEnum(m_vecCommands);
+        auto newEnum    = Microsoft::WRL::Make<CExplorerCommandEnum>(m_vecCommands);
 
-        newEnum->AddRef();
         newEnum->m_iCur = m_iCur;
-        *ppenum         = newEnum;
+        *ppenum         = newEnum.Detach();
     }
     catch (const std::bad_alloc &)
     {
@@ -130,16 +100,15 @@ HRESULT __stdcall CExplorerCommandEnum::Clone(IEnumExplorerCommand **ppenum)
 }
 
 CExplorerCommand::CExplorerCommand(const std::wstring &title, UINT iconId,
-                                   int                              cmd,
-                                   const std::wstring &             appDir,
-                                   const std::wstring &             uuidSource,
-                                   DWORD                            itemStates,
-                                   DWORD                            itemStatesFolder,
-                                   std::vector<std::wstring>        paths,
-                                   std::vector<CExplorerCommand>    subItems,
-                                   Microsoft::WRL::ComPtr<IUnknown> site)
-    : m_cRefCount(0)
-    , m_title(title)
+                                   int                                                   cmd,
+                                   const std::wstring                                   &appDir,
+                                   const std::wstring                                   &uuidSource,
+                                   DWORD                                                 itemStates,
+                                   DWORD                                                 itemStatesFolder,
+                                   std::vector<std::wstring>                             paths,
+                                   std::vector<Microsoft::WRL::ComPtr<CExplorerCommand>> subItems,
+                                   Microsoft::WRL::ComPtr<IUnknown>                      site)
+    : m_title(title)
     , m_iconId(iconId)
     , m_cmd(cmd)
     , m_appDir(appDir)
@@ -150,37 +119,6 @@ CExplorerCommand::CExplorerCommand(const std::wstring &title, UINT iconId,
     , m_subItems(subItems)
     , m_site(site)
 {
-}
-
-HRESULT __stdcall CExplorerCommand::QueryInterface(REFIID refiid, void **ppv)
-{
-    *ppv = nullptr;
-    if (IID_IUnknown == refiid || IID_IExplorerCommand == refiid)
-        *ppv = this;
-
-    if (*ppv != nullptr)
-    {
-        static_cast<LPUNKNOWN>(*ppv)->AddRef();
-        return S_OK;
-    }
-    return E_NOINTERFACE;
-}
-
-ULONG __stdcall CExplorerCommand::AddRef()
-{
-    return ++m_cRefCount;
-}
-
-ULONG __stdcall CExplorerCommand::Release()
-{
-    --m_cRefCount;
-    if (m_cRefCount == 0)
-    {
-        CTraceToOutputDebugString::Instance()( L"refcount zero: title: %s\n", m_title.c_str());
-        delete this;
-        return 0;
-    }
-    return m_cRefCount;
 }
 
 HRESULT __stdcall CExplorerCommand::GetTitle(IShellItemArray * /*psiItemArray*/, LPWSTR *ppszName)
@@ -209,7 +147,7 @@ HRESULT __stdcall CExplorerCommand::GetIcon(IShellItemArray * /*psiItemArray*/, 
     return S_OK;
 }
 
-HRESULT __stdcall CExplorerCommand::GetToolTip(IShellItemArray * /*psiItemArray*/, LPWSTR * ppszInfotip)
+HRESULT __stdcall CExplorerCommand::GetToolTip(IShellItemArray * /*psiItemArray*/, LPWSTR *ppszInfotip)
 {
     CTraceToOutputDebugString::Instance()(__FUNCTION__ L": title: %s\n", m_title.c_str());
     *ppszInfotip = nullptr;
@@ -279,8 +217,7 @@ HRESULT __stdcall CExplorerCommand::EnumSubCommands(IEnumExplorerCommand **ppEnu
     CTraceToOutputDebugString::Instance()(__FUNCTION__ L": title: %s\n", m_title.c_str());
     if (m_subItems.empty())
         return E_NOTIMPL;
-    *ppEnum = new CExplorerCommandEnum(m_subItems);
-    (*ppEnum)->AddRef();
+    *ppEnum = Microsoft::WRL::Make<CExplorerCommandEnum>(m_subItems).Detach();
     return S_OK;
 }
 
