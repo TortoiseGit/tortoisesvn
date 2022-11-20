@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2021 - TortoiseSVN
+// Copyright (C) 2003-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -463,7 +463,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
         UnionRect(&rc, &rcBar, &rcTree);
         ScreenToClient(&rc);
         m_repoTree.MoveWindow(&rc, FALSE);
-        AddAnchor(IDC_REPOTREE, TOP_LEFT, BOTTOM_LEFT);
+        AddAnchor(IDC_REPOTREE, TOP_LEFT, BOTTOM_RIGHT);
     }
     SetPromptParentWindow(m_hWnd);
     InterlockedExchange(&m_bThreadRunning, TRUE);
