@@ -8739,10 +8739,6 @@ void CLogDlg::MonitorEditProject(MonitorItem* pProject, const CString& sParentPa
         pEditProject->userName   = CStringUtils::Encrypt(dlg.m_sUsername);
         pEditProject->password   = CStringUtils::Encrypt(dlg.m_sPassword);
         pEditProject->parentPath = dlg.m_isParentPath;
-        pEditProject->userName.Remove('\r');
-        pEditProject->password.Remove('\r');
-        pEditProject->userName.Replace('\n', ' ');
-        pEditProject->password.Replace('\n', ' ');
         pEditProject->sMsgRegex = dlg.m_sIgnoreRegex;
         try
         {
