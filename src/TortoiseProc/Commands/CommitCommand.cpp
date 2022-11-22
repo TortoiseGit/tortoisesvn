@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2014, 2018, 2021 - TortoiseSVN
+// Copyright (C) 2007-2014, 2018, 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -62,6 +62,7 @@ bool CommitCommand::IsOutOfDate(const svn_error_t* pErr)
         const apr_status_t errorStatus = pErr->apr_err;
         if ((errorStatus == SVN_ERR_FS_TXN_OUT_OF_DATE) ||
             (errorStatus == SVN_ERR_RA_OUT_OF_DATE) ||
+            (errorStatus == SVN_ERR_WC_NOT_UP_TO_DATE) ||
             (errorStatus == SVN_ERR_FS_CONFLICT))
         {
             return true;
