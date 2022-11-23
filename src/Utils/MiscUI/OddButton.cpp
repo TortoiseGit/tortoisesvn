@@ -201,7 +201,7 @@ void COddButton::EnableDefault(BOOL bEnable)
     \param pDialog Dialog to set the default pushbutton
     \param nID Button ID to make default
     \note It fixes the drawing problem that sometimes occurs when using plain CDialog::SetDefID,
-    see also MS kb Q67655 (<A HREF="http://support.microsoft.com/default.aspx?scid=KB;EN-US;Q67655&">
+    see also MS kb Q67655 (<A HREF="https://www.betaarchive.com/wiki/index.php/Microsoft_KB_Archive/67655">
     HOWTO: Change or Set the Default Push Button in a Dialog Box</A>)
 */
 void COddButton::SetDefID(CDialog* pDialog, const UINT nID)
