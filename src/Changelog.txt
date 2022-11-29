@@ -9,6 +9,8 @@
 - BUG: the repository tree control in the Checkout "Choose
        items" dialog didn't resize properly when resizing
        the window. (Daniel Sahlberg)
+- BUG: TMerge didn't properly restore line numbers when undoing
+       pasting multiple lines. (Daniel Sahlberg)
 
 Version 1.14.5
 - BUG: 1.14.4 was wrongly linked against svn 1.14.1

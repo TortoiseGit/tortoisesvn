@@ -6765,9 +6765,9 @@ void CBaseView::InsertText(const CString& sText)
         {
             m_pwndBottom->InsertViewEmptyLines(nViewLine + 1, nLinesToPaste - 1);
         }
+        UpdateViewLineNumbers();
         SaveUndoStep();
 
-        UpdateViewLineNumbers();
         CUndo::GetInstance().EndGrouping();
 
         ptCaretViewPos = SetupPoint(lines[nLinesToPaste - 1LL].GetLength(), nInsertLine);
