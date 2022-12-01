@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009-2015, 2021 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009-2015, 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -565,6 +565,7 @@ void CLogDataVector::Finalize(std::unique_ptr<const CCacheLogQuery> aQuery, cons
     {
         CCacheLogQuery* tempQuery = const_cast<CCacheLogQuery*>(query.get());
         aQuery->UpdateCache(tempQuery);
+        return;
     }
     else
         query = std::move(aQuery);
