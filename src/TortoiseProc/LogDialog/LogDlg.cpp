@@ -8749,6 +8749,7 @@ void CLogDlg::MonitorEditProject(MonitorItem* pProject, const CString& sParentPa
             pEditProject->msgRegex = std::wregex();
             pEditProject->sMsgRegex.Empty();
         }
+        pEditProject->authorsToIgnore.clear();
         stringtok(pEditProject->authorsToIgnore, CUnicodeUtils::StdGetUTF8(static_cast<LPCWSTR>(dlg.m_sIgnoreUsers)), true, " ,;");
 
         // insert the new item
