@@ -13,6 +13,9 @@
        pasting multiple lines. (Daniel Sahlberg)
 - BUG: Project monitor duplicated the list of Users to ignore
        every time a project was edited. (Daniel Sahlberg)
+- BUG: Project monitor kept an error status on a project that had
+       temporary connection issues, even after the next connection
+       was successful. (Daniel Sahlberg)
 
 Version 1.14.5
 - BUG: 1.14.4 was wrongly linked against svn 1.14.1
