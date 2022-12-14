@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012, 2014, 2020-2021 - TortoiseSVN
+// Copyright (C) 2007-2012, 2014, 2020-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -152,7 +152,10 @@ bool CheckoutCommand::Execute()
         if (!dlg.m_checkoutDepths.empty())
             progDlg.SetPathDepths(dlg.m_checkoutDepths);
         progDlg.SetAutoClose(parser);
-        progDlg.SetOptions(dlg.m_bNoExternals ? ProgOptIgnoreExternals : ProgOptNone);
+        DWORD options = dlg.m_bStorePristines ? ProgOptStorePristines : ProgOptNone;
+        if (dlg.m_bNoExternals)
+            options |= ProgOptIgnoreExternals;
+        progDlg.SetOptions(options);
         progDlg.SetPathList(CTSVNPathList(checkoutDirectory));
         progDlg.SetUrl(dlg.m_urLs.CreateAsteriskSeparatedString());
         progDlg.SetRevision(dlg.m_revision);

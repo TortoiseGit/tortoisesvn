@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012, 2015, 2021 - TortoiseSVN
+// Copyright (C) 2003-2012, 2015, 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,7 +32,7 @@ class CLogDlg;
  * Prompts the user for required information for a checkout command. The information
  * is the module name and the repository url.
  */
-class CCheckoutDlg : public CResizableStandAloneDialog //CResizableStandAloneDialog
+class CCheckoutDlg : public CResizableStandAloneDialog // CResizableStandAloneDialog
 {
     DECLARE_DYNAMIC(CCheckoutDlg)
 
@@ -78,18 +78,19 @@ protected:
     bool      m_bBlockMessages;
 
 public:
-    CHistoryCombo m_urlCombo;
-    CTSVNPathList m_urLs;
-    SVNRev        m_revision;
-    BOOL          m_bNoExternals;
-    BOOL          m_bIndependentWCs;
-    CButton       m_butBrowse;
-    CEdit         m_editRevision;
-    CString       m_strCheckoutDirectory;
-    CFileDropEdit m_cCheckoutEdit;
-    CLogDlg*      m_pLogDlg;
-    svn_depth_t   m_depth;
-    BOOL          m_blockPathAdjustments;
+    CHistoryCombo                  m_urlCombo;
+    CTSVNPathList                  m_urLs;
+    SVNRev                         m_revision;
+    BOOL                           m_bNoExternals;
+    BOOL                           m_bIndependentWCs;
+    CButton                        m_butBrowse;
+    CEdit                          m_editRevision;
+    CString                        m_strCheckoutDirectory;
+    CFileDropEdit                  m_cCheckoutEdit;
+    CLogDlg*                       m_pLogDlg;
+    svn_depth_t                    m_depth;
+    BOOL                           m_bStorePristines;
+    BOOL                           m_blockPathAdjustments;
 
     std::map<CString, svn_depth_t> m_checkoutDepths;
     bool                           m_standardCheckout; ///< true if only one path got selected and that URL path is a folder

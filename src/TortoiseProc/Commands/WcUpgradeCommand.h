@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2016, 2021 - TortoiseSVN
+// Copyright (C) 2010-2016, 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -59,7 +59,7 @@ public:
                 progress.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROC_CLEANUP_INFO2)));
                 progress.ShowModeless(GetExplorerHWND());
                 CBlockCacheForPath cacheBlock(pathList[i].GetWinPath());
-                if (!Upgrade(pathList[i]))
+                if (!Upgrade(pathList[i], nullptr))
                 {
                     progress.Stop();
                     ShowErrorDialog(GetExplorerHWND());

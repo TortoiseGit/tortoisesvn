@@ -62,6 +62,7 @@ enum ProgressOptions
     ProgOptAllowMixedRev     = 0x80000,
     ProgOptSkipPreChecks     = 0x100000,
     ProgOptClearChangeLists  = 0x200000,
+    ProgOptStorePristines    = 0x400000,
 };
 
 enum ProgressCloseOptions

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015, 2020-2021 - TortoiseSVN
+// Copyright (C) 2003-2015, 2020-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,6 +38,7 @@ CCheckoutDlg::CCheckoutDlg(CWnd* pParent /*=NULL*/)
     , m_blockPathAdjustments(FALSE)
     , m_standardCheckout(true)
     , m_parentExists(false)
+    , m_bStorePristines(FALSE)
 {
 }
 
@@ -58,6 +59,7 @@ void CCheckoutDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_INDEPENDENTWCS, m_bIndependentWCs);
     DDX_Control(pDX, IDC_CHECKOUTDIRECTORY, m_cCheckoutEdit);
     DDX_Control(pDX, IDC_DEPTH, m_depthCombo);
+    DDX_Check(pDX, IDC_STORE_PRISTINES, m_bStorePristines);
 }
 
 BEGIN_MESSAGE_MAP(CCheckoutDlg, CResizableStandAloneDialog)
@@ -144,8 +146,12 @@ BOOL CCheckoutDlg::OnInitDialog()
     m_aeroControls.SubclassOkCancelHelp(this);
 
     AdjustControlSize(IDC_NOEXTERNALS);
+    AdjustControlSize(IDC_INDEPENDENTWCS);
+    AdjustControlSize(IDC_STORE_PRISTINES);
     AdjustControlSize(IDC_REVISION_HEAD);
     AdjustControlSize(IDC_REVISION_N);
+
+    CheckDlgButton(IDC_STORE_PRISTINES, BST_CHECKED);
 
     m_sCheckoutDirOrig = m_strCheckoutDirectory;
 
@@ -204,6 +210,7 @@ BOOL CCheckoutDlg::OnInitDialog()
     AddAnchor(IDC_CHECKOUTDIRECTORY, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_CHECKOUTDIRECTORY_BROWSE, TOP_RIGHT);
     AddAnchor(IDC_INDEPENDENTWCS, TOP_LEFT, TOP_RIGHT);
+    AddAnchor(IDC_STORE_PRISTINES, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_GROUPMIDDLE, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_DEPTH, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_NOEXTERNALS, TOP_LEFT);
