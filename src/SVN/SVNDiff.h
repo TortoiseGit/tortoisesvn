@@ -45,12 +45,12 @@ public:
      * \param textStatus
      * \param propStatus
      */
-    bool DiffFileAgainstBase(const CTSVNPath& filePath, svn_revnum_t& baseRev, bool ignoreProps, svn_wc_status_kind status = svn_wc_status_none, svn_wc_status_kind textStatus = svn_wc_status_none, svn_wc_status_kind propStatus = svn_wc_status_none) const;
+    bool DiffFileAgainstBase(HWND hParent, const CTSVNPath& filePath, svn_revnum_t& baseRev, bool ignoreProps, svn_wc_status_kind status = svn_wc_status_none, svn_wc_status_kind textStatus = svn_wc_status_none, svn_wc_status_kind propStatus = svn_wc_status_none) const;
 
     /**
      * Shows a diff of a file in the working copy with its BASE.
      */
-    bool DiffWCFile(const CTSVNPath&   filePath,
+    bool DiffWCFile(HWND hParent, const CTSVNPath& filePath,
                     bool               ignoreProps,
                     svn_wc_status_kind status           = svn_wc_status_none,
                     svn_wc_status_kind textStatus       = svn_wc_status_none,

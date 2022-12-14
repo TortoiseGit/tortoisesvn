@@ -1115,7 +1115,7 @@ void CCommitDlg::GetAutocompletionList(std::map<CString, int>& autolist)
             (entry->status != svn_wc_status_added) &&
             (entry->textStatus != svn_wc_status_normal))
         {
-            CTSVNPath basePath = SVN::GetPristinePath(entry->GetPath());
+            CTSVNPath basePath = SVN::GetPristinePath(nullptr, entry->GetPath());
             if (!basePath.IsEmpty())
                 ScanFile(autolist, basePath.GetWinPathString(), rData, sExt);
         }

@@ -2987,7 +2987,7 @@ CString SVN::RevPropertyGet(const CString& sName, const CTSVNPath& url, const SV
     return CUnicodeUtils::GetUnicode(propVal->data);
 }
 
-CTSVNPath SVN::GetPristinePath(const CTSVNPath& wcPath)
+CTSVNPath SVN::GetPristinePath(HWND hParent, const CTSVNPath& wcPath)
 {
     SVNPool     localPool;
 
@@ -3008,6 +3008,29 @@ CTSVNPath SVN::GetPristinePath(const CTSVNPath& wcPath)
 
     if (err != nullptr)
     {
+        if (hParent && (err->apr_err == SVN_ERR_WC_PRISTINE_DEHYDRATED ||
+                        err->apr_err == SVN_ERR_WC_DEPRECATED_API_STORE_PRISTINE))
+        {
+            SVN svn;
+            CProgressDlg progressDlg;
+            progressDlg.SetTitle(IDS_APPNAME);
+            progressDlg.SetTime(false);
+            progressDlg.FormatPathLine(1, IDS_PROGRESSGETBASEFILE, static_cast<LPCWSTR>(wcPath.GetUIFileOrDirectoryName()));
+            progressDlg.ShowModeless(hParent, true);
+
+            svn.SetAndClearProgressInfo(&progressDlg, true); // activate progress bar
+            auto tempFile = CTempFiles::Instance().GetTempFilePath(true);
+            if (svn.Cat(wcPath, SVNRev::REV_WC, SVNRev::REV_BASE, tempFile))
+            {
+                svn_error_clear(err);
+                returnPath = tempFile;
+                svn.SetAndClearProgressInfo(static_cast<HWND>(nullptr));
+                progressDlg.Stop();
+                return returnPath;
+            }
+            progressDlg.Stop();
+        }
+
         svn_error_clear(err);
         return returnPath;
     }

@@ -60,7 +60,7 @@ SVNDiff::~SVNDiff()
         delete m_pSVN;
 }
 
-bool SVNDiff::DiffWCFile(const CTSVNPath&   filePath,
+bool SVNDiff::DiffWCFile(HWND hParent, const CTSVNPath& filePath,
                          bool               ignoreProps,
                          svn_wc_status_kind status, /* = svn_wc_status_none */
                          svn_wc_status_kind textStatus /* = svn_wc_status_none */,
@@ -89,7 +89,7 @@ bool SVNDiff::DiffWCFile(const CTSVNPath&   filePath,
 
     if ((status > svn_wc_status_normal) || (textStatus > svn_wc_status_normal))
     {
-        basePath = SVN::GetPristinePath(filePath);
+        basePath = SVN::GetPristinePath(hParent, filePath);
         if (baseRev == 0)
         {
             SVNStatus            stat;
@@ -118,21 +118,21 @@ bool SVNDiff::DiffWCFile(const CTSVNPath&   filePath,
     {
         remotePath = CTempFiles::Instance().GetTempFilePath(false, filePath, SVNRev::REV_HEAD);
 
-        CProgressDlg progDlg;
-        progDlg.SetTitle(IDS_APPNAME);
-        progDlg.SetTime(false);
-        m_pSVN->SetAndClearProgressInfo(&progDlg, true); // activate progress bar
-        progDlg.ShowModeless(GetHWND());
-        progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, static_cast<LPCWSTR>(filePath.GetUIFileOrDirectoryName()));
+        CProgressDlg progressDlg;
+        progressDlg.SetTitle(IDS_APPNAME);
+        progressDlg.SetTime(false);
+        m_pSVN->SetAndClearProgressInfo(&progressDlg, true); // activate progress bar
+        progressDlg.ShowModeless(GetHWND());
+        progressDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, static_cast<LPCWSTR>(filePath.GetUIFileOrDirectoryName()));
         remoteRev = SVNRev::REV_HEAD;
         if (!m_pSVN->Export(filePath, remotePath, remoteRev, remoteRev))
         {
-            progDlg.Stop();
+            progressDlg.Stop();
             m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
             m_pSVN->ShowErrorDialog(GetHWND());
             return false;
         }
-        progDlg.Stop();
+        progressDlg.Stop();
         m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
         SetFileAttributes(remotePath.GetWinPath(), FILE_ATTRIBUTE_READONLY);
     }
@@ -155,7 +155,7 @@ bool SVNDiff::DiffWCFile(const CTSVNPath&   filePath,
     }
     else if (remotePath.IsEmpty())
     {
-        return DiffFileAgainstBase(filePath, baseRev, ignoreProps, status, textStatus, propStatus);
+        return DiffFileAgainstBase(hParent, filePath, baseRev, ignoreProps, status, textStatus, propStatus);
     }
     else
     {
@@ -168,7 +168,7 @@ bool SVNDiff::DiffWCFile(const CTSVNPath&   filePath,
     }
 }
 
-bool SVNDiff::DiffFileAgainstBase(const CTSVNPath& filePath, svn_revnum_t& baseRev, bool ignoreProps, svn_wc_status_kind status /*= svn_wc_status_none*/, svn_wc_status_kind textStatus /*= svn_wc_status_none*/, svn_wc_status_kind propStatus /*= svn_wc_status_none*/) const
+bool SVNDiff::DiffFileAgainstBase(HWND hParent, const CTSVNPath& filePath, svn_revnum_t& baseRev, bool ignoreProps, svn_wc_status_kind status /*= svn_wc_status_none*/, svn_wc_status_kind textStatus /*= svn_wc_status_none*/, svn_wc_status_kind propStatus /*= svn_wc_status_none*/) const
 {
     bool retValue     = false;
     bool fileExternal = false;
@@ -191,7 +191,7 @@ bool SVNDiff::DiffFileAgainstBase(const CTSVNPath& filePath, svn_revnum_t& baseR
         return true;
     if ((status >= svn_wc_status_normal) || (textStatus >= svn_wc_status_normal))
     {
-        CTSVNPath basePath(SVN::GetPristinePath(filePath));
+        CTSVNPath basePath(SVN::GetPristinePath(hParent, filePath));
         if (baseRev == 0)
         {
             SVNInfo            info;
@@ -250,8 +250,8 @@ bool SVNDiff::DiffFileAgainstBase(const CTSVNPath& filePath, svn_revnum_t& baseR
 
 bool SVNDiff::UnifiedDiff(CTSVNPath& tempFile, const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, const SVNRev& peg, bool prettyPrint, const CString& options, bool bIgnoreAncestry /* = false */, bool bIgnoreProperties /* = true */) const
 {
-    tempFile    = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, CTSVNPath(L"Test.diff"));
-    bool bIsUrl = !!SVN::PathIsURL(url1);
+    tempFile            = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, CTSVNPath(L"Test.diff"));
+    bool         bIsUrl = !!SVN::PathIsURL(url1);
 
     CProgressDlg progDlg;
     progDlg.SetTitle(IDS_APPNAME);
@@ -699,13 +699,13 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1, const CTSVN
 
 bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVNRev& rev2, svn_revnum_t& baseRev) const
 {
-    bool retValue = false;
+    bool           retValue = false;
     // diff the properties
-    SVNProperties propsWc(filePath, rev1, false, false);
-    SVNProperties propsBase(filePath, rev2, false, false);
+    SVNProperties  propsWc(filePath, rev1, false, false);
+    SVNProperties  propsBase(filePath, rev2, false, false);
 
-constexpr auto MAX_PATH_LENGTH = 80;
-    WCHAR pathBuf1[MAX_PATH] = {0};
+    constexpr auto MAX_PATH_LENGTH    = 80;
+    WCHAR          pathBuf1[MAX_PATH] = {0};
     if (filePath.GetWinPathString().GetLength() >= MAX_PATH)
     {
         std::wstring str = filePath.GetWinPath();

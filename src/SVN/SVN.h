@@ -889,8 +889,10 @@ public:
     /**
      * Returns the path to the text-base file of the working copy file.
      * If no text base exists for the file then the returned string is empty.
+     * if hParent is nullptr, do not fetch the BASE file if the pristine copy is not there.
+     * Otherwise use hParent to show a progress dialog while downloading the pristine copy.
      */
-    static CTSVNPath GetPristinePath(const CTSVNPath& wcPath);
+    static CTSVNPath         GetPristinePath(HWND hParent, const CTSVNPath& wcPath);
 
     /**
      * convert path to a subversion path (replace '\' with '/')

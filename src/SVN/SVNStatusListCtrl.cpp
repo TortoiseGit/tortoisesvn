@@ -3837,7 +3837,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd* pWnd, CPoint point)
                             SVNDiff diff(nullptr, m_hWnd, true);
                             diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
                             svn_revnum_t baseRev = entry2->revision;
-                            diff.DiffFileAgainstBase(
+                            diff.DiffFileAgainstBase(GetSafeHwnd(),
                                 entry2->path, baseRev, bIgnoreProps, entry2->textStatus, entry2->propStatus);
                         }
                     }
@@ -4546,7 +4546,7 @@ void CSVNStatusListCtrl::StartDiff(FileEntry* entry, bool ignoreProps) const
 
     SVNDiff diff(nullptr, m_hWnd, true);
     diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
-    diff.DiffWCFile(
+    diff.DiffWCFile(GetSafeHwnd(),
         entry->path, ignoreProps, entry->status, entry->textStatus, entry->propStatus,
         entry->remoteTextStatus, entry->remotePropStatus);
 }
@@ -5344,7 +5344,7 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR* pNMHDR, LRESULT* pRes
                     {
                         wcSize = fEntry->path.GetFileSize();
                     }
-                    CTSVNPath basePath    = SVN::GetPristinePath(fEntry->path);
+                    CTSVNPath basePath    = SVN::GetPristinePath(nullptr, fEntry->path);
                     baseSize              = basePath.GetFileSize();
                     WCHAR baseBuf[100]    = {0};
                     WCHAR wcBuf[100]      = {0};
