@@ -14,6 +14,9 @@
   <indexterm>
     <primary>partial checkout</primary>
   </indexterm>
+  <indexterm>
+    <primary>pristines on demand</primary>
+  </indexterm>
   <?dbhh topicname="HIDD_CHECKOUT"?>
   <para>
     To obtain a working copy you need to do a <firstterm>checkout</firstterm>
@@ -255,6 +258,39 @@
       </para>
     </tip>
   </sect2>
+
+  <sect2 id="tsvn-dug-checkout-pristines-on-demand">
+    <title>Store pristine copies</title>
+    <para>
+      The checkbox <guilabel>Store pristine copies in working copy</guilabel>
+      is checked by default. With this option enabled, Subversion caches each file's
+      <literal>BASE</literal> revision (the <literal>pristine</literal>) inside the
+      working copy. This is so that operations such as diffing and reverting work offline,
+      and a commit can just send the modified versions parts of a file to the repo server
+      rather than the whole file. This design optimizes the speed and availability of
+      these operations on the assumption that network connectivity to the repository
+      may be the bottleneck while local storage is cheap.
+      For version pre 1.15 this was the only way Subversion worked.
+    </para>
+    <para>
+      Since Subversion 1.15, you can avoid having a copy of each file stored
+      in the working copy. Subversion will then download the pristine copy
+      only when needed ("<literal>on demand</literal>").
+      This can be useful if you have really large files to work with or if you
+      have a lot of binary files which rarely change.
+    </para>
+    <para>
+      To avoid storing the pristine copies for all files, uncheck the checkbox
+      <guilabel>Store pristine copies in working copy</guilabel>.
+    </para>
+    <important>
+      <para>
+        If <guilabel>Store pristine copies in working copy</guilabel> is unchecked,
+        the resulting working copy will be unusable by pre 1.15 Subversion clients.
+      </para>
+    </important>
+  </sect2>
+
   <para>
     If the project contains references to external projects which you do
     <emphasis>not</emphasis> want checked out at the same time, use the

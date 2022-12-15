@@ -1871,6 +1871,10 @@ msgstr ""
 msgid "partial checkout"
 msgstr ""
 
+#. (primary)
+msgid "pristines on demand"
+msgstr ""
+
 #. (para)
 msgid "To obtain a working copy you need to do a <firstterm>checkout</firstterm> from a repository."
 msgstr ""
@@ -2012,6 +2016,26 @@ msgstr ""
 
 #. (para)
 msgid "Pre-1.5 servers do not understand the working copy depth request, so they cannot always deal with requests efficiently. The command will still work, but an older server may send all the data, leaving the client to filter out what is not required, which may mean a lot of network traffic. If possible you should upgrade your server to at least 1.5."
+msgstr ""
+
+#. (title)
+msgid "Store pristine copies"
+msgstr ""
+
+#. (para)
+msgid "The checkbox <guilabel>Store pristine copies in working copy</guilabel> is checked by default. With this option enabled, Subversion caches each file's <literal>BASE</literal> revision (the <literal>pristine</literal>) inside the working copy. This is so that operations such as diffing and reverting work offline, and a commit can just send the modified versions parts of a file to the repo server rather than the whole file. This design optimizes the speed and availability of these operations on the assumption that network connectivity to the repository may be the bottleneck while local storage is cheap. For version pre 1.15 this was the only way Subversion worked."
+msgstr ""
+
+#. (para)
+msgid "Since Subversion 1.15, you can avoid having a copy of each file stored in the working copy. Subversion will then download the pristine copy only when needed (\"<literal>on demand</literal>\"). This can be useful if you have really large files to work with or if you have a lot of binary files which rarely change."
+msgstr ""
+
+#. (para)
+msgid "To avoid storing the pristine copies for all files, uncheck the checkbox <guilabel>Store pristine copies in working copy</guilabel>."
+msgstr ""
+
+#. (para)
+msgid "If <guilabel>Store pristine copies in working copy</guilabel> is unchecked, the resulting working copy will be unusable by pre 1.15 Subversion clients."
 msgstr ""
 
 #. (para)
