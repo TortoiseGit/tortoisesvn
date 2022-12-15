@@ -9933,6 +9933,7 @@ void CLogDlg::ShowContextMenuForMonitorTree(CWnd* /*pWnd*/, CPoint point)
         // entry is selected, now show the popup menu
         popup.AppendMenuIcon(ID_LOGDLG_MONITOR_EDIT, IDS_LOG_POPUP_MONITOREDIT, IDI_MONITOR_EDIT);
         popup.AppendMenuIcon(ID_LOGDLG_MONITOR_REMOVE, IDS_LOG_POPUP_MONITORREMOVE, IDI_MONITOR_REMOVE);
+        popup.AppendMenuIcon(ID_LOGDLG_MONITOR_CHECKNOW, IDS_MONITOR_CHECKTHISPROJECT, IDI_MONITOR_GETALL);
         popup.AppendMenu(MF_SEPARATOR, NULL);
         popup.AppendMenuIcon(ID_LOGDLG_MONITOR_ADDSUBPROJECT, IDS_LOG_POPUP_MONITORADDSUB, IDI_MONITOR_ADD);
 
@@ -9968,6 +9969,17 @@ void CLogDlg::ShowContextMenuForMonitorTree(CWnd* /*pWnd*/, CPoint point)
             break;
         case ID_LOGDLG_MONITOR_REMOVE:
             OnMonitorRemoveProject();
+            break;
+        case ID_LOGDLG_MONITOR_CHECKNOW:
+            if (m_bLogThreadRunning || m_bMonitorThreadRunning || netScheduler.GetRunningThreadCount())
+            {
+                SetDlgItemText(IDC_LOGINFO, CString(MAKEINTRESOURCE(IDS_MONITOR_THREADRUNNING)));
+                return;
+            }
+            // mark this entry as 'never checked before'
+            pItem->lastChecked = 0;
+            // start the check timer
+            SetTimer(MONITOR_TIMER, 1000, nullptr);
             break;
         case ID_UPDATE:
         {
