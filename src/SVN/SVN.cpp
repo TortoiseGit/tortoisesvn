@@ -2733,6 +2733,19 @@ svn_revnum_t SVN::GetHEADRevision(const CTSVNPath& path, bool cacheAllowed)
         ClearCAPIAuthCacheOnError();
         if (m_err)
             return -1;
+
+        /* Check if path actually exist */
+        svn_dirent_t *dirent;
+        SVNTRACE(
+            svn_ra_stat(raSession, "", rev, &dirent, localPool),
+            urla);
+        if (dirent == nullptr)
+        {
+            CString message(MAKEINTRESOURCE(IDS_SVN_URL_NONEXISTENT_IN_REV));
+            m_err = svn_error_createf(SVN_ERR_RA_ILLEGAL_URL, NULL, CUnicodeUtils::GetUTF8(message).GetString(), urla, rev);
+            return -1;
+        }
+
         return rev;
     }
 }
