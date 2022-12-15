@@ -88,6 +88,7 @@
               issue number and not the link to it.
               e.g the TortoiseSVN project is using
               <systemitem class="url">http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>.
+			  <!-- No longer relevant? Remove bugtraq:url property from repo? -->
             </para>
             <para>
               You can also use relative URLs instead of absolute ones. This is
@@ -104,6 +105,7 @@
               <systemitem class="url">https://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>
               if your repository is located on
               <systemitem class="url">https://tortoisesvn.net/svn/trunk/</systemitem>.
+			  <!--rework example -->
             </para>
             <para>
               A URL beginning with the string <literal>/</literal> is assumed
@@ -113,6 +115,7 @@
               <systemitem class="url">https://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>
               if your repository is located anywhere on
               <systemitem class="url">https://tortoisesvn.net</systemitem>.
+			  <!-- rework example -->
             </para>
           </listitem>
         </varlistentry>
@@ -275,8 +278,8 @@
                   <citetitle>https://en.wikipedia.org/wiki/Regular_expression</citetitle>
                 </ulink>,
                 and the online documentation and tutorial at
-                <ulink url="http://www.regular-expressions.info/">
-                  <citetitle>http://www.regular-expressions.info/</citetitle>
+                <ulink url="https://www.regular-expressions.info/">
+                  <citetitle>https://www.regular-expressions.info/</citetitle>
                 </ulink>.
               </para>
               <para>
@@ -400,14 +403,15 @@
       A summary of the API is also given in <xref linkend="tsvn-ibugtraqprovider"/>.
 
       Another (working) example plugin in C# is
-      <ulink url="http://code.google.com/p/gurtle/">
+      <ulink url="https://code.google.com/p/gurtle/">
         <citetitle>Gurtle</citetitle>
       </ulink>
       which implements the required COM interface to interact with the
-      <ulink url="http://code.google.com/hosting/">
+      <ulink url="https://code.google.com/hosting/">
         <citetitle>Google Code</citetitle>
       </ulink>
-      issue tracker.
+      issue tracker. Google Code itself is turned down as of 2016, but the
+      plugin is still available as an example implementation.
     </para>
     <para>
       For illustration purposes, let's suppose that your system administrator
