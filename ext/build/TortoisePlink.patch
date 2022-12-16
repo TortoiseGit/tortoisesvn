@@ -1,8 +1,8 @@
-Index: ext/TortoisePlink/cmdline.c
+Index: cmdline.c
 ===================================================================
---- ext/TortoisePlink/cmdline.c	(revision 29425)
-+++ ext/TortoisePlink/cmdline.c	(working copy)
-@@ -182,11 +182,11 @@
+--- cmdline.c	(revision 29506)
++++ cmdline.c	(working copy)
+@@ -186,11 +186,11 @@
  }
  
  int cmdline_process_param(const char *p, char *value,
@@ -16,7 +16,7 @@ Index: ext/TortoisePlink/cmdline.c
          if (need_save < 0)
              return 0;
  
-@@ -400,7 +400,7 @@
+@@ -404,7 +404,7 @@
               * deferred until it's a good moment to run it.
               */
              char *dup = dupstr(p);     /* 'value' is not a const char * */
@@ -25,7 +25,7 @@ Index: ext/TortoisePlink/cmdline.c
              sfree(dup);
              assert(retd == 2);
              seen_port_argument = true;
-@@ -414,6 +414,9 @@
+@@ -418,6 +418,9 @@
          }
      }
  
@@ -35,7 +35,7 @@ Index: ext/TortoisePlink/cmdline.c
      if (!strcmp(p, "-load")) {
          RETURN(2);
          /* This parameter must be processed immediately rather than being
-@@ -577,7 +580,7 @@
+@@ -581,7 +584,7 @@
          conf_set_bool(conf, CONF_nopty, true);   /* command => no terminal */
          strbuf_free(command);
      }
@@ -44,7 +44,7 @@ Index: ext/TortoisePlink/cmdline.c
          RETURN(2);
          UNAVAILABLE_IN(TOOLTYPE_NONNETWORK);
          SAVEABLE(1);            /* lower priority than -ssh, -telnet, etc */
-@@ -911,7 +914,7 @@
+@@ -925,7 +928,7 @@
      for (size_t pri = 0; pri < NPRIORITIES; pri++) {
          for (size_t i = 0; i < saves[pri].nsaved; i++) {
              cmdline_process_param(saves[pri].params[i].p,
@@ -53,61 +53,11 @@ Index: ext/TortoisePlink/cmdline.c
              sfree(saves[pri].params[i].p);
              sfree(saves[pri].params[i].value);
          }
-Index: ext/TortoisePlink/console.c
+Index: console.c
 ===================================================================
---- ext/TortoisePlink/console.c	(revision 29425)
-+++ ext/TortoisePlink/console.c	(working copy)
-@@ -1,4 +1,4 @@
--/*
-+﻿/*
-  * Common pieces between the platform console frontend modules.
-  */
- 
-@@ -9,6 +9,9 @@
- #include "misc.h"
- #include "console.h"
- 
-+#include "LoginDialog.h"
-+
-+
- char *hk_absentmsg_common(const char *host, int port,
-                           const char *keytype, const char *fingerprint)
- {
-@@ -25,8 +28,8 @@
-     "If you trust this host, enter \"y\" to add the key to\n"
-     "PuTTY's cache and carry on connecting.\n"
-     "If you want to carry on connecting just once, without\n"
--    "adding the key to the cache, enter \"n\".\n"
--    "If you do not trust this host, press Return to abandon the\n"
-+    "adding the key to the cache, hit No.\n"
-+    "If you do not trust this host, hit Cancel to abandon the\n"
-     "connection.\n";
- const char hk_absentmsg_interactive_prompt[] =
-     "Store key in cache? (y/n, Return cancels connection, "
-@@ -49,15 +52,15 @@
- 
- const char hk_wrongmsg_interactive_intro[] =
-     "If you were expecting this change and trust the new key,\n"
--    "enter \"y\" to update PuTTY's cache and continue connecting.\n"
-+    "hit Yes to update PuTTY's cache and continue connecting.\n"
-     "If you want to carry on connecting but without updating\n"
--    "the cache, enter \"n\".\n"
--    "If you want to abandon the connection completely, press\n"
--    "Return to cancel. Pressing Return is the ONLY guaranteed\n"
-+    "the cache, hit No.\n"
-+    "If you want to abandon the connection completely, hit\n"
-+    "Cancel. Hitting Cancel is the ONLY guaranteed\n"
-     "safe choice.\n";
--const char hk_wrongmsg_interactive_prompt[] =
--    "Update cached key? (y/n, Return cancels connection, "
--    "i for more info) ";
-+//const char hk_wrongmsg_interactive_prompt[] =
-+//    "Update cached key? (y/n, Return cancels connection, "
-+//    "i for more info) ";
- 
- const char weakcrypto_msg_common_fmt[] =
-     "The first %s supported by the server is\n"
-@@ -70,8 +73,8 @@
+--- console.c	(revision 29506)
++++ console.c	(working copy)
+@@ -20,16 +20,16 @@
      "above the threshold, which we do not have stored:\n"
      "%s\n";
  
@@ -116,9 +66,21 @@ Index: ext/TortoisePlink/console.c
 +//const char console_continue_prompt[] = "Continue with connection? (y/n) ";
 +//const char console_abandoned_msg[] = "Connection abandoned.\n";
  
- bool console_batch_mode = false;
- 
-@@ -79,42 +82,36 @@
+ const SeatDialogPromptDescriptions *console_prompt_descriptions(Seat *seat)
+ {
+     static const SeatDialogPromptDescriptions descs = {
+-        .hk_accept_action = "enter \"y\"",
+-        .hk_connect_once_action = "enter \"n\"",
+-        .hk_cancel_action = "press Return",
+-        .hk_cancel_action_Participle = "Pressing Return",
++        .hk_accept_action = "hit Yes",
++        .hk_connect_once_action = "hit No",
++        .hk_cancel_action = "hit Cancel",
++        .hk_cancel_action_Participle = "Hitting Cancel",
+     };
+     return &descs;
+ }
+@@ -40,42 +40,36 @@
   * Error message and/or fatal exit functions, all based on
   * console_print_error_msg which the platform front end provides.
   */
@@ -180,28 +142,22 @@ Index: ext/TortoisePlink/console.c
      cleanup_exit(1);
  }
  
-Index: ext/TortoisePlink/version.h
+Index: version.h
 ===================================================================
---- ext/TortoisePlink/version.h	(revision 29425)
-+++ ext/TortoisePlink/version.h	(working copy)
+--- version.h	(revision 29506)
++++ version.h	(working copy)
 @@ -1,5 +1,5 @@
 -/* Generated by automated build script */
 +
- #define RELEASE 0.77
- #define TEXTVER "Release 0.77"
--#define SSHVER "-Release-0.77"
-+#define SSHVER "TortoisePlink-Release-0.77"
- #define BINARY_VERSION 0,77,0,0
-Index: ext/TortoisePlink/windows/console.c
+ #define RELEASE 0.78
+ #define TEXTVER "Release 0.78"
+-#define SSHVER "-Release-0.78"
++#define SSHVER "TortoisePlink-Release-0.78"
+ #define BINARY_VERSION 0,78,0,0
+Index: windows/console.c
 ===================================================================
---- ext/TortoisePlink/windows/console.c	(revision 29425)
-+++ ext/TortoisePlink/windows/console.c	(working copy)
-@@ -1,4 +1,4 @@
--/*
-+﻿/*
-  * console.c - various interactive-prompt routines shared between
-  * the Windows console PuTTY tools
-  */
+--- windows/console.c	(revision 29506)
++++ windows/console.c	(working copy)
 @@ -11,6 +11,8 @@
  #include "ssh.h"
  #include "console.h"
@@ -211,7 +167,7 @@ Index: ext/TortoisePlink/windows/console.c
  void cleanup_exit(int code)
  {
      /*
-@@ -23,68 +25,62 @@
+@@ -23,108 +25,66 @@
      exit(code);
  }
  
@@ -226,86 +182,70 @@ Index: ext/TortoisePlink/windows/console.c
 -
  SeatPromptResult console_confirm_ssh_host_key(
      Seat *seat, const char *host, int port, const char *keytype,
-     char *keystr, const char *keydisp, char **fingerprints, bool mismatch,
+     char *keystr, SeatDialogText *text, HelpCtx helpctx,
      void (*callback)(void *ctx, SeatPromptResult result), void *ctx)
  {
 -    HANDLE hin;
 -    DWORD savemode, i;
--    char *common;
--    const char *intro, *prompt;
-+	int ret;
+-    const char *prompt = NULL;
++	int mbret;
++	const char* title = NULL;
+ 
+-    stdio_sink errsink[1];
+-    stdio_sink_init(errsink, stderr);
++    strbuf* buf = strbuf_new();
  
 -    char line[32];
-+	static const char mbtitle[] = "%s Security Alert";
- 
-     FingerprintType fptype_default =
-         ssh2_pick_default_fingerprint(fingerprints);
- 
-     if (mismatch) {                    /* key was different */
--        common = hk_wrongmsg_common(host, port, keytype,
--                                    fingerprints[fptype_default]);
--        intro = hk_wrongmsg_interactive_intro;
--        prompt = hk_wrongmsg_interactive_prompt;
-+		int mbret;
-+		char *message, *title;
-+		message = hk_wrongmsg_common(host, port, keytype, fingerprints[fptype_default]);
-+		title = dupprintf(mbtitle, appname);
-+		mbret = MessageBox(GetParentHwnd(), message, title, MB_ICONWARNING | MB_YESNOCANCEL | MB_DEFBUTTON3);
-+		sfree(message);
-+		sfree(title);
-+		if (mbret == IDYES)
-+		{
-+			store_host_key(host, port, keytype, keystr);
-+			return SPR_OK;
-+		}
-+		else if (mbret == IDNO)
-+		{
-+			return SPR_OK;
-+		}
-+		else
-+		{
-+			return SPR_USER_ABORT;
-+		}
-     } else {                           /* key was absent */
--        common = hk_absentmsg_common(host, port, keytype,
--                                     fingerprints[fptype_default]);
--        intro = hk_absentmsg_interactive_intro;
--        prompt = hk_absentmsg_interactive_prompt;
-+		int mbret;
-+		char *message, *title;
-+		message = hk_absentmsg_common(host, port, keytype, fingerprints[fptype_default]);
-+		title = dupprintf(mbtitle, appname);
-+		mbret = MessageBox(GetParentHwnd(), message, title, MB_ICONWARNING | MB_ICONWARNING | MB_YESNOCANCEL | MB_DEFBUTTON3);
-+		sfree(message);
-+		sfree(title);
-+		if (mbret == IDYES)
-+		{
-+			store_host_key(host, port, keytype, keystr);
-+			return SPR_OK;
-+		}
-+		else if (mbret == IDNO)
-+		{
-+			return SPR_OK;
-+		}
-+		else
-+		{
-+			return SPR_USER_ABORT;
-+		}
+-
+     for (SeatDialogTextItem *item = text->items,
+              *end = item+text->nitems; item < end; item++) {
+         switch (item->type) {
++          case SDT_TITLE:
++              title = item->text;
++              break;
+           case SDT_PARA:
+-            wordwrap(BinarySink_UPCAST(errsink),
+-                     ptrlen_from_asciz(item->text), 60);
+-            fputc('\n', stderr);
++            put_dataz(buf, item->text);
++            put_dataz(buf, "\n");
+             break;
+           case SDT_DISPLAY:
+-            fprintf(stderr, "  %s\n", item->text);
++            put_dataz(buf, "  ");
++            put_dataz(buf, item->text);
++            put_dataz(buf, "\n");
+             break;
+           case SDT_SCARY_HEADING:
+             /* Can't change font size or weight in this context */
+-            fprintf(stderr, "%s\n", item->text);
++            put_dataz(buf, item->text);
++            put_dataz(buf, "\n");
++            put_dataz(buf, "\n");
+             break;
+           case SDT_BATCH_ABORT:
+             if (console_batch_mode) {
+-                fprintf(stderr, "%s\n", item->text);
+-                fflush(stderr);
+                 return SPR_SW_ABORT("Cannot confirm a host key in batch mode");
+             }
+             break;
+           case SDT_PROMPT:
+-            prompt = item->text;
++              put_dataz(buf, "\n");
++              put_dataz(buf, item->text);
+             break;
+           default:
+             break;
+         }
      }
--
--    fputs(common, stderr);
--    sfree(common);
--
--    if (console_batch_mode) {
--        fputs(console_abandoned_msg, stderr);
--        return SPR_SW_ABORT("Cannot confirm a host key in batch mode");
--    }
--
--    fputs(intro, stderr);
--    fflush(stderr);
--
+-    assert(prompt); /* something in the SeatDialogText should have set this */
++	assert(title);
+ 
 -    while (true) {
--        fputs(prompt, stderr);
+-        fprintf(stderr,
+-                "%s (y/n, Return cancels connection, i for more info) ",
+-                prompt);
 -        fflush(stderr);
 -
 -        line[0] = '\0';    /* fail safe if ReadFile returns no data */
@@ -318,21 +258,27 @@ Index: ext/TortoisePlink/windows/console.c
 -        SetConsoleMode(hin, savemode);
 -
 -        if (line[0] == 'i' || line[0] == 'I') {
--            fprintf(stderr, "Full public key:\n%s\n", keydisp);
-+/* fprintf(stderr, "Full public key:\n%s\n", keydisp);
-             if (fingerprints[SSH_FPTYPE_SHA256])
-                 fprintf(stderr, "SHA256 key fingerprint:\n%s\n",
-                         fingerprints[SSH_FPTYPE_SHA256]);
-@@ -91,22 +87,9 @@
-             if (fingerprints[SSH_FPTYPE_MD5])
-                 fprintf(stderr, "MD5 key fingerprint:\n%s\n",
-                         fingerprints[SSH_FPTYPE_MD5]);
+-            for (SeatDialogTextItem *item = text->items,
+-                     *end = item+text->nitems; item < end; item++) {
+-                switch (item->type) {
+-                  case SDT_MORE_INFO_KEY:
+-                    fprintf(stderr, "%s", item->text);
+-                    break;
+-                  case SDT_MORE_INFO_VALUE_SHORT:
+-                    fprintf(stderr, ": %s\n", item->text);
+-                    break;
+-                  case SDT_MORE_INFO_VALUE_BLOB:
+-                    fprintf(stderr, ":\n%s\n", item->text);
+-                    break;
+-                  default:
+-                    break;
+-                }
+-            }
 -        } else {
 -            break;
 -        }
 -    }
-+        }*/
- 
+-
 -    /* In case of misplaced reflexes from another program, also recognise 'q'
 -     * as 'abandon connection rather than trust this key' */
 -    if (line[0] != '\0' && line[0] != '\r' && line[0] != '\n' &&
@@ -344,11 +290,24 @@ Index: ext/TortoisePlink/windows/console.c
 -        fputs(console_abandoned_msg, stderr);
 -        return SPR_USER_ABORT;
 -    }
-+    return SPR_USER_ABORT;
++	mbret = MessageBox(GetParentHwnd(), strbuf_to_str(buf), title, MB_ICONWARNING | MB_YESNOCANCEL | MB_DEFBUTTON3);
++	if (mbret == IDYES)
++	{
++		store_host_key(host, port, keytype, keystr);
++		return SPR_OK;
++	}
++	else if (mbret == IDNO)
++	{
++		return SPR_OK;
++	}
++	else
++	{
++		return SPR_USER_ABORT;
++	}
  }
  
  SeatPromptResult console_confirm_weak_crypto_primitive(
-@@ -113,33 +96,19 @@
+@@ -131,33 +91,19 @@
      Seat *seat, const char *algtype, const char *algname,
      void (*callback)(void *ctx, SeatPromptResult result), void *ctx)
  {
@@ -391,7 +350,7 @@ Index: ext/TortoisePlink/windows/console.c
          return SPR_USER_ABORT;
      }
  }
-@@ -148,33 +117,20 @@
+@@ -166,33 +112,20 @@
      Seat *seat, const char *algname, const char *betteralgs,
      void (*callback)(void *ctx, SeatPromptResult result), void *ctx)
  {
@@ -434,7 +393,7 @@ Index: ext/TortoisePlink/windows/console.c
          return SPR_USER_ABORT;
      }
  }
-@@ -240,34 +196,28 @@
+@@ -258,34 +191,28 @@
          "You can overwrite it with a new session log,\n"
          "append your session log to the end of it,\n"
          "or disable session logging for this session.\n"
@@ -482,7 +441,7 @@ Index: ext/TortoisePlink/windows/console.c
          return 1;
      else
          return 0;
-@@ -359,119 +309,18 @@
+@@ -377,119 +304,18 @@
              prompt_set_result(p->prompts[i], "");
      }
  
@@ -609,17 +568,17 @@ Index: ext/TortoisePlink/windows/console.c
      }
  
      return SPR_OK;
-Index: ext/TortoisePlink/windows/plink.c
+Index: windows/plink.c
 ===================================================================
---- ext/TortoisePlink/windows/plink.c	(revision 29425)
-+++ ext/TortoisePlink/windows/plink.c	(working copy)
+--- windows/plink.c	(revision 29506)
++++ windows/plink.c	(working copy)
 @@ -1,4 +1,4 @@
 -/*
 +﻿/*
   * PLink - a Windows command-line (stdin/stdout) variant of PuTTY.
   */
  
-@@ -12,12 +12,22 @@
+@@ -13,12 +13,22 @@
  #include "tree234.h"
  #include "security-api.h"
  
@@ -643,7 +602,7 @@ Index: ext/TortoisePlink/windows/plink.c
      exit(1);
  }
  
-@@ -124,76 +134,81 @@
+@@ -126,76 +136,81 @@
   */
  static void usage(void)
  {
@@ -789,7 +748,7 @@ Index: ext/TortoisePlink/windows/plink.c
      exit(0);
  }
  
-@@ -295,6 +310,7 @@
+@@ -297,6 +312,7 @@
  
      dll_hijacking_protection();
  
@@ -797,7 +756,7 @@ Index: ext/TortoisePlink/windows/plink.c
      /*
       * Initialise port and protocol to sensible defaults. (These
       * will be overridden by more or less anything.)
-@@ -307,65 +323,57 @@
+@@ -309,65 +325,57 @@
       */
      conf = conf_new();
      do_defaults(NULL, conf);
@@ -891,7 +850,7 @@ Index: ext/TortoisePlink/windows/plink.c
              strbuf *cmdbuf = strbuf_new();
  
              while (argc > 0) {
-@@ -383,7 +391,7 @@
+@@ -385,7 +393,7 @@
              strbuf_free(cmdbuf);
              break;                     /* done with cmdline */
          } else {
@@ -900,7 +859,7 @@ Index: ext/TortoisePlink/windows/plink.c
              errors = true;
          }
      }
-@@ -421,7 +429,7 @@
+@@ -423,7 +431,7 @@
  
      if (vt->flags & BACKEND_NEEDS_TERMINAL) {
          fprintf(stderr,
@@ -909,7 +868,7 @@ Index: ext/TortoisePlink/windows/plink.c
                  vt->displayname_lc);
          return 1;
      }
-@@ -428,7 +436,7 @@
+@@ -430,7 +438,7 @@
  
      sk_init();
      if (p_WSAEventSelect == NULL) {
@@ -918,3 +877,12 @@ Index: ext/TortoisePlink/windows/plink.c
          return 1;
      }
  
+@@ -554,3 +562,8 @@
+     cleanup_exit(exitcode);
+     return 0;                          /* placate compiler warning */
+ }
++
++int WinMain(hInstance, hPrevInstance, lpCmdLine, nCmdShow)
++{
++    main(__argc, __argv);
++}

@@ -20,16 +20,16 @@ const char weakhk_msg_common_fmt[] =
     "above the threshold, which we do not have stored:\n"
     "%s\n";
 
-const char console_continue_prompt[] = "Continue with connection? (y/n) ";
-const char console_abandoned_msg[] = "Connection abandoned.\n";
+//const char console_continue_prompt[] = "Continue with connection? (y/n) ";
+//const char console_abandoned_msg[] = "Connection abandoned.\n";
 
 const SeatDialogPromptDescriptions *console_prompt_descriptions(Seat *seat)
 {
     static const SeatDialogPromptDescriptions descs = {
-        .hk_accept_action = "enter \"y\"",
-        .hk_connect_once_action = "enter \"n\"",
-        .hk_cancel_action = "press Return",
-        .hk_cancel_action_Participle = "Pressing Return",
+        .hk_accept_action = "hit Yes",
+        .hk_connect_once_action = "hit No",
+        .hk_cancel_action = "hit Cancel",
+        .hk_cancel_action_Participle = "Hitting Cancel",
     };
     return &descs;
 }
@@ -40,42 +40,36 @@ bool console_batch_mode = false;
  * Error message and/or fatal exit functions, all based on
  * console_print_error_msg which the platform front end provides.
  */
-void console_print_error_msg_fmt_v(
-    const char *prefix, const char *fmt, va_list ap)
-{
-    char *msg = dupvprintf(fmt, ap);
-    console_print_error_msg(prefix, msg);
-    sfree(msg);
-}
-
-void console_print_error_msg_fmt(const char *prefix, const char *fmt, ...)
-{
-    va_list ap;
-    va_start(ap, fmt);
-    console_print_error_msg_fmt_v(prefix, fmt, ap);
-    va_end(ap);
-}
-
 void modalfatalbox(const char *fmt, ...)
 {
-    va_list ap;
-    va_start(ap, fmt);
-    console_print_error_msg_fmt_v("FATAL ERROR", fmt, ap);
-    va_end(ap);
+	va_list ap;
+	char *stuff, morestuff[100];
+	va_start(ap, fmt);
+	stuff = dupvprintf(fmt, ap);
+	va_end(ap);
+	sprintf(morestuff, "%.70s Fatal Error", appname);
+	MessageBox(GetParentHwnd(), stuff, morestuff, MB_SYSTEMMODAL | MB_ICONERROR | MB_OK);
+	sfree(stuff);
     cleanup_exit(1);
 }
 
 void nonfatal(const char *fmt, ...)
 {
-    va_list ap;
-    va_start(ap, fmt);
-    console_print_error_msg_fmt_v("ERROR", fmt, ap);
-    va_end(ap);
+	va_list ap;
+	char *stuff, morestuff[100];
+	va_start(ap, fmt);
+	stuff = dupvprintf(fmt, ap);
+	va_end(ap);
+	sprintf(morestuff, "%.70s Error", appname);
+	MessageBox(GetParentHwnd(), stuff, morestuff, MB_SYSTEMMODAL | MB_ICONERROR | MB_OK);
+	sfree(stuff);
 }
 
 void console_connection_fatal(Seat *seat, const char *msg)
 {
-    console_print_error_msg("FATAL ERROR", msg);
+	char morestuff[100];
+	sprintf(morestuff, "%.70s Fatal Error", appname);
+	MessageBox(GetParentHwnd(), msg, morestuff, MB_SYSTEMMODAL | MB_ICONERROR | MB_OK);
     cleanup_exit(1);
 }
 
