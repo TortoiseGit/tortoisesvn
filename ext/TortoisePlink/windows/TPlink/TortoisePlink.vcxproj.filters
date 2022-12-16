@@ -192,9 +192,6 @@
     <ClCompile Include="..\utils\platform_get_x_display.c">
       <Filter>Source Files\windows\utils</Filter>
     </ClCompile>
-    <ClCompile Include="..\utils\registry_get_string.c">
-      <Filter>Source Files\windows\utils</Filter>
-    </ClCompile>
     <ClCompile Include="..\utils\request_file.c">
       <Filter>Source Files\windows\utils</Filter>
     </ClCompile>
@@ -429,12 +426,6 @@
     <ClCompile Include="..\..\utils\memxor.c">
       <Filter>Source Files\utils</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\utils\null_lp.c">
-      <Filter>Source Files\utils</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\utils\nullseat.c">
-      <Filter>Source Files\utils</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\utils\nullstrcmp.c">
       <Filter>Source Files\utils</Filter>
     </ClCompile>
@@ -555,9 +546,6 @@
     <ClCompile Include="..\..\be_list.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\stubs\noterm.c">
-      <Filter>Source Files\stubs</Filter>
-    </ClCompile>
     <ClCompile Include="..\no-jump-list.c">
       <Filter>Source Files\windows</Filter>
     </ClCompile>
@@ -645,9 +633,6 @@
     <ClCompile Include="..\..\x11disp.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\stubs\nullplug.c">
-      <Filter>Source Files\stubs</Filter>
-    </ClCompile>
     <ClCompile Include="..\unicode.c">
       <Filter>Source Files\windows</Filter>
     </ClCompile>
@@ -659,6 +644,111 @@
     </ClCompile>
     <ClCompile Include="version.c">
       <Filter>TPlink</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\crypto\aesgcm-ref-poly.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\crypto\aesgcm-select.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\crypto\aesgcm-sw.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\crypto\aesgcm-clmul.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\crypto\aesgcm-common.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\crypto\openssh-certs.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\crypto\ntru.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\crypto\aesgcm-neon.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\stubs\no-term.c">
+      <Filter>Source Files\stubs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\stubs\null-cipher.c">
+      <Filter>Source Files\stubs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\stubs\null-key.c">
+      <Filter>Source Files\stubs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\stubs\null-lp.c">
+      <Filter>Source Files\stubs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\stubs\null-mac.c">
+      <Filter>Source Files\stubs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\stubs\null-opener.c">
+      <Filter>Source Files\stubs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\stubs\null-plug.c">
+      <Filter>Source Files\stubs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\stubs\null-seat.c">
+      <Filter>Source Files\stubs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\wordwrap.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\base64_decode.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\base64_encode.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\base64_valid.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\cert-expr.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\ctrlset_normalise.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\host_ca_new_free.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\key_components.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\percent_decode.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\percent_encode.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\seat_dialog_text.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utils\ssh_key_clone.c">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\utils\centre_window.c">
+      <Filter>Source Files\windows\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\utils\shinydialogbox.c">
+      <Filter>Source Files\windows\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\utils\registry.c">
+      <Filter>Source Files\windows\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\crypto\sha512-neon.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\crypto\sha256-neon.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\crypto\aes-neon.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\crypto\sha1-neon.c">
+      <Filter>Source Files\crypto</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -718,6 +808,15 @@
     </ClInclude>
     <ClInclude Include="TortoisePlinkRes.h">
       <Filter>TPlink</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\crypto\aesgcm-footer.h">
+      <Filter>Source Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\crypto\aesgcm.h">
+      <Filter>Source Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\crypto\ntru.h">
+      <Filter>Source Files\crypto</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

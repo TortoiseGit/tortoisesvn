@@ -32,32 +32,7 @@
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'" Label="Configuration">
+  <PropertyGroup Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
@@ -65,27 +40,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\..\..\src\TortoiseSVN.common.props" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\..\..\src\TortoiseSVN.common.props" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\..\..\src\TortoiseSVN.common.props" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\..\..\src\TortoiseSVN.common.props" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\..\..\src\TortoiseSVN.common.props" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'" Label="PropertySheets">
+  <ImportGroup Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\..\..\..\src\TortoiseSVN.common.props" />
   </ImportGroup>
@@ -95,91 +50,36 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\..\obj\$(ProjectName)\$(Configuration)\</IntDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\..\..\bin\$(Configuration)64\bin\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\..\..\obj\$(ProjectName)\$(Configuration)64\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">..\..\..\..\bin\$(Configuration)ARM64\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">..\..\..\..\obj\$(ProjectName)\$(Configuration)ARM64\</IntDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\..\bin\$(Configuration)\bin\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\..\obj\$(ProjectName)\$(Configuration)\</IntDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\..\..\bin\$(Configuration)64\bin\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\..\..\obj\$(ProjectName)\$(Configuration)64\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">..\..\..\..\bin\$(Configuration)ARM64\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">..\..\..\..\obj\$(ProjectName)\$(Configuration)ARM64\</IntDir>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
-    <OutDir>..\..\..\..\bin\$(Configuration)ARM64\bin\</OutDir>
-    <IntDir>..\..\..\..\obj\$(ProjectName)\$(Configuration)ARM64\</IntDir>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
-    <OutDir>..\..\..\..\bin\$(Configuration)ARM64\bin\</OutDir>
-    <IntDir>..\..\..\..\obj\$(ProjectName)\$(Configuration)ARM64\</IntDir>
-  </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+  <ItemDefinitionGroup>
     <ClCompile>
       <AdditionalIncludeDirectories>..\..\.\;..\..\charset\;..\..\windows\;..\..\windows\TPlink;..\..\unix\;..\..\mac\;..\..\macosx\;..\..\terminal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>SSH;HAVE_AES_NI;HAVE_SHA_NI;NO_HTMLHELP;HAVE_GETNAMEDPIPECLIENTPROCESSID;HAVE_ADDDLLDIRECTORY;HAVE_SETDEFAULTDLLDIRECTORIES;HAVE_STRTOUMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;SECURITY_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>APPNAME=TortoisePlink;SSH;NO_HTMLHELP;HAVE_GETNAMEDPIPECLIENTPROCESSID;HAVE_ADDDLLDIRECTORY;HAVE_SETDEFAULTDLLDIRECTORIES;HAVE_STRTOUMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Platform)'!='ARM64'">HAVE_AES_NI;HAVE_SHA_NI;HAVE_CLMUL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Platform)'=='ARM64'">HAVE_NEON_CRYPTO;HAVE_NEON_SHA512_INTRINSICS;USE_ARM64_NEON_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
-      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <UndefinePreprocessorDefinitions>NDEBUG</UndefinePreprocessorDefinitions>
-    </ClCompile>
-    <Link>
-      <AdditionalDependencies>imm32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <ClCompile>
-      <AdditionalIncludeDirectories>..\..\.\;..\..\charset\;..\..\windows\;..\..\windows\TPlink;..\..\unix\;..\..\mac\;..\..\macosx\;..\..\terminal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>SSH;HAVE_AES_NI;HAVE_SHA_NI;NO_HTMLHELP;HAVE_GETNAMEDPIPECLIENTPROCESSID;HAVE_ADDDLLDIRECTORY;HAVE_SETDEFAULTDLLDIRECTORIES;HAVE_STRTOUMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;SECURITY_WIN32;_WIN64;WIN64;_WINDOWS;WINDOWS;STRICT_TYPED_ITEMIDS</PreprocessorDefinitions>
-      <WarningLevel>TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <Link>
-      <AdditionalDependencies>imm32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
-    <ClCompile>
-      <AdditionalIncludeDirectories>..\..\.\;..\..\charset\;..\..\windows\;..\..\windows\TPlink;..\..\unix\;..\..\mac\;..\..\macosx\;..\..\terminal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>SSH;NO_HTMLHELP;HAVE_GETNAMEDPIPECLIENTPROCESSID;HAVE_ADDDLLDIRECTORY;HAVE_SETDEFAULTDLLDIRECTORIES;HAVE_STRTOUMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;SECURITY_WIN32;_WIN64;WIN64;_WINDOWS;WINDOWS;STRICT_TYPED_ITEMIDS</PreprocessorDefinitions>
-      <WarningLevel>TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <Link>
-      <AdditionalDependencies>imm32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <ClCompile>
-      <AdditionalIncludeDirectories>..\..\.\;..\..\..\charset\;..\..\windows\;..\..\windows\TPlink;..\..\unix\;..\..\mac\;..\..\macosx\;..\..\terminal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;SECURITY_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <WarningLevel>TurnOffAllWarnings</WarningLevel>
-      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <SDLCheck>false</SDLCheck>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>imm32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Manifest>
+      <EnableDpiAwareness>true</EnableDpiAwareness>
+    </Manifest>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
+    <ClCompile>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
-    <Link>
-      <AdditionalDependencies>imm32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <ClCompile>
-      <AdditionalIncludeDirectories>..\..\.\;..\..\charset\;..\..\windows\;..\..\windows\TPlink;..\..\unix\;..\..\mac\;..\..\macosx\;..\..\terminal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>SSH;HAVE_AES_NI;HAVE_SHA_NI;NO_HTMLHELP;HAVE_GETNAMEDPIPECLIENTPROCESSID;HAVE_ADDDLLDIRECTORY;HAVE_SETDEFAULTDLLDIRECTORIES;HAVE_STRTOUMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;SECURITY_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <WarningLevel>TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <SDLCheck>false</SDLCheck>
-    </ClCompile>
-    <Link>
-      <AdditionalDependencies>imm32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
-    <ClCompile>
-      <AdditionalIncludeDirectories>..\..\.\;..\..\charset\;..\..\windows\;..\..\windows\TPlink;..\..\unix\;..\..\mac\;..\..\macosx\;..\..\terminal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>SSH;NO_HTMLHELP;HAVE_GETNAMEDPIPECLIENTPROCESSID;HAVE_ADDDLLDIRECTORY;HAVE_SETDEFAULTDLLDIRECTORIES;HAVE_STRTOUMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;SECURITY_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <WarningLevel>TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <SDLCheck>false</SDLCheck>
-    </ClCompile>
-    <Link>
-      <AdditionalDependencies>imm32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\be_list.c" />
@@ -188,12 +88,24 @@
     <ClCompile Include="..\..\cmdline.c" />
     <ClCompile Include="..\..\console.c" />
     <ClCompile Include="..\..\crypto\aes-common.c" />
+    <ClCompile Include="..\..\crypto\aes-neon.c">
+      <ExcludedFromBuild Condition="'$(Platform)'!='ARM64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\crypto\aes-ni.c">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='ARM64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\crypto\aes-select.c" />
     <ClCompile Include="..\..\crypto\aes-sw.c" />
+    <ClCompile Include="..\..\crypto\aesgcm-clmul.c">
+      <ExcludedFromBuild Condition="'$(Platform)'=='ARM64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\crypto\aesgcm-common.c" />
+    <ClCompile Include="..\..\crypto\aesgcm-neon.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\crypto\aesgcm-ref-poly.c" />
+    <ClCompile Include="..\..\crypto\aesgcm-select.c" />
+    <ClCompile Include="..\..\crypto\aesgcm-sw.c" />
     <ClCompile Include="..\..\crypto\arcfour.c" />
     <ClCompile Include="..\..\crypto\argon2.c" />
     <ClCompile Include="..\..\crypto\bcrypt.c" />
@@ -212,27 +124,36 @@
     <ClCompile Include="..\..\crypto\mac_simple.c" />
     <ClCompile Include="..\..\crypto\md5.c" />
     <ClCompile Include="..\..\crypto\mpint.c" />
+    <ClCompile Include="..\..\crypto\ntru.c" />
+    <ClCompile Include="..\..\crypto\openssh-certs.c" />
     <ClCompile Include="..\..\crypto\prng.c" />
     <ClCompile Include="..\..\crypto\pubkey-pem.c" />
     <ClCompile Include="..\..\crypto\pubkey-ppk.c" />
     <ClCompile Include="..\..\crypto\pubkey-ssh1.c" />
     <ClCompile Include="..\..\crypto\rsa.c" />
     <ClCompile Include="..\..\crypto\sha1-common.c" />
+    <ClCompile Include="..\..\crypto\sha1-neon.c">
+      <ExcludedFromBuild Condition="'$(Platform)'!='ARM64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\crypto\sha1-ni.c">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='ARM64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\crypto\sha1-select.c" />
     <ClCompile Include="..\..\crypto\sha1-sw.c" />
     <ClCompile Include="..\..\crypto\sha256-common.c" />
+    <ClCompile Include="..\..\crypto\sha256-neon.c">
+      <ExcludedFromBuild Condition="'$(Platform)'!='ARM64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\crypto\sha256-ni.c">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='ARM64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\crypto\sha256-select.c" />
     <ClCompile Include="..\..\crypto\sha256-sw.c" />
     <ClCompile Include="..\..\crypto\sha3.c" />
     <ClCompile Include="..\..\crypto\sha512-common.c" />
+    <ClCompile Include="..\..\crypto\sha512-neon.c">
+      <ExcludedFromBuild Condition="'$(Platform)'!='ARM64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\crypto\sha512-select.c" />
     <ClCompile Include="..\..\crypto\sha512-sw.c" />
     <ClCompile Include="..\..\crypto\xdmauth.c" />
@@ -278,22 +199,33 @@
     <ClCompile Include="..\..\ssh\verstring.c" />
     <ClCompile Include="..\..\ssh\x11fwd.c" />
     <ClCompile Include="..\..\ssh\zlib.c" />
-    <ClCompile Include="..\..\stubs\noterm.c" />
-    <ClCompile Include="..\..\stubs\nullplug.c" />
+    <ClCompile Include="..\..\stubs\no-term.c" />
+    <ClCompile Include="..\..\stubs\null-cipher.c" />
+    <ClCompile Include="..\..\stubs\null-key.c" />
+    <ClCompile Include="..\..\stubs\null-lp.c" />
+    <ClCompile Include="..\..\stubs\null-mac.c" />
+    <ClCompile Include="..\..\stubs\null-opener.c" />
+    <ClCompile Include="..\..\stubs\null-plug.c" />
+    <ClCompile Include="..\..\stubs\null-seat.c" />
     <ClCompile Include="..\..\timing.c" />
     <ClCompile Include="..\..\utils\antispoof.c" />
     <ClCompile Include="..\..\utils\backend_socket_log.c" />
+    <ClCompile Include="..\..\utils\base64_decode.c" />
     <ClCompile Include="..\..\utils\base64_decode_atom.c" />
+    <ClCompile Include="..\..\utils\base64_encode.c" />
     <ClCompile Include="..\..\utils\base64_encode_atom.c" />
+    <ClCompile Include="..\..\utils\base64_valid.c" />
     <ClCompile Include="..\..\utils\bufchain.c" />
     <ClCompile Include="..\..\utils\buildinfo.c" />
     <ClCompile Include="..\..\utils\burnstr.c" />
+    <ClCompile Include="..\..\utils\cert-expr.c" />
     <ClCompile Include="..\..\utils\chomp.c" />
     <ClCompile Include="..\..\utils\cmdline_get_passwd_input_state_new.c" />
     <ClCompile Include="..\..\utils\conf.c" />
     <ClCompile Include="..\..\utils\conf_dest.c" />
     <ClCompile Include="..\..\utils\conf_launchable.c" />
     <ClCompile Include="..\..\utils\ctrlparse.c" />
+    <ClCompile Include="..\..\utils\ctrlset_normalise.c" />
     <ClCompile Include="..\..\utils\decode_utf8.c" />
     <ClCompile Include="..\..\utils\decode_utf8_to_wchar.c" />
     <ClCompile Include="..\..\utils\default_description.c" />
@@ -305,25 +237,28 @@
     <ClCompile Include="..\..\utils\encode_utf8.c" />
     <ClCompile Include="..\..\utils\encode_wide_string_as_utf8.c" />
     <ClCompile Include="..\..\utils\fgetline.c" />
+    <ClCompile Include="..\..\utils\host_ca_new_free.c" />
     <ClCompile Include="..\..\utils\host_strchr.c" />
     <ClCompile Include="..\..\utils\host_strchr_internal.c" />
     <ClCompile Include="..\..\utils\host_strcspn.c" />
     <ClCompile Include="..\..\utils\host_strduptrim.c" />
     <ClCompile Include="..\..\utils\host_strrchr.c" />
+    <ClCompile Include="..\..\utils\key_components.c" />
     <ClCompile Include="..\..\utils\log_proxy_stderr.c" />
     <ClCompile Include="..\..\utils\make_spr_sw_abort_static.c" />
     <ClCompile Include="..\..\utils\marshal.c" />
     <ClCompile Include="..\..\utils\memory.c" />
     <ClCompile Include="..\..\utils\memxor.c" />
-    <ClCompile Include="..\..\utils\nullseat.c" />
     <ClCompile Include="..\..\utils\nullstrcmp.c" />
-    <ClCompile Include="..\..\utils\null_lp.c" />
     <ClCompile Include="..\..\utils\out_of_memory.c" />
     <ClCompile Include="..\..\utils\parse_blocksize.c" />
+    <ClCompile Include="..\..\utils\percent_decode.c" />
+    <ClCompile Include="..\..\utils\percent_encode.c" />
     <ClCompile Include="..\..\utils\prompts.c" />
     <ClCompile Include="..\..\utils\ptrlen.c" />
     <ClCompile Include="..\..\utils\read_file_into.c" />
     <ClCompile Include="..\..\utils\seat_connection_fatal.c" />
+    <ClCompile Include="..\..\utils\seat_dialog_text.c" />
     <ClCompile Include="..\..\utils\sessprep.c" />
     <ClCompile Include="..\..\utils\sk_free_peer_info.c" />
     <ClCompile Include="..\..\utils\smemclr.c" />
@@ -331,6 +266,7 @@
     <ClCompile Include="..\..\utils\spr_get_error_message.c" />
     <ClCompile Include="..\..\utils\ssh2_pick_fingerprint.c" />
     <ClCompile Include="..\..\utils\sshutils.c" />
+    <ClCompile Include="..\..\utils\ssh_key_clone.c" />
     <ClCompile Include="..\..\utils\strbuf.c" />
     <ClCompile Include="..\..\utils\string_length_for_printf.c" />
     <ClCompile Include="..\..\utils\stripctrl.c" />
@@ -342,6 +278,7 @@
     </ClCompile>
     <ClCompile Include="..\..\utils\wcwidth.c" />
     <ClCompile Include="..\..\utils\wildcard.c" />
+    <ClCompile Include="..\..\utils\wordwrap.c" />
     <ClCompile Include="..\..\utils\write_c_string_literal.c" />
     <ClCompile Include="..\..\utils\x11authfile.c" />
     <ClCompile Include="..\..\utils\x11authnames.c" />
@@ -377,6 +314,7 @@
     <ClCompile Include="..\utils\agent_named_pipe_name.c" />
     <ClCompile Include="..\utils\arm_arch_queries.c" />
     <ClCompile Include="..\utils\aux_match_opt.c" />
+    <ClCompile Include="..\utils\centre_window.c" />
     <ClCompile Include="..\utils\cryptoapi.c" />
     <ClCompile Include="..\utils\defaults.c" />
     <ClCompile Include="..\utils\dll_hijacking_protection.c" />
@@ -393,10 +331,10 @@
     <ClCompile Include="..\utils\make_spr_sw_abort_winerror.c" />
     <ClCompile Include="..\utils\open_for_write_would_lose_data.c" />
     <ClCompile Include="..\utils\platform_get_x_display.c" />
-    <ClCompile Include="..\utils\registry_get_string.c" />
+    <ClCompile Include="..\utils\registry.c" />
     <ClCompile Include="..\utils\request_file.c" />
     <ClCompile Include="..\utils\security.c" />
-    <ClCompile Include="..\utils\version.c">
+    <ClCompile Include="..\utils\shinydialogbox.c">
       <ObjectFileName>$(IntDir)windows-%(Filename)</ObjectFileName>
     </ClCompile>
     <ClCompile Include="..\utils\win_strerror.c" />
@@ -407,6 +345,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\charset\charset.h" />
+    <ClInclude Include="..\..\crypto\aesgcm-footer.h" />
+    <ClInclude Include="..\..\crypto\aesgcm.h" />
+    <ClInclude Include="..\..\crypto\ntru.h" />
     <ClInclude Include="..\..\defs.h" />
     <ClInclude Include="..\..\logindialog.h" />
     <ClInclude Include="..\..\marshal.h" />

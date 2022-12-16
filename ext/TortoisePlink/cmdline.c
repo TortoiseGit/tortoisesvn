@@ -78,8 +78,8 @@ void cmdline_cleanup(void)
 
 /*
  * Similar interface to seat_get_userpass_input(), except that here a
- * -1 return means that we aren't capable of processing the prompt and
- * someone else should do it.
+ * SPR(K)_INCOMPLETE return means that we aren't capable of processing
+ * the prompt and someone else should do it.
  */
 SeatPromptResult cmdline_get_passwd_input(
     prompts_t *p, cmdline_get_passwd_input_state *state, bool restartable)
@@ -87,9 +87,13 @@ SeatPromptResult cmdline_get_passwd_input(
     /*
      * We only handle prompts which don't echo (which we assume to be
      * passwords), and (currently) we only cope with a password prompt
-     * that comes in a prompt-set on its own.
+     * that comes in a prompt-set on its own. Also, we don't use a
+     * command-line password for any kind of prompt which is destined
+     * for local use rather than to be sent to the server: the idea is
+     * to pre-fill _passwords_, not private-key passphrases (for which
+     * there are better alternatives available).
      */
-    if (p->n_prompts != 1 || p->prompts[0]->echo) {
+    if (p->n_prompts != 1 || p->prompts[0]->echo || !p->to_server) {
         return SPR_INCOMPLETE;
     }
 
@@ -182,11 +186,11 @@ static void set_port(Conf *conf, int port)
 }
 
 int cmdline_process_param(const char *p, char *value,
-                          int need_save, Conf *conf, bool ignoreFurtherParameters)
+                          int need_save, Conf *conf)
 {
     int ret = 0;
 
-    if (p[0] != '-' || ignoreFurtherParameters) {
+    if (p[0] != '-') {
         if (need_save < 0)
             return 0;
 
@@ -400,7 +404,7 @@ int cmdline_process_param(const char *p, char *value,
              * deferred until it's a good moment to run it.
              */
             char *dup = dupstr(p);     /* 'value' is not a const char * */
-            int retd = cmdline_process_param("-P", dup, 1, conf, false);
+            int retd = cmdline_process_param("-P", dup, 1, conf);
             sfree(dup);
             assert(retd == 2);
             seen_port_argument = true;
@@ -413,9 +417,6 @@ int cmdline_process_param(const char *p, char *value,
             return 0;
         }
     }
-
-    if (ignoreFurtherParameters)
-        return ret;
 
     if (!strcmp(p, "-load")) {
         RETURN(2);
@@ -580,7 +581,7 @@ int cmdline_process_param(const char *p, char *value,
         conf_set_bool(conf, CONF_nopty, true);   /* command => no terminal */
         strbuf_free(command);
     }
-    if (!strcmp(p, "-P") || !strcmp(p, "-p")) {
+    if (!strcmp(p, "-P")) {
         RETURN(2);
         UNAVAILABLE_IN(TOOLTYPE_NONNETWORK);
         SAVEABLE(1);            /* lower priority than -ssh, -telnet, etc */
@@ -750,6 +751,16 @@ int cmdline_process_param(const char *p, char *value,
         filename_free(fn);
     }
 
+    if (!strcmp(p, "-cert")) {
+        Filename *fn;
+        RETURN(2);
+        UNAVAILABLE_IN(TOOLTYPE_NONNETWORK);
+        SAVEABLE(0);
+        fn = filename_from_str(value);
+        conf_set_filename(conf, CONF_detached_cert, fn);
+        filename_free(fn);
+    }
+
     if (!strcmp(p, "-4") || !strcmp(p, "-ipv4")) {
         RETURN(1);
         UNAVAILABLE_IN(TOOLTYPE_NONNETWORK);
@@ -914,7 +925,7 @@ void cmdline_run_saved(Conf *conf)
     for (size_t pri = 0; pri < NPRIORITIES; pri++) {
         for (size_t i = 0; i < saves[pri].nsaved; i++) {
             cmdline_process_param(saves[pri].params[i].p,
-                                  saves[pri].params[i].value, 0, conf, false);
+                                  saves[pri].params[i].value, 0, conf);
             sfree(saves[pri].params[i].p);
             sfree(saves[pri].params[i].value);
         }
