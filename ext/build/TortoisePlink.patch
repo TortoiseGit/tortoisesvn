@@ -877,12 +877,3 @@ Index: windows/plink.c
          return 1;
      }
  
-@@ -554,3 +562,8 @@
-     cleanup_exit(exitcode);
-     return 0;                          /* placate compiler warning */
- }
-+
-+int WinMain(hInstance, hPrevInstance, lpCmdLine, nCmdShow)
-+{
-+    main(__argc, __argv);
-+}

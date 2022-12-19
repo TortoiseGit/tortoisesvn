@@ -562,8 +562,3 @@ int main(int argc, char **argv)
     cleanup_exit(exitcode);
     return 0;                          /* placate compiler warning */
 }
-
-int WinMain(hInstance, hPrevInstance, lpCmdLine, nCmdShow)
-{
-    main(__argc, __argv);
-}
