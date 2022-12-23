@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2016-2018, 2020-2021 - TortoiseSVN
+// Copyright (C) 2016-2018, 2020-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -151,6 +151,7 @@ void CTreeConflictEditorDlg::DoModal(HWND parent)
 
         CString optDescription((*it)->GetDescription());
         optDescription.SetAt(0, towupper(optDescription[0]));
+        optDescription = CStringUtils::LinesWrap(optDescription, 80, true, true);
 
         int buttonID = GetButtonIDFromConflictOption(it->get());
         AddCommandButton(buttonID, optLabel + L"\n" + optDescription);
