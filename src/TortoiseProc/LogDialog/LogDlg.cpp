@@ -8829,7 +8829,7 @@ void CLogDlg::SaveMonitorProjects(bool todisk)
     {
         CString sDataFilePath = CPathUtils::GetAppDataDirectory();
         sDataFilePath += L"\\MonitoringData.ini";
-        CString sTempfile  = CTempFiles::Instance().GetTempFilePathString();
+        CString sTempfile  = CTempFiles::Instance().GetTempFilePathString(false);
         FILE*   pFile      = nullptr;
         errno_t err        = 0;
         int     retrycount = 5;
@@ -8851,11 +8851,15 @@ void CLogDlg::SaveMonitorProjects(bool todisk)
         {
             if (!MoveFileEx(sTempfile, sDataFilePath, MOVEFILE_COPY_ALLOWED | MOVEFILE_REPLACE_EXISTING | MOVEFILE_WRITE_THROUGH))
             {
+                DeleteFile(sTempfile);
                 CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error copying %s to %s, Error: %u\n", static_cast<LPCWSTR>(sTempfile), static_cast<LPCWSTR>(sDataFilePath), GetLastError());
             }
         }
         else
+        {
+            DeleteFile(sTempfile);
             CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error saving %s - saving failed\n", static_cast<LPCWSTR>(sTempfile));
+        }
         SyncCommand syncCmd;
         syncCmd.Execute();
     }
