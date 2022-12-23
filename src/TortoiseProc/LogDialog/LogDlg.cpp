@@ -8849,7 +8849,7 @@ void CLogDlg::SaveMonitorProjects(bool todisk)
         } while (err && retrycount--);
         if (err == 0)
         {
-            if (!CopyFile(sTempfile, sDataFilePath, FALSE))
+            if (!MoveFileEx(sTempfile, sDataFilePath, MOVEFILE_COPY_ALLOWED | MOVEFILE_REPLACE_EXISTING | MOVEFILE_WRITE_THROUGH))
             {
                 CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error copying %s to %s, Error: %u\n", static_cast<LPCWSTR>(sTempfile), static_cast<LPCWSTR>(sDataFilePath), GetLastError());
             }
