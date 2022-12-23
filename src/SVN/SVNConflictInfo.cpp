@@ -535,7 +535,12 @@ bool SVNConflictInfo::FetchTreeDetails()
     SVNTRACE(
         m_err = svn_client_conflict_tree_get_details(m_conflict, m_pCtx, m_infoPool),
         svnPath);
-
+    if (m_err)
+    {
+        // if the server is not reachable, auto resolving won't work but
+        // the user might still want to resolve manually
+        ClearSVNError();
+    }
     ClearCAPIAuthCacheOnError();
 
     if (m_treeConflicted)
