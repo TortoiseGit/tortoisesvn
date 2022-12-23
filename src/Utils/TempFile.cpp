@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014, 2020-2021 - TortoiseSVN
+// Copyright (C) 2003-2014, 2020-2022 - TortoiseSVN
 // Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -155,9 +155,9 @@ CTSVNPath CTempFiles::GetTempFilePath(bool bRemoveAtEnd, const CTSVNPath& path /
     return CreateTempPath(bRemoveAtEnd, path, revision, false);
 }
 
-CString CTempFiles::GetTempFilePathString()
+CString CTempFiles::GetTempFilePathString(bool bRemoveAtEnd/* = true*/)
 {
-    return CreateTempPath(true, CTSVNPath(), SVNRev(), false).GetWinPathString();
+    return CreateTempPath(bRemoveAtEnd, CTSVNPath(), SVNRev(), false).GetWinPathString();
 }
 
 CTSVNPath CTempFiles::GetTempDirPath(bool bRemoveAtEnd, const CTSVNPath& path /* = CTSVNPath() */, const SVNRev& revision /* = SVNRev() */)

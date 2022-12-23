@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008, 2010, 2014-2015, 2021 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008, 2010, 2014-2015, 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -40,7 +40,7 @@ public:
      * \param revision     if set, the temp file name will include the revision number
      */
     CTSVNPath GetTempFilePath(bool bRemoveAtEnd, const CTSVNPath& path = CTSVNPath(), const SVNRev& revision = SVNRev());
-    CString   GetTempFilePathString();
+    CString   GetTempFilePathString(bool bRemoveAtEnd = true);
 
     /**
      * Returns a path to a temporary directory.
