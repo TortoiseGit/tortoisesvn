@@ -8597,7 +8597,7 @@ void CLogDlg::OnMonitorMarkAllAsRead()
         pItem->unreadItems = 0;
         pItem->unreadFirst = 0;
         m_projTree.SetItemState(hLocalItem, pItem->unreadItems ? TVIS_BOLD : 0, TVIS_BOLD);
-        m_projTree.SetItemState(hLocalItem, pItem->authFailed ? INDEXTOOVERLAYMASK(OVERLAY_MODIFIED) : 0, TVIS_OVERLAYMASK);
+        m_projTree.SetItemState(hLocalItem, (pItem->authFailed || !pItem->lastErrorMsg.IsEmpty()) ? INDEXTOOVERLAYMASK(OVERLAY_MODIFIED) : 0, TVIS_OVERLAYMASK);
         return false;
     });
 
@@ -8618,7 +8618,7 @@ void CLogDlg::OnMonitorClearErrors()
         MonitorItem* pItem = reinterpret_cast<MonitorItem*>(m_projTree.GetItemData(hItem));
         pItem->authFailed  = false;
         pItem->lastErrorMsg.Empty();
-        m_projTree.SetItemState(hItem, pItem->authFailed ? INDEXTOOVERLAYMASK(OVERLAY_MODIFIED) : 0, TVIS_OVERLAYMASK);
+        m_projTree.SetItemState(hItem, 0, TVIS_OVERLAYMASK);
         return false;
     });
 
@@ -9809,7 +9809,7 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem, LRESULT* pResult)
         new async::CAsyncCall(this, &CLogDlg::LogThread, &netScheduler);
 
         m_projTree.SetItemState(hItem, pItem->unreadItems ? TVIS_BOLD : 0, TVIS_BOLD);
-        m_projTree.SetItemState(hItem, pItem->authFailed ? INDEXTOOVERLAYMASK(OVERLAY_MODIFIED) : 0, TVIS_OVERLAYMASK);
+        m_projTree.SetItemState(hItem, (pItem->authFailed || !pItem->lastErrorMsg.IsEmpty()) ? INDEXTOOVERLAYMASK(OVERLAY_MODIFIED) : 0, TVIS_OVERLAYMASK);
     }
 
     bool hasUnreadItems = false;
