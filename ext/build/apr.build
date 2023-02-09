@@ -72,6 +72,7 @@
     <echo file="include\apr.h" message="${configfile}" />
 
     <copy file="include\arch\unix\apr_arch_poll_private.h" tofile="include\arch\win32\apr_arch_poll_private.h" overwrite="true" />
+    <copy file="include\arch\unix\apr_arch_atomic.h" tofile="include\arch\win32\apr_arch_atomic.h" overwrite="true" />
     <rc rcfile="libapr.rc" output="${configuration}_${platform}\libapr_tsvn.res" options="/nologo">
       <includedirs>
         <include name="include" />
@@ -102,7 +103,8 @@
         <include name="network_io\unix\inet_pton.c" />
         <include name="network_io\unix\multicast.c" />
         <include name="network_io\unix\sockaddr.c" />
-        <include name="atomic\win32\apr_atomic.c" />
+        <include name="atomic\win32\apr_atomic.c" if="${platform == 'win32'}" />
+        <include name="atomic\win32\apr_atomic64.c" if="${platform != 'win32'}"/>
         <include name="dso\win32\dso.c" />
         <include name="encoding\*.c" />
         <include name="file_io\win32\*.c" />
