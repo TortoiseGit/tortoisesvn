@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2015, 2017, 2021 - TortoiseSVN
+// Copyright (C) 2007-2015, 2017, 2021, 2023 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,7 +29,6 @@
 // ReSharper disable once CppUnusedIncludeDirective
 #include "SubWCRevCOM_i.c"
 #include "SubWCRevCOM.h"
-#include <initguid.h>
 
 #include "Register.h"
 #include "UnicodeUtils.h"
@@ -474,6 +473,11 @@ HRESULT __stdcall SubWCRev::get_LockComment(/*[out, retval]*/ VARIANT* comment)
 
     comment->bstrVal = SysAllocString(buf.get());
     return result;
+}
+
+HRESULT __stdcall SubWCRev::get_RepoRoot(/*[out, retval]*/ VARIANT* url)
+{
+    return Utf8StringToVariant(m_subStat.rootUrl, url);
 }
 
 //

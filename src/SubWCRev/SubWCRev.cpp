@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018, 2021 - TortoiseSVN
+// Copyright (C) 2003-2018, 2021, 2023 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -98,6 +98,7 @@ $WCDATE$        Date of highest committed revision\n\
 $WCDATE=$       Like $WCDATE$ with an added strftime format after the =\n\
 $WCRANGE$       Update revision range\n\
 $WCURL$         Repository URL of the working copy\n\
+$REPOROOT$      The URL of the repository root\n\
 $WCNOW$         Current system date & time\n\
 $WCNOW=$        Like $WCNOW$ with an added strftime format after the =\n\
 $WCLOCKDATE$    Lock date for this item\n\
@@ -136,6 +137,7 @@ $WCISLOCKED$    True if the item is locked\n"
 #define EXTALLFIXED    "$WCEXTALLFIXED?"
 #define ISTAGGED       "$WCISTAGGED?"
 #define URLDEF         "$WCURL$"
+#define REPOROOTDEF    "$REPOROOT$"
 #define NOWDEF         "$WCNOW$"
 #define NOWDEFUTC      "$WCNOWUTC$"
 #define NOWWFMTDEF     "$WCNOW="
@@ -1189,6 +1191,13 @@ int wmain(int argc, wchar_t *argv[])
         ;
     index = 0;
     while (InsertUrlW(TEXT(URLDEF), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, maxLength, Utf8ToWide(subStat.url).c_str()))
+        ;
+
+    index = 0;
+    while (InsertUrl(REPOROOTDEF, pBuf.get(), index, fileLength, maxLength, subStat.rootUrl))
+        ;
+    index = 0;
+    while (InsertUrlW(TEXT(REPOROOTDEF), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, maxLength, Utf8ToWide(subStat.rootUrl).c_str()))
         ;
 
     index = 0;
