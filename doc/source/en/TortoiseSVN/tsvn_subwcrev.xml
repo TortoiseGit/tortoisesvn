@@ -453,6 +453,12 @@ doc/*
               </entry>
             </row>
             <row>
+              <entry condition="pot">$REPOROOT$</entry>
+              <entry>
+                Replaced with the URL of the repository root.
+              </entry>
+            </row>
+            <row>
               <entry condition="pot">$WCINSVN$</entry>
               <entry>
                 <literal>$WCINSVN?TText:FText$</literal> is
@@ -727,6 +733,13 @@ char *lockcmt       = "";
                 Replaced with the repository URL of the working
                 copy path used in <literal>GetWCInfo</literal>.
                 Equivalent to <literal>$WCURL$</literal>.
+              </entry>
+            </row>
+            <row>
+              <entry condition="pot">.RepoRoot</entry>
+              <entry>
+                Replaced with the URL of the repository root.
+                Equivalent to <literal>$REPOROOT$</literal>.
               </entry>
             </row>
             <row>
