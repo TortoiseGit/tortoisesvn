@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2022 - TortoiseSVN
+// Copyright (C) 2003-2023 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -2025,8 +2025,7 @@ void CLogDlg::StatusThread()
 
 void CLogDlg::CopySelectionToClipBoard() const
 {
-    if ((GetKeyState(VK_CONTROL) & 0x8000) && ((GetKeyState(L'C') & 0x8000) == 0) &&
-        ((GetKeyState(VK_INSERT) & 0x8000) == 0))
+    if ((GetKeyState(VK_CONTROL) & 0x8000) && (GetKeyState(VK_SHIFT) & 0x8000))
     {
         CopyCommaSeparatedRevisionsToClipboard();
     }
