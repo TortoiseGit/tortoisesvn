@@ -376,6 +376,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_COMMAND(ID_LOGDLG_FIND, &CLogDlg::OnFind)
     ON_COMMAND(ID_LOGDLG_FOCUSFILTER, &CLogDlg::OnFocusFilter)
     ON_COMMAND(ID_EDIT_COPY, &CLogDlg::OnEditCopy)
+    ON_COMMAND(ID_LOGDLG_COPYREVISIONS, &CLogDlg::OnCopyRevisions)
     ON_NOTIFY(LVN_KEYDOWN, IDC_LOGLIST, &CLogDlg::OnLvnKeydownLoglist)
     ON_NOTIFY(LVN_KEYDOWN, IDC_LOGMSG, &CLogDlg::OnLvnKeydownFilelist)
     ON_EN_VSCROLL(IDC_MSGVIEW, &CLogDlg::OnEnscrollMsgview)
@@ -2020,18 +2021,6 @@ void CLogDlg::StatusThread()
             // redrawn in bold
             m_logList.Invalidate(FALSE);
         }
-    }
-}
-
-void CLogDlg::CopySelectionToClipBoard() const
-{
-    if ((GetKeyState(VK_CONTROL) & 0x8000) && (GetKeyState(VK_SHIFT) & 0x8000))
-    {
-        CopyCommaSeparatedRevisionsToClipboard();
-    }
-    else
-    {
-        CopySelectionToClipBoard(!(GetKeyState(VK_SHIFT) & 0x8000));
     }
 }
 
@@ -6594,7 +6583,13 @@ void CLogDlg::OnEditCopy()
     if (GetFocus() == &m_changedFileListCtrl)
         CopyChangedSelectionToClipBoard();
     else
-        CopySelectionToClipBoard();
+        CopySelectionToClipBoard(!(GetKeyState(VK_SHIFT) & 0x8000));
+}
+
+void CLogDlg::OnCopyRevisions()
+{
+    if (GetFocus() != &m_changedFileListCtrl)
+        CopyCommaSeparatedRevisionsToClipboard();
 }
 
 void CLogDlg::OnLvnKeydownLoglist(NMHDR* pNMHDR, LRESULT* pResult)

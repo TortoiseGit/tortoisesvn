@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018, 2020-2022 - TortoiseSVN
+// Copyright (C) 2003-2018, 2020-2023 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -230,6 +230,7 @@ protected:
     afx_msg void    OnFind();
     afx_msg void    OnFocusFilter();
     afx_msg void    OnEditCopy();
+    afx_msg void    OnCopyRevisions();
     afx_msg void    OnLogCancel();
     afx_msg void    OnLvnKeydownLoglist(NMHDR* pNMHDR, LRESULT* pResult);
     afx_msg void    OnLvnKeydownFilelist(NMHDR* pNMHDR, LRESULT* pResult);
@@ -285,7 +286,6 @@ private:
     void              DoSizeV2(int delta);
     void              SetSplitterRange();
     void              SetFilterCueText();
-    void              CopySelectionToClipBoard() const;
     void              CopySelectionToClipBoard(bool bIncludeChangedList) const;
     void              CopySelectionToClipBoardRev() const;
     void              CopySelectionToClipBoardViewerRev() const;
