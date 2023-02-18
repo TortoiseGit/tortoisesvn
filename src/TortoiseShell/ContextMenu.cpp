@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018, 2021-2022 - TortoiseSVN
+// Copyright (C) 2003-2018, 2021-2023 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -84,6 +84,9 @@ CShellExt::MenuInfo CShellExt::menuInfo[] =
 
     { ShellMenuLog,                         TSVNContextMenuEntries::Log,            IDI_LOG,                IDS_MENULOG,                IDS_MENUDESCLOG,
         {ITEMIS_INSVN|ITEMIS_ONLYONE, ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_ADDEDWITHHISTORY|ITEMIS_ONLYONE, ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDERINSVN|ITEMIS_ONLYONE, ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, L"tsvn_log" },
+
+    { ShellMenuLogExt,                      TSVNContextMenuEntries::Logext,         IDI_LOG,                IDS_MENULOGEXT,             IDS_MENUDESCLOGEXT,
+        {ITEMIS_INSVN|ITEMIS_ONLYONE|ITEMIS_EXTENDED, ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_ADDEDWITHHISTORY|ITEMIS_ONLYONE|ITEMIS_EXTENDED, ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDERINSVN|ITEMIS_ONLYONE|ITEMIS_EXTENDED, ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, L"tsvn_logext" },
 
     { ShellMenuRepoBrowse,                  TSVNContextMenuEntries::Repobrowse,     IDI_REPOBROWSE,         IDS_MENUREPOBROWSE,         IDS_MENUDESCREPOBROWSE,
         {ITEMIS_ONLYONE, 0}, {ITEMIS_FOLDERINSVN|ITEMIS_ONLYONE, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, L"tsvn_repobrowse" },
@@ -1622,6 +1625,10 @@ void CShellExt::InvokeCommand(int cmd, const std::wstring& cwd, const std::wstri
             break;
         case ShellMenuLog:
             AddPathCommand(svnCmd, L"log", true, paths, folder);
+            break;
+        case ShellMenuLogExt:
+            AddPathCommand(svnCmd, L"log", true, paths, folder);
+            svnCmd += L" /reporev";
             break;
         case ShellMenuConflictEditor:
             AddPathCommand(svnCmd, L"conflicteditor", true, paths, folder);

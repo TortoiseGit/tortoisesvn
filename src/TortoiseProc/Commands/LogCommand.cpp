@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010, 2013-2014, 2021 - TortoiseSVN
+// Copyright (C) 2007-2010, 2013-2014, 2021, 2023 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,9 +18,11 @@
 //
 #include "stdafx.h"
 #include "LogCommand.h"
-#include "LogDialog/LogDlg.h"
+#include "RevisionDlg.h"
 #include "StringUtils.h"
+#include "SVN.h"
 #include "TortoiseProc.h"
+#include "LogDialog/LogDlg.h"
 
 bool LogCommand::Execute()
 {
@@ -54,6 +56,36 @@ bool LogCommand::Execute()
     if (!revEnd.IsValid())
         revEnd = 0;
 
+    CTSVNPath path = cmdLinePath;
+    if (parser.HasKey(L"reporev"))
+    {
+        // show log of the repo's root directory at a specific revision
+        // if no revision is specified, ask the user to enter one
+        if (parser.HasVal(L"reporev"))
+        {
+            val = parser.GetVal(L"reporev");
+            revStart = SVNRev(val);
+        }
+        else
+        {
+            CRevisionDlg dlg;
+            dlg.AllowWCRevs(false);
+
+            if (dlg.DoModal() != IDOK)
+                return false;
+
+            val = dlg.GetEnteredRevisionString();
+            revStart = SVNRev(val);
+        }
+        pegRev = revStart;
+        revEnd = 0;
+
+        // ignore the specific file(s) / folder(s), but use them to get the repo's root URL
+        SVN svn;
+        CString root = svn.GetRepositoryRoot(cmdLinePath);
+        path.SetFromSVN(root);
+    }
+
     if (limit == 0)
     {
         CRegDWORD reg = CRegDWORD(L"Software\\TortoiseSVN\\NumberOfLogs", 100);
@@ -80,7 +112,7 @@ bool LogCommand::Execute()
 
     CLogDlg dlg;
     theApp.m_pMainWnd = &dlg;
-    dlg.SetParams(cmdLinePath, pegRev, revStart, revEnd, bStrict, TRUE, limit);
+    dlg.SetParams(path, pegRev, revStart, revEnd, bStrict, TRUE, limit);
     dlg.SetFilter(findStr, findType, findRegex, sFilterDateFrom, sFilterDateTo);
     dlg.SetIncludeMerge(!!parser.HasKey(L"merge"));
     val = parser.GetVal(L"propspath");

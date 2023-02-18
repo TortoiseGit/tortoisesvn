@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2013-2017, 2021 - TortoiseSVN
+// Copyright (C) 2003-2010, 2013-2017, 2021, 2023 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -64,6 +64,7 @@ enum class TSVNContextMenuEntries : unsigned __int64
     Copyurl        = 0x0000008000000000,
     Shelve         = 0x0000010000000000,
     Unshelve       = 0x0000020000000000,
+    Logext         = 0x0000040000000000,
 
     Settings = 0x2000000000000000,
     Help     = 0x4000000000000000,
@@ -147,6 +148,7 @@ const std::vector<std::tuple<TSVNContextMenuEntries, UINT, UINT>> TSVNContextMen
     {TSVNContextMenuEntries::Copyurl, IDS_MENUCOPYURL, IDI_COPYURL},
     {TSVNContextMenuEntries::Shelve, IDS_MENUSHELVE, IDI_SHELVE},
     {TSVNContextMenuEntries::Unshelve, IDS_MENUUNSHELVE, IDI_UNSHELVE},
+    {TSVNContextMenuEntries::Logext, IDS_MENULOGEXT, IDI_LOG},
 
     {TSVNContextMenuEntries::Settings, IDS_MENUSETTINGS, IDI_SETTINGS},
     {TSVNContextMenuEntries::Help, IDS_MENUHELP, IDI_HELP},

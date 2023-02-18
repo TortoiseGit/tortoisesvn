@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018, 2021-2022 - TortoiseSVN
+// Copyright (C) 2003-2018, 2021-2023 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -159,6 +159,7 @@ public:
         ShellMenuDelUnversioned,
         ShellMenuClipPaste,
         ShellMenuUpgradeWC,
+        ShellMenuLogExt,
         ShellMenuLastEntry // used to mark the menu array end
     };
 
