@@ -514,10 +514,10 @@ void CLogDlg::RestoreSavedDialogSettings()
     switch (static_cast<LONG>(CRegDWORD(L"Software\\TortoiseSVN\\ShowAllEntry")))
     {
         default:
-        case 0:
+        case ID_CMD_SHOWALL:
             m_btnShow.SetWindowText(CString(MAKEINTRESOURCE(IDS_LOG_SHOWALL)));
             break;
-        case 1:
+        case ID_CMD_SHOWRANGE:
             m_btnShow.SetWindowText(CString(MAKEINTRESOURCE(IDS_LOG_SHOWRANGE)));
             break;
     }
