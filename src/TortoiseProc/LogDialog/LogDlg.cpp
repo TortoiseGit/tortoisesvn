@@ -2048,14 +2048,33 @@ void CLogDlg::CopyCommaSeparatedRevisionsToClipboard() const
     }
     if (setSelectedRevisions.size() > 0)
     {
-        CString sRevisions;
-        for (auto it = setSelectedRevisions.begin(); it != setSelectedRevisions.end(); ++it)
+        // if the webviewer:revision property is set, copy revision numbers as clickable hyperlinks in CF_HTML format
+        // in addition to copying them in plain text format for the majority of applications that don't accept CF_HTML
+        CString sHyperlinkFormat;
+        if (!m_projectProperties.sWebViewerRev.IsEmpty())
+            sHyperlinkFormat.Format(L"<a href=\"%s\">%%REVISION%%</a>", static_cast<LPCWSTR>(m_projectProperties.sWebViewerRev));
+
+        CString sRevisionsText;
+        CString sRevisionsHtml;
+        for (const auto& rev : setSelectedRevisions)
         {
-            if (!sRevisions.IsEmpty())
-                sRevisions += ", ";
-            sRevisions += SVNRev(*it).ToString();
+            if (!sRevisionsText.IsEmpty())
+                sRevisionsText += L", ";
+            sRevisionsText += SVNRev(rev).ToString();
+
+            if (!sHyperlinkFormat.IsEmpty())
+            {
+                CString sHyperlink = sHyperlinkFormat;
+                sHyperlink.Replace(L"%REVISION%", SVNRev(rev).ToString());
+                if (!sRevisionsHtml.IsEmpty())
+                    sRevisionsHtml += L", ";
+                sRevisionsHtml += sHyperlink;
+            }
         }
-        CStringUtils::WriteAsciiStringToClipboard(sRevisions, GetSafeHwnd());
+        if (!sRevisionsHtml.IsEmpty())
+            CStringUtils::WriteHtmlAndStringToClipboard(sRevisionsHtml, sRevisionsText, GetSafeHwnd());
+        else
+            CStringUtils::WriteAsciiStringToClipboard(sRevisionsText, GetSafeHwnd());
     }
 }
 

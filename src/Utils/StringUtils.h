@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2013-2014, 2018, 2020-2021 - TortoiseSVN
+// Copyright (C) 2003-2010, 2013-2014, 2018, 2020-2021, 2023 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -287,6 +287,14 @@ public:
      * Writes a String to the clipboard in both CF_UNICODETEXT and CF_TEXT format
      */
     static bool WriteAsciiStringToClipboard(const CStringW& sClipdata, HWND hOwningWnd = nullptr);
+
+    /**
+     * Writes a fragment of HTML to the clipboard in CF_HTML format for applications that accept HTML,
+     * and as a plain text CString in CF_UNICODETEXT format since most applications don't accept CF_HTML.
+     * The HTML fragment must be valid Unicode HTML and will be embedded inside <HTML><BODY> blocks as explained here:
+     * https://learn.microsoft.com/en-us/windows/win32/dataxchg/html-clipboard-format
+     */
+    static bool WriteHtmlAndStringToClipboard(const CStringW& sHtml, const CStringW& sPlainText, HWND hOwningWnd = nullptr);
 
     /**
     * Writes an ASCII CString to the clipboard in TSVN_UNIFIEDDIFF format, which is basically the patch file

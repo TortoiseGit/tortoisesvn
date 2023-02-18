@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013-2018, 2020-2021 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013-2018, 2020-2021, 2023 - TortoiseSVN
 // Copyright (C) 2016 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -145,12 +145,18 @@ bool CStringUtils::WriteAsciiStringToClipboard(const CStringA& sClipdata, LCID l
 
     char* pchData = static_cast<char*>(GlobalLock(hClipboardData));
     if (!pchData)
+    {
+        GlobalFree(hClipboardData);
         return false;
+    }
 
     strcpy_s(pchData, sClipdata.GetLength() + 1, static_cast<LPCSTR>(sClipdata));
     GlobalUnlock(hClipboardData);
     if (!SetClipboardData(CF_TEXT, hClipboardData))
+    {
+        GlobalFree(hClipboardData);
         return false;
+    }
 
     HANDLE hlocmem = CClipboardHelper::GlobalAlloc(sizeof(LCID));
     if (!hlocmem)
@@ -192,6 +198,113 @@ bool CStringUtils::WriteAsciiStringToClipboard(const CStringW& sClipdata, HWND h
     return true;
 }
 
+bool CStringUtils::WriteHtmlAndStringToClipboard(const CStringW& sHtml, const CStringW& sPlainText, HWND hOwningWnd)
+{
+    // Convert the HTML fragment to UTF-8 and generate a CF_HTML block for that fragment
+
+    // Example CF_HTML clipboard data:
+    //
+    // "Version:0.9\r\n"
+    // "StartHTML:0000000105\r\n"
+    // "EndHTML:0000000190\r\n"
+    // "StartFragment:0000000141\r\n"
+    // "EndFragment:0000000154\r\n"
+    // "<HTML>\r\n"
+    // "<BODY>\r\n"
+    // "<!--StartFragment-->HTML_FRAGMENT<!--EndFragment-->\r\n"
+    // "</BODY>\r\n"
+    // "</HTML>"
+
+    CStringA              sHtmlUtf8         = CUnicodeUtils::GetUTF8(sHtml);
+
+    constexpr const char* descStartHTML     = "Version:0.9\r\nStartHTML:";
+    constexpr const char* descEndHTML       = "\r\nEndHTML:";
+    constexpr const char* descStartFragment = "\r\nStartFragment:";
+    constexpr const char* descEndFragment   = "\r\nEndFragment:";
+    constexpr const char* descSuffix        = "\r\n";
+    constexpr const char* htmlPrefix        = "<HTML>\r\n<BODY>\r\n<!--StartFragment-->";
+    constexpr const char* htmlSuffix        = "<!--EndFragment-->\r\n</BODY>\r\n</HTML>";
+    constexpr size_t      numWidth          = 10;
+    constexpr size_t      offsetStartHTML   = std::char_traits<char>::length(descStartHTML) + numWidth +
+                                       std::char_traits<char>::length(descEndHTML) + numWidth +
+                                       std::char_traits<char>::length(descStartFragment) + numWidth +
+                                       std::char_traits<char>::length(descEndFragment) + numWidth +
+                                       std::char_traits<char>::length(descSuffix);
+    constexpr size_t offsetStartFragment = offsetStartHTML + std::char_traits<char>::length(htmlPrefix);
+    size_t           offsetEndFragment   = offsetStartFragment + sHtmlUtf8.GetLength();
+    size_t           offsetEndHTML       = offsetEndFragment + strlen(htmlSuffix);
+
+    CStringA sHtmlData;
+    sHtmlData.Format("%s%010u"
+                     "%s%010u"
+                     "%s%010u"
+                     "%s%010u"
+                     "%s"
+                     "%s"
+                     "%s"
+                     "%s",
+                     descStartHTML, static_cast<unsigned int>(offsetStartHTML),
+                     descEndHTML, static_cast<unsigned int>(offsetEndHTML),
+                     descStartFragment, static_cast<unsigned int>(offsetStartFragment),
+                     descEndFragment, static_cast<unsigned int>(offsetEndFragment),
+                     descSuffix,
+                     htmlPrefix,
+                     static_cast<const char*>(sHtmlUtf8),
+                     htmlSuffix);
+
+    UINT htmlFormat = RegisterClipboardFormat(L"HTML Format");
+    if (htmlFormat == 0)
+        return false;
+
+    CClipboardHelper clipboardHelper;
+    if (!clipboardHelper.Open(hOwningWnd))
+        return false;
+
+    EmptyClipboard();
+
+    HGLOBAL hHtmlData = CClipboardHelper::GlobalAlloc(sHtmlData.GetLength() + 1);
+    if (!hHtmlData)
+        return false;
+
+    char* pchHtmlData = static_cast<char*>(GlobalLock(hHtmlData));
+    if (!pchHtmlData)
+    {
+        GlobalFree(hHtmlData);
+        return false;
+    }
+    strcpy_s(pchHtmlData, sHtmlData.GetLength() + 1, static_cast<LPCSTR>(sHtmlData));
+    GlobalUnlock(hHtmlData);
+
+    if (!SetClipboardData(htmlFormat, hHtmlData))
+    {
+        GlobalFree(hHtmlData);
+        return false;
+    }
+    // Also write a plain text block as CF_UNICODETEXT since most applications don't accept CF_HTML
+    HGLOBAL hClipboardData = CClipboardHelper::GlobalAlloc((sPlainText.GetLength() + 1) * sizeof(WCHAR));
+    if (!hClipboardData)
+        return false;
+
+    WCHAR* pchData = static_cast<WCHAR*>(GlobalLock(hClipboardData));
+    if (!pchData)
+    {
+        GlobalFree(hClipboardData);
+        return false;
+    }
+
+    _tcscpy_s(pchData, sPlainText.GetLength() + 1, static_cast<LPCWSTR>(sPlainText));
+    GlobalUnlock(hClipboardData);
+    if (!SetClipboardData(CF_UNICODETEXT, hClipboardData))
+    {
+        GlobalFree(hClipboardData);
+        return false;
+    }
+
+    // no need to also set CF_TEXT : the OS does this
+    // automatically.
+    return true;
+}
+
 bool CStringUtils::WriteDiffToClipboard(const CStringA& sClipdata, HWND hOwningWnd)
 {
     UINT cFormat = RegisterClipboardFormat(L"TSVN_UNIFIEDDIFF");
@@ -208,12 +321,18 @@ bool CStringUtils::WriteDiffToClipboard(const CStringA& sClipdata, HWND hOwningW
 
     char* pchData = static_cast<char*>(GlobalLock(hClipboardData));
     if (!pchData)
+    {
+        GlobalFree(hClipboardData);
         return false;
+    }
 
     strcpy_s(pchData, sClipdata.GetLength() + 1, static_cast<LPCSTR>(sClipdata));
     GlobalUnlock(hClipboardData);
     if (!SetClipboardData(cFormat, hClipboardData))
+    {
+        GlobalFree(hClipboardData);
         return false;
+    }
     if (!SetClipboardData(CF_TEXT, hClipboardData))
         return false;
 
