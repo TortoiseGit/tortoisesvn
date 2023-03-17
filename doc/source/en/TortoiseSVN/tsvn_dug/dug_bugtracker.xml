@@ -86,9 +86,6 @@
               You do not have to provide this property, but then
               TortoiseSVN shows only the
               issue number and not the link to it.
-              e.g the TortoiseSVN project is using
-              <systemitem class="url">http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>.
-			  <!-- No longer relevant? Remove bugtraq:url property from repo? -->
             </para>
             <para>
               You can also use relative URLs instead of absolute ones. This is
@@ -102,20 +99,18 @@
               to be relative to the repository root.
               For example, <literal>^/../?do=details&amp;id=%BUGID%</literal>
               will resolve to
-              <systemitem class="url">https://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>
+              <systemitem class="url">https://example.com/?do=details&amp;id=%BUGID%</systemitem>
               if your repository is located on
-              <systemitem class="url">https://tortoisesvn.net/svn/trunk/</systemitem>.
-			  <!--rework example -->
+              <systemitem class="url">https://example.com/svn/trunk/</systemitem>.
             </para>
             <para>
               A URL beginning with the string <literal>/</literal> is assumed
               to be relative to the server's hostname.
               For example <literal>/?do=details&amp;id=%BUGID%</literal>
               will resolve to
-              <systemitem class="url">https://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>
+              <systemitem class="url">https://example.com/?do=details&amp;id=%BUGID%</systemitem>
               if your repository is located anywhere on
-              <systemitem class="url">https://tortoisesvn.net</systemitem>.
-			  <!-- rework example -->
+              <systemitem class="url">https://example.com</systemitem>.
             </para>
           </listitem>
         </varlistentry>

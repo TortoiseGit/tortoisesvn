@@ -387,12 +387,7 @@
           tries to find the revision where the branch was created from
           and hide all the revisions that are beyond that revision.
           Since this can take quite a while, this option is disabled
-          by default. Also this option doesn't work with some SVN servers
-          (e.g., Google Code Hosting, see
-          <ulink url="http://code.google.com/p/support/issues/detail?id=5471">
-            <citetitle>issue #5471</citetitle>
-          </ulink>).
-          <!-- 401 error: Anonymous caller does not have storage.objects.get access to the Google Cloud Storage object. -->
+          by default.
         </para>
       </listitem>
     </varlistentry>

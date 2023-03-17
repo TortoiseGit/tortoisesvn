@@ -200,11 +200,19 @@
 @echo off
 rmdir /s /q "%APPDATA%\Subversion\auth"
       </screen>
-      You can find a description of how to install such scripts at
-      <ulink url="http://www.windows-help-central.com/windows-shutdown-script.html">
-        <citetitle>http://www.windows-help-central.com/windows-shutdown-script.html</citetitle>
-      </ulink>.
-      <!-- 504 gateway timeout. https://web.archive.org/web/20210425215221/https://www.windows-help-central.com/windows-shutdown-script.html ?? -->
+      You can install such a script on Windows like this:
+      <orderedlist>
+        <listitem>
+          <para>
+            Run <literal>gpedit.msc</literal> (Local Policies)
+          </para>
+        </listitem>
+        <listitem>
+          <para>
+            User Configuration -> Windows Settings -> Scripts -> Logon or Logoff -> Properties -> Add
+          </para>
+        </listitem>
+      </orderedlist>
     </para>
     <para>
       For more information on how to set up your server for

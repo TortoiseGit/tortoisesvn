@@ -72,6 +72,8 @@
 #define HID_LOGDLG_MONITOR_ADDSUBPROJECT        0x1806C
 #define HID_POPUP_UPDATEALL                     0x1806D
 #define HID_LOGDLG_MONITOR_CLEARERRORS          0x1806E
+#define HID_LOGDLG_MONITOR_CHECKNOW             0x1806F
+#define HID_LOGDLG_COPYREVISIONS                0x18070
 // Prompts (IDP_*)
 // Resources (IDR_*)
 #define HIDR_MAINFRAME                          0x20001

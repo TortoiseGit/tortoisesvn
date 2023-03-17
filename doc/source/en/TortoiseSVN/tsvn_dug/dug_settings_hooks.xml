@@ -524,17 +524,16 @@ pause &lt; con &gt; con
           <listitem>
             <para>
               This property specifies the COM UUID of the IBugtraqProvider,
-              for example <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>.
+              for example <literal>{0044f6c0-b999-11e1-afa6-0800200c9a66}</literal>.
               (This example is the UUID of the
-              <ulink url="http://code.google.com/p/gurtle/">
-                <citetitle>Gurtle bugtraq provider</citetitle>
+              <ulink url="https://github.com/scottiemc7/YurtleTrack">
+                <citetitle>YurtleTrack provider</citetitle>
               </ulink>,
               which is a provider for the
-              <ulink url="http://code.google.com/hosting/">
-                <citetitle>Google Code</citetitle>
+              <ulink url="http://www.jetbrains.com/youtrack/">
+                <citetitle>JetBrains YouTrack 6.0</citetitle>
               </ulink>
               issue tracker.)
-              <!-- Better example, since Gurtle/Google Code is no longer?? -->
             </para>
           </listitem>
         </varlistentry>
