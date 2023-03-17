@@ -1696,11 +1696,19 @@ msgid "If you want to clear the authentication cache, you can do so from the <gu
 msgstr ""
 
 #. (para)
+msgid "Run <literal>gpedit.msc</literal> (Local Policies)"
+msgstr ""
+
+#. (para)
+msgid "User Configuration -&gt; Windows Settings -&gt; Scripts -&gt; Logon or Logoff -&gt; Properties -&gt; Add"
+msgstr ""
+
+#. (para)
 msgid ""
 "Some people like to have the authentication data deleted when they log off Windows, or on shutdown. The way to do that is to use a shutdown script to delete the <filename>%APPDATA%\\Subversion\\auth</filename> directory, e.g. <screen>\n"
 "@echo off\n"
 "rmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n"
-"      </screen> You can find a description of how to install such scripts at <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>http://www.windows-help-central.com/windows-shutdown-script.html</citetitle></ulink>."
+"      </screen> You can install such a script on Windows like this: <placeholder-1/>"
 msgstr ""
 
 #. (para)
@@ -7503,7 +7511,7 @@ msgid "<placeholder-1/> When you edit any of the bugtraq properties a special pr
 msgstr ""
 
 #. (para)
-msgid "Set this property to the URL of your bug tracking tool. It must be properly URI encoded and it has to contain <literal>%BUGID%</literal>. <literal>%BUGID%</literal> is replaced with the Issue number you entered. This allows TortoiseSVN to display a link in the log dialog, so when you are looking at the revision log you can jump directly to your bug tracking tool. You do not have to provide this property, but then TortoiseSVN shows only the issue number and not the link to it. e.g the TortoiseSVN project is using <systemitem class=\"url\">http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>."
+msgid "Set this property to the URL of your bug tracking tool. It must be properly URI encoded and it has to contain <literal>%BUGID%</literal>. <literal>%BUGID%</literal> is replaced with the Issue number you entered. This allows TortoiseSVN to display a link in the log dialog, so when you are looking at the revision log you can jump directly to your bug tracking tool. You do not have to provide this property, but then TortoiseSVN shows only the issue number and not the link to it."
 msgstr ""
 
 #. (para)
@@ -7511,11 +7519,11 @@ msgid "You can also use relative URLs instead of absolute ones. This is useful w
 msgstr ""
 
 #. (para)
-msgid "If it begins with the string <literal>^/</literal> it is assumed to be relative to the repository root. For example, <literal>^/../?do=details&amp;id=%BUGID%</literal> will resolve to <systemitem class=\"url\">https://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> if your repository is located on <systemitem class=\"url\">https://tortoisesvn.net/svn/trunk/</systemitem>."
+msgid "If it begins with the string <literal>^/</literal> it is assumed to be relative to the repository root. For example, <literal>^/../?do=details&amp;id=%BUGID%</literal> will resolve to <systemitem class=\"url\">https://example.com/?do=details&amp;id=%BUGID%</systemitem> if your repository is located on <systemitem class=\"url\">https://example.com/svn/trunk/</systemitem>."
 msgstr ""
 
 #. (para)
-msgid "A URL beginning with the string <literal>/</literal> is assumed to be relative to the server's hostname. For example <literal>/?do=details&amp;id=%BUGID%</literal> will resolve to <systemitem class=\"url\">https://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> if your repository is located anywhere on <systemitem class=\"url\">https://tortoisesvn.net</systemitem>."
+msgid "A URL beginning with the string <literal>/</literal> is assumed to be relative to the server's hostname. For example <literal>/?do=details&amp;id=%BUGID%</literal> will resolve to <systemitem class=\"url\">https://example.com/?do=details&amp;id=%BUGID%</systemitem> if your repository is located anywhere on <systemitem class=\"url\">https://example.com</systemitem>."
 msgstr ""
 
 #. (para)
@@ -9387,7 +9395,7 @@ msgid "<placeholder-1/> Click on <guibutton>Add...</guibutton> to use the plugin
 msgstr ""
 
 #. (para)
-msgid "This property specifies the COM UUID of the IBugtraqProvider, for example <literal>{91974081-2DC7-4FB1-B3BE-0DE1C8D6CE4E}</literal>. (This example is the UUID of the <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq provider</citetitle></ulink>, which is a provider for the <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> issue tracker.)"
+msgid "This property specifies the COM UUID of the IBugtraqProvider, for example <literal>{0044f6c0-b999-11e1-afa6-0800200c9a66}</literal>. (This example is the UUID of the <ulink url=\"https://github.com/scottiemc7/YurtleTrack\"><citetitle>YurtleTrack provider</citetitle></ulink>, which is a provider for the <ulink url=\"http://www.jetbrains.com/youtrack/\"><citetitle>JetBrains YouTrack 6.0</citetitle></ulink> issue tracker.)"
 msgstr ""
 
 #. (para)
@@ -9655,7 +9663,7 @@ msgid "When the log dialog is started from the merge wizard, already merged revi
 msgstr ""
 
 #. (para)
-msgid "If this option is set to <literal>true</literal> then TortoiseSVN tries to find the revision where the branch was created from and hide all the revisions that are beyond that revision. Since this can take quite a while, this option is disabled by default. Also this option doesn't work with some SVN servers (e.g., Google Code Hosting, see <ulink url=\"http://code.google.com/p/support/issues/detail?id=5471\"><citetitle>issue #5471</citetitle></ulink>)."
+msgid "If this option is set to <literal>true</literal> then TortoiseSVN tries to find the revision where the branch was created from and hide all the revisions that are beyond that revision. Since this can take quite a while, this option is disabled by default."
 msgstr ""
 
 #. (para)
@@ -11463,7 +11471,7 @@ msgid "The TortoiseSVN installer comes as an MSI file, which means you should ha
 msgstr ""
 
 #. (para)
-msgid "A good walk-through on how to do that can be found in the knowledge base article 314934 from Microsoft: <ulink url=\"http://support.microsoft.com/?kbid=314934\"><citetitle>http://support.microsoft.com/?kbid=314934</citetitle></ulink>."
+msgid "A good walk-through on how to do that can be found in the knowledge base article 314934 from Microsoft: <ulink url=\"https://learn.microsoft.com/en-us/troubleshoot/windows-server/group-policy/use-group-policy-to-install-software\"><citetitle>https://learn.microsoft.com/en-us/troubleshoot/windows-server/group-policy/use-group-policy-to-install-software</citetitle></ulink>."
 msgstr ""
 
 #. (para)
@@ -13269,7 +13277,7 @@ msgid "The installer automatically adds the US and UK English dictionaries. If y
 msgstr ""
 
 #. (para)
-msgid "Or you can install the dictionaries yourself. If you have OpenOffice or Mozilla installed, you can copy those dictionaries, which are located in the installation folders for those applications. Otherwise, you need to download the required dictionary files from <ulink url=\"https://wiki.openoffice.org/wiki/Dictionaries\"><citetitle>https://wiki.openoffice.org/wiki/Dictionaries</citetitle></ulink>."
+msgid "Or you can install the dictionaries yourself. If you have OpenOffice or Mozilla installed, you can copy those dictionaries, which are located in the installation folders for those applications. Otherwise, you need to download the required dictionary files from <ulink url=\"https://cgit.freedesktop.org/libreoffice/dictionaries/tree/\"><citetitle>https://cgit.freedesktop.org/libreoffice/dictionaries/tree/</citetitle></ulink>."
 msgstr ""
 
 #. (filename)
