@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2022 - TortoiseSVN
+// Copyright (C) 2003-2023 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -2940,7 +2940,7 @@ bool SVN::Upgrade(const CTSVNPath& wcpath, const svn_version_t* wcFormatVersion)
     SVNPool localPool(m_pool);
     Prepare();
 
-    m_err = svn_client_upgrade2(wcpath.GetSVNApiPath(localPool), wcFormatVersion, m_pCtx, localPool);
+    m_err = svn_client_upgrade2(nullptr, wcpath.GetSVNApiPath(localPool), wcFormatVersion, m_pCtx, nullptr, localPool);
 
     return (m_err == nullptr);
 }
