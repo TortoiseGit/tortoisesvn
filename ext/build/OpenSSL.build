@@ -73,7 +73,23 @@
       <arg value="makefile" />
       <arg value="build_libs" />
     </exec>
-    <copy file="${targetDir}\include\openssl\opensslconf.h" todir="..\openssl\include\openssl" />
+    <copy file="${targetDir}\include\openssl\asn1.h" todir="..\openssl\include\openssl" />
+    <copy file="${targetDir}\include\openssl\asn1t.h" todir="..\openssl\include\openssl" />
+    <copy file="${targetDir}\include\openssl\bio.h" todir="..\openssl\include\openssl" />
+    <copy file="${targetDir}\include\openssl\conf.h" todir="..\openssl\include\openssl" />
+    <copy file="${targetDir}\include\openssl\configuration.h" todir="..\openssl\include\openssl" />
+    <copy file="${targetDir}\include\openssl\ct.h" todir="..\openssl\include\openssl" />
+    <copy file="${targetDir}\include\openssl\crypto.h" todir="..\openssl\include\openssl" />
+    <copy file="${targetDir}\include\openssl\err.h" todir="..\openssl\include\openssl" />
+    <copy file="${targetDir}\include\openssl\lhash.h" todir="..\openssl\include\openssl" />
+    <copy file="${targetDir}\include\openssl\opensslv.h" todir="..\openssl\include\openssl" />
+    <copy file="${targetDir}\include\openssl\pkcs12.h" todir="..\openssl\include\openssl" />
+    <copy file="${targetDir}\include\openssl\pkcs7.h" todir="..\openssl\include\openssl" />
+    <copy file="${targetDir}\include\openssl\safestack.h" todir="..\openssl\include\openssl" />
+    <copy file="${targetDir}\include\openssl\ssl.h" todir="..\openssl\include\openssl" />
+    <copy file="${targetDir}\include\openssl\x509.h" todir="..\openssl\include\openssl" />
+    <copy file="${targetDir}\include\openssl\x509_vfy.h" todir="..\openssl\include\openssl" />
+    <copy file="${targetDir}\include\openssl\x509v3.h" todir="..\openssl\include\openssl" />
   </target>
 
 </project>
