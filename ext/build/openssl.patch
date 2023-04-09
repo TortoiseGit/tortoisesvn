@@ -1,8 +1,8 @@
 Index: engines/e_capi.c
 ===================================================================
---- engines/e_capi.c	(revision 29519)
-+++ engines/e_capi.c	(working copy)
-@@ -9,7 +9,7 @@
+--- e_capi.c	(revision 29539)
++++ e_capi.c	(working copy)
+@@ -12,7 +12,7 @@
  
  #ifdef _WIN32
  # ifndef _WIN32_WINNT
@@ -11,7 +11,7 @@ Index: engines/e_capi.c
  # endif
  # include <windows.h>
  # include <wincrypt.h>
-@@ -18,10 +18,11 @@
+@@ -21,10 +21,11 @@
  # include <string.h>
  # include <stdlib.h>
  # include <malloc.h>
@@ -24,7 +24,7 @@ Index: engines/e_capi.c
  # include <openssl/crypto.h>
  
  # ifndef OPENSSL_NO_CAPIENG
-@@ -31,6 +32,15 @@
+@@ -34,6 +35,15 @@
  #  include <openssl/rsa.h>
  #  include <openssl/dsa.h>
  
@@ -40,7 +40,7 @@ Index: engines/e_capi.c
  /*
   * This module uses several "new" interfaces, among which is
   * CertGetCertificateContextProperty. CERT_KEY_PROV_INFO_PROP_ID is
-@@ -99,6 +109,96 @@
+@@ -102,6 +112,96 @@
  # include "e_capi_err.h"
  # include "e_capi_err.c"
  
@@ -137,7 +137,7 @@ Index: engines/e_capi.c
  static const char *engine_capi_id = "capi";
  static const char *engine_capi_name = "CryptoAPI ENGINE";
  
-@@ -593,6 +693,22 @@
+@@ -596,6 +696,22 @@
  
  void engine_load_capi_int(void)
  {
@@ -160,15 +160,15 @@ Index: engines/e_capi.c
      /* Copied from eng_[openssl|dyn].c */
      ENGINE *toadd = engine_capi();
      if (!toadd)
-@@ -600,6 +716,7 @@
-     ENGINE_add(toadd);
-     ENGINE_free(toadd);
-     ERR_clear_error();
+@@ -613,6 +729,7 @@
+      * ENGINE_load_builtin_engines() perhaps).
+      */
+     ERR_pop_to_mark();
 +    }
  }
  # endif
  
-@@ -1507,9 +1624,11 @@
+@@ -1530,9 +1647,11 @@
          dwFlags = CRYPT_MACHINE_KEYSET;
      if (!CryptAcquireContextW(&key->hprov, contname, provname, ptype,
                                dwFlags)) {
@@ -183,7 +183,7 @@ Index: engines/e_capi.c
      }
      if (!CryptGetUserKey(key->hprov, keyspec, &key->key)) {
          CAPIerr(CAPI_F_CAPI_GET_KEY, CAPI_R_GETUSERKEY_ERROR);
-@@ -1703,6 +1822,7 @@
+@@ -1726,6 +1845,7 @@
      PCCERT_CONTEXT cert = NULL, excert = NULL;
      CAPI_CTX *ctx;
      CAPI_KEY *key;
@@ -191,7 +191,7 @@ Index: engines/e_capi.c
      ctx = ENGINE_get_ex_data(e, capi_idx);
  
      *pcert = NULL;
-@@ -1759,9 +1879,22 @@
+@@ -1782,9 +1902,22 @@
          return 0;
  
      /* Select the appropriate certificate */
@@ -216,7 +216,7 @@ Index: engines/e_capi.c
      /* Set the selected certificate and free the rest */
  
      for (i = 0; i < sk_X509_num(certs); i++) {
-@@ -1794,7 +1927,9 @@
+@@ -1817,7 +1950,9 @@
  
  static int cert_select_simple(ENGINE *e, SSL *ssl, STACK_OF(X509) *certs)
  {
@@ -227,7 +227,7 @@ Index: engines/e_capi.c
  }
  
  # ifdef OPENSSL_CAPIENG_DIALOG
-@@ -1814,7 +1949,7 @@
+@@ -1837,7 +1972,7 @@
  #   define CRYPTUI_SELECT_INTENDEDUSE_COLUMN                0x000000004
  #  endif
  
@@ -236,7 +236,7 @@ Index: engines/e_capi.c
  #  define dlg_prompt L"Select a certificate to use for authentication"
  #  define dlg_columns      CRYPTUI_SELECT_LOCATION_COLUMN \
                          |CRYPTUI_SELECT_INTENDEDUSE_COLUMN
-@@ -1852,8 +1987,10 @@
+@@ -1875,8 +2010,10 @@
          }
  
      }
