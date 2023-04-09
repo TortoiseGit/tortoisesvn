@@ -44,10 +44,8 @@
       <arg value="/arch:IA32" if="${configuration == 'release' and platform == 'win32'}" />
       <arg value="/d2Zi+" if="${configuration == 'release'}" />
       <sources>
-        <include name="context.c" />
-        <include name="incoming.c" />
-        <include name="outgoing.c" />
-        <include name="ssltunnel.c" />
+        <include name="src\*.c" />
+        <include name="protocols\*.c" />
         <include name="buckets\*.c" />
         <include name="auth\*.c" />
       </sources>
@@ -80,6 +78,7 @@
         <define name="NONLS" />
         <define name="NOCRYPT" />
         <define name="SERF_HAVE_SSPI" />
+        <define name="SERF_HAVE_OSSL_HANDSHAKE_STATE" />
       </defines>
     </cl>
     <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />

@@ -82,6 +82,7 @@
     <copy file="${targetDir}\include\openssl\crypto.h" todir="..\openssl\include\openssl" />
     <copy file="${targetDir}\include\openssl\err.h" todir="..\openssl\include\openssl" />
     <copy file="${targetDir}\include\openssl\lhash.h" todir="..\openssl\include\openssl" />
+    <copy file="${targetDir}\include\openssl\ocsp.h" todir="..\openssl\include\openssl" />
     <copy file="${targetDir}\include\openssl\opensslv.h" todir="..\openssl\include\openssl" />
     <copy file="${targetDir}\include\openssl\pkcs12.h" todir="..\openssl\include\openssl" />
     <copy file="${targetDir}\include\openssl\pkcs7.h" todir="..\openssl\include\openssl" />
