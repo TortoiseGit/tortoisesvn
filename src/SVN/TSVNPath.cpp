@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2021 - TortoiseSVN
+// Copyright (C) 2003-2021, 2023 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -242,7 +242,7 @@ const CString& CTSVNPath::GetUIPathString() const
     if (m_sUIPath.IsEmpty())
     {
 #if defined(_MFC_VER)
-        //BUGBUG HORRIBLE!!! - CPathUtils::IsEscaped doesn't need to be MFC-only
+        // BUGBUG HORRIBLE!!! - CPathUtils::IsEscaped doesn't need to be MFC-only
         if (IsUrl())
         {
             m_sUIPath = CPathUtils::PathUnescape(GetSVNPathString());
@@ -395,7 +395,7 @@ void CTSVNPath::UpdateAttributes() const
         m_sLongBackslashPath = L"\\\\?\\" + m_sBackslashPath;
     if (GetFileAttributesEx(m_sBackslashPath.GetLength() >= 248 ? m_sLongBackslashPath : m_sBackslashPath, GetFileExInfoStandard, &attribs))
     {
-        m_bIsDirectory = !!(attribs.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
+        m_bIsDirectory  = !!(attribs.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
         // don't cast directly to an __int64:
         // http://msdn.microsoft.com/en-us/library/windows/desktop/ms724284%28v=vs.85%29.aspx
         // "Do not cast a pointer to a FILETIME structure to either a ULARGE_INTEGER* or __int64* value
@@ -683,10 +683,10 @@ LPCWSTR CTSVNPath::GetDisplayString(const CTSVNPath* pOptionalBasePath /* = NULL
     if (pOptionalBasePath != nullptr)
     {
         // Find the length of the base-path without having to do an 'ensure' on it
-        int baseLength = max(pOptionalBasePath->m_sBackslashPath.GetLength(), pOptionalBasePath->m_sFwdslashPath.GetLength());
+        int     baseLength = max(pOptionalBasePath->m_sBackslashPath.GetLength(), pOptionalBasePath->m_sFwdslashPath.GetLength());
 
         // Now, chop that baseLength of the front of the path
-        LPCWSTR result = m_sFwdslashPath;
+        LPCWSTR result     = m_sFwdslashPath;
         result += baseLength;
         while (*result == '/')
             ++result;
@@ -880,11 +880,14 @@ bool CTSVNPathList::LoadFromFile(const CTSVNPath& filename)
         CStdioFile file(filename.GetWinPath(), CFile::typeBinary | CFile::modeRead | CFile::shareDenyWrite);
 
         // for every selected file/folder
-        CTSVNPath path;
+        CTSVNPath  path;
         while (file.ReadString(strLine))
         {
-            path.SetFromUnknown(strLine);
-            AddPath(path);
+            if (!strLine.IsEmpty())
+            {
+                path.SetFromUnknown(strLine);
+                AddPath(path);
+            }
         }
         file.Close();
     }
@@ -1037,9 +1040,9 @@ CTSVNPath CTSVNPathList::GetCommonRoot() const
 
     for (auto it = m_paths.cbegin() + 1; it != m_paths.cend(); ++it)
     {
-        CString path = it->GetWinPathString() + '\\';
+        CString path      = it->GetWinPathString() + '\\';
 
-        int newLength = CStringUtils::GetMatchingLength(root, path);
+        int     newLength = CStringUtils::GetMatchingLength(root, path);
         if (newLength != rootLength)
         {
             root.Delete(newLength, rootLength);
@@ -1210,7 +1213,7 @@ private:
         // layout on the machine which is running the test
         wchar_t winDir[MAX_PATH + 1] = {0};
         GetWindowsDirectory(winDir, _countof(winDir));
-        CString sWinDir(winDir);
+        CString   sWinDir(winDir);
 
         CTSVNPath testPath;
         // This is a file which we know will always be there
@@ -1467,9 +1470,9 @@ private:
 
     static void GetCommonRootTest()
     {
-        CTSVNPath pathA(L"C:\\Development\\LogDlg.cpp");
-        CTSVNPath pathB(L"C:\\Development\\LogDlg.h");
-        CTSVNPath pathC(L"C:\\Development\\SomeDir\\LogDlg.h");
+        CTSVNPath     pathA(L"C:\\Development\\LogDlg.cpp");
+        CTSVNPath     pathB(L"C:\\Development\\LogDlg.h");
+        CTSVNPath     pathC(L"C:\\Development\\SomeDir\\LogDlg.h");
 
         CTSVNPathList list;
         list.AddPath(pathA);
