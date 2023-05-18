@@ -5797,6 +5797,7 @@ bool CBaseView::Search(SearchDirection srchDir, bool useStart, bool flashIfNotFo
             case DIFFSTATE_FILTEREDDIFF:
                 if (m_bLimitToDiff)
                     break;
+                [[fallthrough]];
             case DIFFSTATE_REMOVED:
             case DIFFSTATE_REMOVEDWHITESPACE:
             case DIFFSTATE_ADDED:
