@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012, 2014-2015, 2021 - TortoiseSVN
+// Copyright (C) 2007-2012, 2014-2015, 2021, 2023 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,7 +35,7 @@ long                   CLogCachePool::instanceCount = 0;
 
 // utility
 
-bool CLogCachePool::FileExists(const std::wstring& filePath)
+bool                   CLogCachePool::FileExists(const std::wstring& filePath)
 {
     return GetFileAttributes(filePath.c_str()) != INVALID_FILE_ATTRIBUTES;
 }
@@ -68,22 +68,22 @@ void CLogCachePool::AutoRemoveUnused() const
     // (since the read time stamps have only day resolution
     // on FAT, be gratious when setting the limit)
 
-    SYSTEMTIME nowSystemTime;
+    SYSTEMTIME        nowSystemTime;
     GetSystemTime(&nowSystemTime);
     FILETIME nowFileTime = {0, 0};
     SystemTimeToFileTime(&nowSystemTime, &nowFileTime);
 
-    __int64 now      = *reinterpret_cast<__int64*>(&nowFileTime);
-    __int64 ageLimit = now - 864000000000i64 * (CSettings::GetCacheDropAge() + 1);
-    DWORD   maxSize  = CSettings::GetCacheDropMaxSize() * 1024;
+    __int64              now           = *reinterpret_cast<__int64*>(&nowFileTime);
+    __int64              ageLimit      = now - 864000000000i64 * (CSettings::GetCacheDropAge() + 1);
+    DWORD                maxSize       = CSettings::GetCacheDropMaxSize() * 1024;
 
     // find all files in the cache and fill the above sets
 
     static const CString lockExtension = L".lock";
     CString              datFile       = repositoryInfo->GetFileName().Mid(cacheFolderPath.GetLength());
 
-    WIN32_FIND_DATA dirEntry;
-    CAutoFindFile   handle = FindFirstFile(cacheFolderPath + L"*.*", &dirEntry);
+    WIN32_FIND_DATA      dirEntry;
+    CAutoFindFile        handle = FindFirstFile(cacheFolderPath + L"*.*", &dirEntry);
     if (handle)
     {
         do
@@ -195,7 +195,7 @@ CCachedLogInfo* CLogCachePool::GetCache(const CString& uuid, const CString& root
 
     // cache hit?
 
-    TCaches::const_iterator iter = caches.find(info->fileName);
+    TCaches::const_iterator              iter = caches.find(info->fileName);
     if (iter != caches.end())
         return iter->second;
 
@@ -311,6 +311,14 @@ void CLogCachePool::Flush() const
     }
 
     repositoryInfo->Flush();
+}
+
+void CLogCachePool::ReleaseLocks()
+{
+    for (TCaches::iterator iter = caches.begin(), end = caches.end(); iter != end; ++iter)
+    {
+        iter->second->ReleaseLock();
+    }
 }
 
 // has log caching been enabled?

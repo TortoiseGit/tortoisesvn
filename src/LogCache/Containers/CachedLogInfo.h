@@ -186,6 +186,7 @@ public:
     bool                          IsEmpty() const;
     void                          Save();
     void                          Save(const TFileName& newFileName);
+    void                          ReleaseLock();
 
     /// data access
 

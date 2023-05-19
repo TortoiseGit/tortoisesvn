@@ -375,6 +375,8 @@ void CCachedLogInfo::Save(const TFileName& newFileName)
         fileManager.AutoRelease();
         fileManager.AutoAcquire(newFileName, 0);
     }
+    if (!fileManager.OwnsFile() && !fileName.empty())
+        fileManager.AutoAcquire(fileName, 0);
 
     // write the data file, if we were the first to open it
 
@@ -399,6 +401,11 @@ void CCachedLogInfo::Save(const TFileName& newFileName)
     // the data is no longer "modified"
 
     modified = false;
+}
+
+void CCachedLogInfo::ReleaseLock()
+{
+    fileManager.AutoRelease();
 }
 
 // find the highest revision not exceeding the given timestamp

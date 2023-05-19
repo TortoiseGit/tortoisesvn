@@ -1481,7 +1481,7 @@ void CLogDlg::MonitorHideDlg()
     // remove selection, show empty log list
     m_projTree.SelectItem(nullptr);
     MonitorShowProject(nullptr, nullptr);
-
+    CLogCachePool::ReleaseLocks();// do not keep the cache files locked!
     ShowWindow(SW_HIDE);
     SaveMonitorProjects(true);
     SaveSplitterPos();
@@ -1612,6 +1612,11 @@ void CLogDlg::LogThread()
     DialogEnableWindow(IDC_REFRESH, FALSE);
     if (m_bMonitoringMode)
         DialogEnableWindow(IDC_PROJTREE, FALSE);
+
+    OnOutOfScope(
+        if (m_bMonitoringMode)
+            CLogCachePool::ReleaseLocks(); // do not keep the cache files locked!
+    );
 
     CString temp;
     temp.LoadString(IDS_PROGRESSWAIT);
@@ -1991,7 +1996,10 @@ void CLogDlg::LogThread()
     RefreshCursor();
 
     if (m_bMonitoringMode)
+    {
+        GetLogCachePool()->Flush();
         SVNReInit();
+    }
     // make sure the filter is applied (if any) now, after we refreshed/fetched
     // the log messages
     PostMessage(WM_TIMER, LOGFILTER_TIMER);
@@ -9389,6 +9397,7 @@ void CLogDlg::MonitorThread()
             svn.SetAuthInfo(L"", L"");
         }
     }
+    CLogCachePool::ReleaseLocks(); // do not keep the cache files locked!
     // if the thread is cancelled, then don't update the log label
     // here to avoid a deadlock situation in MonitorShowProject() when
     // waiting for this thread to finish: since there the message queue

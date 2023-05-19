@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007, 2013-2014, 2021 - TortoiseSVN
+// Copyright (C) 2007-2007, 2013-2014, 2021. 2023 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -52,11 +52,11 @@ class CLogCachePool
 private:
     /// where the log cache files are stored
 
-    CString cacheFolderPath;
+    CString                                    cacheFolderPath;
 
     /// cached repository properties
 
-    CRepositoryInfo* repositoryInfo;
+    CRepositoryInfo*                           repositoryInfo;
 
     /// cache per repository (file name)
 
@@ -66,15 +66,15 @@ private:
 
     /// utility
 
-    static bool FileExists(const std::wstring& filePath);
+    static bool                                FileExists(const std::wstring& filePath);
 
     /// minimize memory usage
 
-    void Clear() const;
+    void                                       Clear() const;
 
     /// remove small, unused caches
 
-    void AutoRemoveUnused() const;
+    void                                       AutoRemoveUnused() const;
 
     CLogCachePool() = delete;
 
@@ -87,24 +87,24 @@ public:
 
     /// auto-create and return cache for given repository
 
-    CCachedLogInfo* GetCache(const CString& uuid, const CString& root) const;
+    CCachedLogInfo*                 GetCache(const CString& uuid, const CString& root) const;
 
     /// cached repository info
 
-    CRepositoryInfo& GetRepositoryInfo() const;
+    CRepositoryInfo&                GetRepositoryInfo() const;
 
     /// return the size of the repository cache file
     /// (returns 0 for new files)
 
-    size_t FileSize(const CString& uuid, const CString& root) const;
+    size_t                          FileSize(const CString& uuid, const CString& root) const;
 
     /// delete a cache along with all file(s)
 
-    void DropCache(const CString& uuid, const CString& root) const;
+    void                            DropCache(const CString& uuid, const CString& root) const;
 
     /// other data access
 
-    const CString& GetCacheFolderPath() const;
+    const CString&                  GetCacheFolderPath() const;
 
     /// return as URL -> UUID map
 
@@ -114,11 +114,14 @@ public:
 
     /// write all changes to disk
 
-    void Flush() const;
+    void                            Flush() const;
+
+    /// release all locks
+    static void                            ReleaseLocks();
 
     /// has log caching been enabled?
 
-    static bool IsEnabled();
+    static bool                     IsEnabled();
 };
 
 ///////////////////////////////////////////////////////////////
