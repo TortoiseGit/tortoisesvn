@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009, 2012, 2014, 2018, 2021 - TortoiseSVN
+// Copyright (C) 2007-2009, 2012, 2014, 2018, 2021, 2023 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -154,7 +154,7 @@ private:
 
         /// read / write file
 
-        void Load(const CString& fileName);
+        void Load(const CString& fileName, const CString& cacheFolder);
         void Save(const CString& fileName) const;
         void Clear();
 

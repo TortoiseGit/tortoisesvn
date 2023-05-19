@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012, 2014-2015, 2018-2019, 2021 - TortoiseSVN
+// Copyright (C) 2007-2012, 2014-2015, 2018-2019, 2021, 2023 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,6 +28,8 @@
 #include "GoOffline.h"
 
 #include "CriticalSection.h"
+
+#include <filesystem>
 
 // begin namespace LogCache
 
@@ -230,7 +232,7 @@ void CRepositoryInfo::CData::Remove(SPerRepositoryInfo* info)
 
 // read / write file
 
-void CRepositoryInfo::CData::Load(const CString& fileName)
+void CRepositoryInfo::CData::Load(const CString& fileName, const CString& cacheFolder)
 {
     CFile file;
     if (!file.Open(fileName, CFile::modeRead | CFile::shareDenyWrite))
@@ -274,7 +276,12 @@ void CRepositoryInfo::CData::Load(const CString& fileName)
             info.connectionState = static_cast<ConnectionState>(connectionState);
 
             if (version >= MIN_FILENAME_VERSION)
+            {
                 stream >> info.fileName;
+                auto p = std::filesystem::path(static_cast<LPCWSTR>(cacheFolder + info.fileName));
+                if (!std::filesystem::exists(p))
+                    continue;
+            }
             else
                 info.fileName = info.uuid;
 
@@ -382,7 +389,7 @@ void CRepositoryInfo::Load()
     if (GetFileAttributes(GetFileName()) == INVALID_FILE_ATTRIBUTES)
         return;
 
-    data.Load(GetFileName());
+    data.Load(GetFileName(), cacheFolder);
 }
 
 // does the user want to be this repository off-line?
