@@ -278,9 +278,15 @@ void CRepositoryInfo::CData::Load(const CString& fileName, const CString& cacheF
             if (version >= MIN_FILENAME_VERSION)
             {
                 stream >> info.fileName;
-                auto p = std::filesystem::path(static_cast<LPCWSTR>(cacheFolder + info.fileName));
-                if (!std::filesystem::exists(p))
-                    continue;
+                try
+                {
+                    auto p = std::filesystem::path(static_cast<LPCWSTR>(cacheFolder + info.fileName));
+                    if (!std::filesystem::exists(p))
+                        continue;
+                }
+                catch (const std::exception&)
+                {
+                }
             }
             else
                 info.fileName = info.uuid;
