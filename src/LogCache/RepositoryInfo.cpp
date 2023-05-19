@@ -172,6 +172,8 @@ CRepositoryInfo::SPerRepositoryInfo*
 
 void CRepositoryInfo::CData::Add(const SPerRepositoryInfo& info)
 {
+    if (std::ranges::find_if(data, [&](auto* i) { return (*i) == info; }) != data.end())
+        return; // avoid duplicate entries
     SPerRepositoryInfo* newInfo = new SPerRepositoryInfo(info);
     data.push_back(newInfo);
 
