@@ -137,7 +137,7 @@ void CLogCachePool::AutoRemoveUnused() const
     std::set<CString> deletedCaches;
     for (CIT iter = smallUnusedCaches.begin(), end = smallUnusedCaches.end(); iter != end; ++iter)
     {
-        if (lockedCaches.find(*iter) == lockedCaches.end())
+        if (!lockedCaches.contains(*iter))
         {
             DeleteFile(cacheFolderPath + *iter);
             deletedCaches.insert(*iter);
@@ -158,7 +158,7 @@ void CLogCachePool::AutoRemoveUnused() const
 
         const CRepositoryInfo::SPerRepositoryInfo* info = repositoryInfo->data[i - 1];
 
-        if ((deletedCaches.find(info->fileName) != deletedCaches.end()) || (allFiles.find(info->fileName) == allFiles.end()))
+        if ((deletedCaches.contains(info->fileName)) || (!allFiles.contains(info->fileName)))
         {
             repositoryInfo->DropEntry(info->uuid, info->root);
         }

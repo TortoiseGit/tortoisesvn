@@ -171,7 +171,7 @@ private:
 public:
     /// for convenience
 
-    typedef CRevisionInfoContainer::TChangeAction TChangeAction;
+    using TChangeAction = CRevisionInfoContainer::TChangeAction;
 
     /// construction / destruction (nothing to do)
 

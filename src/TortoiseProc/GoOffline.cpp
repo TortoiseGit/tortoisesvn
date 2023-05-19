@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2021 - TortoiseSVN
+// Copyright (C) 2021, 2023 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,7 +26,7 @@ IMPLEMENT_DYNAMIC(CGoOffline, CDialog)
 
 CGoOffline::CGoOffline(CWnd* pParent /*=NULL*/)
     : CDialog(CGoOffline::IDD, pParent)
-    , selection(LogCache::online)
+    , selection(LogCache::ConnectionState::Online)
     , asDefault(false)
     , doRetry(false)
 {
@@ -68,21 +68,21 @@ BOOL CGoOffline::OnInitDialog()
 
 void CGoOffline::OnBnClickedOk()
 {
-    selection = LogCache::tempOffline;
+    selection = LogCache::ConnectionState::TempOffline;
 
     OnOK();
 }
 
 void CGoOffline::OnBnClickedPermanentlyOffline()
 {
-    selection = LogCache::offline;
+    selection = LogCache::ConnectionState::Offline;
 
     OnOK();
 }
 
 void CGoOffline::OnBnClickedCancel()
 {
-    selection = LogCache::online;
+    selection = LogCache::ConnectionState::Online;
 
     OnCancel();
 }
@@ -90,7 +90,7 @@ void CGoOffline::OnBnClickedCancel()
 void CGoOffline::OnBnClickedRetry()
 {
     doRetry   = true;
-    selection = LogCache::online;
+    selection = LogCache::ConnectionState::Online;
 
     OnCancel();
 }

@@ -52,29 +52,29 @@ class CLogCachePool
 private:
     /// where the log cache files are stored
 
-    CString                                    cacheFolderPath;
+    CString          cacheFolderPath;
 
     /// cached repository properties
 
-    CRepositoryInfo*                           repositoryInfo;
+    CRepositoryInfo* repositoryInfo;
 
     /// cache per repository (file name)
 
-    typedef std::map<CString, CCachedLogInfo*> TCaches;
-    static TCaches                             caches;
-    static long                                instanceCount;
+    using TCaches = std::map<CString, CCachedLogInfo*>;
+    static TCaches caches;
+    static long    instanceCount;
 
     /// utility
 
-    static bool                                FileExists(const std::wstring& filePath);
+    static bool    FileExists(const std::wstring& filePath);
 
     /// minimize memory usage
 
-    void                                       Clear() const;
+    void           Clear() const;
 
     /// remove small, unused caches
 
-    void                                       AutoRemoveUnused() const;
+    void           AutoRemoveUnused() const;
 
     CLogCachePool() = delete;
 
@@ -83,7 +83,7 @@ public:
     /// (Flush() on destruction)
 
     CLogCachePool(SVN& svn, const CString& cacheFolderPath);
-    virtual ~CLogCachePool(void);
+    virtual ~CLogCachePool();
 
     /// auto-create and return cache for given repository
 
@@ -117,7 +117,7 @@ public:
     void                            Flush() const;
 
     /// release all locks
-    static void                            ReleaseLocks();
+    static void                     ReleaseLocks();
 
     /// has log caching been enabled?
 

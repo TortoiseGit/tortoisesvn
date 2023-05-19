@@ -114,17 +114,17 @@ private:
     private:
         /// per-repository properties
 
-        typedef std::vector<SPerRepositoryInfo*>                           TData;
-        TData                                                              data;
+        using TData = std::vector<SPerRepositoryInfo*>;
+        TData data;
 
         /// several indices for faster access
 
-        typedef std::multimap<CString, SPerRepositoryInfo*>                TPartialIndex;
-        TPartialIndex                                                      uuidIndex;
-        TPartialIndex                                                      urlIndex;
+        using TPartialIndex = std::multimap<CString, SPerRepositoryInfo*>;
+        TPartialIndex uuidIndex;
+        TPartialIndex urlIndex;
 
-        typedef std::map<std::pair<CString, CString>, SPerRepositoryInfo*> TFullIndex;
-        TFullIndex                                                         fullIndex;
+        using TFullIndex = std::map<std::pair<CString, CString>, SPerRepositoryInfo*>;
+        TFullIndex fullIndex;
 
         /**
          * File version identifiers.

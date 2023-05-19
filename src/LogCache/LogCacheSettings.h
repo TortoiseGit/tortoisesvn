@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010, 2012, 2014-2015 - TortoiseSVN
+// Copyright (C) 2007-2010, 2012, 2014-2015, 2023 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,10 +25,10 @@
 #include "ConnectionState.h"
 
 #ifdef WIN32
-#include "registry.h"
+#    include "registry.h"
 #else
-#include <iostream>
-#include "RegistryDummy.h"
+#    include <iostream>
+#    include "RegistryDummy.h"
 #endif
 
 ///////////////////////////////////////////////////////////////
@@ -50,7 +50,6 @@ namespace LogCache
 class CSettings
 {
 private:
-
     /// registry connection
 
     CRegDWORD enableLogCaching;
@@ -69,8 +68,8 @@ private:
     CSettings();
 
     // prevent cloning
-    CSettings(const CSettings&) = delete;
-    CSettings& operator=(const CSettings&) = delete;
+    CSettings(const CSettings&)                   = delete;
+    CSettings&        operator=(const CSettings&) = delete;
 
     /// singleton acccess
 
@@ -78,64 +77,62 @@ private:
 
     /// utility method
 
-    template<class T, class R>
-    static void Store (T value, R& registryKey)
+    template <class T, class R>
+    static void Store(T value, R& registryKey)
     {
         registryKey = value;
         if (registryKey.GetLastError() != ERROR_SUCCESS)
-    #ifdef WIN32
-            ::MessageBox (NULL, registryKey.getErrorString(), L"TortoiseSVN", MB_ICONERROR);
-    #else
+#ifdef WIN32
+            ::MessageBox(nullptr, registryKey.getErrorString(), L"TortoiseSVN", MB_ICONERROR);
+#else
             std::cerr << "Could not store settings" << std::endl;
-    #endif
+#endif
     }
 
 public:
-
     /// migrate settings from TSVN 1.5.x to 1.6.x
 
-    static void Migrate();
+    static void            Migrate();
 
     /// has log caching been enabled?
 
-    static bool GetEnabled();
-    static void SetEnabled (bool enabled);
+    static bool            GetEnabled();
+    static void            SetEnabled(bool enabled);
 
     /// cache lookup mode
 
-    static bool GetAllowAmbiguousURL();
-    static void SetAllowAmbiguousURL (bool allowed);
+    static bool            GetAllowAmbiguousURL();
+    static void            SetAllowAmbiguousURL(bool allowed);
 
-    static bool GetAllowAmbiguousUUID();
-    static void SetAllowAmbiguousUUID (bool allowed);
+    static bool            GetAllowAmbiguousUUID();
+    static void            SetAllowAmbiguousUUID(bool allowed);
 
     /// "go offline" usage
 
     static ConnectionState GetDefaultConnectionState();
-    static void SetDefaultConnectionState (ConnectionState state);
+    static void            SetDefaultConnectionState(ConnectionState state);
 
     /// controls when to bypass the repository HEAD lookup
 
-    static int GetMaxHeadAge();
-    static void SetMaxHeadAge (int limit);
+    static int             GetMaxHeadAge();
+    static void            SetMaxHeadAge(int limit);
 
     /// control the removal of obsolete caches
 
-    static int GetCacheDropAge();
-    static void SetCacheDropAge (int limit);
+    static int             GetCacheDropAge();
+    static void            SetCacheDropAge(int limit);
 
-    static int GetCacheDropMaxSize();
-    static void SetCacheDropMaxSize (int limit);
+    static int             GetCacheDropMaxSize();
+    static void            SetCacheDropMaxSize(int limit);
 
     /// debugging support
 
-    static int GetMaxFailuresUntilDrop();
-    static void SetMaxFailuresUntilDrop (int limit);
+    static int             GetMaxFailuresUntilDrop();
+    static void            SetMaxFailuresUntilDrop(int limit);
 };
 
 ///////////////////////////////////////////////////////////////
 // end namespace LogCache
 ///////////////////////////////////////////////////////////////
 
-}
-
+} // namespace LogCache

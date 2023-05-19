@@ -2294,8 +2294,7 @@ void CLogDlg::CopySelectionToClipBoardBugUrl()
 {
     std::set<CString>           selectedBugIDs = GetSelectedBugIds();
     CString                     sClipdata;
-    std::set<CString>::iterator it;
-    for (it = selectedBugIDs.begin(); it != selectedBugIDs.end(); ++it)
+    for (auto it = selectedBugIDs.begin(); it != selectedBugIDs.end(); ++it)
     {
         if (!sClipdata.IsEmpty())
         {

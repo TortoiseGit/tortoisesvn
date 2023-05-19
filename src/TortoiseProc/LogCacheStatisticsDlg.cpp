@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010, 2014-2015, 2021 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010, 2014-2015, 2021, 2023 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -34,13 +34,13 @@ CLogCacheStatisticsDlg::CLogCacheStatisticsDlg(const LogCache::CLogCacheStatisti
 
     switch (data.connectionState)
     {
-        case LogCache::online:
+        case LogCache::ConnectionState::Online:
             connectionState.LoadString(IDS_CONNECTIONSTATE_ONLINE);
             break;
-        case LogCache::tempOffline:
+        case LogCache::ConnectionState::TempOffline:
             connectionState.LoadString(IDS_CONNECTIONSTATE_TEMPOFFLINE);
             break;
-        case LogCache::offline:
+        case LogCache::ConnectionState::Offline:
             connectionState.LoadString(IDS_CONNECTIONSTATE_OFFLINE);
             break;
     }

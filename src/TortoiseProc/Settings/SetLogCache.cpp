@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010-2011, 2015, 2021 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010-2011, 2015, 2021, 2023 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,7 +22,6 @@
 #include "LogCacheSettings.h"
 #include "LogCacheStatistics.h"
 #include "LogCacheStatisticsDlg.h"
-#include "SVNLogQuery.h"
 
 using namespace LogCache;
 
@@ -86,9 +85,9 @@ void CSetLogCache::OnStandardDefaults()
 
     m_cDefaultConnectionState.SetCurSel(0);
 
-    m_dwMaxHeadAge       = 0;
-    m_dwCacheDropAge     = 10;
-    m_dwCacheDropMaxSize = 200;
+    m_dwMaxHeadAge           = 0;
+    m_dwCacheDropAge         = 10;
+    m_dwCacheDropMaxSize     = 200;
 
     m_dwMaxFailuresUntilDrop = 0;
 
@@ -104,9 +103,9 @@ void CSetLogCache::OnPowerDefaults()
 
     m_cDefaultConnectionState.SetCurSel(1);
 
-    m_dwMaxHeadAge       = 300;
-    m_dwCacheDropAge     = 10;
-    m_dwCacheDropMaxSize = 0;
+    m_dwMaxHeadAge           = 300;
+    m_dwCacheDropAge         = 10;
+    m_dwCacheDropMaxSize     = 0;
 
     m_dwMaxFailuresUntilDrop = 20;
 
@@ -152,7 +151,7 @@ BOOL CSetLogCache::OnInitDialog()
     temp.LoadString(IDS_SETTINGS_CONNECTIVITY_OFFLINEFOREVER);
     m_cDefaultConnectionState.AddString(temp);
 
-    m_cDefaultConnectionState.SetCurSel(CSettings::GetDefaultConnectionState());
+    m_cDefaultConnectionState.SetCurSel(static_cast<int>(CSettings::GetDefaultConnectionState()));
 
     // tooltips
 

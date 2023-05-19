@@ -187,7 +187,7 @@ void CRepositoryInfo::CData::Add(const CString& uuid, const CString& root)
     SPerRepositoryInfo info;
     info.headRevision    = static_cast<revision_t>(NO_REVISION);
     info.headLookupTime  = -1;
-    info.connectionState = online;
+    info.connectionState = ConnectionState::Online;
     info.root            = root;
     info.uuid            = uuid;
     info.fileName        = UniqueFileName(info.root.Left(60) + info.uuid);
@@ -267,7 +267,7 @@ void CRepositoryInfo::CData::Load(const CString& fileName, const CString& cacheF
 
         for (int i = 0; i < count; ++i)
         {
-            int                connectionState = online;
+            int                connectionState = static_cast<int>(ConnectionState::Online);
 
             SPerRepositoryInfo info;
             stream >> info.root >> info.uuid >> info.headURL >> info.headRevision >> info.headLookupTime;
@@ -322,14 +322,14 @@ void CRepositoryInfo::CData::Save(const CString& fileName) const
 
         // temp offline -> be online the next time
 
-        ConnectionState     connectionState = static_cast<ConnectionState>(info->connectionState & offline);
+        ConnectionState     connectionState = static_cast<ConnectionState>(static_cast<int>(info->connectionState) & static_cast<int>(ConnectionState::Offline));
 
         stream << info->root
                << info->uuid
                << info->headURL
                << info->headRevision
                << info->headLookupTime
-               << connectionState
+               << static_cast<int>(connectionState)
                << info->fileName;
     }
 }
@@ -406,12 +406,12 @@ bool CRepositoryInfo::IsOffline(SPerRepositoryInfo* info, const CString& sErr, b
 {
     // is this repository already off-line?
 
-    if (info->connectionState != online)
+    if (info->connectionState != ConnectionState::Online)
         return true;
 
     // something went wrong.
 
-    if ((CSettings::GetDefaultConnectionState() == online) && !svn.IsSuppressedUI())
+    if ((CSettings::GetDefaultConnectionState() == ConnectionState::Online) && !svn.IsSuppressedUI())
     {
         // Default behavior is "Ask the user what to do"
 
@@ -423,7 +423,7 @@ bool CRepositoryInfo::IsOffline(SPerRepositoryInfo* info, const CString& sErr, b
             CSettings::SetDefaultConnectionState(dialog.selection);
 
         info->connectionState = dialog.selection;
-        return info->connectionState != online;
+        return info->connectionState != ConnectionState::Online;
     }
     else
     {
@@ -546,7 +546,7 @@ revision_t CRepositoryInfo::GetHeadRevision(CString uuid, const CTSVNPath& url)
     // (and don't try to update the info if we are off-line,
     //  as long as we have at least *some* HEAD info).
 
-    bool       outDated = info->connectionState == online
+    bool       outDated = info->connectionState == ConnectionState::Online
                               ? now - info->headLookupTime > CSettings::GetMaxHeadAge()
                               : false;
 
@@ -605,7 +605,7 @@ void CRepositoryInfo::ResetHeadRevision(const CString& uuid, const CString& root
         // we want to get connect.
 
         info->headLookupTime  = 0;
-        info->connectionState = online;
+        info->connectionState = ConnectionState::Online;
     }
 }
 
@@ -634,7 +634,7 @@ bool CRepositoryInfo::IsOffline(const CString& uuid, const CString& root, bool a
 
     // return state
 
-    return info->connectionState != online;
+    return info->connectionState != ConnectionState::Online;
 }
 
 // get the connection state (uninterpreted)
@@ -651,7 +651,7 @@ ConnectionState
     // no info -> assume online (i.e. just try to reach the server)
 
     return info == nullptr
-               ? online
+               ? ConnectionState::Online
                : info->connectionState;
 }
 

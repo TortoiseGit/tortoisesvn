@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007, 2009, 2014 - TortoiseSVN
+// Copyright (C) 2007-2007, 2009, 2014, 2023 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,8 +21,8 @@
 
 // TSVN log cache settings path within the registry
 
-#define REGKEY(x) L"Software\\TortoiseSVN\\LogCache\\" L ## x
-#define REGKEY15(x) L"Software\\TortoiseSVN\\" L ## x
+#define REGKEY(x)   L"Software\\TortoiseSVN\\LogCache\\" L##x
+#define REGKEY15(x) L"Software\\TortoiseSVN\\" L##x
 
 // begin namespace LogCache
 
@@ -32,18 +32,18 @@ namespace LogCache
 // singleton construction
 
 CSettings::CSettings()
-    : enableLogCaching (REGKEY ("UseLogCache"), TRUE)
-    , supportAmbiguousURL (REGKEY ("SupportAmbiguousURL"), TRUE)
-    , supportAmbiguousUUID (REGKEY ("SupportAmbiguousUUID"), TRUE)
-    , defaultConnectionState (REGKEY ("DefaultConnectionState"), 0)
-    , maxHeadAge (REGKEY ("HeadCacheAgeLimit"), 0)
-    , cacheDropAge (REGKEY ("CacheDropAge"), 10)
-    , cacheDropMaxSize (REGKEY ("CacheDropMaxSize"), 200)
-    , maxFailuresUntilDrop (REGKEY ("MaxCacheFailures"), 0)
+    : enableLogCaching(REGKEY("UseLogCache"), TRUE)
+    , supportAmbiguousURL(REGKEY("SupportAmbiguousURL"), TRUE)
+    , supportAmbiguousUUID(REGKEY("SupportAmbiguousUUID"), TRUE)
+    , defaultConnectionState(REGKEY("DefaultConnectionState"), 0)
+    , maxHeadAge(REGKEY("HeadCacheAgeLimit"), 0)
+    , cacheDropAge(REGKEY("CacheDropAge"), 10)
+    , cacheDropMaxSize(REGKEY("CacheDropMaxSize"), 200)
+    , maxFailuresUntilDrop(REGKEY("MaxCacheFailures"), 0)
 {
     // auto-migration
 
-    if (CRegDWORD (REGKEY ("Version"), 150) < 160)
+    if (CRegDWORD(REGKEY("Version"), 150) < 160)
         Migrate();
 }
 
@@ -59,92 +59,89 @@ CSettings& CSettings::GetInstance()
 
 void CSettings::Migrate()
 {
-    CRegDWORD oldEnableLogCaching (REGKEY15 ("UseLogCache"), TRUE);
+    CRegDWORD oldEnableLogCaching(REGKEY15("UseLogCache"), TRUE);
     if (oldEnableLogCaching.exists())
     {
-        SetEnabled ((DWORD)oldEnableLogCaching != FALSE);
+        SetEnabled(static_cast<DWORD>(oldEnableLogCaching) != FALSE);
         oldEnableLogCaching.removeValue();
     }
 
-    CRegDWORD oldSupportAmbiguousURL (REGKEY15 ("SupportAmbiguousURL"), FALSE);
+    CRegDWORD oldSupportAmbiguousURL(REGKEY15("SupportAmbiguousURL"), FALSE);
     if (oldSupportAmbiguousURL.exists())
     {
-//      Since the old default differs from the new one,
-//      we will not migrate this setting.
-//
-//      SetAllowAmbiguousURL ((DWORD)oldSupportAmbiguousURL != FALSE);
+        //      Since the old default differs from the new one,
+        //      we will not migrate this setting.
+        //
+        //      SetAllowAmbiguousURL ((DWORD)oldSupportAmbiguousURL != FALSE);
 
         oldSupportAmbiguousURL.removeValue();
     }
 
-    CRegDWORD oldDefaultConnectionState (REGKEY15 ("DefaultConnectionState"), 0);
+    CRegDWORD oldDefaultConnectionState(REGKEY15("DefaultConnectionState"), 0);
     if (oldDefaultConnectionState.exists())
     {
-        ConnectionState state
-            = static_cast<ConnectionState>
-                ((DWORD)oldDefaultConnectionState);
+        ConnectionState state = static_cast<ConnectionState>(static_cast<DWORD>(oldDefaultConnectionState));
 
-        SetDefaultConnectionState (state);
+        SetDefaultConnectionState(state);
         oldDefaultConnectionState.removeValue();
     }
 
-    CRegDWORD oldMaxHeadAge (REGKEY15 ("HeadCacheAgeLimit"), 0);
+    CRegDWORD oldMaxHeadAge(REGKEY15("HeadCacheAgeLimit"), 0);
     if (oldMaxHeadAge.exists())
     {
-        SetMaxHeadAge ((DWORD)oldMaxHeadAge);
+        SetMaxHeadAge(static_cast<DWORD>(oldMaxHeadAge));
         oldMaxHeadAge.removeValue();
     }
 
     // current registry format
 
-    CRegDWORD (REGKEY ("Version")) = 160;
+    CRegDWORD(REGKEY("Version")) = 160;
 }
 
 /// has log caching been enabled?
 
 bool CSettings::GetEnabled()
 {
-    return (DWORD)GetInstance().enableLogCaching != FALSE;
+    return static_cast<DWORD>(GetInstance().enableLogCaching) != FALSE;
 }
 
-void CSettings::SetEnabled (bool enabled)
+void CSettings::SetEnabled(bool enabled)
 {
-    Store (enabled ? TRUE : FALSE, GetInstance().enableLogCaching);
+    Store(enabled ? TRUE : FALSE, GetInstance().enableLogCaching);
 }
 
 /// cache lookup mode
 
 bool CSettings::GetAllowAmbiguousURL()
 {
-    return (DWORD)GetInstance().supportAmbiguousURL != FALSE;
+    return static_cast<DWORD>(GetInstance().supportAmbiguousURL) != FALSE;
 }
 
-void CSettings::SetAllowAmbiguousURL (bool allowed)
+void CSettings::SetAllowAmbiguousURL(bool allowed)
 {
-    Store (allowed ? TRUE : FALSE, GetInstance().supportAmbiguousURL);
+    Store(allowed ? TRUE : FALSE, GetInstance().supportAmbiguousURL);
 }
 
 bool CSettings::GetAllowAmbiguousUUID()
 {
-    return (DWORD)GetInstance().supportAmbiguousUUID != FALSE;
+    return static_cast<DWORD>(GetInstance().supportAmbiguousUUID) != FALSE;
 }
 
-void CSettings::SetAllowAmbiguousUUID (bool allowed)
+void CSettings::SetAllowAmbiguousUUID(bool allowed)
 {
-    Store (allowed ? TRUE : FALSE, GetInstance().supportAmbiguousUUID);
+    Store(allowed ? TRUE : FALSE, GetInstance().supportAmbiguousUUID);
 }
 
 /// "go offline" usage
 
 ConnectionState CSettings::GetDefaultConnectionState()
 {
-    return static_cast<ConnectionState>
-            ((DWORD)GetInstance().defaultConnectionState);
+    return static_cast<ConnectionState>(static_cast<DWORD>(GetInstance().defaultConnectionState));
 }
 
-void CSettings::SetDefaultConnectionState (ConnectionState state)
+void CSettings::SetDefaultConnectionState(ConnectionState state)
 {
-    Store (state, GetInstance().defaultConnectionState);
+    Store(static_cast<DWORD>(state), GetInstance().defaultConnectionState);
 }
 
 /// controls when to bypass the repository HEAD lookup
@@ -154,9 +151,9 @@ int CSettings::GetMaxHeadAge()
     return GetInstance().maxHeadAge;
 }
 
-void CSettings::SetMaxHeadAge (int limit)
+void CSettings::SetMaxHeadAge(int limit)
 {
-    Store (limit, GetInstance().maxHeadAge);
+    Store(limit, GetInstance().maxHeadAge);
 }
 
 /// control the removal of obsolete caches
@@ -166,9 +163,9 @@ int CSettings::GetCacheDropAge()
     return GetInstance().cacheDropAge;
 }
 
-void CSettings::SetCacheDropAge (int limit)
+void CSettings::SetCacheDropAge(int limit)
 {
-    Store (limit, GetInstance().cacheDropAge);
+    Store(limit, GetInstance().cacheDropAge);
 }
 
 int CSettings::GetCacheDropMaxSize()
@@ -176,9 +173,9 @@ int CSettings::GetCacheDropMaxSize()
     return GetInstance().cacheDropMaxSize;
 }
 
-void CSettings::SetCacheDropMaxSize (int limit)
+void CSettings::SetCacheDropMaxSize(int limit)
 {
-    Store (limit, GetInstance().cacheDropMaxSize);
+    Store(limit, GetInstance().cacheDropMaxSize);
 }
 
 /// debugging support
@@ -188,12 +185,11 @@ int CSettings::GetMaxFailuresUntilDrop()
     return GetInstance().maxFailuresUntilDrop;
 }
 
-void CSettings::SetMaxFailuresUntilDrop (int limit)
+void CSettings::SetMaxFailuresUntilDrop(int limit)
 {
-    Store (limit, GetInstance().maxFailuresUntilDrop);
+    Store(limit, GetInstance().maxFailuresUntilDrop);
 }
 
 // end namespace LogCache
 
-}
-
+} // namespace LogCache

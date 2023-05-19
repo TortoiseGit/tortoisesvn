@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2009, 2023 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,24 +32,23 @@ namespace LogCache
  * reset to default.
  */
 
-enum ConnectionState
+enum class ConnectionState
 {
     /// call the server whenever necessary (default)
 
-    online = 0,
+    Online      = 0,
 
     /// don't call the server, except when HEAD info needs to be refreshed
 
-    tempOffline = 1,
+    TempOffline = 1,
 
     /// don't contact the server for any reason whatsoever
 
-    offline = 2
+    Offline     = 2
 };
 
 ///////////////////////////////////////////////////////////////
 // end namespace LogCache
 ///////////////////////////////////////////////////////////////
 
-}
-
+} // namespace LogCache

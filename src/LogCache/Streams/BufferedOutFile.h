@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010, 2012 - TortoiseSVN
+// Copyright (C) 2007-2010, 2012, 2023 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,7 @@
 #pragma once
 
 #ifndef _WIN32
-#include <fstream>
+#    include <fstream>
 #endif
 
 #include "FileName.h"
@@ -30,7 +30,6 @@
 class CBufferedOutFile
 {
 private:
-
     // name (full path) of the file
 
     TFileName fileName;
@@ -47,21 +46,23 @@ private:
 
     // our local buffer
 
-    enum {BUFFER_SIZE = 1024*1024};
+    enum
+    {
+        BUFFER_SIZE = 1024 * 1024
+    };
 
     std::unique_ptr<unsigned char[]> buffer;
-    unsigned used;
+    unsigned                         used;
 
     // physical file size + used
 
-    size_t fileSize;
+    size_t                           fileSize;
 
     // helper
 
-    void InternalClose();
+    void                             InternalClose();
 
 protected:
-
     // write buffer content to disk
 
     void Flush();
@@ -71,36 +72,35 @@ protected:
     void RemoveFile();
 
 public:
-
     // construction / destruction: auto- open/close
 
-    CBufferedOutFile (const TFileName& fileName);
+    CBufferedOutFile(const TFileName& fileName);
     virtual ~CBufferedOutFile();
 
     // write data to file
 
-    void Add (const unsigned char* data, unsigned bytes);
-    void Add (const char* data, unsigned bytes);
-    void Add (unsigned value);
+    void   Add(const unsigned char* data, unsigned bytes);
+    void   Add(const char* data, unsigned bytes);
+    void   Add(unsigned value);
 
     // file properties
 
     size_t GetFileSize() const;
-    bool IsOpen() const;
+    bool   IsOpen() const;
 };
 
 ///////////////////////////////////////////////////////////////
 // write data to file
 ///////////////////////////////////////////////////////////////
 
-inline void CBufferedOutFile::Add (const char* data, unsigned bytes)
+inline void CBufferedOutFile::Add(const char* data, unsigned bytes)
 {
-    Add (reinterpret_cast<const unsigned char*>(data), bytes);
+    Add(reinterpret_cast<const unsigned char*>(data), bytes);
 }
 
-inline void CBufferedOutFile::Add (unsigned value)
+inline void CBufferedOutFile::Add(unsigned value)
 {
-    Add ((unsigned char*)&value, sizeof (value));
+    Add(reinterpret_cast<unsigned char*>(&value), sizeof(value));
 }
 
 ///////////////////////////////////////////////////////////////
@@ -125,16 +125,16 @@ inline bool CBufferedOutFile::IsOpen() const
 // file stream operation
 ///////////////////////////////////////////////////////////////
 
-CBufferedOutFile& operator<< (CBufferedOutFile& dest, int value);
+CBufferedOutFile&        operator<<(CBufferedOutFile& dest, int value);
 
-inline CBufferedOutFile& operator<< (CBufferedOutFile& dest, const char* value)
+inline CBufferedOutFile& operator<<(CBufferedOutFile& dest, const char* value)
 {
-    dest.Add (value, (unsigned)strlen (value));
+    dest.Add(value, static_cast<unsigned>(strlen(value)));
     return dest;
 }
 
-inline CBufferedOutFile& operator<< (CBufferedOutFile& dest, const std::string& value)
+inline CBufferedOutFile& operator<<(CBufferedOutFile& dest, const std::string& value)
 {
-    dest.Add (value.c_str(), (unsigned)value.length());
+    dest.Add(value.c_str(), static_cast<unsigned>(value.length()));
     return dest;
 }
