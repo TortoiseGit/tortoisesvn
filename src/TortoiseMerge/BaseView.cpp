@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2003-2022 - TortoiseSVN
+// Copyright (C) 2003-2023 - TortoiseSVN
 // Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -305,6 +305,9 @@ void CBaseView::SetEditorConfigEnabled(bool bEditorConfigEnabled)
 void CBaseView::DPIChanged()
 {
     DeleteFonts();
+    UpdateStatusBar();
+    SetTheme(CTheme::Instance().IsDarkTheme());
+    Invalidate();
 }
 
 static CString GetTabModeString(int nTabMode, int nTabSize, bool bEditorConfig)
