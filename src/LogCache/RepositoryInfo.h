@@ -74,27 +74,27 @@ private:
     {
         /// the repository root URL
 
-        CString root;
+        CString         root;
 
         /// Universal Unique Identifier for a cached repository
 
-        CString uuid;
+        CString         uuid;
 
         /// cached repository file
 
-        CString fileName;
+        CString         fileName;
 
         /// path we used to ask SVN for the head revision
 
-        CString headURL;
+        CString         headURL;
 
         /// the answer we got
 
-        revision_t headRevision;
+        revision_t      headRevision;
 
         /// when we asked the last time
 
-        __time64_t headLookupTime;
+        __time64_t      headLookupTime;
 
         /// flag to control the repository access
 
@@ -106,14 +106,14 @@ private:
     private:
         /// per-repository properties
 
-        typedef std::vector<SPerRepositoryInfo*> TData;
-        TData                                    data;
+        typedef std::vector<SPerRepositoryInfo*>                           TData;
+        TData                                                              data;
 
         /// several indices for faster access
 
-        typedef std::multimap<CString, SPerRepositoryInfo*> TPartialIndex;
-        TPartialIndex                                       uuidIndex;
-        TPartialIndex                                       urlIndex;
+        typedef std::multimap<CString, SPerRepositoryInfo*>                TPartialIndex;
+        TPartialIndex                                                      uuidIndex;
+        TPartialIndex                                                      urlIndex;
 
         typedef std::map<std::pair<CString, CString>, SPerRepositoryInfo*> TFullIndex;
         TFullIndex                                                         fullIndex;
@@ -142,25 +142,25 @@ private:
         /// lookup (using current rules setting);
         /// pass empty strings for unknown values.
 
-        CString             FindRoot(const CString& uuid, const CString& url) const;
-        SPerRepositoryInfo* Lookup(const CString& uuid, const CString& root) const;
+        CString                   FindRoot(const CString& uuid, const CString& url) const;
+        SPerRepositoryInfo*       Lookup(const CString& uuid, const CString& root) const;
 
         /// modification
 
-        SPerRepositoryInfo* AutoInsert(const CString& uuid, const CString& root);
-        void                Add(const SPerRepositoryInfo& info);
-        void                Add(const CString& uuid, const CString& root);
-        void                Remove(SPerRepositoryInfo* info);
+        SPerRepositoryInfo*       AutoInsert(const CString& uuid, const CString& root);
+        void                      Add(const SPerRepositoryInfo& info);
+        void                      Add(const CString& uuid, const CString& root);
+        void                      Remove(SPerRepositoryInfo* info);
 
         /// read / write file
 
-        void Load(const CString& fileName, const CString& cacheFolder);
-        void Save(const CString& fileName) const;
-        void Clear();
+        void                      Load(const CString& fileName, const CString& cacheFolder);
+        void                      Save(const CString& fileName) const;
+        void                      Clear();
 
         /// status info
 
-        bool empty() const;
+        bool                      empty() const;
 
         /// data access
 
@@ -170,19 +170,19 @@ private:
 
     /// cached repository properties
 
-    static CData data;
+    static CData                    data;
 
     /// has the data been modified
 
-    bool modified;
+    bool                            modified;
 
     /// where to store the cached data
 
-    CString cacheFolder;
+    CString                         cacheFolder;
 
     /// use this instance for all SVN access
 
-    SVN& svn;
+    SVN&                            svn;
 
     /// used to sync access to the global "data"
 
@@ -190,15 +190,15 @@ private:
 
     /// read the dump file
 
-    void Load();
+    void                            Load();
 
     /// does the user want to be this repository off-line?
 
-    bool IsOffline(SPerRepositoryInfo* info, const CString& sErr, bool& doRetry) const;
+    bool                            IsOffline(SPerRepositoryInfo* info, const CString& sErr, bool& doRetry) const;
 
     /// try to get the HEAD revision from the log cache
 
-    static void SetHeadFromCache(SPerRepositoryInfo* iter);
+    static void                     SetHeadFromCache(SPerRepositoryInfo* iter);
 
 public:
     /// construction / destruction: auto-load and save
@@ -209,20 +209,20 @@ public:
     /// look-up and ask SVN if the info is not in cache.
     /// cache the result.
 
-    CString GetRepositoryRoot(const CTSVNPath& url) const;
-    CString GetRepositoryUUID(const CTSVNPath& url) const;
-    CString GetRepositoryRootAndUUID(const CTSVNPath& url, CString& uuid) const;
+    CString                GetRepositoryRoot(const CTSVNPath& url) const;
+    CString                GetRepositoryUUID(const CTSVNPath& url) const;
+    CString                GetRepositoryRootAndUUID(const CTSVNPath& url, CString& uuid) const;
 
-    revision_t GetHeadRevision(CString uuid, const CTSVNPath& url);
+    revision_t             GetHeadRevision(CString uuid, const CTSVNPath& url);
 
     /// make sure, we will ask the repository for the HEAD
 
-    static void ResetHeadRevision(const CString& uuid, const CString& root);
+    static void            ResetHeadRevision(const CString& uuid, const CString& root);
 
     /// is the repository offline?
     /// Don't modify the state if autoSet is false.
 
-    bool IsOffline(const CString& uuid, const CString& url, bool autoSet, const CString& sErr, bool& doRetry) const;
+    bool                   IsOffline(const CString& uuid, const CString& url, bool autoSet, const CString& sErr, bool& doRetry) const;
 
     /// get the connection state (uninterpreted)
 
@@ -232,27 +232,27 @@ public:
     /// Parameters must be copied because they may stem from the
     /// info object being deleted.
 
-    void DropEntry(CString uuid, CString url);
+    void                   DropEntry(const CString& uuid, const CString& url);
 
     /// write all changes to disk
 
-    void Flush();
+    void                   Flush();
 
     /// clear cache
 
-    static void Clear();
+    static void            Clear();
 
     /// get the owning SVN instance
 
-    SVN& GetSVN() const;
+    SVN&                   GetSVN() const;
 
     /// access to the result of the last SVN operation
 
-    const svn_error_t* GetLastError() const;
+    const svn_error_t*     GetLastError() const;
 
     /// construct the dump file name
 
-    CString GetFileName() const;
+    CString                GetFileName() const;
 
     /// for statistics
 
