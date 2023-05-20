@@ -44,8 +44,10 @@
       <arg value="/arch:IA32" if="${configuration == 'release' and platform == 'win32'}" />
       <arg value="/d2Zi+" if="${configuration == 'release'}" />
       <sources>
-        <include name="src\*.c" />
-        <include name="protocols\*.c" />
+        <include name="context.c" />
+        <include name="incoming.c" />
+        <include name="outgoing.c" />
+        <include name="ssltunnel.c" />
         <include name="buckets\*.c" />
         <include name="auth\*.c" />
       </sources>
