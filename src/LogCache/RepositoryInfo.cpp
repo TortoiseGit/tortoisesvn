@@ -322,14 +322,14 @@ void CRepositoryInfo::CData::Save(const CString& fileName) const
 
         // temp offline -> be online the next time
 
-        ConnectionState     connectionState = static_cast<ConnectionState>(static_cast<int>(info->connectionState) & static_cast<int>(ConnectionState::Offline));
+        int     connectionState = static_cast<int>(info->connectionState) & static_cast<int>(ConnectionState::Offline);
 
         stream << info->root
                << info->uuid
                << info->headURL
                << info->headRevision
                << info->headLookupTime
-               << static_cast<int>(connectionState)
+               << connectionState
                << info->fileName;
     }
 }
