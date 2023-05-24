@@ -657,7 +657,7 @@ ConnectionState
 
 // remove a specific entry
 
-void CRepositoryInfo::DropEntry(const CString& uuid, const CString& url)
+void CRepositoryInfo::DropEntry(const CString uuid, const CString url)
 {
     async::CCriticalSectionLock lock(GetDataMutex());
 

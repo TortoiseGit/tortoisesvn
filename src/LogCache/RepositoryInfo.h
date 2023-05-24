@@ -240,7 +240,7 @@ public:
     /// Parameters must be copied because they may stem from the
     /// info object being deleted.
 
-    void                   DropEntry(const CString& uuid, const CString& url);
+    void                   DropEntry(const CString uuid, const CString url);
 
     /// write all changes to disk
 
