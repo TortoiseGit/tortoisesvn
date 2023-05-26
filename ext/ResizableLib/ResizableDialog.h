@@ -65,6 +65,7 @@ public:
     protected:
     virtual LRESULT WindowProc(UINT message, WPARAM wParam, LPARAM lParam);
     //}}AFX_VIRTUAL
+    bool            m_noNcCalcSizeAdjustments = false;
 
 // Implementation
 public:

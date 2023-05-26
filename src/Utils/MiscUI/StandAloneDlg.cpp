@@ -408,7 +408,9 @@ LRESULT CStandAloneDialogTmpl<BaseType>::OnDPIChanged(WPARAM wParam, LPARAM lPar
         minTrackSize.cy   = static_cast<LONG>(minTrackSize.cy * zoom);
         BaseType::SetMinTrackSize(minTrackSize);
 
+        BaseType::m_noNcCalcSizeAdjustments = true;
         BaseType::SetWindowPos(nullptr, rect->left, rect->top, rect->right - rect->left, rect->bottom - rect->top, SWP_NOZORDER | SWP_NOACTIVATE);
+        BaseType::m_noNcCalcSizeAdjustments = false;
         ::EnumChildWindows(BaseType::GetSafeHwnd(), dpiAdjustChildren, reinterpret_cast<LPARAM>(&data));
 
         BaseType::AddAllAnchors(anchors);
