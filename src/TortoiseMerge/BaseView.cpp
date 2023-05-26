@@ -307,6 +307,8 @@ void CBaseView::DPIChanged()
     DeleteFonts();
     UpdateStatusBar();
     SetTheme(CTheme::Instance().IsDarkTheme());
+    m_nLineHeight = -1;
+    m_nCharWidth = -1;
     Invalidate();
 }
 
