@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2004-2022 - TortoiseSVN
+// Copyright (C) 2004-2023 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -441,6 +441,15 @@ BOOL CMainFrame::PreCreateWindow(CREATESTRUCT &cs)
 {
     if (!CFrameWndEx::PreCreateWindow(cs))
         return FALSE;
+    if (CTheme::Instance().IsDarkTheme())
+    {
+        WNDCLASSEX wndClass{};
+        wndClass.cbSize = sizeof(WNDCLASSEX);
+        GetClassInfoEx(AfxGetInstanceHandle(), cs.lpszClass, &wndClass);
+        UnregisterClass(cs.lpszClass, AfxGetInstanceHandle());
+        wndClass.hbrBackground = (HBRUSH)(COLOR_WINDOWTEXT + 1);
+        RegisterClassEx(&wndClass);
+    }
     return TRUE;
 }
 
