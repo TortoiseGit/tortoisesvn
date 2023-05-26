@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2008, 2010-2012, 2016, 2021 - TortoiseSVN
+// Copyright (C) 2006-2008, 2010-2012, 2016, 2021, 2023 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,6 +38,7 @@ public:
     void OnClosingMainFrame(CFrameImpl* pFrameImpl) override;
 
 protected:
+    BOOL LoadWindowPlacement(CRect& rectNormalPosition, int& nFflags, int& nShowCmd) override;
     afx_msg void OnAppAbout();
     DECLARE_MESSAGE_MAP()
 private:
