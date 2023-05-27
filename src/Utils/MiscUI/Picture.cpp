@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015, 2017, 2021 - TortoiseSVN
+// Copyright (C) 2003-2015, 2017, 2021, 2023 - TortoiseSVN
 // Copyright (C) 2020 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -27,7 +27,10 @@
 #include <atlbase.h>
 #include <Wincodec.h>
 #include "OnOutOfScope.h"
+#include <d2d1.h>
+#include <d2d1_3.h>
 
+#pragma comment(lib, "d2d1")
 #pragma comment(lib, "shlwapi.lib")
 #pragma comment(lib, "gdiplus.lib")
 // note: linking with Windowscodecs.lib does not make the exe require the dll
@@ -168,9 +171,9 @@ bool CPicture::TryLoadWIC(const std::wstring& sFilePathName)
 {
     CComPtr<IWICImagingFactory> pFactory;
     HRESULT                     hr = CoCreateInstance(CLSID_WICImagingFactory,
-                                  nullptr,
-                                  CLSCTX_INPROC_SERVER,
-                                  IID_IWICImagingFactory, reinterpret_cast<LPVOID*>(&pFactory));
+                                                      nullptr,
+                                                      CLSCTX_INPROC_SERVER,
+                                                      IID_IWICImagingFactory, reinterpret_cast<LPVOID*>(&pFactory));
 
     // Create a decoder from the file.
     if (FAILED(hr))
@@ -205,11 +208,11 @@ bool CPicture::TryLoadWIC(const std::wstring& sFilePathName)
     if (FAILED(piFormatConverter->GetPixelFormat(&pixelFormat)))
         return false;
 
-    UINT cbStride = uWidth * 3;
+    UINT cbStride      = uWidth * 3;
     // Force the stride to be a multiple of sizeof(DWORD)
-    cbStride = ((cbStride + sizeof(DWORD) - 1) / sizeof(DWORD)) * sizeof(DWORD);
+    cbStride           = ((cbStride + sizeof(DWORD) - 1) / sizeof(DWORD)) * sizeof(DWORD);
 
-    UINT cbBufferSize = cbStride * uHeight;
+    UINT cbBufferSize  = cbStride * uHeight;
     // note: the buffer must exist during the lifetime of the pBitmap object created below
     auto pBitmapBuffer = std::make_unique<BYTE[]>(cbBufferSize);
 
@@ -233,45 +236,45 @@ bool CPicture::TryLoadFreeImage(const std::wstring& sFilePathName)
 
     // NOTE: Currently just loading via FreeImage & using GDI+ for drawing.
     // It might be nice to remove this dependency in the future.
-    CAutoLibrary hFreeImageLib = LoadLibrary(L"FreeImage.dll");
+    CAutoLibrary hFreeImageLib                               = LoadLibrary(L"FreeImage.dll");
 
     // FreeImage DLL functions
-    using FreeImageGetVersionT         = const char*(__stdcall*)();
-    using FreeImageGetFileTypeT        = int(__stdcall*)(const wchar_t* filename, int size);
-    using FreeImageGetFifFromFilenameT = int(__stdcall*)(const wchar_t* filename);
-    using FreeImageLoadT               = void*(__stdcall*)(int format, const wchar_t* filename, int flags);
-    using FreeImageUnloadT             = void(__stdcall*)(void* dib);
-    using FreeImageGetColorTypeT       = int(__stdcall*)(void* dib);
-    using FreeImageGetWidthT           = unsigned(__stdcall*)(void* dib);
-    using FreeImageGetHeightT          = unsigned(__stdcall*)(void* dib);
-    using FreeImageConvertToRawBitsT   = void(__stdcall*)(BYTE * bits, void* dib, int pitch, unsigned bpp, unsigned redMask, unsigned greenMask, unsigned blueMask, BOOL topDown);
+    using FreeImageGetVersionT                               = const char*(__stdcall*)();
+    using FreeImageGetFileTypeT                              = int(__stdcall*)(const wchar_t* filename, int size);
+    using FreeImageGetFifFromFilenameT                       = int(__stdcall*)(const wchar_t* filename);
+    using FreeImageLoadT                                     = void*(__stdcall*)(int format, const wchar_t* filename, int flags);
+    using FreeImageUnloadT                                   = void(__stdcall*)(void* dib);
+    using FreeImageGetColorTypeT                             = int(__stdcall*)(void* dib);
+    using FreeImageGetWidthT                                 = unsigned(__stdcall*)(void* dib);
+    using FreeImageGetHeightT                                = unsigned(__stdcall*)(void* dib);
+    using FreeImageConvertToRawBitsT                         = void(__stdcall*)(BYTE * bits, void* dib, int pitch, unsigned bpp, unsigned redMask, unsigned greenMask, unsigned blueMask, BOOL topDown);
 
-    //FreeImage_GetVersion_t FreeImage_GetVersion = nullptr;
+    // FreeImage_GetVersion_t FreeImage_GetVersion = nullptr;
     FreeImageGetFileTypeT        freeImageGetFileType        = nullptr;
     FreeImageGetFifFromFilenameT freeImageGetFifFromFilename = nullptr;
     FreeImageLoadT               freeImageLoad               = nullptr;
     FreeImageUnloadT             freeImageUnload             = nullptr;
-    //FreeImage_GetColorType_t FreeImage_GetColorType = nullptr;
-    FreeImageGetWidthT         freeImageGetWidth         = nullptr;
-    FreeImageGetHeightT        freeImageGetHeight        = nullptr;
-    FreeImageConvertToRawBitsT freeImageConvertToRawBits = nullptr;
+    // FreeImage_GetColorType_t FreeImage_GetColorType = nullptr;
+    FreeImageGetWidthT           freeImageGetWidth           = nullptr;
+    FreeImageGetHeightT          freeImageGetHeight          = nullptr;
+    FreeImageConvertToRawBitsT   freeImageConvertToRawBits   = nullptr;
 
     if (!hFreeImageLib)
         return false;
 
-    bool exportsValid = true;
+    bool exportsValid           = true;
 
-    //FreeImage_GetVersion = reinterpret_cast<FreeImage_GetVersion_t>(s_GetProcAddressEx(hFreeImageLib, "_FreeImage_GetVersion@0", valid));
-    freeImageGetWidth         = reinterpret_cast<FreeImageGetWidthT>(sGetProcAddressEx(hFreeImageLib, "_FreeImage_GetWidth@4", exportsValid));
-    freeImageGetHeight        = reinterpret_cast<FreeImageGetHeightT>(sGetProcAddressEx(hFreeImageLib, "_FreeImage_GetHeight@4", exportsValid));
-    freeImageUnload           = reinterpret_cast<FreeImageUnloadT>(sGetProcAddressEx(hFreeImageLib, "_FreeImage_Unload@4", exportsValid));
-    freeImageConvertToRawBits = reinterpret_cast<FreeImageConvertToRawBitsT>(sGetProcAddressEx(hFreeImageLib, "_FreeImage_ConvertToRawBits@32", exportsValid));
+    // FreeImage_GetVersion = reinterpret_cast<FreeImage_GetVersion_t>(s_GetProcAddressEx(hFreeImageLib, "_FreeImage_GetVersion@0", valid));
+    freeImageGetWidth           = reinterpret_cast<FreeImageGetWidthT>(sGetProcAddressEx(hFreeImageLib, "_FreeImage_GetWidth@4", exportsValid));
+    freeImageGetHeight          = reinterpret_cast<FreeImageGetHeightT>(sGetProcAddressEx(hFreeImageLib, "_FreeImage_GetHeight@4", exportsValid));
+    freeImageUnload             = reinterpret_cast<FreeImageUnloadT>(sGetProcAddressEx(hFreeImageLib, "_FreeImage_Unload@4", exportsValid));
+    freeImageConvertToRawBits   = reinterpret_cast<FreeImageConvertToRawBitsT>(sGetProcAddressEx(hFreeImageLib, "_FreeImage_ConvertToRawBits@32", exportsValid));
 
     freeImageGetFileType        = reinterpret_cast<FreeImageGetFileTypeT>(sGetProcAddressEx(hFreeImageLib, "_FreeImage_GetFileTypeU@8", exportsValid));
     freeImageGetFifFromFilename = reinterpret_cast<FreeImageGetFifFromFilenameT>(sGetProcAddressEx(hFreeImageLib, "_FreeImage_GetFIFFromFilenameU@4", exportsValid));
     freeImageLoad               = reinterpret_cast<FreeImageLoadT>(sGetProcAddressEx(hFreeImageLib, "_FreeImage_LoadU@12", exportsValid));
 
-    //const char* version = FreeImage_GetVersion();
+    // const char* version = FreeImage_GetVersion();
 
     // Check the DLL is using compatible exports
     if (!exportsValid)
@@ -294,11 +297,11 @@ bool CPicture::TryLoadFreeImage(const std::wstring& sFilePathName)
         return false;
     OnOutOfScope(freeImageUnload(dib));
 
-    unsigned width  = freeImageGetWidth(dib);
-    unsigned height = freeImageGetHeight(dib);
+    unsigned width   = freeImageGetWidth(dib);
+    unsigned height  = freeImageGetHeight(dib);
 
     // Create a GDI+ bitmap to load into...
-    auto pBitmap = std::make_unique<Bitmap>(width, height, PixelFormat32bppARGB);
+    auto     pBitmap = std::make_unique<Bitmap>(width, height, PixelFormat32bppARGB);
 
     if (!pBitmap || pBitmap->GetLastStatus() != Ok)
         return false;
@@ -320,12 +323,95 @@ bool CPicture::TryLoadFreeImage(const std::wstring& sFilePathName)
     return true;
 }
 
+bool CPicture::TryLoadSvg(const std::wstring& sFilePathName)
+{
+    // initialize Direct2D
+    D2D1_FACTORY_OPTIONS options = {
+#ifdef _DEBUG
+        D2D1_DEBUG_LEVEL_INFORMATION
+#endif
+    };
+
+    // open a stream from the .SVG file
+    CComPtr<IStream> svgStream;
+    if (FAILED(SHCreateStreamOnFileW(sFilePathName.c_str(), 0, &svgStream)))
+        return false;
+
+    CComPtr<ID2D1Factory> factory;
+    if (FAILED(D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, IID_ID2D1Factory, &options, reinterpret_cast<void**>(&factory))))
+        return false;
+
+    // create a DC render target
+    CComPtr<ID2D1DCRenderTarget>  target;
+    D2D1_RENDER_TARGET_PROPERTIES props = {};
+    props.pixelFormat.format            = DXGI_FORMAT_B8G8R8A8_UNORM;
+    props.pixelFormat.alphaMode         = D2D1_ALPHA_MODE_PREMULTIPLIED;
+    if (FAILED(factory->CreateDCRenderTarget(&props, &target)))
+        return false;
+
+    // this requires Windows 10 1703
+    CComPtr<ID2D1DeviceContext5> dc;
+    if (FAILED(target->QueryInterface(&dc)))
+        return false;
+
+    // open the SVG as a document
+    CComPtr<ID2D1SvgDocument> svg;
+    D2D1_SIZE_F               size = {static_cast<float>(1), static_cast<float>(1)};
+    if (FAILED(dc->CreateSvgDocument(svgStream, size, &svg)))
+        return false;
+
+    CComPtr<ID2D1SvgElement> pSvgElement;
+    D2D1_SVG_VIEWBOX         viewBox{};
+    float                    svgWidth  = 0.0f;
+    float                    svgHeight = 0.0f;
+
+    svg->GetRoot(&pSvgElement);
+    pSvgElement->GetAttributeValue(L"viewBox", D2D1_SVG_ATTRIBUTE_POD_TYPE_VIEWBOX, static_cast<void*>(&viewBox), sizeof(viewBox));
+    pSvgElement->GetAttributeValue(L"width", &svgWidth);
+    pSvgElement->GetAttributeValue(L"height", &svgHeight);
+
+    long width  = 1000;
+    long height = 1000;
+    if (viewBox.width != 0.0f && viewBox.height != 0.0f)
+    {
+        width  = static_cast<long>(viewBox.width);
+        height = static_cast<long>(viewBox.height);
+    }
+    if (height != 0.0f && width != 0.0f)
+    {
+        width  = static_cast<long>(svgWidth);
+        height = static_cast<long>(svgHeight);
+    }
+
+    auto     pBitmap = std::make_unique<Bitmap>(width, height, PixelFormat32bppARGB);
+    Graphics g(pBitmap.get());
+    RECT     rc  = {0, 0, width, height};
+    auto     hdc = g.GetHDC();
+    if (FAILED(target->BindDC(hdc, &rc)))
+        return false;
+
+    size = {static_cast<float>(width), static_cast<float>(height)};
+    svg->SetViewportSize(size);
+
+    // draw it on the render target
+    target->BeginDraw();
+    dc->DrawSvgDocument(svg);
+    target->EndDraw();
+    g.ReleaseHDC(hdc);
+
+    m_width   = width;
+    m_height  = height;
+    m_pBitmap = std::move(pBitmap);
+
+    return true;
+}
+
 bool CPicture::Load(std::wstring sFilePathName)
 {
     bool bResult = false;
     bIsIcon      = false;
-    //CFile PictureFile;
-    //CFileException e;
+    // CFile PictureFile;
+    // CFileException e;
     FreePictureData(); // Important - Avoid Leaks...
 
     // No-op if no file specified
@@ -362,6 +448,8 @@ bool CPicture::Load(std::wstring sFilePathName)
 
     if (bIsIcon)
         bResult = TryLoadIcon(sFilePathName);
+    else if (wcsstr(lowerFileName.c_str(), L".svg") != nullptr)
+        bResult = TryLoadSvg(sFilePathName);
     else if (pBitmap) // Image loaded successfully with GDI+
     {
         m_height  = pBitmap->GetHeight();
@@ -397,7 +485,7 @@ bool CPicture::Load(std::wstring sFilePathName)
 
 bool CPicture::LoadPictureData(BYTE* pBuffer, int nSize)
 {
-    bool bResult = false;
+    bool    bResult    = false;
 
     HGLOBAL hGlobalMem = GlobalAlloc(GMEM_MOVEABLE, nSize);
 
@@ -422,7 +510,7 @@ bool CPicture::LoadPictureData(BYTE* pBuffer, int nSize)
         HRESULT hr = OleLoadPicture(pStream, nSize, false, IID_IPicture, reinterpret_cast<LPVOID*>(&m_iPicture));
         pStream    = nullptr;
 
-        bResult = hr == S_OK;
+        bResult    = hr == S_OK;
     }
 
     FreeResource(hGlobalMem); // 16Bit Windows Needs This (32Bit - Automatic Release)
@@ -495,8 +583,8 @@ bool CPicture::UpdateSizeOnDC(HDC hDC)
     int currentDpiX = GetDeviceCaps(hDC, LOGPIXELSX);
     int currentDpiY = GetDeviceCaps(hDC, LOGPIXELSY);
 
-    m_height = MulDiv(m_height, currentDpiY, HIMETRIC_INCH);
-    m_width  = MulDiv(m_width, currentDpiX, HIMETRIC_INCH);
+    m_height        = MulDiv(m_height, currentDpiY, HIMETRIC_INCH);
+    m_width         = MulDiv(m_width, currentDpiX, HIMETRIC_INCH);
 
     return (true);
 }
@@ -514,10 +602,10 @@ UINT CPicture::GetColorDepth() const
     UINT                        bpp = 0;
     CComPtr<IWICImagingFactory> pFactory;
     HRESULT                     hr = CoCreateInstance(CLSID_WICImagingFactory,
-                                  nullptr,
-                                  CLSCTX_INPROC_SERVER,
-                                  IID_IWICImagingFactory,
-                                  reinterpret_cast<LPVOID*>(&pFactory));
+                                                      nullptr,
+                                                      CLSCTX_INPROC_SERVER,
+                                                      IID_IWICImagingFactory,
+                                                      reinterpret_cast<LPVOID*>(&pFactory));
 
     // Create a decoder from the file.
     if (SUCCEEDED(hr))
@@ -646,14 +734,14 @@ long CPicture::SetActiveFrame(UINT frame)
 
     // Assume that the image has a property item of type PropertyItemEquipMake.
     // Get the size of that property item.
-    int nSize = m_pBitmap->GetPropertyItemSize(PropertyTagFrameDelay);
+    int           nSize         = m_pBitmap->GetPropertyItemSize(PropertyTagFrameDelay);
 
     // Allocate a buffer to receive the property item.
     PropertyItem* pPropertyItem = static_cast<PropertyItem*>(malloc(nSize));
 
-    Status s = m_pBitmap->GetPropertyItem(PropertyTagFrameDelay, nSize, pPropertyItem);
+    Status        s             = m_pBitmap->GetPropertyItem(PropertyTagFrameDelay, nSize, pPropertyItem);
 
-    UINT prevframe = frame;
+    UINT          prevframe     = frame;
     if (prevframe > 0)
         prevframe--;
     long delay = 0;

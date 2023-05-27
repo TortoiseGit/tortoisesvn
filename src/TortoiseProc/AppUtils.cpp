@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018, 2020, 2021 - TortoiseSVN
+// Copyright (C) 2003-2018, 2020, 2021, 2023 - TortoiseSVN
 // Copyright (C) 2015, 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -109,7 +109,8 @@ BOOL CAppUtils::StartExtMerge(const MergeFlags& flags,
             (ext == L".png") || (ext == L".ico") ||
             (ext == L".tif") || (ext == L".tiff") ||
             (ext == L".dib") || (ext == L".emf") ||
-            (ext == L".cur") || (ext == L".webp"))
+            (ext == L".cur") || (ext == L".webp") ||
+            (ext == L".svg"))
         {
             com = CPathUtils::GetAppDirectory() + L"TortoiseIDiff.exe";
             com = L"\"" + com + L"\"";
@@ -352,7 +353,8 @@ CString CAppUtils::PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2, 
             (ext == L".png") || (ext == L".ico") ||
             (ext == L".tif") || (ext == L".tiff") ||
             (ext == L".dib") || (ext == L".emf") ||
-            (ext == L".cur") || (ext == L".webp"))
+            (ext == L".cur") || (ext == L".webp") ||
+            (ext == L".svg"))
         {
             return L"\"" + CPathUtils::GetAppDirectory() + L"TortoiseIDiff.exe" + L"\"" +
                    L" /left:%base /right:%mine /lefttitle:%bname /righttitle:%yname" +

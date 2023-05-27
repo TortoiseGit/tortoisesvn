@@ -1,6 +1,6 @@
 ﻿// TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006-2015, 2018, 2020-2021 - TortoiseSVN
+// Copyright (C) 2006-2015, 2018, 2020-2021, 2023 - TortoiseSVN
 // Copyright (C) 2015-2016 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -1234,7 +1234,7 @@ bool CMainWindow::AskForFile(HWND owner, wchar_t* path)
     ofn.lpstrTitle    = sTitle;
     ofn.Flags         = OFN_DONTADDTORECENT | OFN_FILEMUSTEXIST | OFN_EXPLORER;
     ofn.hInstance     = ::hResource;
-    wchar_t filters[] = L"Images\0*.wmf;*.jpg;*jpeg;*.bmp;*.gif;*.png;*.ico;*.dib;*.emf;*.webp\0All (*.*)\0*.*\0\0";
+    wchar_t filters[] = L"Images\0*.wmf;*.jpg;*jpeg;*.bmp;*.gif;*.png;*.ico;*.dib;*.emf;*.webp;*.svg\0All (*.*)\0*.*\0\0";
     ofn.lpstrFilter   = filters;
     ofn.nFilterIndex  = 1;
     // Display the Open dialog box.
