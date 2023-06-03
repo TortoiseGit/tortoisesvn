@@ -587,6 +587,9 @@
     <Manifest Include="..\compatibility.manifest">
       <Filter>Source Files</Filter>
     </Manifest>
+    <Manifest Include="..\perMonitorV2DpiAware.manifest">
+      <Filter>Source Files</Filter>
+    </Manifest>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="..\Resources\TortoiseMergeRibbon.xml">

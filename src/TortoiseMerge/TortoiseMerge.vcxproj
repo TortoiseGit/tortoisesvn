@@ -415,6 +415,7 @@
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="..\compatibility.manifest" />
+    <Manifest Include="..\perMonitorV2DpiAware.manifest" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="..\Resources\TortoiseMergeRibbon.xml">
