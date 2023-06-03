@@ -52,7 +52,7 @@
     <exec program="perl" workingdir="${targetDir}">
       <arg value="..\Configure" />
       <arg value="${targetName}" />
-      <arg value="no-asm" />
+      <arg value="no-asm" if="${no-asm == 'yes'}"/>
       <arg value="no-gost" />
       <arg value="no-shared" />
       <arg value="no-autoload-config" />

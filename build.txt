@@ -33,12 +33,16 @@ You need to perform most steps only once.
                                     https://www.activestate.com/products/perl/
 - WiX 3.10(\b 1)                    http://wixtoolset.org/
 - NAnt 0.92(\b 1)                   http://nant.sourceforge.net
+- NASM 2.16 (Optional \b 4)         https://nasm.us/
 
 (\b 1) Add the paths of the binaries to the PATH environment variable. You may have to
     logoff/logon to make the new environment variables take effect!
     Also make sure to "unblock" the zip file before extracting when you install NAnt.
 (\b 2) right-click on the installer file and "run as administrator" to install it.
 (\b 3) use 32 bit installer (even on x64 OS)
+(\b 4) OpenSSL contains assembler code using optimized hardware instructions to
+    increase performance. Use the no-asm to avoid the assembler code in OpenSSL
+    if NASM is not installed
 
 
 \subsection Requirements3 Finally, you may need to install some fonts.
