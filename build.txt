@@ -101,7 +101,7 @@ https://docs.microsoft.com/en-us/windows/win32/appxpkg/how-to-create-a-package-s
 \section build32 Building 32 bit packages
 
   Hint: before you can start building TortoiseSVN, you need to call the vcvars32.bat
-  file which is located in C:\Program Files (x86)\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build.
+  file which is located in C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build.
 
   Now, if you got some time left you can run the build script to compile
   TortoiseSVN. Grab a cup of coffee, depending on how fast your computer is!
@@ -136,34 +136,11 @@ https://docs.microsoft.com/en-us/windows/win32/appxpkg/how-to-create-a-package-s
   > nant Subversion
 \endverbatim
 
-\section build64cross Building 64 bit packages on win32 (cross-compile)
-
-  First, we build some 32-bit SVN utilities you will need later
-  during the build process. Follow the instructions above or just
-  open "Microsoft Visual Studio 2022" -> "Visual Studio Tools" ->
-  "Visual Studio 2022 Command Prompt", change to the TortoiseSVN source
-  directory and run
-
-\verbatim
-  > nant binaries
-\endverbatim
-
-  Now, build the x64 packages: Open
-  "Microsoft Visual Studio 2022" -> "Visual Studio Tools" ->
-  "Visual Studio 2022 x64 Cross Tools Command Prompt", change to the
-  TortoiseSVN source directory and run
-
-\verbatim
-  > nant x64 cross setup
-\endverbatim
-
-  After the script finished, the packages can be found in bin.
-
-\section build64 Building 64 bit packages on x64
+\section build64 Building 64 bit packages
 
   To build native packages on your 64 bit Windows, just open
-  "Microsoft Visual Studio 2022" -> "Visual Studio Tools" ->
-  "Visual Studio 2022 Win64 Command Prompt", change to the
+  "Visual Studio 2022" -> "Visual Studio Tools" ->
+  "Developer Command Prompt for VS 2022", change to the
   TortoiseSVN source directory and run
   
   Note that to build the x64 msi file, you also have to build the
@@ -172,6 +149,23 @@ https://docs.microsoft.com/en-us/windows/win32/appxpkg/how-to-create-a-package-s
 
 \verbatim
   > nant x64 setup
+\endverbatim
+
+  After the script finished, the packages can be found in bin.
+
+\section buildarm64 Building ARM 64 bit packages on win64 (cross-compile)
+
+  First, we build some 32-bit SVN utilities you will need later
+  during the build process. Follow the instructions under
+  "Building 32 bit packages".
+  
+  Start a new instance of the Command Prompt and call the vcvarsamd64_arm64.bat
+  file which is located in C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build.
+
+  Now run
+
+\verbatim
+  > nant ARM64 cross setup
 \endverbatim
 
   After the script finished, the packages can be found in bin.
