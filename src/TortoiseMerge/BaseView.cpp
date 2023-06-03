@@ -304,11 +304,18 @@ void CBaseView::SetEditorConfigEnabled(bool bEditorConfigEnabled)
 
 void CBaseView::DPIChanged()
 {
+    ReleaseBitmap();
+    m_nLineHeight      = -1;
+    m_nCharWidth       = -1;
+    m_nScreenChars     = -1;
+    m_nLastScreenChars = -1;
+    m_nMaxLineLength   = -1;
+    m_nScreenLines     = -1;
+    m_nDigits          = 0;
     DeleteFonts();
     UpdateStatusBar();
     SetTheme(CTheme::Instance().IsDarkTheme());
-    m_nLineHeight = -1;
-    m_nCharWidth = -1;
+    EnsureCaretVisible();
     Invalidate();
 }
 
@@ -2312,17 +2319,12 @@ void CBaseView::OnSize(UINT nType, int cx, int cy)
     if (m_nLastScreenChars != GetScreenChars())
     {
         auto oldCaretLine = m_ptCaretViewPos.y;
-        BuildAllScreen2ViewVector();
         m_nLastScreenChars = m_nScreenChars;
+        BuildAllScreen2ViewVector();
         if (m_pMainFrame && m_pMainFrame->m_bWrapLines)
         {
-            auto newCaretLine = FindScreenLineForViewLine(oldCaretLine);
-            int  nNewTopLine  = newCaretLine - GetScreenLines() / 2;
-            if (nNewTopLine < 0)
-                nNewTopLine = 0;
-            if (nNewTopLine >= static_cast<int>(m_screen2View.size()))
-                nNewTopLine = static_cast<int>(m_screen2View.size()) - 1;
-            ScrollToLine(nNewTopLine);
+            ScrollToLine(oldCaretLine, false);
+            EnsureCaretVisible();
             // if we're in wrap mode, the line wrapping most likely changed
             // and that means we have to redraw the whole window, not just the
             // scrolled part.
