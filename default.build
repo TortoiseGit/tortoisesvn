@@ -85,10 +85,10 @@
 
   <target name="cross">
     <description>
-      Cross-compiles on win32 for a different platform.
+      Cross-compiles for a different platform.
     </description>
-    <property name="crosscompile" value="yes" if="${platform == 'x64' or platform == 'ARM64'}" />
-    <echo message="ignore cross-compiling (only supported for x64 and ARM64)" level="Warning" if="${platform != 'x64' and platform != 'ARM64'}" />
+    <property name="crosscompile" value="yes" if="${platform == 'ARM64'}" />
+    <echo message="ignore cross-compiling (only supported for ARM64)" level="Warning" if="${platform != 'ARM64'}" />
   </target>
 
   <target name="skipssl">
@@ -630,7 +630,7 @@ Make sure to also check the [changelog of Subversion](https://svn.apache.org/rep
     <echo message="x64      : call this if you want to create native 64 bit builds." />
     <echo message="           (AMD64/EM64T only -- will not work on Itanium systems.)" />
     <echo message="cross    : cross-compile on win32 for the given target platform." />
-    <echo message="           (currently only available with x64.)" />
+    <echo message="           (currently only available with ARM64.)" />
 
     <echo />
     <echo message="Please specify the configuration targets BEFORE the main target." />
@@ -639,10 +639,10 @@ Make sure to also check the [changelog of Subversion](https://svn.apache.org/rep
     <echo message="nant debug clean binaries" />
     <echo message="nant release setup" />
     <echo message="nant -v x64 debug binaries" />
-    <echo message="nant cross x64 setup" />
+    <echo message="nant cross ARM64 setup" />
     <echo />
     <echo message="Remember to use the correct Visual Studio command prompt environment for your" />
-    <echo message="target [x64, cross, default x86] each build with different Visual Studio command prompts!" />
+    <echo message="target [x64, ARM64, default x86] each build with different Visual Studio command prompts!" />
     <echo />
   </target>
 </project>
