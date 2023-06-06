@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2014-2017, 2020-2021 - TortoiseSVN
+// Copyright (C) 2003-2011, 2014-2017, 2020-2021, 2023 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -37,7 +37,7 @@ static BOOL CALLBACK dpiAdjustChildren(HWND hWnd, LPARAM lParam)
     }
     double zoom = data->zoom;
 
-    RECT rect = {};
+    RECT   rect = {};
     ::GetWindowRect(hWnd, &rect);
 
     POINT pt = {rect.left, rect.top};
@@ -284,7 +284,7 @@ void CResizableStandAloneDialog::OnNcMButtonUp(UINT nHitTest, CPoint point)
             rcWindowRect.bottom      = mi.rcWork.bottom;
         }
         m_bVertical = !m_bVertical;
-        //m_bHorizontal = m_bHorizontal;
+        // m_bHorizontal = m_bHorizontal;
         MoveWindow(&rcWindowRect);
     }
     CStandAloneDialogTmpl<CResizableDialog>::OnNcMButtonUp(nHitTest, point);
@@ -313,7 +313,7 @@ void CResizableStandAloneDialog::OnNcRButtonUp(UINT nHitTest, CPoint point)
             rcWindowRect.left       = mi.rcWork.left;
             rcWindowRect.right      = mi.rcWork.right;
         }
-        //m_bVertical = m_bVertical;
+        // m_bVertical = m_bVertical;
         m_bHorizontal = !m_bHorizontal;
         MoveWindow(&rcWindowRect);
         // WORKAROUND
@@ -384,19 +384,23 @@ void CStandAloneDialogTmpl<BaseType>::SetTheme(bool bDark)
 }
 
 template <typename BaseType>
-LRESULT CStandAloneDialogTmpl<BaseType>::OnDPIChanged(WPARAM wParam, LPARAM lParam)
+LRESULT CStandAloneDialogTmpl<BaseType>::OnDPIChanged(WPARAM /*wParam*/, LPARAM lParam)
 {
     CDPIAware::Instance().Invalidate();
-    const RECT* rect = reinterpret_cast<RECT*>(lParam);
+    RECT* rect = reinterpret_cast<RECT*>(lParam);
+    RECT  oldRect{};
+    GetWindowRect(BaseType::GetSafeHwnd(), &oldRect);
 
-    auto newDpi = HIWORD(wParam);
+    auto newDpi = CDPIAware::Instance().GetDPI(BaseType::GetSafeHwnd());
     if (m_dpi == 0)
     {
         m_dpi = newDpi;
         return 0;
     }
-    double zoom = (static_cast<double>(newDpi) / (static_cast<double>(m_dpi) / 100.0)) / 100.0;
 
+    double zoom        = (static_cast<double>(newDpi) / (static_cast<double>(m_dpi) / 100.0)) / 100.0;
+    rect->right        = static_cast<LONG>(rect->left + (oldRect.right - oldRect.left) * zoom);
+    rect->bottom       = static_cast<LONG>(rect->top + (oldRect.bottom - oldRect.top) * zoom);
     DpiAdjustData data = {BaseType::GetSafeHwnd(), zoom};
     if constexpr (std::is_same_v<BaseType, CResizableDialog>)
     {
@@ -505,7 +509,7 @@ void CStateDialog::EnableSaveRestore(LPCWSTR pszSection, bool bRectOnly, BOOL bH
 {
     UNREFERENCED_PARAMETER(bHorzResize);
     UNREFERENCED_PARAMETER(bVertResize);
-    m_sSection = CString(pszSection) + GetMonitorSetupHash().c_str();
+    m_sSection           = CString(pszSection) + GetMonitorSetupHash().c_str();
 
     m_bEnableSaveRestore = true;
     m_bRectOnly          = bRectOnly;
