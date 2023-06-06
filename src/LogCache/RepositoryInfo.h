@@ -99,14 +99,6 @@ private:
         /// flag to control the repository access
 
         ConnectionState connectionState;
-
-        bool            operator==(const SPerRepositoryInfo& rhs) const
-        {
-            return root == rhs.root &&
-                   uuid == rhs.uuid &&
-                   fileName == rhs.fileName &&
-                   headURL == rhs.headURL;
-        };
     };
 
     class CData
